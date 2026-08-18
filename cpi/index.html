@@ -1,25 +1,19 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#081018">
 
-  <meta
-    name="description"
-    content="Односторінковий макроаналіз CPI USD у стилі vikundey.crypto."
-  />
-
-  <meta name="theme-color" content="#081018" />
-
-  <title>CPI USD - vikundey.crypto</title>
+  <title>CPI USD | vikundey.crypto</title>
 
   <style>
     :root{
       --bg:#081018;
       --bg2:#0d1721;
 
-      --panel:rgba(255,255,255,.055);
-      --panel2:rgba(255,255,255,.085);
+      --card:rgba(255,255,255,.055);
+      --card2:rgba(255,255,255,.085);
 
       --text:#f4f8fb;
       --muted:#9fb0bd;
@@ -29,13 +23,8 @@
       --cyan:#2ec7f1;
       --green:#8bea6f;
 
-      --cyan-soft:rgba(46,199,241,.10);
-      --green-soft:rgba(139,234,111,.10);
-
-      --radius:24px;
-
-      --shadow:
-        0 24px 70px rgba(0,0,0,.28);
+      --radius:28px;
+      --shadow:0 24px 70px rgba(0,0,0,.28);
     }
 
     *{
@@ -62,19 +51,19 @@
 
       background:
         radial-gradient(
-          circle at 15% 5%,
+          circle at 18% 4%,
           rgba(46,199,241,.13),
-          transparent 25%
+          transparent 24%
         ),
         radial-gradient(
-          circle at 85% 15%,
-          rgba(139,234,111,.11),
-          transparent 26%
+          circle at 86% 16%,
+          rgba(139,234,111,.12),
+          transparent 25%
         ),
         linear-gradient(
           180deg,
           #071018 0%,
-          #0a121b 50%,
+          #0a121b 45%,
           #081018 100%
         );
 
@@ -107,7 +96,7 @@
         linear-gradient(
           to bottom,
           black,
-          transparent 90%
+          transparent 88%
         );
     }
 
@@ -126,9 +115,7 @@
     }
 
 
-    /* =========================
-       NAVIGATION
-    ========================= */
+    /* NAV */
 
     .site-nav{
       position:sticky;
@@ -148,27 +135,17 @@
 
       gap:20px;
 
-      padding:
-        12px
-        14px
-        12px
-        18px;
+      padding:12px 14px 12px 18px;
 
-      border:
-        1px solid
-        rgba(255,255,255,.10);
-
+      border:1px solid var(--line);
       border-radius:22px;
 
-      background:
-        rgba(7,16,24,.78);
+      background:rgba(7,16,24,.80);
 
-      backdrop-filter:
-        blur(16px);
+      backdrop-filter:blur(16px);
 
       box-shadow:
-        0 10px 40px
-        rgba(0,0,0,.18);
+        0 10px 40px rgba(0,0,0,.18);
     }
 
     .site-brand{
@@ -179,8 +156,7 @@
 
       font-weight:800;
 
-      letter-spacing:
-        -.02em;
+      letter-spacing:-.02em;
     }
 
     .site-brandmark{
@@ -192,9 +168,9 @@
 
       border-radius:10px;
 
-      font-weight:900;
-
       color:#071018;
+
+      font-weight:900;
 
       background:
         linear-gradient(
@@ -202,24 +178,15 @@
           var(--cyan),
           var(--green)
         );
-
-      box-shadow:
-        0 0 25px
-        rgba(46,199,241,.18);
     }
 
     .site-links{
       display:flex;
-
       gap:8px;
-
-      flex-wrap:wrap;
     }
 
     .site-links a{
-      padding:
-        9px
-        11px;
+      padding:9px 12px;
 
       border-radius:12px;
 
@@ -227,8 +194,7 @@
 
       font-size:13px;
 
-      transition:
-        .2s ease;
+      transition:.2s ease;
     }
 
     .site-links a:hover{
@@ -252,117 +218,92 @@
     }
 
 
-    /* =========================
-       HERO
-    ========================= */
+    /* HERO */
 
     .hero{
-      padding:
-        84px
-        0
-        70px;
+      padding:76px 0 64px;
     }
 
     .hero-grid{
       display:grid;
 
       grid-template-columns:
-        1.15fr
-        .85fr;
+        1.15fr .85fr;
 
-      gap:24px;
-
-      align-items:stretch;
+      gap:20px;
     }
 
     .hero-main,
     .hero-side{
-      border:
-        1px solid
-        var(--line);
+      border:1px solid var(--line);
 
-      border-radius:
-        30px;
+      border-radius:30px;
 
       background:
         linear-gradient(
           180deg,
-          rgba(255,255,255,.06),
+          rgba(255,255,255,.065),
           rgba(255,255,255,.025)
         );
 
-      box-shadow:
-        var(--shadow);
+      box-shadow:var(--shadow);
     }
 
     .hero-main{
-      padding:
-        44px;
+      padding:40px;
     }
 
     .hero-side{
-      padding:
-        28px;
-
-      display:flex;
-      flex-direction:column;
-
-      justify-content:
-        space-between;
-
       position:relative;
 
       overflow:hidden;
+
+      padding:28px;
+
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
     }
 
-    .hero-side::before{
+    .hero-side::after{
       content:"";
 
       position:absolute;
 
-      width:260px;
-      height:260px;
+      width:250px;
+      height:250px;
+
+      right:-80px;
+      top:-80px;
 
       border-radius:50%;
 
-      background:
-        var(--green);
+      background:var(--green);
 
-      filter:
-        blur(70px);
+      filter:blur(70px);
 
-      opacity:.12;
-
-      right:-100px;
-      top:-100px;
+      opacity:.13;
     }
 
     .eyebrow{
       display:inline-flex;
-
       align-items:center;
 
       gap:8px;
 
-      padding:
-        8px
-        12px;
+      padding:8px 12px;
 
       border:
-        1px solid
-        rgba(46,199,241,.25);
+        1px solid rgba(46,199,241,.28);
 
-      border-radius:
-        999px;
+      border-radius:999px;
 
       background:
         rgba(46,199,241,.07);
 
-      color:
-        #cceffc;
+      color:#cceffc;
 
-      font-size:
-        13px;
+      font-size:13px;
     }
 
     .dot{
@@ -371,49 +312,21 @@
 
       border-radius:50%;
 
-      background:
-        var(--green);
+      background:var(--green);
 
       box-shadow:
-        0 0 16px
-        var(--green);
-    }
-
-    .kicker{
-      color:
-        var(--cyan);
-
-      font-size:
-        12px;
-
-      font-weight:
-        800;
-
-      text-transform:
-        uppercase;
-
-      letter-spacing:
-        .15em;
+        0 0 16px var(--green);
     }
 
     h1{
-      margin:
-        24px
-        0
-        18px;
+      margin:26px 0 18px;
 
       font-size:
-        clamp(
-          58px,
-          8vw,
-          108px
-        );
+        clamp(58px,8vw,105px);
 
-      line-height:
-        .90;
+      line-height:.88;
 
-      letter-spacing:
-        -.06em;
+      letter-spacing:-.06em;
     }
 
     .accent{
@@ -424,145 +337,120 @@
           var(--green)
         );
 
-      -webkit-background-clip:
-        text;
+      -webkit-background-clip:text;
+      background-clip:text;
 
-      background-clip:
-        text;
-
-      color:
-        transparent;
+      color:transparent;
     }
 
     .lead{
-      max-width:
-        700px;
+      margin:0;
 
-      color:
-        #b6c3cc;
+      max-width:680px;
 
-      font-size:
-        18px;
+      color:#b7c5cf;
 
-      line-height:
-        1.65;
+      font-size:18px;
+
+      line-height:1.65;
     }
 
-    .hero-label{
-      position:relative;
+    .kicker{
+      color:var(--cyan);
 
-      z-index:2;
+      font-size:12px;
 
-      font-size:
-        13px;
+      font-weight:800;
 
-      color:
-        var(--muted);
+      text-transform:uppercase;
+
+      letter-spacing:.16em;
     }
 
     .hero-value{
       position:relative;
-
       z-index:2;
 
-      margin-top:
-        30px;
+      margin-top:28px;
 
       font-size:
-        clamp(
-          62px,
-          8vw,
-          92px
-        );
+        clamp(65px,8vw,92px);
 
-      line-height:
-        .9;
+      font-weight:850;
 
-      font-weight:
-        850;
-
-      letter-spacing:
-        -.06em;
+      letter-spacing:-.06em;
     }
 
-    .hero-description{
+    .hero-side p{
       position:relative;
-
       z-index:2;
 
-      margin-top:
-        18px;
+      color:#b7c5cf;
 
-      color:
-        #b4c1ca;
+      line-height:1.65;
+    }
 
-      line-height:
-        1.6;
+    .hero-footer{
+      position:relative;
+      z-index:2;
+
+      color:var(--muted);
+
+      font-size:12px;
     }
 
 
-    /* =========================
-       SECTIONS
-    ========================= */
+    /* SECTIONS */
 
     section{
-      padding:
-        72px
-        0;
+      padding:76px 0;
     }
 
     .section-head{
       display:grid;
 
       grid-template-columns:
-        1fr
-        1fr;
+        1fr 1fr;
 
       gap:30px;
 
       align-items:end;
 
-      margin-bottom:
-        28px;
+      margin-bottom:30px;
     }
 
     h2{
-      margin:
-        8px
-        0
-        0;
+      margin:10px 0 0;
 
       font-size:
-        clamp(
-          34px,
-          5vw,
-          58px
-        );
+        clamp(36px,5vw,60px);
 
-      line-height:
-        1;
+      line-height:1;
 
-      letter-spacing:
-        -.045em;
+      letter-spacing:-.045em;
     }
 
     .section-head p{
       margin:0;
 
-      color:
-        var(--muted);
+      color:var(--muted);
 
-      line-height:
-        1.65;
+      font-size:16px;
 
-      font-size:
-        16px;
+      line-height:1.65;
     }
 
 
-    /* =========================
-       CARDS
-    ========================= */
+    /* CARDS */
+
+    .grid-3{
+      display:grid;
+
+      grid-template-columns:
+        repeat(3,1fr);
+
+      gap:14px;
+    }
 
     .grid-2{
       display:grid;
@@ -573,73 +461,33 @@
       gap:18px;
     }
 
-    .grid-3{
-      display:grid;
-
-      grid-template-columns:
-        repeat(3,1fr);
-
-      gap:16px;
-    }
-
     .card{
-      padding:
-        25px;
+      padding:24px;
 
-      border:
-        1px solid
-        var(--line);
+      border:1px solid var(--line);
 
-      border-radius:
-        var(--radius);
+      border-radius:24px;
 
       background:
         linear-gradient(
           180deg,
-          rgba(255,255,255,.055),
+          rgba(255,255,255,.058),
           rgba(255,255,255,.025)
         );
-
-      box-shadow:
-        0 12px 40px
-        rgba(0,0,0,.12);
-    }
-
-    .card h3{
-      margin:
-        0
-        0
-        12px;
-
-      font-size:
-        22px;
-
-      letter-spacing:
-        -.02em;
-    }
-
-    .card p{
-      margin:0;
-
-      color:
-        #aebcc6;
-
-      line-height:
-        1.65;
     }
 
     .number{
       width:38px;
       height:38px;
 
+      margin-bottom:22px;
+
       display:grid;
       place-items:center;
 
-      margin-bottom:
-        20px;
+      border-radius:12px;
 
-      border-radius:
-        12px;
+      font-weight:800;
 
       background:
         linear-gradient(
@@ -647,271 +495,123 @@
           rgba(46,199,241,.18),
           rgba(139,234,111,.16)
         );
+    }
 
-      border:
-        1px solid
-        rgba(255,255,255,.10);
+    .card h3{
+      margin:0 0 12px;
 
-      font-weight:
-        800;
+      font-size:22px;
+    }
+
+    .card p{
+      margin:0;
+
+      color:#afbdc7;
+
+      line-height:1.65;
     }
 
 
-    /* =========================
-       CPI LOGIC
-    ========================= */
+    /* LOGIC */
 
-    .logic-box{
-      padding:
-        30px;
+    .logic{
+      display:grid;
 
-      border:
-        1px solid
-        var(--line);
-
-      border-radius:
-        28px;
-
-      background:
-        radial-gradient(
-          circle at 12% 15%,
-          rgba(46,199,241,.13),
-          transparent 35%
-        ),
-        radial-gradient(
-          circle at 90% 85%,
-          rgba(139,234,111,.12),
-          transparent 38%
-        ),
-        rgba(255,255,255,.035);
+      gap:10px;
     }
 
-    .logic-line{
+    .logic-row{
       display:flex;
+
+      gap:14px;
 
       align-items:center;
 
-      gap:12px;
-
-      padding:
-        15px
-        16px;
-
-      margin-top:
-        10px;
+      padding:16px;
 
       border:
-        1px solid
-        rgba(255,255,255,.065);
+        1px solid rgba(255,255,255,.07);
 
-      border-radius:
-        17px;
+      border-radius:18px;
 
       background:
-        rgba(255,255,255,.03);
+        rgba(255,255,255,.035);
     }
 
-    .logic-icon{
-      width:32px;
-      height:32px;
+    .logic-num{
+      width:34px;
+      height:34px;
 
-      flex:
-        0 0 auto;
+      flex:0 0 auto;
 
       display:grid;
       place-items:center;
 
-      border-radius:
-        10px;
+      border-radius:10px;
 
       background:
-        var(--cyan-soft);
+        rgba(46,199,241,.11);
 
-      color:
-        var(--cyan);
+      color:var(--cyan);
 
-      font-weight:
-        900;
+      font-weight:900;
     }
 
 
-    /* =========================
-       SCENARIOS
-    ========================= */
+    /* ANALYSIS */
 
-    .scenario{
-      min-height:
-        230px;
-
-      display:flex;
-
-      flex-direction:
-        column;
-
-      justify-content:
-        space-between;
-    }
-
-    .scenario.positive{
-      border-color:
-        rgba(139,234,111,.22);
-    }
-
-    .scenario.negative{
-      border-color:
-        rgba(46,199,241,.22);
-    }
-
-    .scenario-title{
-      font-size:
-        13px;
-
-      font-weight:
-        800;
-
-      letter-spacing:
-        .10em;
-
-      text-transform:
-        uppercase;
-
-      color:
-        var(--muted);
-    }
-
-    .scenario-value{
-      margin:
-        20px
-        0
-        10px;
-
-      font-size:
-        22px;
-
-      font-weight:
-        800;
-    }
-
-    .scenario small{
-      color:
-        var(--muted);
-
-      line-height:
-        1.6;
-    }
-
-
-    /* =========================
-       THINKING
-    ========================= */
-
-    .thinking{
-      position:relative;
-
-      overflow:hidden;
-
-      padding:
-        34px;
+    .analysis{
+      padding:34px;
 
       border:
-        1px solid
-        rgba(46,199,241,.18);
+        1px solid rgba(46,199,241,.18);
 
-      border-radius:
-        30px;
+      border-radius:30px;
 
       background:
-        linear-gradient(
-          135deg,
-          rgba(46,199,241,.08),
-          rgba(139,234,111,.06)
-        );
+        radial-gradient(
+          circle at 15% 10%,
+          rgba(46,199,241,.12),
+          transparent 32%
+        ),
+        radial-gradient(
+          circle at 90% 85%,
+          rgba(139,234,111,.10),
+          transparent 35%
+        ),
+        rgba(255,255,255,.035);
     }
 
-    .thinking::after{
-      content:"";
-
-      position:absolute;
-
-      width:240px;
-      height:240px;
-
-      right:-100px;
-      bottom:-120px;
-
-      border-radius:50%;
-
-      background:
-        var(--green);
-
-      opacity:.09;
-
-      filter:
-        blur(65px);
-    }
-
-    .thinking h3{
-      position:relative;
-
-      z-index:2;
-
-      margin:
-        0
-        0
-        18px;
+    .analysis h3{
+      margin:10px 0 18px;
 
       font-size:
-        28px;
+        clamp(28px,4vw,42px);
 
-      letter-spacing:
-        -.03em;
+      letter-spacing:-.03em;
     }
 
-    .thinking p{
-      position:relative;
+    .analysis p{
+      color:#becbd3;
 
-      z-index:2;
-
-      color:
-        #becbd3;
-
-      line-height:
-        1.75;
+      line-height:1.75;
     }
 
 
-    /* =========================
-       FOOTER
-    ========================= */
+    /* FOOTER */
 
     footer{
-      width:min(
-        1180px,
-        calc(100% - 36px)
-      );
-
-      margin:auto;
-
-      padding:
-        34px
-        0
-        44px;
-
       display:flex;
 
-      justify-content:
-        space-between;
+      justify-content:space-between;
 
       gap:20px;
 
-      align-items:center;
+      padding:36px 0 44px;
 
-      border-top:
-        1px solid
-        var(--line);
+      border-top:1px solid var(--line);
 
-      color:
-        #8fa0ac;
+      color:#95a6b1;
     }
 
     footer strong{
@@ -919,106 +619,69 @@
     }
 
     .tags{
-      color:
-        #718995;
+      color:#78909e;
 
-      font-size:
-        13px;
+      font-size:13px;
     }
 
 
-    /* =========================
-       MOBILE
-    ========================= */
+    /* MOBILE */
 
     @media(max-width:900px){
 
       .hero-grid,
       .section-head{
-        grid-template-columns:
-          1fr;
+        grid-template-columns:1fr;
       }
 
       .grid-3{
-        grid-template-columns:
-          1fr;
-      }
-
-      .hero{
-        padding-top:
-          55px;
+        grid-template-columns:1fr;
       }
     }
 
-    @media(max-width:700px){
+    @media(max-width:650px){
 
       .grid-2{
-        grid-template-columns:
-          1fr;
-      }
-
-      .site-nav{
-        gap:10px;
-      }
-
-      .site-links{
-        gap:4px;
-      }
-
-      .site-links a{
-        padding:
-          8px
-          7px;
-
-        font-size:
-          12px;
+        grid-template-columns:1fr;
       }
 
       .site-brand span:last-child{
         display:none;
       }
 
-      .hero-main{
-        padding:
-          26px;
+      .site-links{
+        gap:3px;
       }
 
-      .hero-side{
-        padding:
-          24px;
+      .site-links a{
+        padding:8px 7px;
+      }
+
+      .hero-main{
+        padding:25px;
       }
 
       section{
-        padding:
-          55px
-          0;
+        padding:55px 0;
       }
 
       footer{
-        flex-direction:
-          column;
-
-        align-items:
-          flex-start;
+        flex-direction:column;
       }
     }
-
   </style>
 </head>
-
 
 <body>
 
 
-  <!-- =========================
-       NAVIGATION
-  ========================= -->
+  <!-- NAVIGATION -->
 
   <nav class="site-nav">
 
     <a
       class="site-brand"
-      href="https://vikundey.github.io/vikundey.crypto/"
+      href="https://vikundey.github.io/vikundey.crypto/index.html"
     >
       <span class="site-brandmark">V</span>
       <span>vikundey.crypto</span>
@@ -1028,20 +691,20 @@
     <div class="site-links">
 
       <a
-        href="https://vikundey.github.io/vikundey.crypto/"
+        href="https://vikundey.github.io/vikundey.crypto/index.html"
       >
         Головна
       </a>
 
       <a
-        href="https://vikundey.github.io/vikundey.crypto/nfp/"
+        href="https://vikundey.github.io/vikundey.crypto/nfp/index.html"
       >
         NFP
       </a>
 
       <a
         class="active"
-        href="https://vikundey.github.io/vikundey.crypto/cpi/"
+        href="https://vikundey.github.io/vikundey.crypto/cpi/index.html"
       >
         CPI
       </a>
@@ -1051,12 +714,10 @@
   </nav>
 
 
-
-  <!-- =========================
-       HERO
-  ========================= -->
-
   <main>
+
+
+    <!-- HERO -->
 
     <section class="hero">
 
@@ -1065,32 +726,24 @@
         <div class="hero-main">
 
           <div class="eyebrow">
-
             <span class="dot"></span>
-
             CPI · USD
-
           </div>
 
-
           <h1>
-
             Consumer
             <br>
-
             <span class="accent">
               Price Index
             </span>
-
           </h1>
-
 
           <p class="lead">
 
-            CPI показує зміну споживчих цін
-            та є одним із ключових інфляційних
-            індикаторів для оцінки майбутньої
-            політики Федеральної резервної системи.
+            Один із головних інфляційних показників США.
+            CPI допомагає оцінити зміну споживчих цін,
+            інфляційний тиск та потенційний напрямок
+            монетарної політики Федеральної резервної системи.
 
           </p>
 
@@ -1105,26 +758,24 @@
               Inflation
             </div>
 
-
             <div class="hero-value accent">
               CPI
             </div>
 
+            <p>
 
-            <p class="hero-description">
-
-              Інфляція → очікування щодо ставки ФРС
-              → дохідності → USD → ризикові активи.
+              Інфляція →
+              очікування щодо ставки ФРС →
+              дохідності →
+              USD →
+              акції та криптовалюти.
 
             </p>
 
           </div>
 
-
-          <div class="hero-label">
-
+          <div class="hero-footer">
             vikundey.crypto · Macro Research
-
           </div>
 
         </div>
@@ -1134,10 +785,7 @@
     </section>
 
 
-
-    <!-- =========================
-         WHAT IS CPI
-    ========================= -->
+    <!-- FUNDAMENTAL -->
 
     <section>
 
@@ -1157,10 +805,9 @@
 
           </div>
 
-
           <p>
 
-            Consumer Price Index вимірює,
+            Consumer Price Index показує,
             як змінюється середній рівень цін
             на товари та послуги,
             які купують споживачі.
@@ -1174,9 +821,7 @@
 
           <article class="card">
 
-            <div class="number">
-              1
-            </div>
+            <div class="number">1</div>
 
             <h3>
               Headline CPI
@@ -1184,9 +829,10 @@
 
             <p>
 
-              Загальна інфляція,
-              яка включає всі основні категорії,
-              зокрема енергію та продукти харчування.
+              Загальний CPI включає
+              всі основні категорії,
+              зокрема продукти харчування
+              та енергоносії.
 
             </p>
 
@@ -1195,9 +841,7 @@
 
           <article class="card">
 
-            <div class="number">
-              2
-            </div>
+            <div class="number">2</div>
 
             <h3>
               Core CPI
@@ -1205,10 +849,10 @@
 
             <p>
 
-              Базова інфляція без продуктів
-              харчування та енергії.
-              Допомагає оцінити стійкіший
-              інфляційний тиск.
+              Базовий CPI виключає
+              продукти харчування та енергію
+              і допомагає оцінити
+              стійкіший інфляційний тиск.
 
             </p>
 
@@ -1217,9 +861,7 @@
 
           <article class="card">
 
-            <div class="number">
-              3
-            </div>
+            <div class="number">3</div>
 
             <h3>
               MoM / YoY
@@ -1227,9 +869,9 @@
 
             <p>
 
-              Дані аналізуються як
-              у місячному,
-              так і в річному вимірі.
+              CPI аналізують як
+              у місячному вимірі MoM,
+              так і у річному вимірі YoY.
 
             </p>
 
@@ -1242,10 +884,7 @@
     </section>
 
 
-
-    <!-- =========================
-         MARKET LOGIC
-    ========================= -->
+    <!-- MARKET LOGIC -->
 
     <section>
 
@@ -1260,79 +899,66 @@
             </div>
 
             <h2>
-              Як CPI впливає на ринок
+              Як читати CPI
             </h2>
 
           </div>
 
-
           <p>
 
-            Сам CPI важливий не ізольовано.
-            Ринок оцінює,
-            наскільки результат відрізняється
-            від очікувань
-            та як він може змінити політику ФРС.
+            Ринок оцінює не лише саме значення CPI,
+            а його відхилення від прогнозу
+            та вплив на майбутню політику ФРС.
 
           </p>
 
         </div>
 
 
-        <div class="logic-box">
+        <div class="logic">
 
-          <div class="logic-line">
+          <div class="logic-row">
 
-            <div class="logic-icon">
-              1
-            </div>
+            <div class="logic-num">1</div>
 
             <div>
-              CPI виходить вище або нижче прогнозу.
+              Виходять Headline CPI та Core CPI.
             </div>
 
           </div>
 
 
-          <div class="logic-line">
+          <div class="logic-row">
 
-            <div class="logic-icon">
-              2
-            </div>
+            <div class="logic-num">2</div>
 
             <div>
-              Ринок переглядає очікування
+              Фактичні значення порівнюються
+              з очікуваннями ринку.
+            </div>
+
+          </div>
+
+
+          <div class="logic-row">
+
+            <div class="logic-num">3</div>
+
+            <div>
+              Змінюються очікування
               щодо процентної ставки ФРС.
             </div>
 
           </div>
 
 
-          <div class="logic-line">
+          <div class="logic-row">
 
-            <div class="logic-icon">
-              3
-            </div>
+            <div class="logic-num">4</div>
 
             <div>
-              Змінюються дохідності
-              американських облігацій
-              та очікування щодо USD.
-            </div>
-
-          </div>
-
-
-          <div class="logic-line">
-
-            <div class="logic-icon">
-              4
-            </div>
-
-            <div>
-              Після цього реагують
-              акції, золото,
-              Bitcoin та інші ризикові активи.
+              Реагують USD, US Treasuries,
+              акції, золото та криптовалюти.
             </div>
 
           </div>
@@ -1344,10 +970,7 @@
     </section>
 
 
-
-    <!-- =========================
-         SCENARIOS
-    ========================= -->
+    <!-- IMPORTANT -->
 
     <section>
 
@@ -1358,23 +981,21 @@
           <div>
 
             <div class="kicker">
-              03 · Scenarios
+              03 · Important
             </div>
 
             <h2>
-              Базові сценарії
+              CPI потрібно читати комплексно
             </h2>
 
           </div>
 
-
           <p>
 
-            Реакція ринку залежить
-            не лише від самого значення CPI,
-            а від різниці між фактом
-            та тим, що вже закладено
-            в очікування.
+            Один headline CPI не завжди
+            показує повну картину.
+            Важлива структура інфляції
+            та поведінка окремих компонентів.
 
           </p>
 
@@ -1383,58 +1004,71 @@
 
         <div class="grid-2">
 
-          <article class="card scenario negative">
+          <article class="card">
 
-            <div>
+            <h3>
+              Core CPI
+            </h3>
 
-              <div class="scenario-title">
-                CPI вище очікувань
-              </div>
+            <p>
 
+              Допомагає зрозуміти,
+              чи залишається базовий
+              інфляційний тиск стійким.
 
-              <div class="scenario-value">
-                Інфляційний тиск сильніший
-              </div>
-
-            </div>
-
-
-            <small>
-
-              Може підтримувати очікування
-              більш жорсткої політики ФРС,
-              високих ставок
-              та сильнішого USD.
-
-            </small>
+            </p>
 
           </article>
 
 
-          <article class="card scenario positive">
+          <article class="card">
 
-            <div>
+            <h3>
+              Services
+            </h3>
 
-              <div class="scenario-title">
-                CPI нижче очікувань
-              </div>
+            <p>
+
+              Інфляція у сфері послуг
+              може бути стійкішою
+              та важливою для оцінки
+              майбутньої політики ФРС.
+
+            </p>
+
+          </article>
 
 
-              <div class="scenario-value">
-                Інфляційний тиск слабший
-              </div>
+          <article class="card">
 
-            </div>
+            <h3>
+              Housing
+            </h3>
+
+            <p>
+
+              Компоненти житла можуть
+              суттєво впливати
+              на загальну динаміку CPI.
+
+            </p>
+
+          </article>
 
 
-            <small>
+          <article class="card">
 
-              Може посилювати очікування
-              більш м'якої політики ФРС
-              та створювати позитивніші умови
-              для ризикових активів.
+            <h3>
+              Energy
+            </h3>
 
-            </small>
+            <p>
+
+              Енергоносії можуть створювати
+              сильні короткострокові коливання
+              headline CPI.
+
+            </p>
 
           </article>
 
@@ -1445,38 +1079,28 @@
     </section>
 
 
-
-    <!-- =========================
-         VIKUNDEY THINKING
-    ========================= -->
+    <!-- YOUR ANALYSIS -->
 
     <section>
 
       <div class="wrap">
 
-        <div class="thinking">
+        <div class="analysis">
 
           <div class="kicker">
-            Vikundey Thinking
+            Vikundey Analysis
           </div>
 
-
           <h3>
-            CPI потрібно оцінювати в контексті.
+            Поточний аналіз CPI
           </h3>
-
 
           <p>
 
-            Один реліз CPI не визначає
-            весь напрямок ринку.
-            Важливо дивитися
-            на структуру інфляції,
-            Core CPI,
-            місячну динаміку,
-            очікування ринку
-            та подальший вплив даних
-            на політику Федеральної резервної системи.
+            Тут вставляється твоя поточна аналітика CPI.
+            Фундаментальний блок вище залишається постійним,
+            а цей блок можна оновлювати
+            перед кожним новим релізом CPI.
 
           </p>
 
@@ -1489,12 +1113,7 @@
   </main>
 
 
-
-  <!-- =========================
-       FOOTER
-  ========================= -->
-
-  <footer>
+  <footer class="wrap">
 
     <div>
 
@@ -1510,13 +1129,11 @@
 
     </div>
 
-
     <div>
       CPI · Macro Research
     </div>
 
   </footer>
-
 
 </body>
 </html>
