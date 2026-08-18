@@ -3,23 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <meta
-    name="description"
-    content="Макроаналіз NFP USD у стилі vikundey.crypto."
-  />
-
   <meta name="theme-color" content="#081018" />
 
-  <title>NFP USD - vikundey.crypto</title>
+  <title>vikundey.crypto | Macro Research</title>
 
   <style>
     :root{
       --bg:#081018;
       --bg2:#0d1721;
 
-      --panel:rgba(255,255,255,.055);
-      --panel2:rgba(255,255,255,.085);
+      --card:rgba(255,255,255,.055);
+      --card-hover:rgba(255,255,255,.085);
 
       --text:#f4f8fb;
       --muted:#9fb0bd;
@@ -29,13 +23,8 @@
       --cyan:#2ec7f1;
       --green:#8bea6f;
 
-      --cyan-soft:rgba(46,199,241,.10);
-      --green-soft:rgba(139,234,111,.10);
-
-      --radius:24px;
-
-      --shadow:
-        0 24px 70px rgba(0,0,0,.28);
+      --radius:28px;
+      --shadow:0 24px 70px rgba(0,0,0,.30);
     }
 
     *{
@@ -48,6 +37,7 @@
 
     body{
       margin:0;
+      min-height:100vh;
 
       color:var(--text);
 
@@ -62,19 +52,19 @@
 
       background:
         radial-gradient(
-          circle at 15% 5%,
-          rgba(46,199,241,.13),
-          transparent 25%
+          circle at 15% 10%,
+          rgba(46,199,241,.14),
+          transparent 26%
         ),
         radial-gradient(
-          circle at 85% 15%,
-          rgba(139,234,111,.11),
-          transparent 26%
+          circle at 85% 18%,
+          rgba(139,234,111,.12),
+          transparent 28%
         ),
         linear-gradient(
           180deg,
           #071018 0%,
-          #0a121b 50%,
+          #0a121b 48%,
           #081018 100%
         );
 
@@ -87,17 +77,17 @@
       position:fixed;
       inset:0;
 
-      pointer-events:none;
       z-index:-1;
+      pointer-events:none;
 
       background-image:
         linear-gradient(
-          rgba(255,255,255,.015) 1px,
+          rgba(255,255,255,.016) 1px,
           transparent 1px
         ),
         linear-gradient(
           90deg,
-          rgba(255,255,255,.015) 1px,
+          rgba(255,255,255,.016) 1px,
           transparent 1px
         );
 
@@ -107,7 +97,7 @@
         linear-gradient(
           to bottom,
           black,
-          transparent 90%
+          transparent 88%
         );
     }
 
@@ -116,13 +106,13 @@
       text-decoration:none;
     }
 
-    .wrap{
+    .container{
       width:min(
         1180px,
         calc(100% - 36px)
       );
 
-      margin:auto;
+      margin:0 auto;
     }
 
 
@@ -155,13 +145,12 @@
         18px;
 
       border:
-        1px solid
-        rgba(255,255,255,.10);
+        1px solid var(--line);
 
       border-radius:22px;
 
       background:
-        rgba(7,16,24,.78);
+        rgba(7,16,24,.80);
 
       backdrop-filter:
         blur(16px);
@@ -179,8 +168,7 @@
 
       font-weight:800;
 
-      letter-spacing:
-        -.02em;
+      letter-spacing:-.02em;
     }
 
     .site-brandmark{
@@ -192,9 +180,9 @@
 
       border-radius:10px;
 
-      font-weight:900;
-
       color:#071018;
+
+      font-weight:900;
 
       background:
         linear-gradient(
@@ -227,8 +215,7 @@
 
       font-size:13px;
 
-      transition:
-        .2s ease;
+      transition:.2s ease;
     }
 
     .site-links a:hover{
@@ -257,92 +244,26 @@
     ========================= */
 
     .hero{
-      padding:
-        84px
-        0
-        70px;
-    }
-
-    .hero-grid{
-      display:grid;
-
-      grid-template-columns:
-        1.15fr
-        .85fr;
-
-      gap:24px;
-
-      align-items:stretch;
-    }
-
-    .hero-main,
-    .hero-side{
-      border:
-        1px solid
-        var(--line);
-
-      border-radius:
-        30px;
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(255,255,255,.06),
-          rgba(255,255,255,.025)
-        );
-
-      box-shadow:
-        var(--shadow);
-    }
-
-    .hero-main{
-      padding:
-        44px;
-    }
-
-    .hero-side{
-      padding:
-        28px;
+      min-height:72vh;
 
       display:flex;
-      flex-direction:column;
+      align-items:center;
 
-      justify-content:
-        space-between;
-
-      position:relative;
-
-      overflow:hidden;
+      padding:
+        90px
+        0
+        50px;
     }
 
-    .hero-side::before{
-      content:"";
-
-      position:absolute;
-
-      width:260px;
-      height:260px;
-
-      border-radius:50%;
-
-      background:
-        var(--cyan);
-
-      filter:
-        blur(70px);
-
-      opacity:.12;
-
-      right:-100px;
-      top:-100px;
+    .hero-content{
+      max-width:900px;
     }
 
     .eyebrow{
       display:inline-flex;
-
       align-items:center;
 
-      gap:8px;
+      gap:9px;
 
       padding:
         8px
@@ -352,17 +273,14 @@
         1px solid
         rgba(46,199,241,.25);
 
-      border-radius:
-        999px;
+      border-radius:999px;
 
       background:
         rgba(46,199,241,.07);
 
-      color:
-        #cceffc;
+      color:#cceffc;
 
-      font-size:
-        13px;
+      font-size:13px;
     }
 
     .dot{
@@ -371,49 +289,28 @@
 
       border-radius:50%;
 
-      background:
-        var(--green);
+      background:var(--green);
 
       box-shadow:
-        0 0 16px
-        var(--green);
-    }
-
-    .kicker{
-      color:
-        var(--cyan);
-
-      font-size:
-        12px;
-
-      font-weight:
-        800;
-
-      text-transform:
-        uppercase;
-
-      letter-spacing:
-        .15em;
+        0 0 16px var(--green);
     }
 
     h1{
       margin:
         24px
         0
-        18px;
+        22px;
 
       font-size:
         clamp(
-          58px,
+          52px,
           8vw,
           108px
         );
 
-      line-height:
-        .90;
+      line-height:.92;
 
-      letter-spacing:
-        -.06em;
+      letter-spacing:-.06em;
     }
 
     .accent{
@@ -424,111 +321,66 @@
           var(--green)
         );
 
-      -webkit-background-clip:
-        text;
+      -webkit-background-clip:text;
+      background-clip:text;
 
-      background-clip:
-        text;
-
-      color:
-        transparent;
+      color:transparent;
     }
 
     .lead{
-      max-width:
-        700px;
+      max-width:760px;
 
-      color:
-        #b6c3cc;
+      margin:0;
 
-      font-size:
-        18px;
-
-      line-height:
-        1.65;
-    }
-
-    .hero-label{
-      position:relative;
-
-      z-index:2;
-
-      font-size:
-        13px;
-
-      color:
-        var(--muted);
-    }
-
-    .hero-value{
-      position:relative;
-
-      z-index:2;
-
-      margin-top:
-        30px;
+      color:#b7c5cf;
 
       font-size:
         clamp(
-          62px,
-          8vw,
-          92px
+          17px,
+          2vw,
+          21px
         );
 
-      line-height:
-        .9;
-
-      font-weight:
-        850;
-
-      letter-spacing:
-        -.06em;
-    }
-
-    .hero-description{
-      position:relative;
-
-      z-index:2;
-
-      margin-top:
-        18px;
-
-      color:
-        #b4c1ca;
-
-      line-height:
-        1.6;
+      line-height:1.65;
     }
 
 
     /* =========================
-       SECTIONS
+       RESEARCH SECTION
     ========================= */
 
-    section{
+    .research{
       padding:
-        72px
-        0;
+        25px
+        0
+        110px;
     }
 
     .section-head{
-      display:grid;
-
-      grid-template-columns:
-        1fr
-        1fr;
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
 
       gap:30px;
 
-      align-items:end;
+      margin-bottom:26px;
+    }
 
-      margin-bottom:
-        28px;
+    .kicker{
+      color:var(--cyan);
+
+      font-size:12px;
+
+      font-weight:800;
+
+      text-transform:uppercase;
+
+      letter-spacing:.16em;
     }
 
     h2{
       margin:
-        8px
+        10px
         0
         0;
 
@@ -539,24 +391,21 @@
           58px
         );
 
-      line-height:
-        1;
+      letter-spacing:-.045em;
 
-      letter-spacing:
-        -.045em;
+      line-height:1;
     }
 
-    .section-head p{
+    .section-text{
+      max-width:480px;
+
       margin:0;
 
-      color:
-        var(--muted);
+      color:var(--muted);
 
-      line-height:
-        1.65;
+      font-size:16px;
 
-      font-size:
-        16px;
+      line-height:1.6;
     }
 
 
@@ -564,7 +413,7 @@
        CARDS
     ========================= */
 
-    .grid-2{
+    .cards{
       display:grid;
 
       grid-template-columns:
@@ -573,310 +422,193 @@
       gap:18px;
     }
 
-    .grid-3{
-      display:grid;
-
-      grid-template-columns:
-        repeat(3,1fr);
-
-      gap:16px;
-    }
-
     .card{
-      padding:
-        25px;
+      position:relative;
+
+      min-height:330px;
+
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+
+      padding:28px;
 
       border:
-        1px solid
-        var(--line);
+        1px solid var(--line);
 
-      border-radius:
-        var(--radius);
+      border-radius:var(--radius);
 
       background:
         linear-gradient(
           180deg,
-          rgba(255,255,255,.055),
+          rgba(255,255,255,.058),
           rgba(255,255,255,.025)
         );
 
-      box-shadow:
-        0 12px 40px
-        rgba(0,0,0,.12);
+      box-shadow:var(--shadow);
+
+      overflow:hidden;
+
+      transition:
+        transform .25s ease,
+        border-color .25s ease,
+        background .25s ease;
+    }
+
+    .card:hover{
+      transform:
+        translateY(-6px);
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,.08),
+          rgba(255,255,255,.035)
+        );
+    }
+
+    .card.nfp:hover{
+      border-color:
+        rgba(46,199,241,.50);
+    }
+
+    .card.cpi:hover{
+      border-color:
+        rgba(139,234,111,.45);
+    }
+
+    .glow{
+      position:absolute;
+
+      width:230px;
+      height:230px;
+
+      border-radius:50%;
+
+      filter:blur(55px);
+
+      opacity:.18;
+
+      pointer-events:none;
+    }
+
+    .card.nfp .glow{
+      background:var(--cyan);
+
+      right:-80px;
+      top:-80px;
+    }
+
+    .card.cpi .glow{
+      background:var(--green);
+
+      right:-80px;
+      top:-80px;
+    }
+
+    .card-top{
+      position:relative;
+      z-index:2;
+    }
+
+    .tag{
+      display:inline-flex;
+
+      padding:
+        7px
+        10px;
+
+      border-radius:999px;
+
+      border:
+        1px solid
+        rgba(255,255,255,.08);
+
+      background:
+        rgba(255,255,255,.04);
+
+      color:#aebdc7;
+
+      font-size:12px;
+
+      font-weight:700;
+
+      letter-spacing:.08em;
     }
 
     .card h3{
       margin:
+        25px
         0
-        0
-        12px;
+        10px;
 
       font-size:
-        22px;
+        clamp(
+          48px,
+          7vw,
+          74px
+        );
 
-      letter-spacing:
-        -.02em;
+      letter-spacing:-.055em;
+
+      line-height:.95;
     }
 
     .card p{
+      max-width:500px;
+
       margin:0;
 
-      color:
-        #aebcc6;
+      color:#aebcc6;
 
-      line-height:
-        1.65;
+      line-height:1.6;
     }
 
-    .number{
-      width:38px;
-      height:38px;
+    .card-bottom{
+      position:relative;
+      z-index:2;
+
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+
+      gap:20px;
+
+      margin-top:40px;
+    }
+
+    .open{
+      font-weight:800;
+
+      font-size:14px;
+
+      color:#eaf6fa;
+    }
+
+    .arrow{
+      width:44px;
+      height:44px;
 
       display:grid;
       place-items:center;
 
-      margin-bottom:
-        20px;
-
-      border-radius:
-        12px;
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(46,199,241,.18),
-          rgba(139,234,111,.16)
-        );
+      border-radius:14px;
 
       border:
         1px solid
         rgba(255,255,255,.10);
 
-      font-weight:
-        800;
-    }
-
-
-    /* =========================
-       MARKET LOGIC
-    ========================= */
-
-    .logic-box{
-      padding:
-        30px;
-
-      border:
-        1px solid
-        var(--line);
-
-      border-radius:
-        28px;
-
       background:
-        radial-gradient(
-          circle at 12% 15%,
-          rgba(46,199,241,.13),
-          transparent 35%
-        ),
-        radial-gradient(
-          circle at 90% 85%,
-          rgba(139,234,111,.12),
-          transparent 38%
-        ),
-        rgba(255,255,255,.035);
+        rgba(255,255,255,.05);
+
+      font-size:20px;
+
+      transition:.2s ease;
     }
 
-    .logic-line{
-      display:flex;
-
-      align-items:center;
-
-      gap:12px;
-
-      padding:
-        15px
-        16px;
-
-      margin-top:
-        10px;
-
-      border:
-        1px solid
-        rgba(255,255,255,.065);
-
-      border-radius:
-        17px;
-
-      background:
-        rgba(255,255,255,.03);
-    }
-
-    .logic-icon{
-      width:32px;
-      height:32px;
-
-      flex:
-        0 0 auto;
-
-      display:grid;
-      place-items:center;
-
-      border-radius:
-        10px;
-
-      background:
-        var(--cyan-soft);
-
-      color:
-        var(--cyan);
-
-      font-weight:
-        900;
-    }
-
-
-    /* =========================
-       SCENARIOS
-    ========================= */
-
-    .scenario{
-      min-height:
-        230px;
-
-      display:flex;
-
-      flex-direction:
-        column;
-
-      justify-content:
-        space-between;
-    }
-
-    .scenario.positive{
-      border-color:
-        rgba(139,234,111,.22);
-    }
-
-    .scenario.negative{
-      border-color:
-        rgba(46,199,241,.22);
-    }
-
-    .scenario-title{
-      font-size:
-        13px;
-
-      font-weight:
-        800;
-
-      letter-spacing:
-        .10em;
-
-      text-transform:
-        uppercase;
-
-      color:
-        var(--muted);
-    }
-
-    .scenario-value{
-      margin:
-        20px
-        0
-        10px;
-
-      font-size:
-        22px;
-
-      font-weight:
-        800;
-    }
-
-    .scenario small{
-      color:
-        var(--muted);
-
-      line-height:
-        1.6;
-    }
-
-
-    /* =========================
-       VIKUNDEY THINKING
-    ========================= */
-
-    .thinking{
-      position:relative;
-
-      overflow:hidden;
-
-      padding:
-        34px;
-
-      border:
-        1px solid
-        rgba(46,199,241,.18);
-
-      border-radius:
-        30px;
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(46,199,241,.08),
-          rgba(139,234,111,.06)
-        );
-    }
-
-    .thinking::after{
-      content:"";
-
-      position:absolute;
-
-      width:240px;
-      height:240px;
-
-      right:-100px;
-      bottom:-120px;
-
-      border-radius:50%;
-
-      background:
-        var(--green);
-
-      opacity:.09;
-
-      filter:
-        blur(65px);
-    }
-
-    .thinking h3{
-      position:relative;
-
-      z-index:2;
-
-      margin:
-        0
-        0
-        18px;
-
-      font-size:
-        28px;
-
-      letter-spacing:
-        -.03em;
-    }
-
-    .thinking p{
-      position:relative;
-
-      z-index:2;
-
-      color:
-        #becbd3;
-
-      line-height:
-        1.75;
+    .card:hover .arrow{
+      transform:
+        translateX(4px);
     }
 
 
@@ -885,33 +617,23 @@
     ========================= */
 
     footer{
-      width:min(
-        1180px,
-        calc(100% - 36px)
-      );
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
 
-      margin:auto;
+      gap:20px;
 
       padding:
         34px
         0
-        44px;
-
-      display:flex;
-
-      justify-content:
-        space-between;
-
-      gap:20px;
-
-      align-items:center;
+        42px;
 
       border-top:
-        1px solid
-        var(--line);
+        1px solid var(--line);
 
-      color:
-        #8fa0ac;
+      color:#879aa7;
+
+      font-size:14px;
     }
 
     footer strong{
@@ -919,11 +641,9 @@
     }
 
     .tags{
-      color:
-        #718995;
+      color:#6f8795;
 
-      font-size:
-        13px;
+      font-size:13px;
     }
 
 
@@ -931,38 +651,41 @@
        MOBILE
     ========================= */
 
-    @media(max-width:900px){
+    @media(max-width:800px){
 
-      .hero-grid,
-      .section-head{
-        grid-template-columns:
-          1fr;
+      .cards{
+        grid-template-columns:1fr;
       }
 
-      .grid-3{
-        grid-template-columns:
-          1fr;
+      .section-head{
+        flex-direction:column;
+
+        align-items:flex-start;
       }
 
       .hero{
-        padding-top:
-          55px;
+        min-height:auto;
+
+        padding-top:75px;
       }
     }
 
-    @media(max-width:700px){
+    @media(max-width:560px){
 
-      .grid-2{
-        grid-template-columns:
-          1fr;
+      .container{
+        width:
+          min(
+            100% - 24px,
+            1180px
+          );
       }
 
-      .site-nav{
-        gap:10px;
+      .site-brand span:last-child{
+        display:none;
       }
 
       .site-links{
-        gap:4px;
+        gap:3px;
       }
 
       .site-links a{
@@ -970,42 +693,36 @@
           8px
           7px;
 
+        font-size:12px;
+      }
+
+      .hero{
+        padding-top:64px;
+      }
+
+      h1{
         font-size:
-          12px;
+          clamp(
+            48px,
+            16vw,
+            72px
+          );
       }
 
-      .site-brand span:last-child{
-        display:none;
-      }
+      .card{
+        min-height:290px;
 
-      .hero-main{
-        padding:
-          26px;
-      }
-
-      .hero-side{
-        padding:
-          24px;
-      }
-
-      section{
-        padding:
-          55px
-          0;
+        padding:22px;
       }
 
       footer{
-        flex-direction:
-          column;
+        align-items:flex-start;
 
-        align-items:
-          flex-start;
+        flex-direction:column;
       }
     }
-
   </style>
 </head>
-
 
 <body>
 
@@ -1018,30 +735,35 @@
 
     <a
       class="site-brand"
-      href="https://vikundey.github.io/vikundey.crypto/"
+      href="https://vikundey.github.io/vikundey.crypto/index.html"
     >
-      <span class="site-brandmark">V</span>
-      <span>vikundey.crypto</span>
+      <span class="site-brandmark">
+        V
+      </span>
+
+      <span>
+        vikundey.crypto
+      </span>
     </a>
 
 
     <div class="site-links">
 
       <a
-        href="https://vikundey.github.io/vikundey.crypto/"
+        class="active"
+        href="https://vikundey.github.io/vikundey.crypto/index.html"
       >
         Головна
       </a>
 
       <a
-        class="active"
-        href="https://vikundey.github.io/vikundey.crypto/nfp/"
+        href="https://vikundey.github.io/vikundey.crypto/nfp/index.html"
       >
         NFP
       </a>
 
       <a
-        href="https://vikundey.github.io/vikundey.crypto/cpi/"
+        href="https://vikundey.github.io/vikundey.crypto/cpi/index.html"
       >
         CPI
       </a>
@@ -1051,82 +773,50 @@
   </nav>
 
 
-
-  <!-- =========================
-       HERO
-  ========================= -->
-
   <main>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
 
     <section class="hero">
 
-      <div class="wrap hero-grid">
+      <div class="container">
 
-        <div class="hero-main">
+        <div class="hero-content">
 
           <div class="eyebrow">
 
             <span class="dot"></span>
 
-            NFP · USD
+            Macro Research
 
           </div>
 
 
           <h1>
 
-            Nonfarm
+            Дані.
             <br>
 
             <span class="accent">
-              Payrolls
+              Макро.
             </span>
+
+            Ринки.
 
           </h1>
 
 
           <p class="lead">
 
-            Один із головних звітів ринку праці США.
-            NFP допомагає оцінити темпи створення робочих місць,
-            силу економіки та потенційні зміни
-            у політиці Федеральної резервної системи.
+            Аналітика ключових макроекономічних
+            показників США та їхнього впливу
+            на долар, криптовалюти
+            й ризикові активи.
 
           </p>
-
-        </div>
-
-
-        <div class="hero-side">
-
-          <div>
-
-            <div class="kicker">
-              Labor Market
-            </div>
-
-
-            <div class="hero-value accent">
-              NFP
-            </div>
-
-
-            <p class="hero-description">
-
-              Робочі місця → зарплати → споживання →
-              інфляція → очікування щодо ставки ФРС →
-              USD → ризикові активи.
-
-            </p>
-
-          </div>
-
-
-          <div class="hero-label">
-
-            vikundey.crypto · Macro Research
-
-          </div>
 
         </div>
 
@@ -1135,466 +825,149 @@
     </section>
 
 
-
     <!-- =========================
-         WHAT IS NFP
+         RESEARCH
     ========================= -->
 
-    <section>
+    <section class="research">
 
-      <div class="wrap">
+      <div class="container">
+
 
         <div class="section-head">
 
           <div>
 
             <div class="kicker">
-              01 · NFP
+              Macro Indicators
             </div>
 
             <h2>
-              Що показує NFP
+              Обери дослідження
             </h2>
 
           </div>
 
 
-          <p>
+          <p class="section-text">
 
-            Nonfarm Payrolls показує зміну кількості
-            зайнятих у несільськогосподарському секторі США.
-            Разом із безробіттям і зарплатами цей звіт
-            дає ширше розуміння стану американського ринку праці.
-
-          </p>
-
-        </div>
-
-
-        <div class="grid-3">
-
-          <article class="card">
-
-            <div class="number">
-              1
-            </div>
-
-            <h3>
-              Nonfarm Payrolls
-            </h3>
-
-            <p>
-
-              Зміна кількості робочих місць
-              у несільськогосподарських секторах економіки США.
-
-            </p>
-
-          </article>
-
-
-          <article class="card">
-
-            <div class="number">
-              2
-            </div>
-
-            <h3>
-              Unemployment Rate
-            </h3>
-
-            <p>
-
-              Рівень безробіття допомагає оцінити,
-              наскільки сильним або слабким
-              залишається ринок праці.
-
-            </p>
-
-          </article>
-
-
-          <article class="card">
-
-            <div class="number">
-              3
-            </div>
-
-            <h3>
-              Average Hourly Earnings
-            </h3>
-
-            <p>
-
-              Динаміка заробітних плат важлива
-              для оцінки споживчого попиту
-              та потенційного інфляційного тиску.
-
-            </p>
-
-          </article>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         MARKET LOGIC
-    ========================= -->
-
-    <section>
-
-      <div class="wrap">
-
-        <div class="section-head">
-
-          <div>
-
-            <div class="kicker">
-              02 · Market Logic
-            </div>
-
-            <h2>
-              Як NFP впливає на ринок
-            </h2>
-
-          </div>
-
-
-          <p>
-
-            Ринок оцінює не тільки саме число NFP.
-            Важливе відхилення від прогнозу,
-            рівень безробіття,
-            зарплати та те,
-            як весь звіт змінює очікування щодо ФРС.
+            Фундаментальна логіка ключових
+            економічних показників,
+            очікування ринку
+            та актуальна аналітика
+            перед макроекономічними релізами.
 
           </p>
 
         </div>
 
 
-        <div class="logic-box">
-
-          <div class="logic-line">
-
-            <div class="logic-icon">
-              1
-            </div>
-
-            <div>
-              Виходять NFP, безробіття та зарплати.
-            </div>
-
-          </div>
+        <div class="cards">
 
 
-          <div class="logic-line">
+          <!-- NFP -->
 
-            <div class="logic-icon">
-              2
-            </div>
+          <a
+            class="card nfp"
+            href="https://vikundey.github.io/vikundey.crypto/nfp/index.html"
+          >
 
-            <div>
-              Ринок порівнює фактичні значення
-              з консенсус-прогнозом.
-            </div>
-
-          </div>
+            <span class="glow"></span>
 
 
-          <div class="logic-line">
+            <div class="card-top">
 
-            <div class="logic-icon">
-              3
-            </div>
-
-            <div>
-              Інвестори переглядають очікування
-              щодо майбутньої ставки ФРС.
-            </div>
-
-          </div>
+              <span class="tag">
+                LABOR MARKET
+              </span>
 
 
-          <div class="logic-line">
-
-            <div class="logic-icon">
-              4
-            </div>
-
-            <div>
-              Змінюються USD, дохідності облігацій,
-              фондові індекси, золото та криптовалюти.
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
+              <h3>
+                NFP
+              </h3>
 
 
+              <p>
 
-    <!-- =========================
-         SCENARIOS
-    ========================= -->
+                Nonfarm Payrolls.
+                Ринок праці США,
+                зайнятість,
+                безробіття,
+                заробітні плати
+                та потенційний вплив
+                на політику ФРС.
 
-    <section>
-
-      <div class="wrap">
-
-        <div class="section-head">
-
-          <div>
-
-            <div class="kicker">
-              03 · Scenarios
-            </div>
-
-            <h2>
-              Базові сценарії
-            </h2>
-
-          </div>
-
-
-          <p>
-
-            Сильне значення NFP не завжди автоматично
-            позитивне для ризикових активів.
-            Сильний ринок праці може підтримувати
-            більш жорстку політику ФРС.
-
-          </p>
-
-        </div>
-
-
-        <div class="grid-2">
-
-          <article class="card scenario negative">
-
-            <div>
-
-              <div class="scenario-title">
-                NFP вище очікувань
-              </div>
-
-
-              <div class="scenario-value">
-                Ринок праці сильніший
-              </div>
+              </p>
 
             </div>
 
 
-            <small>
+            <div class="card-bottom">
 
-              Якщо разом із сильним NFP
-              зарплати також залишаються високими,
-              ринок може зменшувати очікування
-              швидкого зниження ставки ФРС.
-              Це потенційно підтримує USD
-              та створює тиск на ризикові активи.
+              <span class="open">
+                Відкрити NFP
+              </span>
 
-            </small>
+              <span class="arrow">
+                →
+              </span>
 
-          </article>
+            </div>
 
-
-          <article class="card scenario positive">
-
-            <div>
-
-              <div class="scenario-title">
-                NFP нижче очікувань
-              </div>
+          </a>
 
 
-              <div class="scenario-value">
-                Ринок праці слабшає
-              </div>
+
+          <!-- CPI -->
+
+          <a
+            class="card cpi"
+            href="https://vikundey.github.io/vikundey.crypto/cpi/index.html"
+          >
+
+            <span class="glow"></span>
+
+
+            <div class="card-top">
+
+              <span class="tag">
+                INFLATION
+              </span>
+
+
+              <h3>
+                CPI
+              </h3>
+
+
+              <p>
+
+                Consumer Price Index.
+                Інфляція,
+                Core CPI,
+                структура споживчих цін,
+                очікування щодо ставки ФРС
+                та реакція фінансових ринків.
+
+              </p>
 
             </div>
 
 
-            <small>
+            <div class="card-bottom">
 
-              Слабший ринок праці може посилити
-              очікування більш м'якої політики ФРС.
-              Але надто слабкі дані також можуть
-              викликати побоювання щодо стану економіки.
+              <span class="open">
+                Відкрити CPI
+              </span>
 
-            </small>
+              <span class="arrow">
+                →
+              </span>
 
-          </article>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         IMPORTANT
-    ========================= -->
-
-    <section>
-
-      <div class="wrap">
-
-        <div class="section-head">
-
-          <div>
-
-            <div class="kicker">
-              04 · Important
             </div>
 
-            <h2>
-              NFP не аналізується окремо
-            </h2>
+          </a>
 
-          </div>
-
-
-          <p>
-
-            Один headline NFP може створити
-            неправильне враження.
-            Для повної картини потрібно дивитися
-            на структуру всього звіту.
-
-          </p>
-
-        </div>
-
-
-        <div class="grid-2">
-
-          <article class="card">
-
-            <h3>
-              Заробітні плати
-            </h3>
-
-            <p>
-
-              Сильне зростання зарплат може підтримувати
-              інфляційний тиск навіть тоді,
-              коли кількість нових робочих місць
-              поступово сповільнюється.
-
-            </p>
-
-          </article>
-
-
-          <article class="card">
-
-            <h3>
-              Безробіття
-            </h3>
-
-            <p>
-
-              Зміна unemployment rate може
-              суттєво змінити сприйняття звіту,
-              навіть якщо сам headline NFP
-              вийшов близько до прогнозу.
-
-            </p>
-
-          </article>
-
-
-          <article class="card">
-
-            <h3>
-              Ревізії
-            </h3>
-
-            <p>
-
-              Попередні значення NFP можуть переглядатися.
-              Тому важливо оцінювати не лише новий реліз,
-              а й зміни даних за попередні місяці.
-
-            </p>
-
-          </article>
-
-
-          <article class="card">
-
-            <h3>
-              Структура зайнятості
-            </h3>
-
-            <p>
-
-              Важливо розуміти,
-              у яких секторах створюються
-              або скорочуються робочі місця.
-
-            </p>
-
-          </article>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         VIKUNDEY THINKING
-    ========================= -->
-
-    <section>
-
-      <div class="wrap">
-
-        <div class="thinking">
-
-          <div class="kicker">
-            Vikundey Thinking
-          </div>
-
-
-          <h3>
-            NFP потрібно читати як комплексний звіт.
-          </h3>
-
-
-          <p>
-
-            Сам headline NFP не дає повної картини.
-            Для сценарію важливо одночасно оцінювати
-            зайнятість, безробіття, зарплати,
-            ревізії попередніх значень
-            та структуру створених робочих місць.
-
-          </p>
-
-          <p>
-
-            Після цього головне питання:
-            чи змінює звіт очікування ринку
-            щодо майбутньої політики Федеральної резервної системи.
-
-          </p>
 
         </div>
 
@@ -1605,12 +978,11 @@
   </main>
 
 
-
   <!-- =========================
        FOOTER
   ========================= -->
 
-  <footer>
+  <footer class="container">
 
     <div>
 
@@ -1628,7 +1000,7 @@
 
 
     <div>
-      NFP · Macro Research
+      Macro Research
     </div>
 
   </footer>
