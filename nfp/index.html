@@ -1252,6 +1252,124 @@
       }
     }
 
+
+    /* =========================
+       COMPACT LAYOUT FIX
+       Keeps analysis blocks inside the page width
+    ========================= */
+
+    .wrap{
+      width:min(1120px, calc(100% - 32px)) !important;
+      max-width:1120px !important;
+      margin-left:auto !important;
+      margin-right:auto !important;
+    }
+
+    section{
+      width:100%;
+      overflow:hidden;
+    }
+
+    .analysis{
+      width:100%;
+      max-width:100%;
+    }
+
+    .analysis .release-card,
+    .analysis .panel,
+    .analysis .thought-card,
+    .analysis .review-card,
+    .analysis .result-card{
+      max-width:100%;
+    }
+
+    .analysis-grid,
+    .thinking-grid,
+    .review-grid{
+      width:100%;
+      max-width:100%;
+    }
+
+    .table-wrap{
+      width:100%;
+      max-width:100%;
+      overflow-x:auto;
+    }
+
+    .review-grid{
+      gap:16px !important;
+    }
+
+    .review-card{
+      min-width:0;
+    }
+
+    .frame{
+      padding:12px !important;
+    }
+
+    .chart{
+      width:100% !important;
+      max-width:100% !important;
+      height:auto !important;
+      object-fit:contain;
+    }
+
+    .section-head{
+      width:100%;
+      max-width:100%;
+    }
+
+    .section-head h2{
+      font-size:clamp(30px,3vw,46px) !important;
+    }
+
+    .thought-card{
+      padding:22px !important;
+    }
+
+    .archive-grid{
+      gap:14px !important;
+    }
+
+    .archive-card{
+      padding:20px !important;
+      min-height:230px !important;
+    }
+
+    @media(max-width:1200px){
+      .wrap{
+        width:min(1040px, calc(100% - 28px)) !important;
+      }
+
+      .thinking-grid{
+        grid-template-columns:minmax(0,1.5fr) minmax(280px,.5fr) !important;
+      }
+
+      .review-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+      }
+    }
+
+    @media(max-width:900px){
+      .wrap{
+        width:min(100% - 24px, 760px) !important;
+      }
+
+      .thinking-grid,
+      .review-grid,
+      .analysis-grid,
+      .archive-grid{
+        grid-template-columns:1fr !important;
+      }
+
+      .section-head{
+        align-items:flex-start !important;
+        flex-direction:column !important;
+        gap:8px !important;
+      }
+    }
+
   </style>
 </head>
 
