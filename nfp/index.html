@@ -1370,6 +1370,51 @@
       }
     }
 
+
+    /* REAL WIDTH FIX: author sections are now inside .wrap */
+    .author-wrap{
+      width:min(1120px, calc(100% - 32px));
+      max-width:1120px;
+      margin:0 auto;
+    }
+
+    .author-wrap > section{
+      width:100%;
+      max-width:100%;
+      overflow:visible;
+    }
+
+    .author-wrap .panel,
+    .author-wrap .thought-card,
+    .author-wrap .review-card{
+      min-width:0;
+      max-width:100%;
+    }
+
+    .author-wrap .review-grid{
+      grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
+    .author-wrap .thinking-grid{
+      grid-template-columns:minmax(0,1.55fr) minmax(280px,.45fr);
+    }
+
+    .author-wrap .table-wrap{
+      max-width:100%;
+      overflow-x:auto;
+    }
+
+    @media(max-width:900px){
+      .author-wrap{
+        width:min(100% - 24px, 760px);
+      }
+
+      .author-wrap .review-grid,
+      .author-wrap .thinking-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
   </style>
 </head>
 
@@ -1726,11 +1771,14 @@
     </section>
 
 
+<div class="wrap author-wrap">
 <section id="signals">
         <div class="section-head"><div><div class="eyebrow">Pre-fact inputs</div><h2>Macro Signals</h2></div><div class="section-note">Previous / Forecast / Actual / Long-Short</div></div>
         <article class="panel card"><div class="table-wrap"><table><thead><tr><th>Name</th><th>Previous</th><th>Forecast</th><th>Actual</th><th>Long / Short</th></tr></thead><tbody><tr><td>IJC 1W</td><td>199</td><td>205</td><td>211</td><td><span class="dir long">LONG</span></td></tr><tr><td>IJC 2W</td><td>212</td><td>210</td><td>209</td><td><span class="dir short">SHORT</span></td></tr><tr><td>IJC 3W</td><td>210</td><td>211</td><td>215</td><td><span class="dir long">LONG</span></td></tr><tr><td>IJC 4W</td><td>212</td><td>213</td><td>225</td><td><span class="dir long">LONG</span></td></tr><tr><td>ISM PMI Manufacturing</td><td>52.7</td><td>53</td><td>54</td><td><span class="dir short">SHORT</span></td></tr><tr><td>ISM Manufacturing Employment</td><td>46.4</td><td>-</td><td>48.6</td><td><span class="dir short">SHORT</span></td></tr><tr><td>ISM Manufacturing New Orders</td><td>54.1</td><td>-</td><td>56.8</td><td><span class="dir short">SHORT</span></td></tr><tr><td>CB Consumer Confidence</td><td>93.8</td><td>92</td><td>93.1</td><td><span class="dir short">SHORT</span></td></tr><tr><td>ISM Non-Manufacturing PMI</td><td>53.6</td><td>53.8</td><td>54.5</td><td><span class="dir short">SHORT</span></td></tr><tr><td>ISM Services Employment</td><td>48</td><td>-</td><td>47.9</td><td><span class="dir long">LONG</span></td></tr><tr><td>ISM Services New Orders</td><td>53.5</td><td>-</td><td>57.3</td><td><span class="dir short">SHORT</span></td></tr><tr><td>Previous NFP</td><td>185</td><td>62</td><td>115</td><td><span class="dir short">SHORT</span></td></tr></tbody></table></div></article>
       </section>
+</div>
 
+<div class="wrap author-wrap">
 <section id="thinking">
         <div class="section-head"><div><div class="eyebrow">Author view</div><h2>Vikundey Thinking</h2></div><div class="section-note">Pre-Fact thesis</div></div>
         <div class="thinking-grid">
@@ -1752,7 +1800,9 @@
           </aside>
         </div>
       </section>
+</div>
 
+<div class="wrap author-wrap">
 <section id="after">
         <div class="section-head"><div><div class="eyebrow">Market reaction</div><h2>Market Shift</h2></div><div class="section-note">Графіки з матеріалів NFP 05.06</div></div>
         <div id="viewer" class="wide-viewer">
@@ -1771,6 +1821,7 @@
           </div>
         </article>
       </section>
+</div>
 
 </main>
 
