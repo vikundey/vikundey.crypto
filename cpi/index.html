@@ -1329,6 +1329,180 @@
       }
     }
 
+
+    /* =========================
+       CPI ARCHIVE
+    ========================= */
+
+    .archive-section{
+      padding-top:34px;
+      padding-bottom:10px;
+    }
+
+    .archive-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:14px;
+      margin-top:18px;
+    }
+
+    .archive-card{
+      position:relative;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      min-height:230px;
+      padding:20px;
+      border:1px solid var(--line);
+      border-radius:22px;
+      background:
+        radial-gradient(circle at 88% 12%,rgba(46,199,241,.10),transparent 34%),
+        rgba(255,255,255,.035);
+      transition:
+        transform .22s ease,
+        border-color .22s ease,
+        box-shadow .22s ease;
+    }
+
+    .archive-card:nth-child(2){
+      background:
+        radial-gradient(circle at 88% 12%,rgba(139,234,111,.09),transparent 34%),
+        rgba(255,255,255,.035);
+    }
+
+    .archive-card:nth-child(3){
+      background:
+        radial-gradient(circle at 88% 12%,rgba(46,199,241,.08),transparent 34%),
+        radial-gradient(circle at 10% 90%,rgba(139,234,111,.07),transparent 30%),
+        rgba(255,255,255,.035);
+    }
+
+    .archive-card:hover{
+      transform:translateY(-4px);
+      border-color:rgba(46,199,241,.28);
+      box-shadow:0 18px 45px rgba(0,0,0,.20);
+    }
+
+    .archive-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:14px;
+      margin-bottom:22px;
+    }
+
+    .archive-date{
+      font-size:28px;
+      font-weight:950;
+      letter-spacing:-.04em;
+    }
+
+    .archive-year{
+      display:block;
+      margin-top:2px;
+      color:var(--muted);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.10em;
+    }
+
+    .archive-status{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.06em;
+    }
+
+    .archive-status.win{
+      color:var(--green);
+      border:1px solid rgba(139,234,111,.16);
+      background:rgba(139,234,111,.10);
+    }
+
+    .archive-status.lose{
+      color:#ff8f88;
+      border:1px solid rgba(255,143,136,.15);
+      background:rgba(255,143,136,.10);
+    }
+
+    .archive-status.heli{
+      color:var(--cyan);
+      border:1px solid rgba(46,199,241,.16);
+      background:rgba(46,199,241,.09);
+    }
+
+    .archive-title{
+      margin:0 0 8px;
+      font-size:18px;
+      font-weight:900;
+      letter-spacing:-.02em;
+    }
+
+    .archive-copy{
+      margin:0 0 22px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    .archive-metrics{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:8px;
+      margin-top:auto;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+    }
+
+    .archive-metric span{
+      display:block;
+      margin-bottom:3px;
+      color:var(--muted);
+      font-size:10px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+
+    .archive-metric strong{
+      font-size:15px;
+      font-weight:900;
+    }
+
+    .archive-open{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin-top:20px;
+      color:#fff;
+      font-size:13px;
+      font-weight:850;
+    }
+
+    .archive-open::after{
+      content:"→";
+      color:var(--cyan);
+      transition:transform .2s ease;
+    }
+
+    .archive-card:hover .archive-open::after{
+      transform:translateX(4px);
+    }
+
+    @media(max-width:950px){
+      .archive-grid{
+        grid-template-columns:1fr;
+      }
+
+      .archive-card{
+        min-height:auto;
+      }
+    }
+
   </style>
 </head>
 
@@ -1830,6 +2004,187 @@
 </div>
 
 </main>
+
+
+    <!-- CPI ARCHIVE -->
+
+    <section class="archive-section" id="archive">
+
+      <div class="wrap">
+
+        <div class="section-head">
+
+          <div>
+            <div class="kicker">
+              Research History
+            </div>
+
+            <h2>
+              CPI Archive
+            </h2>
+          </div>
+
+          <p>
+            Історія попередніх CPI-релізів:
+            сигнали, сценарії, авторський контекст
+            та фактична реакція ринку.
+          </p>
+
+        </div>
+
+
+        <div class="archive-grid">
+
+          <a
+            class="archive-card"
+            href="https://vikundey.github.io/vikundey.crypto/cpi/2026-06-10/index.html"
+          >
+            <div class="archive-top">
+              <div>
+                <div class="archive-date">10.06</div>
+                <span class="archive-year">2026 · CPI USD</span>
+              </div>
+
+              <span class="archive-status win">
+                WIN
+              </span>
+            </div>
+
+            <h3 class="archive-title">
+              CPI 10.06
+            </h3>
+
+            <p class="archive-copy">
+              Long bias, макро-сигнали,
+              BRENT контекст, Vikundey Thinking
+              та графіки після релізу.
+            </p>
+
+            <div class="archive-metrics">
+              <div class="archive-metric">
+                <span>Previous</span>
+                <strong>3.8%</strong>
+              </div>
+
+              <div class="archive-metric">
+                <span>Forecast</span>
+                <strong>4.2%</strong>
+              </div>
+
+              <div class="archive-metric">
+                <span>Actual</span>
+                <strong>4.2%</strong>
+              </div>
+            </div>
+
+            <div class="archive-open">
+              Відкрити аналіз
+            </div>
+          </a>
+
+
+          <a
+            class="archive-card"
+            href="https://vikundey.github.io/vikundey.crypto/cpi/2026-07-14/index.html"
+          >
+            <div class="archive-top">
+              <div>
+                <div class="archive-date">14.07</div>
+                <span class="archive-year">2026 · CPI USD</span>
+              </div>
+
+              <span class="archive-status lose">
+                LOSE
+              </span>
+            </div>
+
+            <h3 class="archive-title">
+              CPI 14.07
+            </h3>
+
+            <p class="archive-copy">
+              50% LONG setup,
+              BRENT-контекст, авторський сценарій
+              і пост-факт розбір реакції.
+            </p>
+
+            <div class="archive-metrics">
+              <div class="archive-metric">
+                <span>Previous</span>
+                <strong>4.2%</strong>
+              </div>
+
+              <div class="archive-metric">
+                <span>Forecast</span>
+                <strong>3.8%</strong>
+              </div>
+
+              <div class="archive-metric">
+                <span>Actual</span>
+                <strong>3.5%</strong>
+              </div>
+            </div>
+
+            <div class="archive-open">
+              Відкрити аналіз
+            </div>
+          </a>
+
+
+          <a
+            class="archive-card"
+            href="https://vikundey.github.io/vikundey.crypto/cpi/2026-08-12/index.html"
+          >
+            <div class="archive-top">
+              <div>
+                <div class="archive-date">12.08</div>
+                <span class="archive-year">2026 · CPI USD</span>
+              </div>
+
+              <span class="archive-status heli">
+                HELICOPTER
+              </span>
+            </div>
+
+            <h3 class="archive-title">
+              CPI 12.08
+            </h3>
+
+            <p class="archive-copy">
+              50/50 контекст, сценарій Helicopter,
+              пост-факт логіка та розбір
+              моментної реакції по EURUSD.
+            </p>
+
+            <div class="archive-metrics">
+              <div class="archive-metric">
+                <span>Previous</span>
+                <strong>3.5%</strong>
+              </div>
+
+              <div class="archive-metric">
+                <span>Forecast</span>
+                <strong>3.4%</strong>
+              </div>
+
+              <div class="archive-metric">
+                <span>Actual</span>
+                <strong>3.4%</strong>
+              </div>
+            </div>
+
+            <div class="archive-open">
+              Відкрити аналіз
+            </div>
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
 
 
   <footer class="wrap">
