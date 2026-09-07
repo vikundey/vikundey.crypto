@@ -1,0 +1,11 @@
+{
+  "source": "Forex Factory",
+  "source_url": "https://www.forexfactory.com/calendar",
+  "feed_url": "https://nfs.faireconomy.media/ff_calendar_thisweek.json",
+  "timezone": "Europe/Kyiv",
+  "updated_at": null,
+  "week_start": null,
+  "week_end": null,
+  "event_count": 0,
+  "events": []
+}
