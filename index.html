@@ -903,6 +903,23 @@
       }
     }
 
+    .market-live-label{
+      margin-top:8px;
+      color:#738793;
+      font-size:10px;
+      font-weight:900;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .market-card.loading{
+      opacity:.7;
+    }
+
+    .market-card.error .market-price{
+      color:#ffaaa5;
+    }
+
     footer{
       width:min(1120px,calc(100% - 32px));
       margin:46px auto 0;
@@ -1130,29 +1147,28 @@
 
       <div class="section-head">
         <div>
-          <div class="kicker">Post-Release Snapshot</div>
-          <h2>Реакція ринку</h2>
+          <div class="kicker">Live Market</div>
+          <h2>Market Pulse</h2>
         </div>
 
         <p>
-          Швидкий manual snapshot поведінки ключових ринків
-          після останнього важливого макроекономічного релізу.
+          Актуальні ціни ключових ринків. Після HIGH-impact
+          макрорелізів тут також зʼявиться реакція через 15M та 1H.
         </p>
       </div>
 
       <div class="market-reaction-shell">
 
         <div class="market-meta">
-          <span class="market-chip primary" id="marketEvent">LAST EVENT · —</span>
-          <span class="market-chip" id="marketReleased">Released · —</span>
-          <span class="market-chip" id="marketWindow">Window · —</span>
+          <span class="market-chip primary">LIVE MARKET</span>
+          <span class="market-chip" id="marketUpdated">Updated · —</span>
+          <span class="market-chip" id="marketStatus">3 assets online</span>
         </div>
 
         <div class="market-grid" id="marketGrid"></div>
 
-        <div class="market-edit-hint">
-          Manual mode · значення редагуються в одному блоці <strong>MARKET_REACTION</strong>
-          внизу HTML-файлу.
+        <div class="market-edit-hint" id="marketHint">
+          Live data · source: Twelve Data · DXY буде підключено окремим етапом.
         </div>
 
       </div>
@@ -1373,80 +1389,161 @@
 
 
     /* =========================
-       MANUAL MARKET REACTION
-       Редагуй тільки цей блок
+       LIVE MARKET DATA
+       Source: data/live_market.json
     ========================= */
 
-    const MARKET_REACTION = {
-      event: "—",
-      released: "—",
-      window: "+30 min",
+    const marketUpdatedEl = document.getElementById('marketUpdated');
+    const marketStatusEl = document.getElementById('marketStatus');
+    const marketGridEl = document.getElementById('marketGrid');
 
-      assets: [
-        {
-          symbol: "DXY",
-          price: "—",
-          change: "—",
-          direction: "flat",
-          note: "USD reaction"
-        },
-        {
-          symbol: "EURUSD",
-          price: "—",
-          change: "—",
-          direction: "flat",
-          note: "EUR / USD reaction"
-        },
-        {
-          symbol: "XAUUSD",
-          price: "—",
-          change: "—",
-          direction: "flat",
-          note: "Gold reaction"
-        },
-        {
-          symbol: "BTC",
-          price: "—",
-          change: "—",
-          direction: "flat",
-          note: "Risk assets reaction"
-        }
-      ]
+    const MARKET_ORDER = ['DXY', 'EURUSD', 'XAUUSD', 'BTC'];
+
+    const MARKET_META = {
+      DXY: {
+        label: 'DXY',
+        note: 'US Dollar Index',
+        decimals: 2
+      },
+      EURUSD: {
+        label: 'EURUSD',
+        note: 'EUR / USD',
+        decimals: 5
+      },
+      XAUUSD: {
+        label: 'XAUUSD',
+        note: 'Gold / USD',
+        decimals: 2
+      },
+      BTC: {
+        label: 'BTC',
+        note: 'Bitcoin / USD',
+        decimals: 2
+      }
     };
 
-    function renderMarketReaction() {
-      const eventEl = document.getElementById('marketEvent');
-      const releasedEl = document.getElementById('marketReleased');
-      const windowEl = document.getElementById('marketWindow');
-      const gridEl = document.getElementById('marketGrid');
+    function formatMarketPrice(value, decimals = 2) {
+      const number = Number(value);
 
-      eventEl.textContent = `LAST EVENT · ${MARKET_REACTION.event}`;
-      releasedEl.textContent = `Released · ${MARKET_REACTION.released}`;
-      windowEl.textContent = `Window · ${MARKET_REACTION.window}`;
+      if (!Number.isFinite(number)) return '—';
 
-      gridEl.innerHTML = MARKET_REACTION.assets.map(asset => {
-        const direction = ['up', 'down', 'flat'].includes(asset.direction)
-          ? asset.direction
-          : 'flat';
+      return number.toLocaleString('en-US', {
+        minimumFractionDigits: decimals,
+        maximumFractionDigits: decimals
+      });
+    }
 
-        const arrow =
-          direction === 'up' ? '▲' :
-          direction === 'down' ? '▼' : '•';
+    function renderMarketLoading() {
+      marketGridEl.innerHTML = MARKET_ORDER.map(symbol => `
+        <article class="market-card loading">
+          <div class="market-symbol">${symbol}</div>
+          <div class="market-price">—</div>
+          <div class="market-live-label">LIVE PRICE</div>
+          <div class="market-note">Завантаження даних...</div>
+        </article>
+      `).join('');
+    }
+
+    function renderLiveMarket(data) {
+      const assets = data?.assets || {};
+
+      marketGridEl.innerHTML = MARKET_ORDER.map(symbol => {
+        const meta = MARKET_META[symbol];
+        const asset = assets[symbol];
+
+        if (!asset) {
+          return `
+            <article class="market-card">
+              <div class="market-symbol">${symbol}</div>
+              <div class="market-price">—</div>
+              <div class="market-live-label">LIVE PRICE</div>
+              <div class="market-note">
+                ${symbol === 'DXY'
+                  ? 'DXY буде підключено наступним етапом'
+                  : 'Дані недоступні'}
+              </div>
+            </article>
+          `;
+        }
+
+        if (asset.status !== 'ok' || asset.price == null) {
+          return `
+            <article class="market-card error">
+              <div class="market-symbol">${symbol}</div>
+              <div class="market-price">—</div>
+              <div class="market-live-label">LIVE PRICE</div>
+              <div class="market-note">Помилка отримання ціни</div>
+            </article>
+          `;
+        }
 
         return `
           <article class="market-card">
-            <div class="market-symbol">${escapeHtml(asset.symbol)}</div>
-            <div class="market-price">${escapeHtml(asset.price)}</div>
-            <div class="market-change ${direction}">
-              ${arrow} ${escapeHtml(asset.change)}
+            <div class="market-symbol">${meta.label}</div>
+            <div class="market-price">
+              ${formatMarketPrice(asset.price, meta.decimals)}
             </div>
-            <div class="market-note">${escapeHtml(asset.note)}</div>
+            <div class="market-live-label">LIVE PRICE</div>
+            <div class="market-note">${meta.note}</div>
           </article>
         `;
       }).join('');
+
+      const onlineCount = Object.values(assets)
+        .filter(asset => asset?.status === 'ok' && asset?.price != null)
+        .length;
+
+      marketStatusEl.textContent =
+        `${onlineCount} assets online`;
+
+      if (data.updated_at) {
+        const updated = new Date(data.updated_at);
+
+        marketUpdatedEl.textContent =
+          `Updated · ${updated.toLocaleString('uk-UA', {
+            timeZone: 'Europe/Kyiv',
+            day: '2-digit',
+            month: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit'
+          })}`;
+      }
     }
 
-    renderMarketReaction();
+    async function loadLiveMarket() {
+      renderMarketLoading();
+
+      try {
+        const response = await fetch(
+          './data/live_market.json?ts=' + Date.now(),
+          { cache: 'no-store' }
+        );
+
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+
+        const data = await response.json();
+        renderLiveMarket(data);
+
+      } catch (error) {
+        console.error('Live market load error:', error);
+
+        marketUpdatedEl.textContent = 'Updated · unavailable';
+        marketStatusEl.textContent = 'Market data error';
+
+        marketGridEl.innerHTML = MARKET_ORDER.map(symbol => `
+          <article class="market-card error">
+            <div class="market-symbol">${symbol}</div>
+            <div class="market-price">—</div>
+            <div class="market-live-label">LIVE PRICE</div>
+            <div class="market-note">Не вдалося завантажити live_market.json</div>
+          </article>
+        `).join('');
+      }
+    }
+
+    loadLiveMarket();
 
     loadCalendar();
   </script>
