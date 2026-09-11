@@ -1,161 +1,89 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#081018">
-
-  <title>CPI USD | vikundey.crypto</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>vikundey.crypto | Macro Research</title>
+  <meta
+    name="description"
+    content="Макроекономічні дослідження США, NFP, CPI та автоматичний US Economic Calendar."
+  />
 
   <style>
     :root{
       --bg:#081018;
       --bg2:#0d1721;
-
-      --card:rgba(255,255,255,.055);
-      --card2:rgba(255,255,255,.085);
-
+      --panel:rgba(255,255,255,.055);
+      --panel2:rgba(255,255,255,.032);
       --text:#f4f8fb;
       --muted:#9fb0bd;
-
       --line:rgba(255,255,255,.10);
-
       --cyan:#2ec7f1;
       --green:#8bea6f;
-
-      --radius:28px;
+      --red:#ff8f88;
+      --amber:#f1c66d;
       --shadow:0 24px 70px rgba(0,0,0,.28);
+      --radius:24px;
     }
 
-    *{
-      box-sizing:border-box;
-    }
+    *{box-sizing:border-box}
 
-    html{
-      scroll-behavior:smooth;
-    }
+    html{scroll-behavior:smooth}
 
     body{
       margin:0;
-
       color:var(--text);
-
-      font-family:
-        Inter,
-        ui-sans-serif,
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
-
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
       background:
-        radial-gradient(
-          circle at 18% 4%,
-          rgba(46,199,241,.13),
-          transparent 24%
-        ),
-        radial-gradient(
-          circle at 86% 16%,
-          rgba(139,234,111,.12),
-          transparent 25%
-        ),
-        linear-gradient(
-          180deg,
-          #071018 0%,
-          #0a121b 45%,
-          #081018 100%
-        );
-
+        radial-gradient(circle at 18% 4%,rgba(46,199,241,.13),transparent 24%),
+        radial-gradient(circle at 86% 16%,rgba(139,234,111,.12),transparent 25%),
+        linear-gradient(180deg,#071018 0%,#0a121b 45%,#081018 100%);
       overflow-x:hidden;
     }
 
     body::before{
       content:"";
-
       position:fixed;
       inset:0;
-
-      pointer-events:none;
       z-index:-1;
-
+      pointer-events:none;
       background-image:
-        linear-gradient(
-          rgba(255,255,255,.015) 1px,
-          transparent 1px
-        ),
-        linear-gradient(
-          90deg,
-          rgba(255,255,255,.015) 1px,
-          transparent 1px
-        );
-
+        linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);
       background-size:46px 46px;
-
-      mask-image:
-        linear-gradient(
-          to bottom,
-          black,
-          transparent 88%
-        );
+      mask-image:linear-gradient(to bottom,black,transparent 88%);
     }
 
-    a{
-      color:inherit;
-      text-decoration:none;
-    }
+    a{color:inherit;text-decoration:none}
 
     .wrap{
-      width:min(
-        1180px,
-        calc(100% - 36px)
-      );
-
-      margin:auto;
+      width:min(1120px,calc(100% - 32px));
+      margin:0 auto;
     }
-
-
-    /* NAV */
 
     .site-nav{
       position:sticky;
       top:12px;
-      z-index:100;
-
-      width:min(
-        1180px,
-        calc(100% - 28px)
-      );
-
+      z-index:50;
+      width:min(1120px,calc(100% - 32px));
       margin:12px auto 0;
-
       display:flex;
       align-items:center;
       justify-content:space-between;
-
-      gap:20px;
-
+      gap:18px;
       padding:12px 14px 12px 18px;
-
       border:1px solid var(--line);
       border-radius:22px;
-
-      background:rgba(7,16,24,.80);
-
+      background:rgba(7,16,24,.82);
       backdrop-filter:blur(16px);
-
-      box-shadow:
-        0 10px 40px rgba(0,0,0,.18);
+      box-shadow:0 10px 40px rgba(0,0,0,.18);
     }
 
     .site-brand{
       display:flex;
       align-items:center;
-
       gap:10px;
-
-      font-weight:800;
-
+      font-weight:900;
       letter-spacing:-.02em;
     }
 
@@ -169,1757 +97,1062 @@
 
     .site-links{
       display:flex;
-      gap:8px;
+      align-items:center;
+      gap:6px;
+      flex-wrap:wrap;
     }
 
     .site-links a{
-      padding:9px 12px;
-
-      border-radius:12px;
-
+      padding:8px 11px;
+      border-radius:11px;
       color:#c4d0d8;
-
       font-size:13px;
-
+      font-weight:750;
       transition:.2s ease;
     }
 
     .site-links a:hover{
       color:#fff;
-
-      background:
-        rgba(255,255,255,.08);
+      background:rgba(255,255,255,.07);
     }
 
     .site-links a.active{
       color:#071018;
-
-      font-weight:800;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--cyan),
-          var(--green)
-        );
+      background:linear-gradient(135deg,var(--cyan),var(--green));
     }
-
-
-    /* HERO */
 
     .hero{
-      padding:76px 0 64px;
-    }
-
-    .hero-grid{
       display:grid;
-
-      grid-template-columns:
-        1.15fr .85fr;
-
-      gap:20px;
+      grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);
+      gap:22px;
+      padding:84px 0 48px;
+      align-items:stretch;
     }
 
     .hero-main,
-    .hero-side{
+    .hero-side,
+    .research-card,
+    .calendar-shell{
       border:1px solid var(--line);
-
-      border-radius:30px;
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(255,255,255,.065),
-          rgba(255,255,255,.025)
-        );
-
+      border-radius:var(--radius);
+      background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.025));
       box-shadow:var(--shadow);
     }
 
     .hero-main{
-      padding:40px;
-    }
-
-    .hero-side{
       position:relative;
-
       overflow:hidden;
-
-      padding:28px;
-
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
+      padding:42px;
     }
 
-    .hero-side::after{
+    .hero-main::after{
       content:"";
-
       position:absolute;
-
-      width:250px;
-      height:250px;
-
-      right:-80px;
-      top:-80px;
-
+      width:330px;
+      height:330px;
+      right:-130px;
+      top:-145px;
       border-radius:50%;
-
-      background:var(--green);
-
-      filter:blur(70px);
-
-      opacity:.13;
+      background:radial-gradient(circle,rgba(46,199,241,.17),rgba(46,199,241,0) 68%);
+      pointer-events:none;
     }
 
-    .eyebrow{
-      display:inline-flex;
-      align-items:center;
-
-      gap:8px;
-
-      padding:8px 12px;
-
-      border:
-        1px solid rgba(46,199,241,.28);
-
-      border-radius:999px;
-
-      background:
-        rgba(46,199,241,.07);
-
-      color:#cceffc;
-
-      font-size:13px;
-    }
-
-    .dot{
-      width:7px;
-      height:7px;
-
-      border-radius:50%;
-
-      background:var(--green);
-
-      box-shadow:
-        0 0 16px var(--green);
+    .eyebrow,
+    .kicker{
+      color:var(--cyan);
+      font-size:12px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.12em;
     }
 
     h1{
-      margin:26px 0 18px;
-
-      font-size:
-        clamp(58px,8vw,105px);
-
-      line-height:.88;
-
-      letter-spacing:-.06em;
+      margin:12px 0 18px;
+      font-size:clamp(52px,8vw,92px);
+      line-height:.92;
+      letter-spacing:-.065em;
     }
 
     .accent{
-      background:
-        linear-gradient(
-          90deg,
-          var(--cyan),
-          var(--green)
-        );
-
+      background:linear-gradient(90deg,#fff 8%,var(--cyan) 55%,var(--green));
       -webkit-background-clip:text;
       background-clip:text;
-
       color:transparent;
     }
 
-    .lead{
+    .hero-copy{
+      max-width:690px;
       margin:0;
-
-      max-width:680px;
-
       color:#b7c5cf;
-
-      font-size:18px;
-
-      line-height:1.65;
+      font-size:17px;
+      line-height:1.72;
     }
 
-    .kicker{
-      color:var(--cyan);
-
-      font-size:12px;
-
-      font-weight:800;
-
-      text-transform:uppercase;
-
-      letter-spacing:.16em;
+    .hero-side{
+      padding:28px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      background:
+        radial-gradient(circle at 88% 12%,rgba(139,234,111,.10),transparent 36%),
+        linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.025));
     }
 
-    .hero-value{
-      position:relative;
-      z-index:2;
-
-      margin-top:28px;
-
-      font-size:
-        clamp(65px,8vw,92px);
-
-      font-weight:850;
-
-      letter-spacing:-.06em;
+    .hero-side h2{
+      margin:9px 0 12px;
+      font-size:30px;
+      letter-spacing:-.04em;
     }
 
     .hero-side p{
-      position:relative;
-      z-index:2;
-
-      color:#b7c5cf;
-
-      line-height:1.65;
-    }
-
-    .hero-footer{
-      position:relative;
-      z-index:2;
-
+      margin:0;
       color:var(--muted);
-
-      font-size:12px;
+      font-size:14px;
+      line-height:1.7;
     }
 
+    .hero-logic{
+      display:grid;
+      gap:9px;
+      margin-top:24px;
+    }
 
-    /* SECTIONS */
+    .logic-row{
+      padding:12px 14px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:rgba(255,255,255,.035);
+      font-size:13px;
+      font-weight:800;
+    }
 
     section{
-      padding:76px 0;
+      padding:26px 0 34px;
     }
 
     .section-head{
-      display:grid;
-
-      grid-template-columns:
-        1fr 1fr;
-
-      gap:30px;
-
+      display:flex;
       align-items:end;
-
-      margin-bottom:30px;
+      justify-content:space-between;
+      gap:22px;
+      margin-bottom:18px;
     }
 
-    h2{
-      margin:10px 0 0;
-
-      font-size:
-        clamp(36px,5vw,60px);
-
-      line-height:1;
-
+    .section-head h2{
+      margin:7px 0 0;
+      font-size:clamp(32px,4vw,46px);
       letter-spacing:-.045em;
     }
 
     .section-head p{
+      max-width:480px;
       margin:0;
-
-      color:var(--muted);
-
-      font-size:16px;
-
-      line-height:1.65;
-    }
-
-
-    /* CARDS */
-
-    .grid-3{
-      display:grid;
-
-      grid-template-columns:
-        repeat(3,1fr);
-
-      gap:14px;
-    }
-
-    .grid-2{
-      display:grid;
-
-      grid-template-columns:
-        repeat(2,1fr);
-
-      gap:18px;
-    }
-
-    .card{
-      padding:24px;
-
-      border:1px solid var(--line);
-
-      border-radius:24px;
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(255,255,255,.058),
-          rgba(255,255,255,.025)
-        );
-    }
-
-    .number{
-      width:38px;
-      height:38px;
-
-      margin-bottom:22px;
-
-      display:grid;
-      place-items:center;
-
-      border-radius:12px;
-
-      font-weight:800;
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(46,199,241,.18),
-          rgba(139,234,111,.16)
-        );
-    }
-
-    .card h3{
-      margin:0 0 12px;
-
-      font-size:22px;
-    }
-
-    .card p{
-      margin:0;
-
-      color:#afbdc7;
-
-      line-height:1.65;
-    }
-
-
-    /* LOGIC */
-
-    .logic{
-      display:grid;
-
-      gap:10px;
-    }
-
-    .logic-row{
-      display:flex;
-
-      gap:14px;
-
-      align-items:center;
-
-      padding:16px;
-
-      border:
-        1px solid rgba(255,255,255,.07);
-
-      border-radius:18px;
-
-      background:
-        rgba(255,255,255,.035);
-    }
-
-    .logic-num{
-      width:34px;
-      height:34px;
-
-      flex:0 0 auto;
-
-      display:grid;
-      place-items:center;
-
-      border-radius:10px;
-
-      background:
-        rgba(46,199,241,.11);
-
-      color:var(--cyan);
-
-      font-weight:900;
-    }
-
-
-    /* ANALYSIS */
-
-    .analysis{
-      padding:34px;
-
-      border:
-        1px solid rgba(46,199,241,.18);
-
-      border-radius:30px;
-
-      background:
-        radial-gradient(
-          circle at 15% 10%,
-          rgba(46,199,241,.12),
-          transparent 32%
-        ),
-        radial-gradient(
-          circle at 90% 85%,
-          rgba(139,234,111,.10),
-          transparent 35%
-        ),
-        rgba(255,255,255,.035);
-    }
-
-    .analysis h3{
-      margin:10px 0 18px;
-
-      font-size:
-        clamp(28px,4vw,42px);
-
-      letter-spacing:-.03em;
-    }
-
-    .analysis p{
-      color:#becbd3;
-
-      line-height:1.75;
-    }
-
-
-    /* FOOTER */
-
-    footer{
-      display:flex;
-
-      justify-content:space-between;
-
-      gap:20px;
-
-      padding:36px 0 44px;
-
-      border-top:1px solid var(--line);
-
-      color:#95a6b1;
-    }
-
-    footer strong{
-      color:#fff;
-    }
-
-    .tags{
-      color:#78909e;
-
-      font-size:13px;
-    }
-
-
-    /* MOBILE */
-
-    @media(max-width:900px){
-
-      .hero-grid,
-      .section-head{
-        grid-template-columns:1fr;
-      }
-
-      .grid-3{
-        grid-template-columns:1fr;
-      }
-    }
-
-    @media(max-width:650px){
-
-      .grid-2{
-        grid-template-columns:1fr;
-      }
-
-      .site-brand span:last-child{
-        display:none;
-      }
-
-      .site-links{
-        gap:3px;
-      }
-
-      .site-links a{
-        padding:8px 7px;
-      }
-
-      .hero-main{
-        padding:25px;
-      }
-
-      section{
-        padding:55px 0;
-      }
-
-      footer{
-        flex-direction:column;
-      }
-    }
-
-    /* =========================
-       CURRENT NFP ANALYSIS
-    ========================= */
-
-    .analysis-intro{
-      margin-bottom:22px;
-    }
-
-    .analysis-summary{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:14px;
-      margin-top:22px;
-    }
-
-    .analysis-stat{
-      padding:18px;
-      border:1px solid var(--line);
-      border-radius:18px;
-      background:rgba(255,255,255,.035);
-    }
-
-    .analysis-stat span{
-      display:block;
-      margin-bottom:7px;
-      color:var(--muted);
-      font-size:12px;
-      font-weight:800;
-      text-transform:uppercase;
-      letter-spacing:.08em;
-    }
-
-    .analysis-stat strong{
-      font-size:26px;
-      letter-spacing:-.03em;
-    }
-
-    .analysis-meta{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:14px;
-      margin-top:14px;
-    }
-
-    .analysis-meta-card{
-      padding:16px;
-      border:1px solid var(--line);
-      border-radius:18px;
-      background:rgba(255,255,255,.03);
-    }
-
-    .analysis-meta-card span{
-      display:block;
-      margin-bottom:7px;
-      color:var(--muted);
-      font-size:12px;
-      font-weight:800;
-      text-transform:uppercase;
-      letter-spacing:.08em;
-    }
-
-    .analysis-meta-card strong{
-      font-size:18px;
-    }
-
-    .analysis-meta-card .long-text{color:var(--green)}
-    .analysis-meta-card .short-text{color:#ff8f88}
-
-    #signals,
-    #thinking,
-    #after{
-      padding-top:32px;
-      padding-bottom:32px;
-    }
-
-    .section-note{
-      color:var(--muted);
-      font-size:14px;
-    }
-
-    .panel{
-      border:1px solid var(--line);
-      border-radius:24px;
-      background:
-        linear-gradient(
-          180deg,
-          rgba(255,255,255,.055),
-          rgba(255,255,255,.025)
-        );
-      box-shadow:0 12px 40px rgba(0,0,0,.12);
-    }
-
-    .table-wrap{
-      overflow:auto;
-      border:1px solid var(--line);
-      border-radius:18px;
-      background:rgba(255,255,255,.02);
-    }
-
-    table{
-      width:100%;
-      min-width:760px;
-      border-collapse:collapse;
-    }
-
-    th,
-    td{
-      padding:14px 15px;
-      border-bottom:1px solid var(--line);
-      text-align:left;
-      vertical-align:middle;
-    }
-
-    th{
-      color:var(--muted);
-      font-size:12px;
-      font-weight:800;
-      text-transform:uppercase;
-      letter-spacing:.07em;
-      background:rgba(255,255,255,.025);
-    }
-
-    td:first-child{
-      font-weight:800;
-    }
-
-    tr:last-child td{
-      border-bottom:0;
-    }
-
-    .dir{
-      display:inline-flex;
-      padding:6px 10px;
-      border-radius:9px;
-      font-size:12px;
-      font-weight:900;
-    }
-
-    .dir.long{
-      color:var(--green);
-      background:rgba(139,234,111,.10);
-      border:1px solid rgba(139,234,111,.15);
-    }
-
-    .dir.short{
-      color:#ff918b;
-      background:rgba(255,105,97,.10);
-      border:1px solid rgba(255,105,97,.14);
-    }
-
-    .thinking-grid{
-      display:grid;
-      grid-template-columns:1.35fr .65fr;
-      gap:22px;
-    }
-
-    .thought-card{
-      position:relative;
-      overflow:hidden;
-      padding:26px;
-      border:1px solid var(--line);
-      border-radius:24px;
-      background:
-        radial-gradient(
-          circle at 12% 10%,
-          rgba(46,199,241,.10),
-          transparent 35%
-        ),
-        rgba(255,255,255,.035);
-      box-shadow:0 12px 40px rgba(0,0,0,.12);
-    }
-
-    .thought-card.side{
-      background:
-        radial-gradient(
-          circle at 88% 10%,
-          rgba(139,234,111,.10),
-          transparent 38%
-        ),
-        rgba(255,255,255,.035);
-    }
-
-    .thought-card p{
-      position:relative;
-      z-index:1;
-      margin:0 0 16px;
-      color:#becbd3;
-      font-size:15px;
-      line-height:1.72;
-    }
-
-    .thought-card p:last-child{
-      margin-bottom:0;
-    }
-
-    .scenario-box{
-      display:grid;
-      gap:10px;
-    }
-
-    .scenario-row{
-      padding:14px;
-      border:1px solid var(--line);
-      border-radius:14px;
-      background:rgba(255,255,255,.035);
-    }
-
-    .scenario-k{
-      margin-bottom:5px;
-      color:var(--muted);
-      font-size:11px;
-      font-weight:800;
-      text-transform:uppercase;
-      letter-spacing:.08em;
-    }
-
-    .scenario-v{
-      font-size:18px;
-      font-weight:900;
-      letter-spacing:-.02em;
-    }
-
-    .review-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:22px;
-    }
-
-    .review-card{
-      overflow:hidden;
-      border:1px solid var(--line);
-      border-radius:24px;
-      background:rgba(255,255,255,.035);
-      box-shadow:0 12px 40px rgba(0,0,0,.12);
-    }
-
-    .review-head{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      padding:18px 20px;
-      border-bottom:1px solid var(--line);
-    }
-
-    .review-head h3{
-      margin:0;
-      font-size:22px;
-      letter-spacing:-.02em;
-    }
-
-    .frame{
-      padding:16px;
-      background:rgba(255,255,255,.02);
-    }
-
-    .chart{
-      display:block;
-      width:100%;
-      height:auto;
-      border-radius:16px;
-      border:1px solid var(--line);
-      cursor:zoom-in;
-      transition:transform .2s ease, box-shadow .2s ease;
-    }
-
-    .chart:hover{
-      transform:translateY(-2px);
-      box-shadow:0 14px 34px rgba(46,199,241,.12);
-    }
-
-    .chart-meta{
-      padding:0 16px 18px;
-      color:var(--muted);
-      font-size:13px;
-    }
-
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:8px 12px;
-      border-radius:999px;
-      font-size:13px;
-      font-weight:900;
-    }
-
-    .pill.short{
-      color:#ff918b;
-      background:rgba(255,105,97,.10);
-    }
-
-    .pill.long,
-    .pill.win{
-      color:var(--green);
-      background:rgba(139,234,111,.10);
-    }
-
-    .result-card{
-      margin-top:22px;
-      overflow:hidden;
-    }
-
-    .result-grid{
-      display:grid;
-      grid-template-columns:.38fr .62fr;
-      gap:0;
-      align-items:stretch;
-    }
-
-    .result-copy{
-      padding:26px;
-      background:rgba(255,255,255,.025);
-    }
-
-    .result-copy h3{
-      margin:0 0 10px;
-      font-size:24px;
-      letter-spacing:-.03em;
-    }
-
-    .result-copy p{
-      margin:0;
-      color:var(--muted);
-    }
-
-    .result-img-wrap{
-      padding:16px;
-      border-left:1px solid var(--line);
-    }
-
-    .wide-viewer{
-      display:none;
-      margin:0 0 22px;
-      border:1px solid rgba(46,199,241,.16);
-      border-radius:24px;
-      background:#071018;
-      box-shadow:0 18px 50px rgba(0,0,0,.30);
-      overflow:hidden;
-    }
-
-    .wide-viewer.open{
-      display:block;
-    }
-
-    .wide-viewer-head{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      padding:14px 16px;
-      border-bottom:1px solid var(--line);
-      background:
-        linear-gradient(
-          90deg,
-          rgba(46,199,241,.07),
-          rgba(139,234,111,.06)
-        );
-    }
-
-    .wide-viewer-title{
-      font-weight:900;
-    }
-
-    .wide-viewer-close{
-      width:36px;
-      height:36px;
-      border:1px solid var(--line);
-      border-radius:11px;
-      background:rgba(255,255,255,.05);
-      color:var(--text);
-      font-size:22px;
-      cursor:pointer;
-    }
-
-    .wide-viewer-body{
-      padding:16px;
-    }
-
-    .wide-viewer-img{
-      display:block;
-      width:100%;
-      max-height:78vh;
-      object-fit:contain;
-      border-radius:16px;
-      border:1px solid var(--line);
-    }
-
-    @media(max-width:950px){
-      .thinking-grid,
-      .review-grid,
-      .result-grid{
-        grid-template-columns:1fr;
-      }
-
-      .result-img-wrap{
-        border-left:0;
-        border-top:1px solid var(--line);
-      }
-    }
-
-    @media(max-width:650px){
-      .analysis-summary,
-      .analysis-meta{
-        grid-template-columns:1fr;
-      }
-    }
-
-
-    /* =========================
-       CPI AUTHOR ANALYSIS
-    ========================= */
-
-    #signals,
-    #brent,
-    #thoughts,
-    #review{
-      padding-top:32px;
-      padding-bottom:32px;
-      margin-top:0;
-    }
-
-    .grid-2{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:22px;
-    }
-
-    .card-title{
-      margin:0 0 14px;
-      font-size:17px;
-      font-weight:900;
-    }
-
-    .controls{
-      display:grid;
-      gap:4px;
-    }
-
-    .control-row{
-      display:grid;
-      grid-template-columns:1fr auto;
-      gap:16px;
-      align-items:center;
-      padding:11px 2px;
-      border-bottom:1px solid var(--line);
-    }
-
-    .control-row:last-child{
-      border-bottom:0;
-    }
-
-    .control-name{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-weight:700;
-    }
-
-    .mini-icon{
-      width:24px;
-      height:24px;
-      display:grid;
-      place-items:center;
-      border-radius:8px;
-      background:
-        linear-gradient(
-          135deg,
-          rgba(46,199,241,.12),
-          rgba(139,234,111,.10)
-        );
-      border:1px solid rgba(46,199,241,.13);
-      color:var(--cyan);
-      font-size:12px;
-      font-weight:900;
-    }
-
-    .check{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      color:var(--muted);
-      font-weight:700;
-    }
-
-    .dot{
-      width:14px;
-      height:14px;
-      display:inline-block;
-      position:relative;
-      border:1px solid rgba(255,255,255,.20);
-      border-radius:4px;
-      background:rgba(255,255,255,.04);
-    }
-
-    .dot.on{
-      border-color:transparent;
-      background:
-        linear-gradient(
-          135deg,
-          var(--cyan),
-          var(--green)
-        );
-    }
-
-    .dot.on::after{
-      content:'';
-      position:absolute;
-      inset:3px;
-      border-radius:2px;
-      background:#071018;
-      opacity:.9;
-    }
-
-    .tag{
-      display:inline-flex;
-      padding:7px 10px;
-      border-radius:10px;
-      color:var(--text);
-      background:rgba(255,255,255,.05);
-      font-size:13px;
-      font-weight:850;
-    }
-
-    .tag.glow{
-      border:1px solid rgba(46,199,241,.12);
-      background:
-        linear-gradient(
-          90deg,
-          rgba(46,199,241,.10),
-          rgba(139,234,111,.10)
-        );
-    }
-
-    .brent{
-      display:grid;
-      grid-template-columns:1fr auto;
-      gap:18px;
-      align-items:center;
-    }
-
-    .brent-price{
-      font-size:46px;
-      font-weight:950;
-      letter-spacing:-.05em;
-    }
-
-    .thoughts-grid{
-      display:grid;
-      grid-template-columns:.7fr 1.3fr;
-      gap:22px;
-    }
-
-    .thought-card{
-      position:relative;
-      overflow:hidden;
-      padding:24px;
-      border:1px solid var(--line);
-      border-radius:24px;
-      background:
-        radial-gradient(
-          circle at 12% 10%,
-          rgba(46,199,241,.10),
-          transparent 35%
-        ),
-        rgba(255,255,255,.035);
-      box-shadow:0 12px 40px rgba(0,0,0,.12);
-    }
-
-    .thought-card:last-child{
-      background:
-        radial-gradient(
-          circle at 90% 10%,
-          rgba(139,234,111,.10),
-          transparent 38%
-        ),
-        rgba(255,255,255,.035);
-    }
-
-    .thought-number{
-      width:30px;
-      height:30px;
-      display:inline-grid;
-      place-items:center;
-      margin-bottom:14px;
-      border:1px solid rgba(46,199,241,.14);
-      border-radius:10px;
-      background:
-        linear-gradient(
-          135deg,
-          rgba(46,199,241,.12),
-          rgba(139,234,111,.10)
-        );
-      color:var(--cyan);
-      font-size:13px;
-      font-weight:950;
-    }
-
-    .thought-title{
-      margin:0 0 12px;
-      font-size:18px;
-      letter-spacing:-.02em;
-    }
-
-    .thought-text{
-      margin:0;
-      color:#becbd3;
-      font-size:15px;
-      line-height:1.7;
-    }
-
-    .scenario-box{
-      display:grid;
-      gap:10px;
-      margin-top:2px;
-    }
-
-    .scenario-row{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      padding:13px 14px;
-      border:1px solid var(--line);
-      border-radius:14px;
-      background:rgba(255,255,255,.035);
-      font-weight:850;
-    }
-
-    .scenario-value{
-      font-size:18px;
-      letter-spacing:-.02em;
-    }
-
-    .scenario-arrow{
-      color:var(--muted);
-      font-size:13px;
-      font-weight:700;
-    }
-
-    .scenario-side{
-      min-width:70px;
-      text-align:center;
-    }
-
-    @media(max-width:950px){
-      .grid-2,
-      .thoughts-grid{
-        grid-template-columns:1fr;
-      }
-    }
-
-    @media(max-width:650px){
-      .control-row,
-      .brent{
-        grid-template-columns:1fr;
-      }
-    }
-
-
-    /* =========================
-       CPI ARCHIVE
-    ========================= */
-
-    .archive-section{
-      padding-top:34px;
-      padding-bottom:10px;
-    }
-
-    .archive-grid{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:14px;
-      margin-top:18px;
-    }
-
-    .archive-card{
-      position:relative;
-      overflow:hidden;
-      display:flex;
-      flex-direction:column;
-      min-height:230px;
-      padding:20px;
-      border:1px solid var(--line);
-      border-radius:22px;
-      background:
-        radial-gradient(circle at 88% 12%,rgba(46,199,241,.10),transparent 34%),
-        rgba(255,255,255,.035);
-      transition:
-        transform .22s ease,
-        border-color .22s ease,
-        box-shadow .22s ease;
-    }
-
-    .archive-card:nth-child(2){
-      background:
-        radial-gradient(circle at 88% 12%,rgba(139,234,111,.09),transparent 34%),
-        rgba(255,255,255,.035);
-    }
-
-    .archive-card:nth-child(3){
-      background:
-        radial-gradient(circle at 88% 12%,rgba(46,199,241,.08),transparent 34%),
-        radial-gradient(circle at 10% 90%,rgba(139,234,111,.07),transparent 30%),
-        rgba(255,255,255,.035);
-    }
-
-    .archive-card:hover{
-      transform:translateY(-4px);
-      border-color:rgba(46,199,241,.28);
-      box-shadow:0 18px 45px rgba(0,0,0,.20);
-    }
-
-    .archive-top{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:14px;
-      margin-bottom:22px;
-    }
-
-    .archive-date{
-      font-size:28px;
-      font-weight:950;
-      letter-spacing:-.04em;
-    }
-
-    .archive-year{
-      display:block;
-      margin-top:2px;
-      color:var(--muted);
-      font-size:12px;
-      font-weight:800;
-      letter-spacing:.10em;
-    }
-
-    .archive-status{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:6px 10px;
-      border-radius:999px;
-      font-size:11px;
-      font-weight:900;
-      letter-spacing:.06em;
-    }
-
-    .archive-status.win{
-      color:var(--green);
-      border:1px solid rgba(139,234,111,.16);
-      background:rgba(139,234,111,.10);
-    }
-
-    .archive-status.lose{
-      color:#ff8f88;
-      border:1px solid rgba(255,143,136,.15);
-      background:rgba(255,143,136,.10);
-    }
-
-
-    .archive-status.released{
-      color:#f4f8fb;
-      border:1px solid rgba(255,255,255,.16);
-      background:linear-gradient(90deg,rgba(46,199,241,.10),rgba(139,234,111,.08));
-    }
-
-    .archive-status.heli{
-      color:var(--cyan);
-      border:1px solid rgba(46,199,241,.16);
-      background:rgba(46,199,241,.09);
-    }
-
-    .archive-title{
-      margin:0 0 8px;
-      font-size:18px;
-      font-weight:900;
-      letter-spacing:-.02em;
-    }
-
-    .archive-copy{
-      margin:0 0 22px;
       color:var(--muted);
       font-size:14px;
       line-height:1.6;
     }
 
-    .archive-metrics{
+    .research-grid{
       display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:8px;
-      margin-top:auto;
-      padding-top:18px;
-      border-top:1px solid var(--line);
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:18px;
     }
 
-    .archive-metric span{
-      display:block;
-      margin-bottom:3px;
-      color:var(--muted);
-      font-size:10px;
-      font-weight:800;
-      text-transform:uppercase;
-      letter-spacing:.08em;
+    .research-card{
+      position:relative;
+      overflow:hidden;
+      min-height:270px;
+      padding:28px;
+      transition:.22s ease;
     }
 
-    .archive-metric strong{
-      font-size:15px;
+    .research-card:hover{
+      transform:translateY(-4px);
+      border-color:rgba(46,199,241,.26);
+    }
+
+    .research-card:nth-child(2){
+      background:
+        radial-gradient(circle at 88% 12%,rgba(139,234,111,.09),transparent 34%),
+        linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.025));
+    }
+
+    .research-code{
+      color:var(--cyan);
+      font-size:12px;
       font-weight:900;
+      letter-spacing:.12em;
     }
 
-    .archive-open{
+    .research-card h3{
+      margin:12px 0 10px;
+      font-size:31px;
+      letter-spacing:-.04em;
+    }
+
+    .research-card p{
+      margin:0;
+      max-width:500px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.65;
+    }
+
+    .research-open{
       display:inline-flex;
-      align-items:center;
       gap:8px;
-      margin-top:20px;
+      align-items:center;
+      margin-top:28px;
       color:#fff;
       font-size:13px;
       font-weight:850;
     }
 
-    .archive-open::after{
+    .research-open::after{
       content:"→";
       color:var(--cyan);
-      transition:transform .2s ease;
-    }
-
-    .archive-card:hover .archive-open::after{
-      transform:translateX(4px);
-    }
-
-    @media(max-width:950px){
-      .archive-grid{
-        grid-template-columns:1fr;
-      }
-
-      .archive-card{
-        min-height:auto;
-      }
-    }
-
-
-    /* CPI 11.09 PRE-FACT */
-    .pending-text{
-      color:#f1c66d !important;
-    }
-
-    .short-text{
-      color:#ff8f88 !important;
-    }
-
-    .current-analysis-link{
-      display:inline-flex;
-      align-items:center;
-      margin-top:20px;
-      padding:10px 14px;
-      border:1px solid rgba(46,199,241,.18);
-      border-radius:12px;
-      color:var(--cyan);
-      background:rgba(46,199,241,.06);
-      font-size:13px;
-      font-weight:850;
       transition:.2s ease;
     }
 
-    .current-analysis-link:hover{
-      transform:translateY(-1px);
-      background:rgba(46,199,241,.10);
+    .research-card:hover .research-open::after{
+      transform:translateX(4px);
     }
 
-    /* Keep large embedded yield charts inside page width */
-    #signals,
-    #signals .review-grid,
-    #signals .review-card,
-    #signals .frame,
-    #signals .chart{
-      max-width:100%;
+    /* =========================
+       ECONOMIC CALENDAR
+       Distinct spotlight block
+    ========================= */
+
+    #economic-calendar{
+      position:relative;
+      isolation:isolate;
+      margin-top:58px;
+      margin-bottom:58px;
+      padding:58px 44px 44px;
+      border:1px solid rgba(255,255,255,.24);
+      border-radius:36px;
+      background:
+        radial-gradient(circle at 8% -10%,rgba(255,255,255,.18),transparent 22%),
+        radial-gradient(circle at 4% 4%,rgba(46,199,241,.36),transparent 31%),
+        radial-gradient(circle at 96% 6%,rgba(139,234,111,.28),transparent 31%),
+        radial-gradient(circle at 50% 112%,rgba(255,255,255,.16),transparent 28%),
+        radial-gradient(circle at 30% 108%,rgba(46,199,241,.18),transparent 24%),
+        radial-gradient(circle at 72% 108%,rgba(139,234,111,.14),transparent 24%),
+        linear-gradient(180deg,rgba(12,34,46,.998),rgba(5,13,21,.998));
+      box-shadow:
+        0 58px 150px rgba(0,0,0,.56),
+        0 26px 70px rgba(255,255,255,.055),
+        0 34px 90px rgba(46,199,241,.12),
+        0 38px 95px rgba(139,234,111,.07),
+        0 0 80px rgba(46,199,241,.15),
+        0 0 58px rgba(139,234,111,.08),
+        0 0 0 1px rgba(255,255,255,.07),
+        inset 0 1px 0 rgba(255,255,255,.15),
+        inset 0 -1px 0 rgba(255,255,255,.08),
+        inset 0 0 55px rgba(255,255,255,.018);
     }
 
-    #signals .review-grid{
-      grid-template-columns:1fr !important;
+    #economic-calendar::after{
+      content:"US MACRO · LIVE WEEK";
+      position:absolute;
+      top:-15px;
+      left:34px;
+      z-index:2;
+      padding:8px 14px;
+      border:1px solid rgba(255,255,255,.50);
+      border-radius:999px;
+      color:#071018;
+      background:
+        linear-gradient(135deg,#ffffff 0%,#d9fbff 18%,var(--cyan) 48%,var(--green) 100%);
+      box-shadow:
+        0 12px 30px rgba(46,199,241,.28),
+        0 0 22px rgba(255,255,255,.20);
+      font-size:10px;
+      font-weight:950;
+      letter-spacing:.12em;
     }
 
-    #signals .review-card.review-wide{
-      width:100%;
+    #economic-calendar::before{
+      content:"";
+      position:absolute;
+      left:-2px;
+      top:32px;
+      bottom:32px;
+      width:6px;
+      border-radius:999px;
+      background:
+        linear-gradient(180deg,#ffffff 0%,var(--cyan) 32%,var(--green) 100%);
+      box-shadow:
+        0 0 16px rgba(255,255,255,.38),
+        0 0 30px rgba(46,199,241,.60),
+        0 0 52px rgba(139,234,111,.28);
+    }
+
+    #economic-calendar .calendar-bottom-glow{
+      position:absolute;
+      left:12%;
+      right:12%;
+      bottom:-2px;
+      height:3px;
+      border-radius:999px;
+      pointer-events:none;
+      background:
+        linear-gradient(90deg,
+          transparent 0%,
+          rgba(255,255,255,.72) 22%,
+          rgba(46,199,241,.92) 48%,
+          rgba(139,234,111,.78) 72%,
+          transparent 100%);
+      box-shadow:
+        0 0 16px rgba(255,255,255,.32),
+        0 0 30px rgba(46,199,241,.30),
+        0 12px 44px rgba(46,199,241,.16),
+        0 16px 54px rgba(139,234,111,.10);
+      opacity:.9;
+    }
+
+    #economic-calendar .section-head{
+      margin-bottom:24px;
+      padding:0 4px;
+    }
+
+    #economic-calendar .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border:1px solid rgba(46,199,241,.26);
+      border-radius:999px;
+      color:#8beaff;
+      background:rgba(46,199,241,.11);
+      box-shadow:
+        inset 0 0 20px rgba(46,199,241,.05),
+        0 0 22px rgba(46,199,241,.07);
+    }
+
+    #economic-calendar .section-head h2{
+      margin-top:14px;
+      color:#fff;
+      font-size:clamp(40px,5vw,62px);
+      letter-spacing:-.058em;
+      text-shadow:
+        0 0 12px rgba(255,255,255,.14),
+        0 0 34px rgba(46,199,241,.20),
+        0 0 54px rgba(139,234,111,.08);
+    }
+
+    #economic-calendar .section-head p{
+      color:#b6c4cd;
+    }
+
+    .calendar-shell{
+      position:relative;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.18);
+      background:
+        radial-gradient(circle at 0% 0%,rgba(255,255,255,.08),transparent 18%),
+        radial-gradient(circle at 0% 0%,rgba(46,199,241,.11),transparent 28%),
+        linear-gradient(180deg,rgba(20,37,49,.998),rgba(8,17,26,.998));
+      box-shadow:
+        0 28px 80px rgba(0,0,0,.42),
+        0 0 52px rgba(46,199,241,.10),
+        0 0 26px rgba(255,255,255,.025),
+        inset 0 1px 0 rgba(255,255,255,.10);
+    }
+
+    .calendar-shell::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:
+        linear-gradient(120deg,rgba(255,255,255,.055),transparent 16%,transparent 82%,rgba(139,234,111,.025));
+      mix-blend-mode:screen;
+    }
+
+    .calendar-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:21px 22px;
+      border-bottom:1px solid rgba(255,255,255,.14);
+      background:
+        linear-gradient(90deg,rgba(255,255,255,.10),rgba(46,199,241,.18) 30%,rgba(139,234,111,.10) 100%);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.10),
+        inset 0 -1px 0 rgba(255,255,255,.04),
+        0 10px 30px rgba(0,0,0,.16);
+    }
+
+    .calendar-meta{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .live-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      padding:7px 10px;
+      border:1px solid rgba(255,255,255,.20);
+      border-radius:999px;
+      color:#d7ffc9;
+      background:
+        linear-gradient(90deg,rgba(255,255,255,.08),rgba(139,234,111,.14));
+      box-shadow:
+        0 0 24px rgba(139,234,111,.12),
+        inset 0 1px 0 rgba(255,255,255,.06);
+      font-size:11px;
+      font-weight:950;
+      letter-spacing:.07em;
+    }
+
+    .live-pill::before{
+      content:"";
+      width:7px;
+      height:7px;
+      border-radius:50%;
+      background:var(--green);
+      box-shadow:0 0 12px rgba(139,234,111,.65);
+    }
+
+    .calendar-filters{
+      display:flex;
+      gap:6px;
+      flex-wrap:wrap;
+    }
+
+    .filter-btn{
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:10px;
+      padding:7px 10px;
+      color:#d7e0e6;
+      background:rgba(255,255,255,.05);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.035);
+      font:inherit;
+      font-size:11px;
+      font-weight:850;
+      cursor:pointer;
+    }
+
+    .filter-btn.active{
+      color:#071018;
+      border-color:rgba(255,255,255,.45);
+      background:
+        linear-gradient(135deg,#ffffff 0%,#dffcff 18%,var(--cyan) 52%,var(--green) 100%);
+      box-shadow:
+        0 0 0 2px rgba(255,255,255,.10),
+        0 0 24px rgba(46,199,241,.22),
+        0 0 14px rgba(255,255,255,.10);
+    }
+
+    .calendar-body{
+      padding:6px 18px 18px;
+    }
+
+    .calendar-day{
+      margin-top:14px;
+      padding:12px 12px 6px;
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:18px;
+      background:
+        radial-gradient(circle at 0% 0%,rgba(255,255,255,.035),transparent 20%),
+        linear-gradient(180deg,rgba(255,255,255,.032),rgba(255,255,255,.012));
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.03),
+        0 8px 24px rgba(0,0,0,.08);
+    }
+
+    .day-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:4px 4px 11px;
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+
+    .day-title{
+      font-size:14px;
+      font-weight:950;
+      letter-spacing:.05em;
+      color:#f4fbff;
+    }
+
+    .day-count{
+      color:var(--muted);
+      font-size:11px;
+    }
+
+    .event-row{
+      display:grid;
+      grid-template-columns:76px minmax(240px,1.5fr) 90px repeat(3,minmax(82px,.55fr));
+      gap:12px;
+      align-items:center;
+      margin:5px 0;
+      padding:13px 14px;
+      border:1px solid transparent;
+      border-radius:13px;
+      transition:.15s ease;
+    }
+
+    .event-row:hover{
+      border-color:rgba(255,255,255,.14);
+      background:
+        linear-gradient(90deg,rgba(255,255,255,.055),rgba(46,199,241,.045));
+      box-shadow:
+        0 6px 18px rgba(0,0,0,.10),
+        inset 0 1px 0 rgba(255,255,255,.035);
+      transform:translateX(3px);
+    }
+
+
+    .event-row:has(.impact-high){
+      border-left:2px solid rgba(255,143,136,.45);
+      background:linear-gradient(90deg,rgba(255,143,136,.055),transparent 55%);
+    }
+
+    .event-row:has(.impact-high):hover{
+      border-color:rgba(255,143,136,.15);
+      background:linear-gradient(90deg,rgba(255,143,136,.045),rgba(46,199,241,.025));
+    }
+
+    .event-time{
+      font-size:13px;
+      font-weight:900;
+    }
+
+    .event-name{
+      min-width:0;
+      font-size:13px;
+      font-weight:800;
+      line-height:1.35;
+    }
+
+    .impact-pill{
+      justify-self:start;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:5px 8px;
+      border-radius:999px;
+      font-size:10px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.05em;
+      white-space:nowrap;
+    }
+
+    .impact-pill::before{
+      content:"";
+      width:6px;
+      height:6px;
+      border-radius:50%;
+      background:currentColor;
+    }
+
+    .impact-high{
+      color:var(--red);
+      background:rgba(255,143,136,.10);
+      border:1px solid rgba(255,143,136,.15);
+    }
+
+    .impact-medium{
+      color:var(--amber);
+      background:rgba(241,198,109,.10);
+      border:1px solid rgba(241,198,109,.15);
+    }
+
+    .impact-low{
+      color:var(--cyan);
+      background:rgba(46,199,241,.08);
+      border:1px solid rgba(46,199,241,.13);
+    }
+
+    .impact-holiday{
+      color:#aab8c1;
+      background:rgba(255,255,255,.045);
+      border:1px solid var(--line);
+    }
+
+    .metric{
       min-width:0;
     }
 
-    #signals .chart{
-      height:auto !important;
-      object-fit:contain;
+    .metric span{
+      display:block;
+      margin-bottom:2px;
+      color:#71828e;
+      font-size:9px;
+      font-weight:850;
+      text-transform:uppercase;
+      letter-spacing:.07em;
     }
 
-    .chart-placeholder{
-      min-height:180px;
-      display:grid;
-      place-items:center;
-      gap:6px;
-      padding:24px;
-      border:1px dashed rgba(255,255,255,.14);
-      border-radius:16px;
+    .metric strong{
+      display:block;
+      overflow:hidden;
+      color:#dce5ea;
+      font-size:12px;
+      font-weight:850;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+    }
+
+    .metric.actual strong:not(:empty){
+      color:var(--green);
+    }
+
+    .calendar-state{
+      padding:42px 20px;
       color:var(--muted);
-      background:rgba(255,255,255,.025);
       text-align:center;
+      font-size:14px;
     }
 
-    .chart-placeholder strong{
-      color:var(--text);
-      font-size:16px;
+    .calendar-footer{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      padding:13px 20px;
+      border-top:1px solid var(--line);
+      color:#71828e;
+      font-size:11px;
     }
 
+    .calendar-footer a{
+      color:#9fb0bd;
+      font-weight:800;
+    }
+
+
+    /* =========================
+       MARKET REACTION
+    ========================= */
+
+    .market-reaction{
+      padding-top:20px;
+      padding-bottom:28px;
+    }
+
+    .market-reaction-shell{
+      position:relative;
+      overflow:hidden;
+      padding:30px;
+      border:1px solid rgba(255,255,255,.15);
+      border-radius:28px;
+      background:
+        radial-gradient(circle at 8% 0%,rgba(255,255,255,.08),transparent 22%),
+        radial-gradient(circle at 4% 4%,rgba(46,199,241,.14),transparent 30%),
+        radial-gradient(circle at 96% 10%,rgba(139,234,111,.10),transparent 28%),
+        linear-gradient(180deg,rgba(15,28,38,.985),rgba(7,15,23,.985));
+      box-shadow:
+        0 28px 80px rgba(0,0,0,.34),
+        inset 0 1px 0 rgba(255,255,255,.06);
+    }
+
+    .market-reaction-shell::before{
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      top:0;
+      height:2px;
+      background:
+        linear-gradient(90deg,
+          transparent,
+          rgba(255,255,255,.55) 18%,
+          var(--cyan) 48%,
+          var(--green) 75%,
+          transparent);
+      box-shadow:0 0 24px rgba(46,199,241,.22);
+    }
+
+    .market-meta{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-bottom:22px;
+    }
+
+    .market-chip{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      padding:7px 10px;
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:999px;
+      color:#c7d3da;
+      background:rgba(255,255,255,.045);
+      font-size:11px;
+      font-weight:850;
+    }
+
+    .market-chip.primary{
+      color:#071018;
+      border-color:rgba(255,255,255,.30);
+      background:
+        linear-gradient(135deg,#ffffff 0%,#dffcff 20%,var(--cyan) 55%,var(--green) 100%);
+    }
+
+    .market-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:14px;
+    }
+
+    .market-card{
+      min-width:0;
+      padding:20px;
+      border:1px solid rgba(255,255,255,.09);
+      border-radius:20px;
+      background:
+        linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.018));
+      transition:.18s ease;
+    }
+
+    .market-card:hover{
+      transform:translateY(-3px);
+      border-color:rgba(46,199,241,.18);
+      background:
+        linear-gradient(180deg,rgba(255,255,255,.06),rgba(46,199,241,.025));
+      box-shadow:0 14px 34px rgba(0,0,0,.20);
+    }
+
+    .market-symbol{
+      color:var(--cyan);
+      font-size:12px;
+      font-weight:950;
+      letter-spacing:.10em;
+    }
+
+    .market-price{
+      margin-top:10px;
+      color:#fff;
+      font-size:30px;
+      font-weight:950;
+      letter-spacing:-.045em;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .market-change{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      margin-top:10px;
+      padding:6px 9px;
+      border-radius:999px;
+      font-size:11px;
+      font-weight:950;
+    }
+
+    .market-change.up{
+      color:#b8ff9f;
+      background:rgba(139,234,111,.10);
+      border:1px solid rgba(139,234,111,.16);
+    }
+
+    .market-change.down{
+      color:#ffaaa5;
+      background:rgba(255,143,136,.10);
+      border:1px solid rgba(255,143,136,.16);
+    }
+
+    .market-change.flat{
+      color:#d2dde3;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+    }
+
+    .market-note{
+      margin-top:12px;
+      color:#91a3af;
+      font-size:12px;
+      line-height:1.5;
+    }
+
+    .market-edit-hint{
+      margin-top:18px;
+      color:#6f818d;
+      font-size:11px;
+      line-height:1.55;
+    }
+
+    @media(max-width:950px){
+      .market-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+    }
+
+    @media(max-width:620px){
+      .market-reaction-shell{
+        padding:22px 18px;
+      }
+
+      .market-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    footer{
+      width:min(1120px,calc(100% - 32px));
+      margin:46px auto 0;
+      padding:28px 0 36px;
+      border-top:1px solid var(--line);
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      color:#82939f;
+      font-size:12px;
+    }
+
+    footer strong{color:#fff}
+
+    @media(max-width:950px){
+      .hero,
+      .research-grid{
+        grid-template-columns:1fr;
+      }
+
+      .event-row{
+        grid-template-columns:68px minmax(180px,1fr) 88px;
+      }
+
+      .metric{
+        display:none;
+      }
+    }
+
+    @media(max-width:680px){
+      #economic-calendar{
+        padding:28px 18px 24px;
+        border-radius:24px;
+      }
+
+      #economic-calendar::before{
+        top:28px;
+        bottom:28px;
+      }
+
+      .site-brand span:last-child{display:none}
+      .site-links a{padding:7px 8px;font-size:12px}
+      .hero{padding-top:52px}
+      .hero-main,.hero-side{padding:24px}
+      .section-head{align-items:flex-start;flex-direction:column}
+      .calendar-top{align-items:flex-start;flex-direction:column}
+      .event-row{
+        grid-template-columns:58px 1fr;
+        gap:9px;
+      }
+      .impact-pill{
+        grid-column:2;
+      }
+      .calendar-footer,
+      footer{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+    }
   </style>
 </head>
 
 <body>
 
-
-  <!-- NAVIGATION -->
-
   <nav class="site-nav">
-
-    <a
-      class="site-brand"
-      href="https://vikundey.github.io/vikundey.crypto/index.html"
-    >
+    <a class="site-brand" href="https://vikundey.github.io/vikundey.crypto/index.html">
       <img
         class="site-brand-logo"
-        src="../logo.png"
+        src="./logo.png"
         alt="vikundey.crypto logo"
       />
       <span>vikundey.crypto</span>
     </a>
 
-
     <div class="site-links">
-
-      <a
-        href="https://vikundey.github.io/vikundey.crypto/index.html"
-      >
-        Головна
-      </a>
-
-      <a
-        href="https://vikundey.github.io/vikundey.crypto/nfp/index.html"
-      >
-        NFP
-      </a>
-
-      <a
-        class="active"
-        href="https://vikundey.github.io/vikundey.crypto/cpi/index.html"
-      >
-        CPI
-      </a>
-
+      <a class="active" href="https://vikundey.github.io/vikundey.crypto/index.html">Головна</a>
+      <a href="https://vikundey.github.io/vikundey.crypto/nfp/index.html">NFP</a>
+      <a href="https://vikundey.github.io/vikundey.crypto/cpi/index.html">CPI</a>
     </div>
-
   </nav>
 
 
   <main>
 
+    <section class="wrap hero">
 
-    <!-- HERO -->
+      <article class="hero-main">
+        <div class="eyebrow">Macro Research</div>
 
-    <section class="hero">
+        <h1>
+          Дані.<br>
+          <span class="accent">Макро. Ринки.</span>
+        </h1>
 
-      <div class="wrap hero-grid">
-
-        <div class="hero-main">
-
-          <div class="eyebrow">
-            <span class="dot"></span>
-            CPI · USD
-          </div>
-
-          <h1>
-            Consumer
-            <br>
-            <span class="accent">
-              Price Index
-            </span>
-          </h1>
-
-          <p class="lead">
-            Один із головних інфляційних показників США.
-            CPI допомагає оцінити зміну споживчих цін,
-            інфляційний тиск та потенційний напрямок
-            монетарної політики Федеральної резервної системи.
-          </p>
-
-        </div>
+        <p class="hero-copy">
+          Аналітика ключових макроекономічних показників США
+          та їхнього впливу на долар, криптовалюти й ризикові активи.
+        </p>
+      </article>
 
 
-        <div class="hero-side">
+      <aside class="hero-side">
 
-          <div>
-
-            <div class="kicker">
-              Inflation
-            </div>
-
-            <div class="hero-value accent">
-              CPI
-            </div>
-
-            <p>
-              Інфляція →
-              очікування щодо ставки ФРС →
-              дохідності →
-              USD →
-              акції та криптовалюти.
-            </p>
-
-          </div>
-
-          <div class="hero-footer">
-            vikundey.crypto · Macro Research
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- FUNDAMENTAL -->
-
-    <section>
-
-      <div class="wrap">
-
-        <div class="section-head">
-
-          <div>
-
-            <div class="kicker">
-              01 · CPI
-            </div>
-
-            <h2>
-              Що показує CPI
-            </h2>
-
-          </div>
+        <div>
+          <div class="kicker">Research Logic</div>
+          <h2>Macro → Market</h2>
 
           <p>
-            Consumer Price Index показує,
-            як змінюється середній рівень цін
-            на товари та послуги,
-            які купують споживачі.
+            Від даних і очікувань до монетарної політики,
+            USD та реакції ризикових активів.
           </p>
-
         </div>
 
-
-        <div class="grid-3">
-
-          <article class="card">
-
-            <div class="number">1</div>
-
-            <h3>
-              Headline CPI
-            </h3>
-
-            <p>
-              Загальний CPI включає всі основні категорії,
-              зокрема продукти харчування та енергоносії.
-            </p>
-
-          </article>
-
-
-          <article class="card">
-
-            <div class="number">2</div>
-
-            <h3>
-              Core CPI
-            </h3>
-
-            <p>
-              Базовий CPI виключає продукти харчування
-              та енергію і допомагає оцінити
-              стійкіший інфляційний тиск.
-            </p>
-
-          </article>
-
-
-          <article class="card">
-
-            <div class="number">3</div>
-
-            <h3>
-              MoM / YoY
-            </h3>
-
-            <p>
-              CPI аналізують як у місячному вимірі MoM,
-              так і у річному вимірі YoY.
-            </p>
-
-          </article>
-
+        <div class="hero-logic">
+          <div class="logic-row">Data → Expectations</div>
+          <div class="logic-row">Fed → USD</div>
+          <div class="logic-row">Liquidity → Risk Assets</div>
         </div>
 
-      </div>
+      </aside>
 
     </section>
 
 
-    <!-- MARKET LOGIC -->
+    <section class="wrap">
 
-    <section>
+      <div class="section-head">
+        <div>
+          <div class="kicker">Research</div>
+          <h2>Обери дослідження</h2>
+        </div>
 
-      <div class="wrap">
+        <p>
+          Поточні розбори та історія попередніх релізів
+          ключових макроекономічних показників США.
+        </p>
+      </div>
 
-        <div class="section-head">
 
-          <div>
+      <div class="research-grid">
 
-            <div class="kicker">
-              02 · Market Logic
-            </div>
-
-            <h2>
-              Як читати CPI
-            </h2>
-
-          </div>
+        <a class="research-card" href="https://vikundey.github.io/vikundey.crypto/nfp/index.html">
+          <div class="research-code">LABOR MARKET</div>
+          <h3>NFP</h3>
 
           <p>
-            Ринок оцінює не лише саме значення CPI,
-            а його відхилення від прогнозу
-            та вплив на майбутню політику ФРС.
+            Ринок праці США, Nonfarm Payrolls, Unemployment Rate,
+            Average Hourly Earnings та авторський pre-fact / post-fact аналіз.
           </p>
 
-        </div>
+          <div class="research-open">Відкрити NFP</div>
+        </a>
 
 
-        <div class="logic">
-
-          <div class="logic-row">
-            <div class="logic-num">1</div>
-            <div>
-              Виходять Headline CPI та Core CPI.
-            </div>
-          </div>
-
-          <div class="logic-row">
-            <div class="logic-num">2</div>
-            <div>
-              Фактичні значення порівнюються з очікуваннями ринку.
-            </div>
-          </div>
-
-          <div class="logic-row">
-            <div class="logic-num">3</div>
-            <div>
-              Змінюються очікування щодо процентної ставки ФРС.
-            </div>
-          </div>
-
-          <div class="logic-row">
-            <div class="logic-num">4</div>
-            <div>
-              Реагують USD, US Treasuries,
-              акції, золото та криптовалюти.
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- CURRENT AUTHOR ANALYSIS -->
-
-    
-    <!-- CURRENT AUTHOR ANALYSIS -->
-
-    <section id="current-analysis">
-
-      <div class="wrap">
-
-        <div class="section-head analysis-intro">
-
-          <div>
-            <div class="kicker">
-              Vikundey Analysis
-            </div>
-
-            <h2>
-              Поточний аналіз CPI
-            </h2>
-          </div>
+        <a class="research-card" href="https://vikundey.github.io/vikundey.crypto/cpi/index.html">
+          <div class="research-code">INFLATION</div>
+          <h3>CPI</h3>
 
           <p>
-            Фінальний release setup, макросигнали, Bond Yields, Brent,
-            Vikundey Thinking та сценарій для CPI USD 11.09.2026.
+            Інфляція США, CPI / Core CPI, ринкові очікування,
+            BRENT-контекст та авторський аналіз реакції ринку.
           </p>
 
+          <div class="research-open">Відкрити CPI</div>
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <section class="wrap" id="economic-calendar">
+
+      <div class="section-head">
+        <div>
+          <div class="kicker">This Week · US Macro</div>
+          <h2>US Economic Calendar</h2>
         </div>
 
-        <div class="analysis">
+        <p>
+          Економічні події США цього тижня.
+          Час автоматично конвертується у Europe/Kyiv.
+        </p>
+      </div>
 
-          <div class="kicker">
-            CPI USD · 11.09.2026 · RELEASED
+
+      <div class="calendar-shell">
+
+        <div class="calendar-top">
+          <div class="calendar-meta">
+            <span class="live-pill">AUTO UPDATED</span>
+            <span id="calendarRange">Завантаження тижня...</span>
+            <span id="calendarUpdated"></span>
           </div>
 
-          <h3>
-            Ключові значення релізу
-          </h3>
-
-          <div class="analysis-summary">
-
-            <div class="analysis-stat">
-              <span>Previous</span>
-              <strong>3.4%</strong>
-            </div>
-
-            <div class="analysis-stat">
-              <span>Forecast</span>
-              <strong>3.4%</strong>
-            </div>
-
-            <div class="analysis-stat">
-              <span>Actual</span>
-              <strong>3.4%</strong>
-            </div>
-
+          <div class="calendar-filters" aria-label="Calendar impact filter">
+            <button class="filter-btn active" data-filter="all" type="button">ALL</button>
+            <button class="filter-btn" data-filter="high" type="button">HIGH</button>
+            <button class="filter-btn" data-filter="high-medium" type="button">HIGH + MED</button>
           </div>
+        </div>
 
-          <div class="analysis-meta">
+        <div class="calendar-body" id="calendarBody">
+          <div class="calendar-state">Завантажуємо US events...</div>
+        </div>
 
-            <div class="analysis-meta-card">
-              <span>Position bias</span>
-              <strong class="short-text">SHORT</strong>
-            </div>
-
-            <div class="analysis-meta-card">
-              <span>Signal score</span>
-              <strong>50%</strong>
-            </div>
-
-            <div class="analysis-meta-card">
-              <span>Predict</span>
-              <strong class="short-text">SHORT</strong>
-            </div>
-
-          </div>
-
-          <a
-            class="current-analysis-link"
-            href="https://vikundey.github.io/vikundey.crypto/cpi/2026-09-11/index.html"
-          >
-            Відкрити повний аналіз 11.09 →
+        <div class="calendar-footer">
+          <span id="calendarCount">Forex Factory feed</span>
+          <a href="https://www.forexfactory.com/calendar" target="_blank" rel="noopener noreferrer">
+            Source: Forex Factory ↗
           </a>
+        </div>
 
+      </div>
+
+      <div class="calendar-bottom-glow" aria-hidden="true"></div>
+
+    </section>
+
+  </main>
+
+
+
+    <section class="wrap market-reaction" id="market-reaction">
+
+      <div class="section-head">
+        <div>
+          <div class="kicker">Post-Release Snapshot</div>
+          <h2>Реакція ринку</h2>
+        </div>
+
+        <p>
+          Швидкий manual snapshot поведінки ключових ринків
+          після останнього важливого макроекономічного релізу.
+        </p>
+      </div>
+
+      <div class="market-reaction-shell">
+
+        <div class="market-meta">
+          <span class="market-chip primary" id="marketEvent">LAST EVENT · —</span>
+          <span class="market-chip" id="marketReleased">Released · —</span>
+          <span class="market-chip" id="marketWindow">Window · —</span>
+        </div>
+
+        <div class="market-grid" id="marketGrid"></div>
+
+        <div class="market-edit-hint">
+          Manual mode · значення редагуються в одному блоці <strong>MARKET_REACTION</strong>
+          внизу HTML-файлу.
         </div>
 
       </div>
@@ -1927,561 +1160,295 @@
     </section>
 
 
-
-<div class="wrap">
-<section id="signals">
-        <div class="section-head">
-          <div>
-            <h2>Signal setup</h2>
-            <div class="section-note">Чекліст та цифри макропоказників.</div>
-          </div>
-        </div>
-
-        <div class="grid-2">
-          <div class="panel card">
-            <div class="card-title">Checklist</div>
-            <div class="controls">
-              <div class="control-row"><span class="control-name"><span class="mini-icon">M</span>Manufacturing PMI</span><span class="check"><span class="dot on"></span>on</span></div>
-              <div class="control-row"><span class="control-name"><span class="mini-icon">S</span>Services PMI</span><span class="check"><span class="dot"></span>off</span></div>
-              <div class="control-row"><span class="control-name"><span class="mini-icon">%</span>% for LONG</span><span class="tag glow">50%</span></div>
-              <div class="control-row"><span class="control-name"><span class="mini-icon">Σ</span>% value</span><span class="tag">50</span></div>
-              <div class="control-row"><span class="control-name"><span class="mini-icon">B</span>BRENT PRICE</span><span class="check"><span class="dot on"></span>on</span></div>
-              <div class="control-row"><span class="control-name"><span class="mini-icon">C</span>Consumer Confidence</span><span class="check"><span class="dot on"></span>on</span></div>
-              <div class="control-row"><span class="control-name"><span class="mini-icon">N</span>NFP</span><span class="check"><span class="dot"></span>off</span></div>
-              <div class="control-row"><span class="control-name"><span class="mini-icon">P</span>Predict</span><span class="pill short">Short</span></div>
-              <div class="control-row"><span class="control-name"><span class="mini-icon">C</span>Previous CPI y/y</span><span class="check"><span class="dot"></span>off</span></div>
-              <div class="control-row"><span class="control-name"><span class="mini-icon">R</span>Retail Sales</span><span class="check"><span class="dot on"></span>on</span></div>
-              <div class="control-row"><span class="control-name"><span class="mini-icon">U</span>Unemployment Rate</span><span class="check"><span class="dot"></span>off</span></div>
-              <div class="control-row"><span class="control-name"><span class="mini-icon">W</span>Win / Lose</span><span class="pill neutral">—</span></div>
-            </div>
-          </div>
-
-          <div class="panel card">
-            <div class="card-title">Macro signals</div>
-            <div class="table-wrap">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Previous</th>
-                    <th>Forecast</th>
-                    <th>Actual</th>
-                    <th>Rising / Reduction</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr><td>ISM Services PMI</td><td>54.1</td><td>54.3</td><td>55.4</td><td><span class="dir short">Short</span></td></tr>
-                  <tr><td>ISM Manufacturing PMI</td><td>55.6</td><td>55.2</td><td>54.6</td><td><span class="dir long">Long</span></td></tr>
-                  <tr><td>Consumer Confidence</td><td>90.2</td><td>90.2</td><td>89.4</td><td><span class="dir long">Long</span></td></tr>
-                  <tr><td>Unemployment Rate</td><td>4.1</td><td>4.1</td><td>4.1</td><td><span class="dir neutral">previous values</span></td></tr>
-                  <tr><td>Previous CPI y/y</td><td>3.5</td><td>3.4</td><td>3.4</td><td><span class="dir neutral">previous values</span></td></tr>
-                  <tr><td>NFP</td><td>-23</td><td>56</td><td>162</td><td><span class="dir short">Short</span></td></tr>
-                  <tr><td>BRENT PRICE</td><td>92.89</td><td>-</td><td>86.25</td><td><span class="dir long">Long</span></td></tr>
-                  <tr><td>Retail Sales</td><td>0.2</td><td>0.1</td><td>-0.6</td><td><span class="dir long">Long</span></td></tr>
-                  <tr><td>PPI</td><td>4.8</td><td>5.3</td><td>5.4</td><td><span class="dir short">Short</span></td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-
-        <div class="review-grid" style="margin-top:22px">
-          <article class="review-card before review-wide">
-            <div class="review-head"><h3>2Y Bond Yields</h3><span class="pill blue">Rates</span></div>
-            <div class="frame"><div class="chart-placeholder">
-      <strong>2Y Bond Yields</strong>
-      <span>Зображення прибрано з HTML для зменшення розміру файлу.</span>
-    </div></div>
-            <div class="chart-meta">Найбільш чутливий інструмент до очікувань щодо ставки ФРС. За місяць маємо близько +8% росту, що сигналізує про жорсткішу політику ФРС і підвищені інфляційні ризики.</div>
-          </article>
-
-          <article class="review-card after review-wide">
-            <div class="review-head"><h3>5Y Bond Yields</h3><span class="pill long">Rates</span></div>
-            <div class="frame"><div class="chart-placeholder">
-      <strong>5Y Bond Yields</strong>
-      <span>Зображення прибрано з HTML для зменшення розміру файлу.</span>
-    </div></div>
-            <div class="chart-meta">Показує більш середньострокові настрої. Також бачимо близько +8% росту, тобто ринок закладає вищу ставку ФРС на довший період або менше знижень ставки, ніж очікувалося раніше.</div>
-          </article>
-        </div>
-
-        <div class="review-grid" style="margin-top:22px">
-          <article class="review-card before">
-            <div class="review-head"><h3>Настрої FED Rate</h3><span class="pill blue">Probabilities</span></div>
-            <div class="frame"><div class="chart-placeholder">
-      <strong>Настрої FED Rate</strong>
-      <span>Зображення прибрано з HTML для зменшення розміру файлу.</span>
-    </div></div>
-            <div class="chart-meta">Поточні очікування ринку зміщені в hawkish-сценарій: ймовірність підвищення ставки ФРС вже досягла приблизно 70%.</div>
-          </article>
-
-          <article class="review-card after">
-            <div class="review-head"><h3>PPI</h3><span class="pill short">Inflation</span></div>
-            <div class="frame"><div class="chart-placeholder">
-      <strong>PPI</strong>
-      <span>Зображення прибрано з HTML для зменшення розміру файлу.</span>
-    </div></div>
-            <div class="chart-meta">PPI виріс з 4.8% до 5.4% і вийшов вище прогнозу. Це підвищує ризик сильнішого Headline CPI, хоча слабша динаміка у послугах і core-компонентах може стримати Core CPI.</div>
-          </article>
-        </div>
-
-        <div class="review-grid" style="margin-top:22px">
-          <article class="review-card before review-wide">
-            <div class="review-head"><h3>Плановий викуп облігацій</h3><span class="pill neutral">Liquidity</span></div>
-            <div class="frame"><div class="chart-placeholder">
-      <strong>Плановий викуп облігацій</strong>
-      <span>Зображення прибрано з HTML для зменшення розміру файлу.</span>
-    </div></div>
-            <div class="chart-meta">Це планова, а не раптова операція підтримки ліквідності, яка триватиме до 4 листопада. Новина не є сильним bullish-сюрпризом для risk assets, а радше дає ринку легку підтримку.</div>
-          </article>
-
-          <article class="review-card after review-wide">
-            <div class="review-head"><h3>ЄЦБ (ЄС)</h3><span class="pill long">Central bank</span></div>
-            <div class="frame"><div class="chart-placeholder">
-      <strong>ЄЦБ (ЄС)</strong>
-      <span>Зображення прибрано з HTML для зменшення розміру файлу.</span>
-    </div></div>
-            <div class="chart-meta">ЄЦБ підвищив ставку на +25 б.п. до 2.65% та переглянув прогнози щодо інфляції і ВВП. Це може бути частиною нового глобального циклу жорсткішої монетарної політики.</div>
-          </article>
-        </div>
-      </section>
-</div>
-
-<div class="wrap">
-<section id="brent">
-        <div class="section-head">
-          <div>
-            <h2>BRENT PRICE</h2>
-            <div class="section-note">Окремий блок по нафті з правильними значеннями з таблиці.</div>
-          </div>
-        </div>
-        <div class="panel card brent">
-          <div>
-            <span class="label">Previous</span>
-            <div class="brent-price">92.89</div>
-            <div class="section-note">Reference value</div>
-          </div>
-          <div style="text-align:right">
-            <span class="label">Actual</span>
-            <div class="brent-price">86.25</div>
-            <span class="pill long">Long</span>
-          </div>
-        </div>
-      </section>
-</div>
-
-<div class="wrap">
-<section id="thoughts">
-        <div class="section-head">
-          <div>
-            <h2>Vikundey Thinking</h2>
-            <div class="section-note">думки автора.</div>
-          </div>
-        </div>
-
-        <div class="thoughts-grid prefact-wrap">
-          <article class="thought-card prefact-card">
-            <div class="thought-number">PF</div>
-            <h3 class="thought-title">Pre-fact</h3>
-
-            <div class="prefact-block">
-              <h4>1️⃣ Ринок праці</h4>
-              <p>В цьому секторі маємо так званий “застой”. Тому що, за показниками бачимо +- одні й ті самі значення довгий період, особливо це IJC (первинні заявки на допомогу по безробіттю).</p>
-              <p><strong>Середній рівень заробітніх плат</strong> тримаються одного рівня з локальними сезонними сплесками. Якщо глянути на більш широкий діапазон, то там взагалі присутня низхідна тенденція по ЗП.</p>
-              <p><strong>Щодо unemployment rate</strong>, то декілька разів підряд побачили зниження по 0.1% - це не є значущою цифрою для певного вектору. Тож, не буде помилкою сказати, що рівень безробіття показав дещо позитив на ринку праці, але не обумовлює сильної зміни.</p>
-              <p><strong>По NFP</strong>, останнім часом маємо сильні скачки… Крайній показник показав абсолютно ні звідки сильне зростання! Найцікавіше, якщо у репорті переглянути і прорахувати цифри, то фінальне значення вийде У 2 РАЗИ меншим за фактичне. Тому тут навіть коментувати не буду… й так зрозуміло, що цифри намальовані і справжнє число показує - <strong>гірку і реальну правду по ринку праці!</strong></p>
-            </div>
-
-            <div class="prefact-block">
-              <h4>2️⃣ ISM Manufacturing &amp; Services PMI</h4>
-              <p><strong>По сфері послуг</strong> відбулось зростання, і значення &gt; 50, тому це несе позитив для долару! По субіндексам маємо підвищення активності, адже <strong>Prices + New Orders + Employment зростають</strong>, тому ця комбінація чітко означає, що попит підвищується. Тож, я би це індентифікувала, як <strong>значний фактор для підвищення СРІ.</strong></p>
-              <p><strong>По сфері виробництва</strong> маємо зниження, але значення &gt; 50, тому локально несе трохи негативу, але загалом ситуація - ок! По субіндексам помітно зниження активності, бо <strong>Prices + New Orders + Employment спадають</strong>, тож це чітко показує локальне зниження попиту та активності в даній сфері - це може бути навіть дещо сезонна складова. Тим не менш, я це беру, як <strong>помірний фактор для зниження СРІ.</strong></p>
-            </div>
-
-            <div class="prefact-block">
-              <h4>3️⃣ РРІ + нафта</h4>
-              <p>Вчора по РРІ отримали відчутне зростання, і зазвичай PPI ↔ CPI прямий звʼязок між собою, щоправда іноді з “лагом”, тим не менш вони разом йдуть лінійно! <strong>Можна казати, ну то всьо далі й не аналізуємо… буде 100% зростання СРІ.</strong> Воно й так, але було дуже просто, якби було все так легко 😁</p>
-              <p>Якщо копнути у звіт РРІ, то маємо наступний висновок: Слабка динаміка цін у послугах і core-компонентах означає менший інфляційний тиск «вглиб» економіки, тому <strong>Core CPI</strong> має більше шансів <strong>вийти стриманим</strong>. Спайк у товарах та energy може <strong>підтримати Нeadline CPI</strong>. Отже, це нам дає розуміння, що саме висковолатильна складова (зокрема, енергія) дала сильний пуш РРІ, але Core PPI (виключає з себе високоволатильні items) показав стриманий резалт - <strong>те саме легко може відбутися на СРІ.</strong></p>
-              <p><strong>По нафті (BRENT)</strong> отримали зниження на 6.6$ - це не є багато! І що ми побачило всередині показників, то ця ціна все рівно лишається дуже високою!</p>
-              <p>Тож <strong>все це несе контекст - у сторону помірного підвищення</strong> Headline CPI.</p>
-            </div>
-
-            <div class="prefact-block">
-              <h4>4️⃣ Фіскалка + ФРС</h4>
-              <p>Це певно найцікавіше, бо тут точиться багато-багато дискусій та сценаріїв.</p>
-              <p><strong>По дохідностях обглігацій</strong> - це скоріше сигнал, що ринок не очікує швидкого повернення інфляції до цілі. <strong>Зростання 2Y і 5Y yields = ринок закладає вищі ставки ФРС довше</strong>, тобто бачить ризик, що CPI залишатиметься підвищеним або буде знижуватись повільніше.</p>
-              <p><strong>Щодо ставки ФРС</strong>, то очікування/настрої про підвищення ставки ФРС з кожним днем ростуть. Звичайно, що рітейл цього не хоче, але рано чи пізно ця дія відбудеться. І краще, щоб це відбулося зараз (підвищення), бо економіка цього потребує ВЖЕ, потім може бути пізно або просто наслідки після підвищення будуть більш гострі!</p>
-              <p>Часто <strong>ставки найбільших економік рухаються в одному напрямку</strong>. І не завжди першими діють США - інколи інші ЦБ можуть почати цикл раніше. Вчора це вже зробили <strong>ЄС</strong>. Тож це може бути початком нового глобального циклу підвищення ставок.</p>
-            </div>
-
-            <div class="prefact-block prefact-conclusion">
-              <h4>✅ Висновок</h4>
-              <p>Підсумовуючи, <strong>мій основний сценарій - помірно сильний Headline CPI, але більш стриманий Core CPI.</strong></p>
-              <p>Адже, більшість цифр/показників вказує на фактори для підвищення інфляції: присутність попиту, відносно слабкий ринок праці, дорога енергія, закладення інфи про підвищення ставки ФРС + гаряча інфляція (2Y &amp; 5Y облігації).</p>
-              <div class="reaction-grid">
-                <div class="reaction-card"><small>Headline CPI &gt; 3.4%</small>EUR/USD ↓ &nbsp; DXY ↑ &nbsp; BTC ↓</div>
-                <div class="reaction-card"><small>Core CPI ≤ 0.2%</small>EUR/USD ↑ &nbsp; DXY ↓ &nbsp; BTC ↑</div>
-              </div>
-              <p style="margin-top:14px">Беручи цей сценарій, то думаю, що спочатку побачимо спайк вниз по EURUSD, а потім ребаланс вгору.</p>
-            </div>
-          </article>
-        </div>
-      </section>
-</div>
-
-<div class="wrap">
-<section id="review">
-        <div class="section-head">
-          <div>
-            <h2>Chart review</h2>
-            <div class="section-note">Графік BRENT та моментум релізу показника.</div>
-          </div>
-        </div>
-        <div class="wide-viewer" id="wideViewer" aria-hidden="true">
-          <div class="wide-viewer-head">
-            <div class="wide-viewer-title" id="wideViewerTitle">Chart preview</div>
-            <button class="wide-viewer-close" id="wideViewerClose" type="button" aria-label="Закрити широкоформатний перегляд">×</button>
-          </div>
-          <div class="wide-viewer-body">
-            <img class="wide-viewer-img" id="wideViewerImg" alt="" />
-            <div class="zoom-hint">Натисни × або клавішу Esc, щоб повернутись до графіків.</div>
-          </div>
-        </div>
-
-        <div class="review-grid">
-          <article class="review-card before">
-            <div class="review-head"><h3>BRENT</h3><span class="pill blue">Source chart</span></div>
-            <div class="frame"><div class="chart-placeholder">
-      <strong>BRENT</strong>
-      <span>Зображення прибрано з HTML для зменшення розміру файлу.</span>
-    </div></div>
-            <div class="chart-meta">графік нафти.</div>
-          </article>
-
-          <article class="review-card after">
-            <div class="review-head"><h3>Momentum</h3><span class="pill neutral">Pending</span></div>
-            <div class="frame">
-              <div class="chart-placeholder">
-                <div><strong>Momentum після релізу</strong><span>Actual CPI у джерелі вже вказаний: 3.4%. Окремий пост-релізний momentum-графік у PDF не доданий.</span></div>
-              </div>
-            </div>
-            <div class="chart-meta"></div>
-          </article>
-        </div>
-      </section>
-</div>
-
-</main>
-
-
-    <!-- CPI ARCHIVE -->
-
-    <section class="archive-section" id="archive">
-
-      <div class="wrap">
-
-        <div class="section-head">
-
-          <div>
-            <div class="kicker">
-              Research History
-            </div>
-
-            <h2>
-              CPI Archive
-            </h2>
-          </div>
-
-          <p>
-            Історія попередніх CPI-релізів:
-            сигнали, сценарії, авторський контекст
-            та фактична реакція ринку.
-          </p>
-
-        </div>
-
-
-        <div class="archive-grid">
-
-          <a
-            class="archive-card"
-            href="https://vikundey.github.io/vikundey.crypto/cpi/2026-09-11/index.html"
-          >
-            <div class="archive-top">
-              <div>
-                <div class="archive-date">11.09</div>
-                <span class="archive-year">2026 · CPI USD</span>
-              </div>
-
-              <span class="archive-status released">
-                RELEASED
-              </span>
-            </div>
-
-            <h3 class="archive-title">
-              CPI 11.09
-            </h3>
-
-            <p class="archive-copy">
-              SHORT setup, макросигнали, 2Y &amp; 5Y yields,
-              BRENT, Vikundey Thinking та фактичний CPI 3.4%.
-            </p>
-
-            <div class="archive-metrics">
-              <div class="archive-metric">
-                <span>Previous</span>
-                <strong>3.4%</strong>
-              </div>
-
-              <div class="archive-metric">
-                <span>Forecast</span>
-                <strong>3.4%</strong>
-              </div>
-
-              <div class="archive-metric">
-                <span>Actual</span>
-                <strong>3.4%</strong>
-              </div>
-            </div>
-
-            <div class="archive-open">
-              Відкрити аналіз
-            </div>
-          </a>
-
-
-          <a
-            class="archive-card"
-            href="https://vikundey.github.io/vikundey.crypto/cpi/2026-06-10/index.html"
-          >
-            <div class="archive-top">
-              <div>
-                <div class="archive-date">10.06</div>
-                <span class="archive-year">2026 · CPI USD</span>
-              </div>
-
-              <span class="archive-status win">
-                WIN
-              </span>
-            </div>
-
-            <h3 class="archive-title">
-              CPI 10.06
-            </h3>
-
-            <p class="archive-copy">
-              Long bias, макро-сигнали,
-              BRENT контекст, Vikundey Thinking
-              та графіки після релізу.
-            </p>
-
-            <div class="archive-metrics">
-              <div class="archive-metric">
-                <span>Previous</span>
-                <strong>3.8%</strong>
-              </div>
-
-              <div class="archive-metric">
-                <span>Forecast</span>
-                <strong>4.2%</strong>
-              </div>
-
-              <div class="archive-metric">
-                <span>Actual</span>
-                <strong>4.2%</strong>
-              </div>
-            </div>
-
-            <div class="archive-open">
-              Відкрити аналіз
-            </div>
-          </a>
-
-
-          <a
-            class="archive-card"
-            href="https://vikundey.github.io/vikundey.crypto/cpi/2026-07-14/index.html"
-          >
-            <div class="archive-top">
-              <div>
-                <div class="archive-date">14.07</div>
-                <span class="archive-year">2026 · CPI USD</span>
-              </div>
-
-              <span class="archive-status lose">
-                LOSE
-              </span>
-            </div>
-
-            <h3 class="archive-title">
-              CPI 14.07
-            </h3>
-
-            <p class="archive-copy">
-              50% LONG setup,
-              BRENT-контекст, авторський сценарій
-              і пост-факт розбір реакції.
-            </p>
-
-            <div class="archive-metrics">
-              <div class="archive-metric">
-                <span>Previous</span>
-                <strong>4.2%</strong>
-              </div>
-
-              <div class="archive-metric">
-                <span>Forecast</span>
-                <strong>3.8%</strong>
-              </div>
-
-              <div class="archive-metric">
-                <span>Actual</span>
-                <strong>3.5%</strong>
-              </div>
-            </div>
-
-            <div class="archive-open">
-              Відкрити аналіз
-            </div>
-          </a>
-
-
-          <a
-            class="archive-card"
-            href="https://vikundey.github.io/vikundey.crypto/cpi/2026-08-12/index.html"
-          >
-            <div class="archive-top">
-              <div>
-                <div class="archive-date">12.08</div>
-                <span class="archive-year">2026 · CPI USD</span>
-              </div>
-
-              <span class="archive-status heli">
-                HELICOPTER
-              </span>
-            </div>
-
-            <h3 class="archive-title">
-              CPI 12.08
-            </h3>
-
-            <p class="archive-copy">
-              50/50 контекст, сценарій Helicopter,
-              пост-факт логіка та розбір
-              моментної реакції по EURUSD.
-            </p>
-
-            <div class="archive-metrics">
-              <div class="archive-metric">
-                <span>Previous</span>
-                <strong>3.5%</strong>
-              </div>
-
-              <div class="archive-metric">
-                <span>Forecast</span>
-                <strong>3.4%</strong>
-              </div>
-
-              <div class="archive-metric">
-                <span>Actual</span>
-                <strong>3.4%</strong>
-              </div>
-            </div>
-
-            <div class="archive-open">
-              Відкрити аналіз
-            </div>
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-
-  <footer class="wrap">
-
+  <footer>
     <div>
-
-      <strong>
-        vikundey.crypto
-      </strong>
-
-      <br>
-
-      <span class="tags">
-        #algo #macro
-      </span>
-
+      <strong>vikundey.crypto</strong><br>
+      #algo #macro
     </div>
 
     <div>
-      CPI · Macro Research
+      Macro Research · NFP · CPI · US Calendar
     </div>
-
   </footer>
 
 
   <script>
-    const viewer = document.getElementById('viewer');
-    const viewerImg = document.getElementById('viewerImg');
-    const viewerTitle = document.getElementById('viewerTitle');
-    const closeBtn = document.getElementById('viewerClose');
-    document.querySelectorAll('.zoomable').forEach(img => img.addEventListener('click', () => {
-      viewerImg.src = img.src; viewerTitle.textContent = img.dataset.title || img.alt; viewer.classList.add('open');
-      viewer.scrollIntoView({behavior:'smooth', block:'start'});
-    }));
-    closeBtn.addEventListener('click', () => viewer.classList.remove('open'));
-  </script>
+    const calendarBody = document.getElementById('calendarBody');
+    const calendarRange = document.getElementById('calendarRange');
+    const calendarUpdated = document.getElementById('calendarUpdated');
+    const calendarCount = document.getElementById('calendarCount');
+    const filterButtons = [...document.querySelectorAll('.filter-btn')];
 
+    let calendarData = null;
+    let currentFilter = 'all';
 
-  <script>
-    (() => {
-      const review = document.getElementById('review');
-      const viewer = document.getElementById('wideViewer');
-      const viewerImg = document.getElementById('wideViewerImg');
-      const viewerTitle = document.getElementById('wideViewerTitle');
-      const closeBtn = document.getElementById('wideViewerClose');
-      const charts = review.querySelectorAll('.chart');
+    const UA_DAYS = {
+      MON: 'ПОНЕДІЛОК',
+      TUE: 'ВІВТОРОК',
+      WED: 'СЕРЕДА',
+      THU: 'ЧЕТВЕР',
+      FRI: 'ПʼЯТНИЦЯ',
+      SAT: 'СУБОТА',
+      SUN: 'НЕДІЛЯ'
+    };
 
-      function openWide(img){
-        viewerImg.src = img.src;
-        viewerImg.alt = img.alt || 'Chart preview';
-        viewerTitle.textContent = img.dataset.wideTitle || img.alt || 'Chart preview';
-        viewer.classList.add('open');
-        viewer.setAttribute('aria-hidden','false');
-        requestAnimationFrame(() => {
-          viewer.scrollIntoView({behavior:'smooth', block:'start'});
-        });
+    const MONTHS = [
+      'січ', 'лют', 'бер', 'кві', 'тра', 'чер',
+      'лип', 'сер', 'вер', 'жов', 'лис', 'гру'
+    ];
+
+    function escapeHtml(value = '') {
+      return String(value)
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#039;');
+    }
+
+    function formatShortDate(dateString) {
+      if (!dateString) return '';
+      const d = new Date(dateString + 'T12:00:00');
+      return `${d.getDate()} ${MONTHS[d.getMonth()]}`;
+    }
+
+    function impactClass(impact = '') {
+      const key = impact.toLowerCase();
+      if (key === 'high') return 'impact-high';
+      if (key === 'medium') return 'impact-medium';
+      if (key === 'holiday') return 'impact-holiday';
+      return 'impact-low';
+    }
+
+    function eventMatchesFilter(event) {
+      const impact = (event.impact || '').toLowerCase();
+
+      if (currentFilter === 'high') {
+        return impact === 'high';
       }
 
-      function closeWide(){
-        viewer.classList.remove('open');
-        viewer.setAttribute('aria-hidden','true');
-        viewerImg.removeAttribute('src');
+      if (currentFilter === 'high-medium') {
+        return impact === 'high' || impact === 'medium';
       }
 
-      charts.forEach(img => {
-        img.setAttribute('role','button');
-        img.setAttribute('tabindex','0');
-        img.setAttribute('aria-label',(img.dataset.wideTitle || 'Графік') + ': відкрити широкоформатно');
-        img.addEventListener('click', () => openWide(img));
-        img.addEventListener('keydown', e => {
-          if(e.key === 'Enter' || e.key === ' '){
-            e.preventDefault();
-            openWide(img);
-          }
-        });
-      });
+      return true;
+    }
 
-      closeBtn.addEventListener('click', closeWide);
-      document.addEventListener('keydown', e => {
-        if(e.key === 'Escape' && viewer.classList.contains('open')) closeWide();
+    function groupEvents(events) {
+      return events.reduce((groups, event) => {
+        if (!groups[event.date]) groups[event.date] = [];
+        groups[event.date].push(event);
+        return groups;
+      }, {});
+    }
+
+    function renderCalendar() {
+      if (!calendarData) return;
+
+      const events = calendarData.events.filter(eventMatchesFilter);
+      const groups = groupEvents(events);
+
+      if (!events.length) {
+        calendarBody.innerHTML =
+          '<div class="calendar-state">Для цього фільтра подій немає.</div>';
+        calendarCount.textContent = '0 events';
+        return;
+      }
+
+      calendarBody.innerHTML = Object.entries(groups).map(([date, dayEvents]) => {
+        const first = dayEvents[0];
+        const dayLabel = UA_DAYS[first.day] || first.day || '';
+
+        const rows = dayEvents.map(event => `
+          <div class="event-row">
+            <div class="event-time">${escapeHtml(event.time || '—')}</div>
+
+            <div class="event-name">
+              ${escapeHtml(event.title)}
+            </div>
+
+            <span class="impact-pill ${impactClass(event.impact)}">
+              ${escapeHtml(event.impact || 'Low')}
+            </span>
+
+            <div class="metric">
+              <span>Previous</span>
+              <strong>${escapeHtml(event.previous || '—')}</strong>
+            </div>
+
+            <div class="metric">
+              <span>Forecast</span>
+              <strong>${escapeHtml(event.forecast || '—')}</strong>
+            </div>
+
+            <div class="metric actual">
+              <span>Actual</span>
+              <strong>${escapeHtml(event.actual || '—')}</strong>
+            </div>
+          </div>
+        `).join('');
+
+        return `
+          <section class="calendar-day">
+            <div class="day-head">
+              <div class="day-title">
+                ${dayLabel} · ${formatShortDate(date)}
+              </div>
+
+              <div class="day-count">
+                ${dayEvents.length} events
+              </div>
+            </div>
+
+            ${rows}
+          </section>
+        `;
+      }).join('');
+
+      calendarCount.textContent =
+        `${events.length} US events · Europe/Kyiv`;
+    }
+
+    async function loadCalendar() {
+      try {
+        const response = await fetch(
+          './data/calendar.json?ts=' + Date.now(),
+          { cache: 'no-store' }
+        );
+
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+
+        calendarData = await response.json();
+
+        if (!Array.isArray(calendarData.events)) {
+          throw new Error('Invalid calendar format');
+        }
+
+        const start = formatShortDate(calendarData.week_start);
+        const end = formatShortDate(calendarData.week_end);
+
+        calendarRange.textContent =
+          start && end ? `${start} - ${end}` : 'This week';
+
+        if (calendarData.updated_at) {
+          const updated = new Date(calendarData.updated_at);
+
+          calendarUpdated.textContent =
+            `· updated ${updated.toLocaleString('uk-UA', {
+              timeZone: 'Europe/Kyiv',
+              day: '2-digit',
+              month: '2-digit',
+              hour: '2-digit',
+              minute: '2-digit'
+            })}`;
+        }
+
+        renderCalendar();
+
+      } catch (error) {
+        console.error('Calendar load error:', error);
+
+        calendarBody.innerHTML = `
+          <div class="calendar-state">
+            Не вдалося завантажити календар.
+            Перевір data/calendar.json.
+          </div>
+        `;
+
+        calendarRange.textContent = 'Calendar unavailable';
+        calendarCount.textContent = 'Data error';
+      }
+    }
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        currentFilter = button.dataset.filter;
+        renderCalendar();
       });
-    })();
+    });
+
+
+    /* =========================
+       MANUAL MARKET REACTION
+       Редагуй тільки цей блок
+    ========================= */
+
+    const MARKET_REACTION = {
+      event: "—",
+      released: "—",
+      window: "+30 min",
+
+      assets: [
+        {
+          symbol: "DXY",
+          price: "—",
+          change: "—",
+          direction: "flat",
+          note: "USD reaction"
+        },
+        {
+          symbol: "EURUSD",
+          price: "—",
+          change: "—",
+          direction: "flat",
+          note: "EUR / USD reaction"
+        },
+        {
+          symbol: "XAUUSD",
+          price: "—",
+          change: "—",
+          direction: "flat",
+          note: "Gold reaction"
+        },
+        {
+          symbol: "BTC",
+          price: "—",
+          change: "—",
+          direction: "flat",
+          note: "Risk assets reaction"
+        }
+      ]
+    };
+
+    function renderMarketReaction() {
+      const eventEl = document.getElementById('marketEvent');
+      const releasedEl = document.getElementById('marketReleased');
+      const windowEl = document.getElementById('marketWindow');
+      const gridEl = document.getElementById('marketGrid');
+
+      eventEl.textContent = `LAST EVENT · ${MARKET_REACTION.event}`;
+      releasedEl.textContent = `Released · ${MARKET_REACTION.released}`;
+      windowEl.textContent = `Window · ${MARKET_REACTION.window}`;
+
+      gridEl.innerHTML = MARKET_REACTION.assets.map(asset => {
+        const direction = ['up', 'down', 'flat'].includes(asset.direction)
+          ? asset.direction
+          : 'flat';
+
+        const arrow =
+          direction === 'up' ? '▲' :
+          direction === 'down' ? '▼' : '•';
+
+        return `
+          <article class="market-card">
+            <div class="market-symbol">${escapeHtml(asset.symbol)}</div>
+            <div class="market-price">${escapeHtml(asset.price)}</div>
+            <div class="market-change ${direction}">
+              ${arrow} ${escapeHtml(asset.change)}
+            </div>
+            <div class="market-note">${escapeHtml(asset.note)}</div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    renderMarketReaction();
+
+    loadCalendar();
   </script>
 
 </body>
