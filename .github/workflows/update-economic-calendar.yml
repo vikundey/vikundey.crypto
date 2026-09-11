@@ -22,8 +22,10 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Fetch Forex Factory calendar
-        run: python scripts/fetch_calendar.py
+      - name: Fetch economic calendar
+  env:
+    FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+  run: python scripts/fetch_calendar.py
 
       - name: Commit updated calendar
         run: |
