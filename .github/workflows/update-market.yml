@@ -2,6 +2,7 @@ name: Update Market Prices
 
 on:
   workflow_dispatch:
+
   schedule:
     - cron: "*/15 * * * *"
 
@@ -21,14 +22,19 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Fetch market prices
+      - name: Fetch live market prices
         env:
           TWELVE_DATA_API_KEY: ${{ secrets.TWELVE_DATA_API_KEY }}
         run: python scripts/fetch_market.py
 
+      - name: Fetch market reaction
+        env:
+          TWELVE_DATA_API_KEY: ${{ secrets.TWELVE_DATA_API_KEY }}
+        run: python scripts/fetch_market_reaction.py
+
       - name: Commit market data
         run: |
-          if [ -z "$(git status --porcelain -- data/live_market.json)" ]; then
+          if [ -z "$(git status --porcelain -- data/live_market.json data/market_reaction.json)" ]; then
             echo "No market data changes."
             exit 0
           fi
@@ -37,5 +43,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add data/live_market.json
-          git commit -m "Update live market prices"
+          git add data/market_reaction.json
+
+          git commit -m "Update live market and reaction data"
           git push
