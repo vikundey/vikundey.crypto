@@ -26,7 +26,7 @@ jobs:
 
       - name: Commit market data
         run: |
-          if git diff --quiet -- data/live_market.json; then
+          if [ -z "$(git status --porcelain -- data/live_market.json)" ]; then
             echo "No market data changes."
             exit 0
           fi
