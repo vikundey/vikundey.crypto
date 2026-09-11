@@ -23,9 +23,9 @@ jobs:
           python-version: "3.12"
 
       - name: Fetch economic calendar
-  env:
-    FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
-  run: python scripts/fetch_calendar.py
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+        run: python scripts/fetch_calendar.py
 
       - name: Commit updated calendar
         run: |
