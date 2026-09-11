@@ -804,7 +804,7 @@
 
     .market-grid{
       display:grid;
-      grid-template-columns:repeat(4,minmax(0,1fr));
+      grid-template-columns:repeat(3,minmax(0,1fr));
       gap:14px;
     }
 
@@ -1247,7 +1247,7 @@
         <div class="market-grid" id="marketGrid"></div>
 
         <div class="market-edit-hint" id="marketHint">
-          Live data · source: Twelve Data · 15M / 1H реакція після останнього HIGH-impact релізу.
+          Live data · source: Twelve Data · EURUSD / XAUUSD / BTC · 15M / 1H реакція після останнього HIGH-impact релізу.
         </div>
 
       </div>
@@ -1478,14 +1478,9 @@
     const marketStatusEl = document.getElementById('marketStatus');
     const marketGridEl = document.getElementById('marketGrid');
 
-    const MARKET_ORDER = ['DXY', 'EURUSD', 'XAUUSD', 'BTC'];
+    const MARKET_ORDER = ['EURUSD', 'XAUUSD', 'BTC'];
 
     const MARKET_META = {
-      DXY: {
-        label: 'DXY',
-        note: 'US Dollar Index',
-        decimals: 2
-      },
       EURUSD: {
         label: 'EURUSD',
         note: 'EUR / USD',
@@ -1577,9 +1572,7 @@
         let note = meta.note;
 
         if (!asset) {
-          note = symbol === 'DXY'
-            ? 'DXY буде підключено наступним етапом'
-            : 'Дані недоступні';
+          note = 'Дані недоступні';
         } else if (asset.status !== 'ok' || asset.price == null) {
           note = 'Помилка отримання ціни';
         }
@@ -1622,7 +1615,7 @@
               </div>
             </div>
           `;
-        } else if (event && symbol !== 'DXY') {
+        } else if (event) {
           reactionHtml = `
             <div class="reaction-pending">
               AFTER ${escapeHtml(eventName)}
