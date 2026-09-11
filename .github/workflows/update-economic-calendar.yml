@@ -25,7 +25,14 @@ jobs:
       - name: Fetch economic calendar
         env:
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
-        run: python scripts/fetch_calendar.py
+        run: |
+          if [ -z "$FRED_API_KEY" ]; then
+            echo "❌ FRED_API_KEY IS MISSING"
+            exit 1
+          fi
+
+          echo "✅ FRED_API_KEY loaded"
+          python scripts/fetch_calendar.py
 
       - name: Commit updated calendar
         run: |
