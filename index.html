@@ -920,6 +920,85 @@
       color:#ffaaa5;
     }
 
+    .market-reaction-box{
+      margin-top:14px;
+      padding-top:12px;
+      border-top:1px solid rgba(255,255,255,.07);
+    }
+
+    .market-reaction-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      margin-bottom:10px;
+      color:#8fa2ae;
+      font-size:10px;
+      font-weight:900;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+    }
+
+    .market-reaction-event{
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+    }
+
+    .market-reaction-time{
+      color:#6f838f;
+      flex:0 0 auto;
+    }
+
+    .market-reaction-metrics{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:8px;
+    }
+
+    .reaction-metric{
+      padding:9px 10px;
+      border:1px solid rgba(255,255,255,.07);
+      border-radius:12px;
+      background:rgba(255,255,255,.025);
+    }
+
+    .reaction-metric span{
+      display:block;
+      margin-bottom:4px;
+      color:#718591;
+      font-size:9px;
+      font-weight:900;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .reaction-metric strong{
+      font-size:14px;
+      font-weight:950;
+    }
+
+    .reaction-metric strong.up{
+      color:#b8ff9f;
+    }
+
+    .reaction-metric strong.down{
+      color:#ffaaa5;
+    }
+
+    .reaction-metric strong.flat{
+      color:#d7e0e6;
+    }
+
+    .reaction-pending{
+      margin-top:14px;
+      padding-top:12px;
+      border-top:1px solid rgba(255,255,255,.07);
+      color:#738793;
+      font-size:11px;
+      line-height:1.45;
+    }
+
     footer{
       width:min(1120px,calc(100% - 32px));
       margin:46px auto 0;
@@ -1168,7 +1247,7 @@
         <div class="market-grid" id="marketGrid"></div>
 
         <div class="market-edit-hint" id="marketHint">
-          Live data · source: Twelve Data · DXY буде підключено окремим етапом.
+          Live data · source: Twelve Data · 15M / 1H реакція після останнього HIGH-impact релізу.
         </div>
 
       </div>
@@ -1389,8 +1468,10 @@
 
 
     /* =========================
-       LIVE MARKET DATA
-       Source: data/live_market.json
+       LIVE MARKET + POST-RELEASE REACTION
+       Sources:
+       - data/live_market.json
+       - data/market_reaction.json
     ========================= */
 
     const marketUpdatedEl = document.getElementById('marketUpdated');
@@ -1433,6 +1514,38 @@
       });
     }
 
+    function formatReaction(value) {
+      const number = Number(value);
+
+      if (!Number.isFinite(number)) {
+        return {
+          text: '—',
+          cls: 'flat'
+        };
+      }
+
+      const sign = number > 0 ? '+' : '';
+
+      return {
+        text: `${sign}${number.toFixed(2)}%`,
+        cls: number > 0 ? 'up' : number < 0 ? 'down' : 'flat'
+      };
+    }
+
+    function formatReleaseTime(value) {
+      if (!value) return '';
+
+      const date = new Date(value);
+
+      if (Number.isNaN(date.getTime())) return '';
+
+      return date.toLocaleTimeString('uk-UA', {
+        timeZone: 'Europe/Kyiv',
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+    }
+
     function renderMarketLoading() {
       marketGridEl.innerHTML = MARKET_ORDER.map(symbol => `
         <article class="market-card loading">
@@ -1444,47 +1557,98 @@
       `).join('');
     }
 
-    function renderLiveMarket(data) {
-      const assets = data?.assets || {};
+    function renderCombinedMarket(liveData, reactionData) {
+      const assets = liveData?.assets || {};
+      const reactionAssets = reactionData?.assets || {};
+      const event = reactionData?.event || null;
+      const eventName = event?.name || '';
+      const eventTime = formatReleaseTime(event?.released_at);
 
       marketGridEl.innerHTML = MARKET_ORDER.map(symbol => {
         const meta = MARKET_META[symbol];
         const asset = assets[symbol];
+        const reaction = reactionAssets[symbol];
+
+        const livePrice =
+          asset?.status === 'ok' && asset?.price != null
+            ? formatMarketPrice(asset.price, meta.decimals)
+            : '—';
+
+        let note = meta.note;
 
         if (!asset) {
-          return `
-            <article class="market-card">
-              <div class="market-symbol">${symbol}</div>
-              <div class="market-price">—</div>
-              <div class="market-live-label">LIVE PRICE</div>
-              <div class="market-note">
-                ${symbol === 'DXY'
-                  ? 'DXY буде підключено наступним етапом'
-                  : 'Дані недоступні'}
-              </div>
-            </article>
-          `;
+          note = symbol === 'DXY'
+            ? 'DXY буде підключено наступним етапом'
+            : 'Дані недоступні';
+        } else if (asset.status !== 'ok' || asset.price == null) {
+          note = 'Помилка отримання ціни';
         }
 
-        if (asset.status !== 'ok' || asset.price == null) {
-          return `
-            <article class="market-card error">
-              <div class="market-symbol">${symbol}</div>
-              <div class="market-price">—</div>
-              <div class="market-live-label">LIVE PRICE</div>
-              <div class="market-note">Помилка отримання ціни</div>
-            </article>
+        let reactionHtml = '';
+
+        if (
+          event &&
+          reaction &&
+          reaction.status === 'ok'
+        ) {
+          const m15 = formatReaction(reaction.m15_change_pct);
+          const h1 = formatReaction(reaction.h1_change_pct);
+
+          reactionHtml = `
+            <div class="market-reaction-box">
+              <div class="market-reaction-head">
+                <span class="market-reaction-event">
+                  AFTER ${escapeHtml(eventName)}
+                </span>
+                <span class="market-reaction-time">
+                  ${escapeHtml(eventTime)}
+                </span>
+              </div>
+
+              <div class="market-reaction-metrics">
+                <div class="reaction-metric">
+                  <span>15M</span>
+                  <strong class="${m15.cls}">
+                    ${m15.text}
+                  </strong>
+                </div>
+
+                <div class="reaction-metric">
+                  <span>1H</span>
+                  <strong class="${h1.cls}">
+                    ${h1.text}
+                  </strong>
+                </div>
+              </div>
+            </div>
+          `;
+        } else if (event && symbol !== 'DXY') {
+          reactionHtml = `
+            <div class="reaction-pending">
+              AFTER ${escapeHtml(eventName)}
+              ${eventTime ? `· ${escapeHtml(eventTime)}` : ''}
+              · reaction unavailable
+            </div>
           `;
         }
 
         return `
-          <article class="market-card">
+          <article class="market-card ${asset && asset.status !== 'ok' ? 'error' : ''}">
             <div class="market-symbol">${meta.label}</div>
+
             <div class="market-price">
-              ${formatMarketPrice(asset.price, meta.decimals)}
+              ${livePrice}
             </div>
-            <div class="market-live-label">LIVE PRICE</div>
-            <div class="market-note">${meta.note}</div>
+
+            <div class="market-live-label">
+              LIVE PRICE
+            </div>
+
+            <div class="market-note">
+              ${escapeHtml(note)}
+            </div>
+
+            ${reactionHtml}
           </article>
         `;
       }).join('');
@@ -1496,8 +1660,8 @@
       marketStatusEl.textContent =
         `${onlineCount} assets online`;
 
-      if (data.updated_at) {
-        const updated = new Date(data.updated_at);
+      if (liveData?.updated_at) {
+        const updated = new Date(liveData.updated_at);
 
         marketUpdatedEl.textContent =
           `Updated · ${updated.toLocaleString('uk-UA', {
@@ -1510,40 +1674,68 @@
       }
     }
 
-    async function loadLiveMarket() {
+    async function loadMarketPulse() {
       renderMarketLoading();
 
       try {
-        const response = await fetch(
-          './data/live_market.json?ts=' + Date.now(),
-          { cache: 'no-store' }
-        );
+        const [liveResponse, reactionResponse] = await Promise.all([
+          fetch(
+            './data/live_market.json?ts=' + Date.now(),
+            { cache: 'no-store' }
+          ),
+          fetch(
+            './data/market_reaction.json?ts=' + Date.now(),
+            { cache: 'no-store' }
+          )
+        ]);
 
-        if (!response.ok) {
-          throw new Error(`HTTP ${response.status}`);
+        if (!liveResponse.ok) {
+          throw new Error(
+            `live_market.json HTTP ${liveResponse.status}`
+          );
         }
 
-        const data = await response.json();
-        renderLiveMarket(data);
+        const liveData = await liveResponse.json();
+
+        let reactionData = null;
+
+        if (reactionResponse.ok) {
+          reactionData = await reactionResponse.json();
+        } else {
+          console.warn(
+            'market_reaction.json unavailable:',
+            reactionResponse.status
+          );
+        }
+
+        renderCombinedMarket(
+          liveData,
+          reactionData
+        );
 
       } catch (error) {
-        console.error('Live market load error:', error);
+        console.error('Market Pulse load error:', error);
 
-        marketUpdatedEl.textContent = 'Updated · unavailable';
-        marketStatusEl.textContent = 'Market data error';
+        marketUpdatedEl.textContent =
+          'Updated · unavailable';
+
+        marketStatusEl.textContent =
+          'Market data error';
 
         marketGridEl.innerHTML = MARKET_ORDER.map(symbol => `
           <article class="market-card error">
             <div class="market-symbol">${symbol}</div>
             <div class="market-price">—</div>
             <div class="market-live-label">LIVE PRICE</div>
-            <div class="market-note">Не вдалося завантажити live_market.json</div>
+            <div class="market-note">
+              Не вдалося завантажити market data
+            </div>
           </article>
         `).join('');
       }
     }
 
-    loadLiveMarket();
+    loadMarketPulse();
 
     loadCalendar();
   </script>
