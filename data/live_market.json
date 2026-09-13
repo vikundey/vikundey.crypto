@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-13T19:43:26.988256+03:00",
+  "updated_at": "2026-09-13T19:54:55.787930+03:00",
   "timezone": "Europe/Kyiv",
   "assets": {
     "EURUSD": {
@@ -14,7 +14,7 @@
     },
     "BTC": {
       "symbol": "BTC/USD",
-      "price": 77330.0,
+      "price": 77283.79,
       "status": "ok"
     }
   }
