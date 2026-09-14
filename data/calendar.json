@@ -1,10 +1,10 @@
 {
   "source": "Forex Factory + FRED",
   "timezone": "Europe/Kyiv",
-  "updated_at": "2026-09-13T16:21:48.422689+03:00",
+  "updated_at": "2026-09-14T08:28:56.808430+03:00",
   "week_start": "2026-09-15",
   "week_end": "2026-09-18",
-  "event_count": 24,
+  "event_count": 25,
   "events": [
     {
       "title": "ADP Weekly Employment Change",
@@ -145,7 +145,7 @@
       "title": "Federal Funds Rate",
       "country": "USD",
       "impact": "High",
-      "forecast": "",
+      "forecast": "4.00%",
       "previous": "3.75%",
       "actual": "",
       "actual_source": "",
@@ -364,6 +364,21 @@
       "day": "FRI",
       "time": "17:00",
       "timestamp": 1789740000,
+      "impact_rank": 1
+    },
+    {
+      "title": "FOMC Member Schmid Speaks",
+      "country": "USD",
+      "impact": "Low",
+      "forecast": "",
+      "previous": "",
+      "actual": "",
+      "actual_source": "",
+      "date_iso": "2026-09-18T18:45:00+03:00",
+      "date": "2026-09-18",
+      "day": "FRI",
+      "time": "18:45",
+      "timestamp": 1789746300,
       "impact_rank": 1
     }
   ]
