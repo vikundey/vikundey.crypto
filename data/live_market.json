@@ -1,20 +1,20 @@
 {
-  "updated_at": "2026-09-16T20:41:00.758524+03:00",
+  "updated_at": "2026-09-16T20:53:39.069722+03:00",
   "timezone": "Europe/Kyiv",
   "assets": {
     "EURUSD": {
       "symbol": "EUR/USD",
-      "price": 1.15324,
+      "price": 1.15326,
       "status": "ok"
     },
     "XAUUSD": {
       "symbol": "XAU/USD",
-      "price": 4344.80361,
+      "price": 4345.37001,
       "status": "ok"
     },
     "BTC": {
       "symbol": "BTC/USD",
-      "price": 75532.01,
+      "price": 75437.54,
       "status": "ok"
     }
   }
