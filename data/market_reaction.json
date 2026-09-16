@@ -1,7 +1,39 @@
 {
-  "status": "no_recent_event",
-  "updated_at": "2026-09-16T20:53:39.142985+03:00",
+  "status": "ok",
+  "updated_at": "2026-09-16T21:13:55.629455+03:00",
   "timezone": "Europe/Kyiv",
-  "event": null,
-  "assets": {}
+  "event": {
+    "name": "Federal Funds Rate",
+    "impact": "high",
+    "released_at": "2026-09-16T21:00:00+03:00"
+  },
+  "assets": {
+    "EURUSD": {
+      "symbol": "EUR/USD",
+      "release_price": 1.1538,
+      "m15_price": null,
+      "m15_change_pct": null,
+      "h1_price": null,
+      "h1_change_pct": null,
+      "status": "ok"
+    },
+    "XAUUSD": {
+      "symbol": "XAU/USD",
+      "release_price": 4354.79968,
+      "m15_price": null,
+      "m15_change_pct": null,
+      "h1_price": null,
+      "h1_change_pct": null,
+      "status": "ok"
+    },
+    "BTC": {
+      "symbol": "BTC/USD",
+      "release_price": 75576.59,
+      "m15_price": null,
+      "m15_change_pct": null,
+      "h1_price": null,
+      "h1_change_pct": null,
+      "status": "ok"
+    }
+  }
 }
