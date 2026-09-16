@@ -1,6 +1,6 @@
 {
   "status": "ok",
-  "updated_at": "2026-09-16T22:26:47.584291+03:00",
+  "updated_at": "2026-09-16T22:40:52.479709+03:00",
   "timezone": "Europe/Kyiv",
   "event": {
     "name": "FOMC Press Conference",
@@ -13,8 +13,8 @@
       "release_price": 1.15,
       "m15_price": 1.14898,
       "m15_change_pct": -0.0887,
-      "h1_price": null,
-      "h1_change_pct": null,
+      "h1_price": 1.14665,
+      "h1_change_pct": -0.2913,
       "status": "ok"
     },
     "XAUUSD": {
@@ -22,8 +22,8 @@
       "release_price": 4319.7751,
       "m15_price": 4309.40436,
       "m15_change_pct": -0.2401,
-      "h1_price": null,
-      "h1_change_pct": null,
+      "h1_price": 4253.46731,
+      "h1_change_pct": -1.535,
       "status": "ok"
     },
     "BTC": {
@@ -31,8 +31,8 @@
       "release_price": 75890.94,
       "m15_price": 76014.01,
       "m15_change_pct": 0.1622,
-      "h1_price": null,
-      "h1_change_pct": null,
+      "h1_price": 75487.91,
+      "h1_change_pct": -0.5311,
       "status": "ok"
     }
   }
