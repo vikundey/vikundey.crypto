@@ -1,10 +1,10 @@
 {
   "source": "Forex Factory + FRED",
   "timezone": "Europe/Kyiv",
-  "updated_at": "2026-09-22T20:37:25.062799+03:00",
+  "updated_at": "2026-09-23T13:02:07.073486+03:00",
   "week_start": "2026-09-21",
   "week_end": "2026-09-25",
-  "event_count": 26,
+  "event_count": 28,
   "events": [
     {
       "title": "FOMC Member Goolsbee Speaks",
@@ -175,7 +175,7 @@
       "title": "Crude Oil Inventories",
       "country": "USD",
       "impact": "Low",
-      "forecast": "-0.6M",
+      "forecast": "-0.7M",
       "previous": "-0.6M",
       "actual": "",
       "actual_source": "",
@@ -184,6 +184,21 @@
       "day": "WED",
       "time": "17:30",
       "timestamp": 1790173800,
+      "impact_rank": 1
+    },
+    {
+      "title": "FOMC Member Goolsbee Speaks",
+      "country": "USD",
+      "impact": "Low",
+      "forecast": "",
+      "previous": "",
+      "actual": "",
+      "actual_source": "",
+      "date_iso": "2026-09-23T19:00:00+03:00",
+      "date": "2026-09-23",
+      "day": "WED",
+      "time": "19:00",
+      "timestamp": 1790179200,
       "impact_rank": 1
     },
     {
@@ -295,7 +310,7 @@
       "title": "Natural Gas Storage",
       "country": "USD",
       "impact": "Low",
-      "forecast": "52B",
+      "forecast": "50B",
       "previous": "44B",
       "actual": "",
       "actual_source": "",
@@ -349,6 +364,21 @@
       "day": "FRI",
       "time": "15:30",
       "timestamp": 1790339400,
+      "impact_rank": 1
+    },
+    {
+      "title": "FOMC Member Schmid Speaks",
+      "country": "USD",
+      "impact": "Low",
+      "forecast": "",
+      "previous": "",
+      "actual": "",
+      "actual_source": "",
+      "date_iso": "2026-09-25T16:20:00+03:00",
+      "date": "2026-09-25",
+      "day": "FRI",
+      "time": "16:20",
+      "timestamp": 1790342400,
       "impact_rank": 1
     },
     {
