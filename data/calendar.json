@@ -1,10 +1,10 @@
 {
   "source": "Forex Factory + FRED",
   "timezone": "Europe/Kyiv",
-  "updated_at": "2026-09-24T13:05:21.830111+03:00",
+  "updated_at": "2026-09-24T20:51:06.218181+03:00",
   "week_start": "2026-09-21",
   "week_end": "2026-09-25",
-  "event_count": 28,
+  "event_count": 29,
   "events": [
     {
       "title": "FOMC Member Goolsbee Speaks",
@@ -222,8 +222,8 @@
       "impact": "Medium",
       "forecast": "201K",
       "previous": "196K",
-      "actual": "",
-      "actual_source": "",
+      "actual": "197K",
+      "actual_source": "FRED",
       "date_iso": "2026-09-24T15:30:00+03:00",
       "date": "2026-09-24",
       "day": "THU",
@@ -305,6 +305,21 @@
       "time": "17:10",
       "timestamp": 1790259000,
       "impact_rank": 1
+    },
+    {
+      "title": "President Trump Speaks",
+      "country": "USD",
+      "impact": "Medium",
+      "forecast": "",
+      "previous": "",
+      "actual": "",
+      "actual_source": "",
+      "date_iso": "2026-09-24T17:15:00+03:00",
+      "date": "2026-09-24",
+      "day": "THU",
+      "time": "17:15",
+      "timestamp": 1790259300,
+      "impact_rank": 2
     },
     {
       "title": "Natural Gas Storage",
