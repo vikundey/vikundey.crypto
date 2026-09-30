@@ -1,7 +1,39 @@
 {
-  "status": "no_recent_event",
-  "updated_at": "2026-09-30T11:18:16.836007+03:00",
+  "status": "ok",
+  "updated_at": "2026-09-30T18:07:17.606529+03:00",
   "timezone": "Europe/Kyiv",
-  "event": null,
-  "assets": {}
+  "event": {
+    "name": "Core PCE Price Index m/m",
+    "impact": "high",
+    "released_at": "2026-09-30T15:30:00+03:00"
+  },
+  "assets": {
+    "EURUSD": {
+      "symbol": "EUR/USD",
+      "release_price": 1.1361,
+      "m15_price": 1.13754,
+      "m15_change_pct": 0.1267,
+      "h1_price": 1.13629,
+      "h1_change_pct": 0.0167,
+      "status": "ok"
+    },
+    "XAUUSD": {
+      "symbol": "XAU/USD",
+      "release_price": 4199.28849,
+      "m15_price": 4215.47516,
+      "m15_change_pct": 0.3855,
+      "h1_price": 4193.71189,
+      "h1_change_pct": -0.1328,
+      "status": "ok"
+    },
+    "BTC": {
+      "symbol": "BTC/USD",
+      "release_price": 84256.71,
+      "m15_price": 84979.0,
+      "m15_change_pct": 0.8572,
+      "h1_price": 85342.0,
+      "h1_change_pct": 1.2881,
+      "status": "ok"
+    }
+  }
 }
