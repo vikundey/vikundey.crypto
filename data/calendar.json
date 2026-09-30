@@ -1,10 +1,10 @@
 {
   "source": "Forex Factory + FRED",
   "timezone": "Europe/Kyiv",
-  "updated_at": "2026-09-29T21:37:04.829957+03:00",
+  "updated_at": "2026-09-30T14:11:45.643453+03:00",
   "week_start": "2026-09-28",
   "week_end": "2026-10-02",
-  "event_count": 49,
+  "event_count": 50,
   "events": [
     {
       "title": "FOMC Member Bowman Speaks",
@@ -355,7 +355,7 @@
       "title": "Crude Oil Inventories",
       "country": "USD",
       "impact": "Low",
-      "forecast": "-1.9M",
+      "forecast": "-0.7M",
       "previous": "3.0M",
       "actual": "",
       "actual_source": "",
@@ -397,6 +397,21 @@
       "impact_rank": 1
     },
     {
+      "title": "President Trump Speaks",
+      "country": "USD",
+      "impact": "Medium",
+      "forecast": "",
+      "previous": "",
+      "actual": "",
+      "actual_source": "",
+      "date_iso": "2026-09-30T22:30:00+03:00",
+      "date": "2026-09-30",
+      "day": "WED",
+      "time": "22:30",
+      "timestamp": 1790796600,
+      "impact_rank": 2
+    },
+    {
       "title": "FOMC Member Goolsbee Speaks",
       "country": "USD",
       "impact": "Low",
@@ -414,7 +429,7 @@
     {
       "title": "FOMC Member Kashkari Speaks",
       "country": "USD",
-      "impact": "Low",
+      "impact": "Medium",
       "forecast": "",
       "previous": "",
       "actual": "",
@@ -424,7 +439,7 @@
       "day": "THU",
       "time": "01:00",
       "timestamp": 1790805600,
-      "impact_rank": 1
+      "impact_rank": 2
     },
     {
       "title": "Challenger Job Cuts y/y",
@@ -595,7 +610,7 @@
       "title": "Natural Gas Storage",
       "country": "USD",
       "impact": "Low",
-      "forecast": "",
+      "forecast": "63B",
       "previous": "53B",
       "actual": "",
       "actual_source": "",
