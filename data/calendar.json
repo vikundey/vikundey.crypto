@@ -1,7 +1,7 @@
 {
   "source": "Forex Factory + FRED",
   "timezone": "Europe/Kyiv",
-  "updated_at": "2026-09-30T21:25:47.565899+03:00",
+  "updated_at": "2026-10-01T14:39:02.940741+03:00",
   "week_start": "2026-09-28",
   "week_end": "2026-10-02",
   "event_count": 50,
@@ -700,7 +700,7 @@
       "title": "Non-Farm Employment Change",
       "country": "USD",
       "impact": "High",
-      "forecast": "90K",
+      "forecast": "89K",
       "previous": "162K",
       "actual": "",
       "actual_source": "",
