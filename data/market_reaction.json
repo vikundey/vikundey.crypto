@@ -1,39 +1,7 @@
 {
-  "status": "ok",
-  "updated_at": "2026-10-04T11:49:06.293138+03:00",
+  "status": "no_recent_event",
+  "updated_at": "2026-10-04T17:39:10.118547+03:00",
   "timezone": "Europe/Kyiv",
-  "event": {
-    "name": "Average Hourly Earnings m/m",
-    "impact": "high",
-    "released_at": "2026-10-02T15:30:00+03:00"
-  },
-  "assets": {
-    "EURUSD": {
-      "symbol": "EUR/USD",
-      "release_price": 1.12425,
-      "m15_price": 1.12415,
-      "m15_change_pct": -0.0089,
-      "h1_price": 1.12526,
-      "h1_change_pct": 0.0898,
-      "status": "ok"
-    },
-    "XAUUSD": {
-      "symbol": "XAU/USD",
-      "release_price": 4199.82311,
-      "m15_price": 4215.55653,
-      "m15_change_pct": 0.3746,
-      "h1_price": 4194.42964,
-      "h1_change_pct": -0.1284,
-      "status": "ok"
-    },
-    "BTC": {
-      "symbol": "BTC/USD",
-      "release_price": 86951.03,
-      "m15_price": 86570.0,
-      "m15_change_pct": -0.4382,
-      "h1_price": 86660.0,
-      "h1_change_pct": -0.3347,
-      "status": "ok"
-    }
-  }
+  "event": null,
+  "assets": {}
 }
