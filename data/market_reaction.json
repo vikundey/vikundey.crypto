@@ -1,7 +1,39 @@
 {
-  "status": "no_recent_event",
-  "updated_at": "2026-10-07T16:24:22.679412+03:00",
+  "status": "ok",
+  "updated_at": "2026-10-07T22:26:48.956852+03:00",
   "timezone": "Europe/Kyiv",
-  "event": null,
-  "assets": {}
+  "event": {
+    "name": "FOMC Meeting Minutes",
+    "impact": "high",
+    "released_at": "2026-10-07T21:00:00+03:00"
+  },
+  "assets": {
+    "EURUSD": {
+      "symbol": "EUR/USD",
+      "release_price": 1.12005,
+      "m15_price": 1.11977,
+      "m15_change_pct": -0.025,
+      "h1_price": 1.11987,
+      "h1_change_pct": -0.0161,
+      "status": "ok"
+    },
+    "XAUUSD": {
+      "symbol": "XAU/USD",
+      "release_price": 4110.54955,
+      "m15_price": 4113.05178,
+      "m15_change_pct": 0.0609,
+      "h1_price": 4109.28307,
+      "h1_change_pct": -0.0308,
+      "status": "ok"
+    },
+    "BTC": {
+      "symbol": "BTC/USD",
+      "release_price": 83243.45,
+      "m15_price": 83360.77,
+      "m15_change_pct": 0.1409,
+      "h1_price": 83440.0,
+      "h1_change_pct": 0.2361,
+      "status": "ok"
+    }
+  }
 }
