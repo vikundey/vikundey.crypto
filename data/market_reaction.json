@@ -1,7 +1,39 @@
 {
-  "status": "no_recent_event",
-  "updated_at": "2026-10-14T12:25:55.727602+03:00",
+  "status": "ok",
+  "updated_at": "2026-10-14T17:37:16.872584+03:00",
   "timezone": "Europe/Kyiv",
-  "event": null,
-  "assets": {}
+  "event": {
+    "name": "Core CPI m/m",
+    "impact": "high",
+    "released_at": "2026-10-14T15:30:00+03:00"
+  },
+  "assets": {
+    "EURUSD": {
+      "symbol": "EUR/USD",
+      "release_price": 1.12129,
+      "m15_price": 1.11384,
+      "m15_change_pct": -0.6644,
+      "h1_price": 1.11296,
+      "h1_change_pct": -0.7429,
+      "status": "ok"
+    },
+    "XAUUSD": {
+      "symbol": "XAU/USD",
+      "release_price": 4166.25719,
+      "m15_price": 4089.27097,
+      "m15_change_pct": -1.8479,
+      "h1_price": 4090.9364,
+      "h1_change_pct": -1.8079,
+      "status": "ok"
+    },
+    "BTC": {
+      "symbol": "BTC/USD",
+      "release_price": 82929.06,
+      "m15_price": 82897.42,
+      "m15_change_pct": -0.0382,
+      "h1_price": 82830.0,
+      "h1_change_pct": -0.1195,
+      "status": "ok"
+    }
+  }
 }
