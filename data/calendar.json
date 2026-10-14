@@ -1,10 +1,10 @@
 {
   "source": "Forex Factory + FRED",
   "timezone": "Europe/Kyiv",
-  "updated_at": "2026-10-13T22:51:04.566770+03:00",
+  "updated_at": "2026-10-14T13:16:52.970577+03:00",
   "week_start": "2026-10-12",
   "week_end": "2026-10-16",
-  "event_count": 34,
+  "event_count": 35,
   "events": [
     {
       "title": "Bank Holiday",
@@ -229,6 +229,21 @@
       "day": "WED",
       "time": "21:00",
       "timestamp": 1792000800,
+      "impact_rank": 1
+    },
+    {
+      "title": "FOMC Member Goolsbee Speaks",
+      "country": "USD",
+      "impact": "Low",
+      "forecast": "",
+      "previous": "",
+      "actual": "",
+      "actual_source": "",
+      "date_iso": "2026-10-14T22:00:00+03:00",
+      "date": "2026-10-14",
+      "day": "WED",
+      "time": "22:00",
+      "timestamp": 1792004400,
       "impact_rank": 1
     },
     {
