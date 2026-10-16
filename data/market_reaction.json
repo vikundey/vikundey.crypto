@@ -1,38 +1,38 @@
 {
   "status": "ok",
-  "updated_at": "2026-10-16T03:35:21.107478+03:00",
+  "updated_at": "2026-10-16T08:03:12.045344+03:00",
   "timezone": "Europe/Kyiv",
   "event": {
-    "name": "Core PPI m/m",
+    "name": "Fed Chairman Warsh Speaks",
     "impact": "high",
-    "released_at": "2026-10-15T15:30:00+03:00"
+    "released_at": "2026-10-16T06:30:00+03:00"
   },
   "assets": {
     "EURUSD": {
       "symbol": "EUR/USD",
-      "release_price": 1.12109,
-      "m15_price": 1.12101,
-      "m15_change_pct": -0.0071,
-      "h1_price": 1.12116,
-      "h1_change_pct": 0.0062,
+      "release_price": 1.12176,
+      "m15_price": 1.12154,
+      "m15_change_pct": -0.0196,
+      "h1_price": 1.12322,
+      "h1_change_pct": 0.1302,
       "status": "ok"
     },
     "XAUUSD": {
       "symbol": "XAU/USD",
-      "release_price": 4152.06615,
-      "m15_price": 4146.78582,
-      "m15_change_pct": -0.1272,
-      "h1_price": 4156.95559,
-      "h1_change_pct": 0.1178,
+      "release_price": 4169.96433,
+      "m15_price": 4167.54565,
+      "m15_change_pct": -0.058,
+      "h1_price": 4178.81672,
+      "h1_change_pct": 0.2123,
       "status": "ok"
     },
     "BTC": {
       "symbol": "BTC/USD",
-      "release_price": 80845.21,
-      "m15_price": 80906.0,
-      "m15_change_pct": 0.0752,
-      "h1_price": 80171.35,
-      "h1_change_pct": -0.8335,
+      "release_price": 81979.1,
+      "m15_price": 81988.22,
+      "m15_change_pct": 0.0111,
+      "h1_price": 82096.01,
+      "h1_change_pct": 0.1426,
       "status": "ok"
     }
   }
