@@ -1,7 +1,7 @@
 {
   "source": "Forex Factory + FRED",
   "timezone": "Europe/Kyiv",
-  "updated_at": "2026-10-16T20:22:47.454356+03:00",
+  "updated_at": "2026-10-17T12:26:00.559158+03:00",
   "week_start": "2026-10-12",
   "week_end": "2026-10-16",
   "event_count": 35,
@@ -509,11 +509,11 @@
       "previous": "-166.8B",
       "actual": "",
       "actual_source": "",
-      "date_iso": "2026-10-16T21:00:00+03:00",
+      "date_iso": "2026-10-16T21:05:00+03:00",
       "date": "2026-10-16",
       "day": "FRI",
-      "time": "21:00",
-      "timestamp": 1792173600,
+      "time": "21:05",
+      "timestamp": 1792173900,
       "impact_rank": 1
     },
     {
