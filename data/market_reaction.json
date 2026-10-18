@@ -1,39 +1,7 @@
 {
-  "status": "ok",
-  "updated_at": "2026-10-18T12:24:07.944073+03:00",
+  "status": "no_recent_event",
+  "updated_at": "2026-10-18T16:26:12.344548+03:00",
   "timezone": "Europe/Kyiv",
-  "event": {
-    "name": "Fed Chairman Warsh Speaks",
-    "impact": "high",
-    "released_at": "2026-10-16T06:30:00+03:00"
-  },
-  "assets": {
-    "EURUSD": {
-      "symbol": "EUR/USD",
-      "release_price": 1.12176,
-      "m15_price": 1.12154,
-      "m15_change_pct": -0.0196,
-      "h1_price": 1.12322,
-      "h1_change_pct": 0.1302,
-      "status": "ok"
-    },
-    "XAUUSD": {
-      "symbol": "XAU/USD",
-      "release_price": 4169.96433,
-      "m15_price": 4167.54565,
-      "m15_change_pct": -0.058,
-      "h1_price": 4178.81672,
-      "h1_change_pct": 0.2123,
-      "status": "ok"
-    },
-    "BTC": {
-      "symbol": "BTC/USD",
-      "release_price": 81979.1,
-      "m15_price": 81988.22,
-      "m15_change_pct": 0.0111,
-      "h1_price": 82096.01,
-      "h1_change_pct": 0.1426,
-      "status": "ok"
-    }
-  }
+  "event": null,
+  "assets": {}
 }
