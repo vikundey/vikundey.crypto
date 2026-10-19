@@ -1,7 +1,7 @@
 {
   "source": "Forex Factory + FRED",
   "timezone": "Europe/Kyiv",
-  "updated_at": "2026-10-19T13:49:26.894454+03:00",
+  "updated_at": "2026-10-19T22:17:53.377655+03:00",
   "week_start": "2026-10-19",
   "week_end": "2026-10-23",
   "event_count": 14,
@@ -70,7 +70,7 @@
       "title": "Pending Home Sales m/m",
       "country": "USD",
       "impact": "Low",
-      "forecast": "-0.4%",
+      "forecast": "-0.7%",
       "previous": "0.3%",
       "actual": "",
       "actual_source": "",
