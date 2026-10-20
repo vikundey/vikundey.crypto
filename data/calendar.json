@@ -1,7 +1,7 @@
 {
   "source": "Forex Factory + FRED",
   "timezone": "Europe/Kyiv",
-  "updated_at": "2026-10-20T13:07:03.536358+03:00",
+  "updated_at": "2026-10-20T20:57:26.790237+03:00",
   "week_start": "2026-10-19",
   "week_end": "2026-10-23",
   "event_count": 14,
@@ -100,7 +100,7 @@
       "title": "Crude Oil Inventories",
       "country": "USD",
       "impact": "Low",
-      "forecast": "-0.3M",
+      "forecast": "-0.1M",
       "previous": "-8.6M",
       "actual": "",
       "actual_source": "",
