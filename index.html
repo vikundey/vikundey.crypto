@@ -1058,6 +1058,168 @@
         flex-direction:column;
       }
     }
+  
+    /* =========================
+       US MIDTERMS COUNTDOWN
+    ========================= */
+
+    .midterms-countdown{
+      padding-top:20px;
+      padding-bottom:28px;
+    }
+
+    .midterms-shell{
+      position:relative;
+      overflow:hidden;
+      display:grid;
+      grid-template-columns:minmax(0,1.05fr) minmax(430px,.95fr);
+      gap:28px;
+      align-items:center;
+      padding:30px 34px;
+      border:1px solid rgba(46,199,241,.20);
+      border-radius:28px;
+      background:
+        radial-gradient(circle at 4% 0%,rgba(46,199,241,.18),transparent 32%),
+        radial-gradient(circle at 96% 100%,rgba(139,234,111,.14),transparent 34%),
+        linear-gradient(135deg,rgba(255,255,255,.055),rgba(255,255,255,.022));
+      box-shadow:
+        0 26px 70px rgba(0,0,0,.30),
+        0 0 46px rgba(46,199,241,.06);
+    }
+
+    .midterms-shell::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:22px;
+      bottom:22px;
+      width:4px;
+      border-radius:999px;
+      background:linear-gradient(180deg,var(--cyan),var(--green));
+      box-shadow:0 0 24px rgba(46,199,241,.45);
+    }
+
+    .midterms-copy{
+      position:relative;
+      z-index:1;
+    }
+
+    .midterms-kicker{
+      display:flex;
+      align-items:center;
+      gap:9px;
+      margin-bottom:9px;
+      color:var(--cyan);
+      font-size:11px;
+      font-weight:950;
+      letter-spacing:.13em;
+      text-transform:uppercase;
+    }
+
+    .midterms-live-dot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--green);
+      box-shadow:0 0 14px rgba(139,234,111,.75);
+    }
+
+    .midterms-title{
+      margin:0;
+      color:#fff;
+      font-size:clamp(28px,4vw,42px);
+      line-height:1.05;
+      letter-spacing:-.045em;
+    }
+
+    .midterms-title .accent-date{
+      background:linear-gradient(90deg,var(--cyan),var(--green));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .midterms-sub{
+      max-width:600px;
+      margin:12px 0 0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.65;
+    }
+
+    .midterms-timer{
+      position:relative;
+      z-index:1;
+      display:grid;
+      grid-template-columns:repeat(4,minmax(84px,1fr));
+      gap:10px;
+    }
+
+    .countdown-unit{
+      min-width:0;
+      padding:17px 12px 15px;
+      text-align:center;
+      border:1px solid rgba(255,255,255,.095);
+      border-radius:17px;
+      background:rgba(5,13,21,.54);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.04),
+        0 10px 30px rgba(0,0,0,.18);
+    }
+
+    .countdown-number{
+      display:block;
+      color:#fff;
+      font-size:clamp(28px,3.6vw,42px);
+      line-height:1;
+      font-weight:950;
+      letter-spacing:-.055em;
+      font-variant-numeric:tabular-nums;
+    }
+
+    .countdown-label{
+      display:block;
+      margin-top:7px;
+      color:#91a5b3;
+      font-size:9px;
+      font-weight:900;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+
+    .midterms-status{
+      display:none;
+      grid-column:1 / -1;
+      padding:13px 15px;
+      border:1px solid rgba(139,234,111,.22);
+      border-radius:14px;
+      color:#dfffd6;
+      background:rgba(139,234,111,.08);
+      text-align:center;
+      font-size:13px;
+      font-weight:850;
+    }
+
+    .midterms-countdown.is-election-day .midterms-status{
+      display:block;
+    }
+
+    @media(max-width:900px){
+      .midterms-shell{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media(max-width:560px){
+      .midterms-shell{
+        padding:24px 20px;
+      }
+
+      .midterms-timer{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+    }
+
   </style>
 </head>
 
@@ -1170,6 +1332,62 @@
     </section>
 
 
+
+    <section class="wrap midterms-countdown" id="us-midterms-countdown">
+
+      <div class="midterms-shell">
+
+        <div class="midterms-copy">
+          <div class="midterms-kicker">
+            <span class="midterms-live-dot" aria-hidden="true"></span>
+            US POLITICAL EVENT · COUNTDOWN
+          </div>
+
+          <h2 class="midterms-title">
+            Проміжні вибори США<br>
+            <span class="accent-date">03.11.2026</span>
+          </h2>
+
+          <p class="midterms-sub">
+            Відлік до федеральних виборів до Конгресу США.
+            Усі 435 місць Палати представників і приблизно третина Сенату
+            проходять через виборчий цикл midterms.
+          </p>
+        </div>
+
+        <div class="midterms-timer" aria-label="Відлік до проміжних виборів США">
+
+          <div class="countdown-unit">
+            <span class="countdown-number" id="midtermsDays">--</span>
+            <span class="countdown-label">Днів</span>
+          </div>
+
+          <div class="countdown-unit">
+            <span class="countdown-number" id="midtermsHours">--</span>
+            <span class="countdown-label">Годин</span>
+          </div>
+
+          <div class="countdown-unit">
+            <span class="countdown-number" id="midtermsMinutes">--</span>
+            <span class="countdown-label">Хвилин</span>
+          </div>
+
+          <div class="countdown-unit">
+            <span class="countdown-number" id="midtermsSeconds">--</span>
+            <span class="countdown-label">Секунд</span>
+          </div>
+
+          <div class="midterms-status" id="midtermsStatus">
+            ELECTION DAY · 03 NOV 2026
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
     <section class="wrap" id="economic-calendar">
 
       <div class="section-head">
@@ -1268,6 +1486,59 @@
 
 
   <script>
+
+    // =========================
+    // US MIDTERMS COUNTDOWN
+    // Federal General Election: 03 Nov 2026
+    // Target = start of Election Day in US Eastern Time.
+    // =========================
+    const midtermsTarget = new Date('2026-11-03T00:00:00-05:00').getTime();
+
+    const midtermsSection = document.getElementById('us-midterms-countdown');
+    const midtermsDays = document.getElementById('midtermsDays');
+    const midtermsHours = document.getElementById('midtermsHours');
+    const midtermsMinutes = document.getElementById('midtermsMinutes');
+    const midtermsSeconds = document.getElementById('midtermsSeconds');
+
+    function updateMidtermsCountdown() {
+      if (
+        !midtermsSection ||
+        !midtermsDays ||
+        !midtermsHours ||
+        !midtermsMinutes ||
+        !midtermsSeconds
+      ) return;
+
+      const distance = midtermsTarget - Date.now();
+
+      if (distance <= 0) {
+        midtermsDays.textContent = '00';
+        midtermsHours.textContent = '00';
+        midtermsMinutes.textContent = '00';
+        midtermsSeconds.textContent = '00';
+        midtermsSection.classList.add('is-election-day');
+        return;
+      }
+
+      const day = 1000 * 60 * 60 * 24;
+      const hour = 1000 * 60 * 60;
+      const minute = 1000 * 60;
+
+      const days = Math.floor(distance / day);
+      const hours = Math.floor((distance % day) / hour);
+      const minutes = Math.floor((distance % hour) / minute);
+      const seconds = Math.floor((distance % minute) / 1000);
+
+      midtermsDays.textContent = String(days).padStart(2, '0');
+      midtermsHours.textContent = String(hours).padStart(2, '0');
+      midtermsMinutes.textContent = String(minutes).padStart(2, '0');
+      midtermsSeconds.textContent = String(seconds).padStart(2, '0');
+    }
+
+    updateMidtermsCountdown();
+    setInterval(updateMidtermsCountdown, 1000);
+
+
     const calendarBody = document.getElementById('calendarBody');
     const calendarRange = document.getElementById('calendarRange');
     const calendarUpdated = document.getElementById('calendarUpdated');
