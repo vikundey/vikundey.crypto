@@ -1220,6 +1220,168 @@
       }
     }
 
+  
+    /* =========================
+       PREMIUM RESEARCH CARDS
+    ========================= */
+
+    .research-grid{
+      grid-template-columns:repeat(3,minmax(0,1fr));
+    }
+
+    .research-card{
+      min-height:300px;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .research-card:nth-child(3){
+      background:
+        radial-gradient(circle at 88% 12%,rgba(46,199,241,.08),transparent 34%),
+        radial-gradient(circle at 18% 90%,rgba(139,234,111,.07),transparent 30%),
+        linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.025));
+    }
+
+    .research-card-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    .premium-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      padding:7px 10px;
+      border:1px solid rgba(139,234,111,.18);
+      border-radius:999px;
+      color:#dfffd6;
+      background:rgba(139,234,111,.08);
+      font-size:10px;
+      font-weight:950;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+
+    .premium-lock{
+      font-size:12px;
+      line-height:1;
+    }
+
+    .research-card p{
+      flex:1;
+    }
+
+    .research-open{
+      margin-top:24px;
+    }
+
+    .research-premium-note{
+      margin-top:18px;
+      color:#7f93a0;
+      font-size:11px;
+      line-height:1.5;
+    }
+
+    @media(max-width:1120px){
+      .research-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+
+      .research-card:nth-child(3){
+        grid-column:1 / -1;
+      }
+    }
+
+    @media(max-width:950px){
+      .research-grid{
+        grid-template-columns:1fr;
+      }
+
+      .research-card:nth-child(3){
+        grid-column:auto;
+      }
+    }
+
+  
+    /* =========================
+       LEGAL FOOTER
+    ========================= */
+    .site-footer{
+      margin-top:54px;
+      padding:34px 0 26px;
+      border-top:1px solid rgba(255,255,255,.08);
+    }
+
+    .site-footer-grid{
+      display:grid;
+      grid-template-columns:1.1fr 1fr 1fr;
+      gap:34px;
+      align-items:start;
+    }
+
+    .site-footer-brand{
+      display:grid;
+      gap:12px;
+    }
+
+    .site-footer-logo{
+      display:flex;
+      align-items:center;
+      gap:11px;
+      font-weight:900;
+      font-size:18px;
+      letter-spacing:-.02em;
+    }
+
+    .site-footer-logo img{
+      width:34px;
+      height:34px;
+      object-fit:contain;
+      display:block;
+    }
+
+    .site-footer-tagline{
+      color:#9fb0bd;
+      font-size:13px;
+      line-height:1.65;
+    }
+
+    .site-footer-links{
+      display:grid;
+      gap:12px;
+    }
+
+    .site-footer-links a{
+      color:#d9e2e8;
+      font-size:14px;
+      line-height:1.45;
+      transition:.2s ease;
+    }
+
+    .site-footer-links a:hover{
+      color:var(--cyan);
+      transform:translateX(2px);
+    }
+
+    .site-footer-bottom{
+      margin-top:28px;
+      padding-top:20px;
+      border-top:1px solid rgba(255,255,255,.07);
+      color:#9aaab6;
+      font-size:12px;
+      line-height:1.65;
+    }
+
+    @media(max-width:800px){
+      .site-footer-grid{
+        grid-template-columns:1fr;
+        gap:24px;
+      }
+    }
+
   </style>
 </head>
 
@@ -1300,10 +1462,15 @@
       </div>
 
 
+      
       <div class="research-grid">
 
-        <a class="research-card" href="https://vikundey.github.io/vikundey.crypto/nfp/index.html">
-          <div class="research-code">LABOR MARKET</div>
+        <a class="research-card premium-card" href="./nfp/index.html">
+          <div class="research-card-top">
+            <div class="research-code">LABOR MARKET</div>
+            <span class="premium-badge"><span class="premium-lock">🔒</span> Premium</span>
+          </div>
+
           <h3>NFP</h3>
 
           <p>
@@ -1311,12 +1478,17 @@
             Average Hourly Earnings та авторський pre-fact / post-fact аналіз.
           </p>
 
-          <div class="research-open">Відкрити NFP</div>
+          <div class="research-open">Увійти / Відкрити NFP</div>
+          <div class="research-premium-note">Доступ для активних підписників.</div>
         </a>
 
 
-        <a class="research-card" href="https://vikundey.github.io/vikundey.crypto/cpi/index.html">
-          <div class="research-code">INFLATION</div>
+        <a class="research-card premium-card" href="./cpi/index.html">
+          <div class="research-card-top">
+            <div class="research-code">INFLATION</div>
+            <span class="premium-badge"><span class="premium-lock">🔒</span> Premium</span>
+          </div>
+
           <h3>CPI</h3>
 
           <p>
@@ -1324,10 +1496,30 @@
             BRENT-контекст та авторський аналіз реакції ринку.
           </p>
 
-          <div class="research-open">Відкрити CPI</div>
+          <div class="research-open">Увійти / Відкрити CPI</div>
+          <div class="research-premium-note">Доступ для активних підписників.</div>
+        </a>
+
+
+        <a class="research-card premium-card" href="./thoughts/index.html">
+          <div class="research-card-top">
+            <div class="research-code">EDUCATION · MACRO · GEO</div>
+            <span class="premium-badge"><span class="premium-lock">🔒</span> Premium</span>
+          </div>
+
+          <h3>Vikundey Thoughts</h3>
+
+          <p>
+            Навчальні статті, економічні та геополітичні розбори,
+            пояснення макрологіки, ринкових взаємозв’язків і ключових подій.
+          </p>
+
+          <div class="research-open">Увійти / Відкрити Thoughts</div>
+          <div class="research-premium-note">Доступ для активних підписників.</div>
         </a>
 
       </div>
+
 
     </section>
 
@@ -2003,6 +2195,43 @@
 
     loadCalendar();
   </script>
+
+
+    <footer class="site-footer">
+      <div class="wrap">
+
+        <div class="site-footer-grid">
+
+          <div class="site-footer-brand">
+            <div class="site-footer-logo">
+              <img src="./logo.png" alt="vikundey.crypto logo">
+              <span>vikundey.crypto</span>
+            </div>
+
+            <div class="site-footer-tagline">
+              Financial Markets · Crypto · Economics · Education
+            </div>
+          </div>
+
+          <nav class="site-footer-links" aria-label="Юридичні сторінки">
+            <a href="./contact/">Контактна інформація</a>
+            <a href="./terms/">Правила та умови</a>
+            <a href="./privacy/">Політика конфіденційності</a>
+          </nav>
+
+          <nav class="site-footer-links" aria-label="Додаткова юридична інформація">
+            <a href="./refund/">Політика повернення</a>
+            <a href="./offer/">Публічна оферта</a>
+          </nav>
+
+        </div>
+
+        <div class="site-footer-bottom">
+          © 2026 vikundey.crypto. Освітня інформація. Не є індивідуальною інвестиційною рекомендацією.
+        </div>
+
+      </div>
+    </footer>
 
 </body>
 </html>
