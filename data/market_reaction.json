@@ -1,38 +1,38 @@
 {
   "status": "ok",
-  "updated_at": "2026-10-29T08:29:50.162630+02:00",
+  "updated_at": "2026-10-29T15:37:47.180261+02:00",
   "timezone": "Europe/Kyiv",
   "event": {
-    "name": "FOMC Press Conference",
+    "name": "Advance GDP q/q",
     "impact": "high",
-    "released_at": "2026-10-28T20:30:00+02:00"
+    "released_at": "2026-10-29T14:30:00+02:00"
   },
   "assets": {
     "EURUSD": {
       "symbol": "EUR/USD",
-      "release_price": 1.11344,
-      "m15_price": 1.11677,
-      "m15_change_pct": 0.2991,
-      "h1_price": 1.1161,
-      "h1_change_pct": 0.2389,
+      "release_price": 1.11407,
+      "m15_price": 1.11451,
+      "m15_change_pct": 0.0395,
+      "h1_price": 1.11232,
+      "h1_change_pct": -0.1571,
       "status": "ok"
     },
     "XAUUSD": {
       "symbol": "XAU/USD",
-      "release_price": 4037.45514,
-      "m15_price": 4055.9787,
-      "m15_change_pct": 0.4588,
-      "h1_price": 4054.71346,
-      "h1_change_pct": 0.4275,
+      "release_price": 4027.08465,
+      "m15_price": 4025.84122,
+      "m15_change_pct": -0.0309,
+      "h1_price": 4024.71613,
+      "h1_change_pct": -0.0588,
       "status": "ok"
     },
     "BTC": {
       "symbol": "BTC/USD",
-      "release_price": 81002.82,
-      "m15_price": 81036.94,
-      "m15_change_pct": 0.0421,
-      "h1_price": 81207.76,
-      "h1_change_pct": 0.253,
+      "release_price": 80154.01,
+      "m15_price": 80129.91,
+      "m15_change_pct": -0.0301,
+      "h1_price": 80196.01,
+      "h1_change_pct": 0.0524,
       "status": "ok"
     }
   }
