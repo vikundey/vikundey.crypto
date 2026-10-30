@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vikundey Space — Профіль</title>
+
+  <style>
+    :root {
+      --bg: #071018;
+      --panel: rgba(14, 28, 38, 0.82);
+      --line: rgba(255,255,255,.10);
+      --text: #f3f7fa;
+      --muted: #9fb0bc;
+      --cyan: #2ec7f1;
+      --green: #8bea6f;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 78% 12%, rgba(139,234,111,.08), transparent 30%),
+        radial-gradient(circle at 16% 20%, rgba(46,199,241,.10), transparent 32%),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, system-ui, sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .shell {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 22px 0 60px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px 18px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(8,20,29,.86);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+    }
+
+    .brand-name {
+      font-weight: 800;
+    }
+
+    .nav {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      padding: 10px 13px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 14px;
+      color: #c7d2d9;
+    }
+
+    .nav .active {
+      color: #071018;
+      background: linear-gradient(135deg, var(--cyan), var(--green));
+    }
+
+    .hero {
+      padding: 72px 4px 26px;
+    }
+
+    .eyebrow {
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    h1 {
+      margin: 14px 0 10px;
+      font-size: clamp(38px, 6vw, 70px);
+      line-height: .98;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 22px;
+      margin-top: 26px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 28px;
+      padding: 28px;
+    }
+
+    .card-title {
+      font-size: 14px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .13em;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .profile-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(
+        135deg,
+        rgba(46,199,241,.18),
+        rgba(139,234,111,.16)
+      );
+      border: 1px solid rgba(255,255,255,.14);
+      font-size: 28px;
+    }
+
+    .profile-email {
+      font-size: 22px;
+      font-weight: 800;
+      overflow-wrap: anywhere;
+    }
+
+    .profile-note {
+      color: var(--muted);
+      margin-top: 5px;
+      font-size: 14px;
+    }
+
+    .status-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .status-box {
+      padding: 18px;
+      background: rgba(255,255,255,.035);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+    }
+
+    .status-label {
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .status-value {
+      font-size: 22px;
+      font-weight: 900;
+    }
+
+    .pill {
+      display: inline-flex;
+      margin-top: 8px;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 13px;
+      font-weight: 900;
+      border: 1px solid var(--line);
+    }
+
+    .pill.active {
+      color: var(--green);
+      background: rgba(139,234,111,.08);
+    }
+
+    .pill.inactive {
+      color: #f4a5a5;
+      background: rgba(255,123,123,.07);
+    }
+
+    .access-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .access-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 16px 17px;
+      background: rgba(255,255,255,.035);
+      border: 1px solid var(--line);
+      border-radius: 17px;
+    }
+
+    .access-name {
+      font-weight: 800;
+    }
+
+    .access-desc {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 4px;
+    }
+
+    .access-badge {
+      min-width: 92px;
+      text-align: center;
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .access-badge.yes {
+      color: #071018;
+      background: linear-gradient(135deg, var(--cyan), var(--green));
+    }
+
+    .access-badge.no {
+      color: #d7e0e5;
+      background: rgba(255,255,255,.07);
+      border: 1px solid var(--line);
+    }
+
+    .cta {
+      margin-top: 22px;
+      display: none;
+      padding: 22px;
+      border-radius: 22px;
+      border: 1px solid rgba(46,199,241,.20);
+      background: rgba(255,255,255,.025);
+    }
+
+    .cta h3 {
+      margin: 0 0 8px;
+      font-size: 22px;
+    }
+
+    .cta p {
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .btn {
+      display: inline-flex;
+      min-height: 48px;
+      padding: 0 18px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--cyan), var(--green));
+      color: #071018;
+    }
+
+    .loading, .error {
+      margin-top: 26px;
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      color: var(--muted);
+      background: rgba(255,255,255,.03);
+    }
+
+    .error {
+      display: none;
+      color: #ffd1d1;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    @media (max-width: 860px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="shell">
+
+    <header class="topbar">
+
+      <a class="brand" href="/">
+        <img src="../logo.png" alt="vikundey.crypto">
+        <div class="brand-name">vikundey.crypto</div>
+      </a>
+
+      <nav class="nav">
+        <a href="/">Головна</a>
+        <a href="/nfp/">NFP</a>
+        <a href="/cpi/">CPI</a>
+        <a href="/thoughts/">Thoughts</a>
+        <a class="active" href="/profile/">👤</a>
+      </nav>
+
+    </header>
+
+    <section class="hero">
+      <div class="eyebrow">Vikundey Space</div>
+
+      <h1>Мій профіль</h1>
+
+      <p>
+        Тут відображається твій активний тариф і доступ до матеріалів Vikundey Space.
+      </p>
+    </section>
+
+    <div id="loading" class="loading">
+      Завантажуємо дані профілю…
+    </div>
+
+    <div id="error" class="error">
+      Не вдалося завантажити профіль.
+    </div>
+
+    <main id="profileContent" class="grid hidden">
+
+      <section class="card">
+
+        <div class="card-title">
+          Профіль
+        </div>
+
+        <div class="profile-row">
+
+          <div class="avatar">
+            👤
+          </div>
+
+          <div>
+            <div id="email" class="profile-email">
+              —
+            </div>
+
+            <div class="profile-note">
+              Авторизований користувач
+            </div>
+          </div>
+
+        </div>
+
+        <div class="status-grid">
+
+          <div class="status-box">
+
+            <div class="status-label">
+              Підписка
+            </div>
+
+            <div id="plan" class="status-value">
+              —
+            </div>
+
+          </div>
+
+          <div class="status-box">
+
+            <div class="status-label">
+              Статус
+            </div>
+
+            <div id="statusText" class="status-value">
+              —
+            </div>
+
+            <div id="statusPill" class="pill">
+              —
+            </div>
+
+          </div>
+
+        </div>
+
+        <div id="cta" class="cta">
+
+          <h3 id="ctaTitle">
+            Оформи Vikundey Space
+          </h3>
+
+          <p id="ctaText">
+            Обери тариф і відкрий доступ до матеріалів Vikundey Space.
+          </p>
+
+          <a
+            id="subscribeButton"
+            class="btn"
+            href="https://secure.wayforpay.com/sub/see534a7947df"
+            target="_blank"
+          >
+            Перейти до підписки →
+          </a>
+
+        </div>
+
+      </section>
+
+      <aside class="card">
+
+        <div class="card-title">
+          Мій доступ
+        </div>
+
+        <div class="access-list">
+
+          <div class="access-item">
+
+            <div>
+              <div class="access-name">
+                NFP
+              </div>
+
+              <div class="access-desc">
+                Ринок праці США та реакція ринку.
+              </div>
+            </div>
+
+            <div id="accessNfp" class="access-badge no">
+              Немає
+            </div>
+
+          </div>
+
+          <div class="access-item">
+
+            <div>
+              <div class="access-name">
+                CPI
+              </div>
+
+              <div class="access-desc">
+                Інфляція США та ринкові сценарії.
+              </div>
+            </div>
+
+            <div id="accessCpi" class="access-badge no">
+              Немає
+            </div>
+
+          </div>
+
+          <div class="access-item">
+
+            <div>
+              <div class="access-name">
+                Vikundey Thoughts
+              </div>
+
+              <div class="access-desc">
+                Освіта, економіка та геополітична аналітика.
+              </div>
+            </div>
+
+            <div id="accessThoughts" class="access-badge no">
+              Немає
+            </div>
+
+          </div>
+
+        </div>
+
+      </aside>
+
+    </main>
+
+  </div>
+
+  <script>
+
+    const el = id =>
+      document.getElementById(id);
+
+
+    function setAccessBadge(
+      id,
+      enabled
+    ) {
+
+      const node = el(id);
+
+      if (enabled) {
+
+        node.textContent =
+          "Доступ";
+
+        node.classList.remove(
+          "no"
+        );
+
+        node.classList.add(
+          "yes"
+        );
+
+      } else {
+
+        node.textContent =
+          "Немає";
+
+        node.classList.remove(
+          "yes"
+        );
+
+        node.classList.add(
+          "no"
+        );
+
+      }
+
+    }
+
+
+    function planLabel(plan) {
+
+      if (plan === "full") {
+        return "Full Vikundey Space";
+      }
+
+      if (plan === "news") {
+        return "News Vikundey Space";
+      }
+
+      return "Немає активної";
+    }
+
+
+    async function loadProfile() {
+
+      try {
+
+        const response =
+          await fetch(
+            "/api/profile",
+            {
+              method: "GET",
+
+              credentials:
+                "same-origin",
+
+              headers: {
+                Accept:
+                  "application/json"
+              }
+            }
+          );
+
+
+        if (!response.ok) {
+          throw new Error(
+            "Profile API error"
+          );
+        }
+
+
+        const data =
+          await response.json();
+
+
+        if (!data.ok) {
+
+          throw new Error(
+            data.error ||
+            "Profile error"
+          );
+
+        }
+
+
+        el("email").textContent =
+          data.email ||
+          "—";
+
+
+        el("plan").textContent =
+          planLabel(
+            data.plan
+          );
+
+
+        const active =
+          data.status ===
+          "active";
+
+
+        el("statusText").textContent =
+          active
+            ? "Активна"
+            : "Неактивна";
+
+
+        el("statusPill").textContent =
+          active
+            ? "● Active"
+            : "● Inactive";
+
+
+        el("statusPill")
+          .classList
+          .toggle(
+            "active",
+            active
+          );
+
+
+        el("statusPill")
+          .classList
+          .toggle(
+            "inactive",
+            !active
+          );
+
+
+        setAccessBadge(
+          "accessNfp",
+          !!data.access?.nfp
+        );
+
+
+        setAccessBadge(
+          "accessCpi",
+          !!data.access?.cpi
+        );
+
+
+        setAccessBadge(
+          "accessThoughts",
+          !!data.access?.thoughts
+        );
+
+
+        const cta =
+          el("cta");
+
+
+        const subscribeButton =
+          el(
+            "subscribeButton"
+          );
+
+
+        if (
+          data.subscriptionUrl
+        ) {
+
+          subscribeButton.href =
+            data.subscriptionUrl;
+
+        }
+
+
+        if (
+          data.plan ===
+          "none"
+        ) {
+
+          cta.style.display =
+            "block";
+
+          el("ctaTitle").textContent =
+            "Оформи Vikundey Space";
+
+          el("ctaText").textContent =
+            "Обери тариф і відкрий доступ до матеріалів Vikundey Space.";
+
+          subscribeButton.textContent =
+            "Перейти до підписки →";
+
+        }
+
+
+        else if (
+          data.plan ===
+          "news"
+        ) {
+
+          cta.style.display =
+            "block";
+
+          el("ctaTitle").textContent =
+            "Перейти на Full";
+
+          el("ctaText").textContent =
+            "У тебе вже є NFP та CPI. Full також відкриває Vikundey Thoughts.";
+
+          subscribeButton.textContent =
+            "Переглянути Full →";
+
+        }
+
+
+        else {
+
+          cta.style.display =
+            "none";
+
+        }
+
+
+        el("loading")
+          .classList
+          .add(
+            "hidden"
+          );
+
+
+        el("profileContent")
+          .classList
+          .remove(
+            "hidden"
+          );
+
+      }
+
+
+      catch (error) {
+
+        console.error(
+          error
+        );
+
+        el("loading")
+          .classList
+          .add(
+            "hidden"
+          );
+
+        el("error")
+          .style
+          .display =
+            "block";
+
+      }
+
+    }
+
+
+    loadProfile();
+
+  </script>
+
+</body>
+</html>
