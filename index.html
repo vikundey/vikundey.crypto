@@ -121,6 +121,32 @@
       background:linear-gradient(135deg,var(--cyan),var(--green));
     }
 
+    .site-links .profile-link{
+      width:38px;
+      height:38px;
+      padding:0;
+      display:grid;
+      place-items:center;
+      border-radius:12px;
+      color:#071018;
+      background:linear-gradient(135deg,var(--cyan),var(--green));
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:0 8px 24px rgba(46,199,241,.14);
+    }
+
+    .site-links .profile-link:hover{
+      color:#071018;
+      background:linear-gradient(135deg,var(--cyan),var(--green));
+      transform:translateY(-1px);
+    }
+
+    .site-links .profile-link svg{
+      width:19px;
+      height:19px;
+      display:block;
+      fill:currentColor;
+    }
+
     .hero{
       display:grid;
       grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);
@@ -1398,9 +1424,14 @@
     </a>
 
     <div class="site-links">
-      <a class="active" href="https://vikundey.github.io/vikundey.crypto/index.html">Головна</a>
-      <a href="https://vikundey.github.io/vikundey.crypto/nfp/index.html">NFP</a>
-      <a href="https://vikundey.github.io/vikundey.crypto/cpi/index.html">CPI</a>
+      <a class="profile-link" href="/profile/" aria-label="Мій профіль" title="Мій профіль">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 12c2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5 2.239 5 5 5Zm0 2c-4.418 0-8 2.239-8 5v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1c0-2.761-3.582-5-8-5Z"/>
+        </svg>
+      </a>
+      <a class="active" href="/">Головна</a>
+      <a href="/nfp/">NFP</a>
+      <a href="/cpi/">CPI</a>
     </div>
   </nav>
 
