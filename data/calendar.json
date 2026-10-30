@@ -1,10 +1,10 @@
 {
   "source": "Forex Factory + FRED",
   "timezone": "Europe/Kyiv",
-  "updated_at": "2026-10-30T13:25:32.792442+02:00",
+  "updated_at": "2026-10-30T20:35:00.499688+02:00",
   "week_start": "2026-10-27",
   "week_end": "2026-10-30",
-  "event_count": 26,
+  "event_count": 27,
   "events": [
     {
       "title": "ADP Weekly Employment Change",
@@ -394,6 +394,21 @@
       "day": "FRI",
       "time": "18:30",
       "timestamp": 1793377800,
+      "impact_rank": 1
+    },
+    {
+      "title": "FOMC Member Logan Speaks",
+      "country": "USD",
+      "impact": "Low",
+      "forecast": "",
+      "previous": "",
+      "actual": "",
+      "actual_source": "",
+      "date_iso": "2026-10-30T19:30:00+02:00",
+      "date": "2026-10-30",
+      "day": "FRI",
+      "time": "19:30",
+      "timestamp": 1793381400,
       "impact_rank": 1
     }
   ]
