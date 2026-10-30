@@ -9,11 +9,8 @@
   <style>
     :root{
       --bg:#07111a;
-      --bg-deep:#050d15;
       --panel:rgba(11,25,37,.88);
-      --panel-soft:rgba(15,31,45,.80);
       --line:rgba(255,255,255,.12);
-      --line-strong:rgba(255,255,255,.18);
 
       --cyan:#2ec7f1;
       --green:#8bea6f;
@@ -24,10 +21,7 @@
       --muted:#c4d3dc;
       --muted-soft:#96aab8;
 
-      --red:#ffafaf;
-
-      --shadow:
-        0 26px 80px rgba(0,0,0,.32);
+      --shadow:0 26px 80px rgba(0,0,0,.32);
     }
 
     *{
@@ -76,10 +70,8 @@
 
     body::before{
       content:"";
-
       position:fixed;
       inset:0;
-
       pointer-events:none;
 
       background-image:
@@ -93,15 +85,7 @@
           transparent 1px
         );
 
-      background-size:
-        32px 32px;
-
-      mask-image:
-        linear-gradient(
-          180deg,
-          rgba(0,0,0,.95),
-          rgba(0,0,0,.55)
-        );
+      background-size:32px 32px;
     }
 
     a{
@@ -115,17 +99,9 @@
     ========================= */
 
     .shell{
-      width:
-        min(
-          1220px,
-          calc(100% - 32px)
-        );
-
-      margin:
-        0 auto;
-
-      padding:
-        22px 0 64px;
+      width:min(1220px,calc(100% - 32px));
+      margin:0 auto;
+      padding:22px 0 64px;
 
       position:relative;
       z-index:1;
@@ -138,20 +114,18 @@
 
     .topbar{
       display:flex;
-
       align-items:center;
       justify-content:space-between;
 
       gap:20px;
 
-      padding:
-        14px 18px;
+      padding:14px 18px;
 
-      border-radius:
-        26px;
+      border-radius:26px;
 
       border:
-        1px solid var(--line);
+        1px solid
+        var(--line);
 
       background:
         rgba(5,18,28,.86);
@@ -170,7 +144,6 @@
 
     .brand{
       display:flex;
-
       align-items:center;
 
       gap:12px;
@@ -185,7 +158,6 @@
 
     .brand-name{
       font-weight:900;
-
       font-size:18px;
 
       color:#fff;
@@ -193,7 +165,6 @@
 
     .nav{
       display:flex;
-
       align-items:center;
 
       gap:8px;
@@ -205,17 +176,13 @@
       color:#edf4f8;
 
       font-weight:800;
-
       font-size:14px;
 
-      padding:
-        10px 14px;
+      padding:10px 14px;
 
-      border-radius:
-        14px;
+      border-radius:14px;
 
-      transition:
-        .2s ease;
+      transition:.2s ease;
     }
 
     .nav a:hover{
@@ -245,7 +212,6 @@
 
     .hero{
       position:relative;
-
       overflow:hidden;
 
       margin-top:22px;
@@ -255,11 +221,11 @@
       padding:
         58px 34px 42px;
 
-      border-radius:
-        34px;
+      border-radius:34px;
 
       border:
-        1px solid var(--line);
+        1px solid
+        var(--line);
 
       background:
         linear-gradient(
@@ -279,41 +245,16 @@
       isolation:isolate;
     }
 
-    .hero::after{
-      content:"";
-
-      position:absolute;
-
-      inset:
-        auto -10% -40% auto;
-
-      width:560px;
-      height:560px;
-
-      border-radius:50%;
-
-      background:
-        radial-gradient(
-          circle,
-          rgba(46,199,241,.08),
-          transparent 62%
-        );
-
-      z-index:0;
-    }
-
     .hero-copy-wrap{
       position:relative;
 
       z-index:4;
 
-      max-width:
-        650px;
+      max-width:650px;
     }
 
     .eyebrow{
       display:inline-flex;
-
       align-items:center;
 
       gap:8px;
@@ -324,14 +265,10 @@
       text-transform:
         uppercase;
 
-      letter-spacing:
-        .18em;
+      letter-spacing:.18em;
 
-      font-size:
-        12px;
-
-      font-weight:
-        900;
+      font-size:12px;
+      font-weight:900;
     }
 
     .dot{
@@ -353,57 +290,42 @@
         16px 0 12px;
 
       font-size:
-        clamp(
-          42px,
-          6.2vw,
-          82px
-        );
+        clamp(42px,6.2vw,82px);
 
       line-height:.96;
 
-      letter-spacing:
-        -.06em;
+      letter-spacing:-.06em;
 
       color:#fff;
-
-      text-shadow:
-        0 4px 20px
-        rgba(0,0,0,.18);
     }
 
     .hero p{
       margin:0;
 
-      max-width:
-        630px;
+      max-width:630px;
 
       color:
         var(--text-soft);
 
-      font-size:
-        18px;
+      font-size:18px;
 
-      line-height:
-        1.68;
+      line-height:1.68;
     }
 
     .hero-meta{
       display:flex;
-
       flex-wrap:wrap;
 
       gap:10px;
 
-      margin-top:
-        22px;
+      margin-top:22px;
     }
 
     .hero-chip{
       padding:
         10px 14px;
 
-      border-radius:
-        999px;
+      border-radius:999px;
 
       border:
         1px solid
@@ -415,11 +337,9 @@
       color:#fff;
 
       font-size:12px;
-
       font-weight:800;
 
-      letter-spacing:
-        .06em;
+      letter-spacing:.06em;
 
       text-transform:
         uppercase;
@@ -442,8 +362,6 @@
       pointer-events:none;
 
       z-index:1;
-
-      opacity:.98;
     }
 
     .market-bars{
@@ -455,7 +373,6 @@
       height:132px;
 
       display:flex;
-
       align-items:flex-end;
 
       gap:10px;
@@ -475,10 +392,6 @@
           rgba(139,234,111,.96),
           rgba(46,199,241,.45)
         );
-
-      box-shadow:
-        0 0 18px
-        rgba(139,234,111,.10);
     }
 
     .market-bars span:nth-child(1){
@@ -513,8 +426,6 @@
 
       width:270px;
       height:130px;
-
-      opacity:.9;
     }
 
     .trend path{
@@ -525,27 +436,12 @@
 
       stroke-width:3;
 
-      stroke-linecap:
-        round;
-
-      stroke-linejoin:
-        round;
-
-      filter:
-        drop-shadow(
-          0 0 8px
-          rgba(46,199,241,.25)
-        );
+      stroke-linecap:round;
+      stroke-linejoin:round;
     }
 
     .trend circle{
       fill:#f7ffff;
-
-      filter:
-        drop-shadow(
-          0 0 10px
-          rgba(139,234,111,.7)
-        );
     }
 
 
@@ -557,7 +453,6 @@
       position:absolute;
 
       display:flex;
-
       align-items:center;
 
       gap:10px;
@@ -567,8 +462,7 @@
       padding:
         11px 13px;
 
-      border-radius:
-        14px;
+      border-radius:14px;
 
       border:
         1px solid
@@ -579,10 +473,6 @@
 
       backdrop-filter:
         blur(12px);
-
-      box-shadow:
-        0 12px 28px
-        rgba(0,0,0,.22);
 
       z-index:3;
     }
@@ -604,7 +494,6 @@
       border-radius:10px;
 
       display:grid;
-
       place-items:center;
 
       color:#071018;
@@ -690,113 +579,18 @@
         rgba(46,199,241,.24);
 
       box-shadow:
-        inset 0 14px 40px
-        rgba(46,199,241,.07),
-        inset 0 -26px 44px
-        rgba(0,0,0,.58),
-        0 0 42px
-        rgba(46,199,241,.12);
-    }
-
-    .planet-v3{
-      box-shadow:
         inset 0 20px 50px
         rgba(46,199,241,.10),
         inset 0 -30px 50px
         rgba(0,0,0,.62),
         0 0 54px
-        rgba(46,199,241,.14),
-        0 0 30px
-        rgba(139,234,111,.08);
-    }
-
-    .planet-shine{
-      position:absolute;
-
-      inset:
-        12px 18px auto auto;
-
-      width:130px;
-      height:86px;
-
-      border-radius:
-        50%;
-
-      background:
-        radial-gradient(
-          circle at 40% 40%,
-          rgba(255,255,255,.16),
-          transparent 66%
-        );
-
-      transform:
-        rotate(-18deg);
-    }
-
-    .planet::before{
-      content:"";
-
-      position:absolute;
-
-      inset:0;
-
-      background:
-        radial-gradient(
-          circle at 20% 72%,
-          rgba(0,0,0,.25),
-          transparent 28%
-        ),
-        radial-gradient(
-          circle at 64% 40%,
-          rgba(0,0,0,.18),
-          transparent 24%
-        ),
-        linear-gradient(
-          90deg,
-          transparent 0 28%,
-          rgba(255,255,255,.04) 28% 29%,
-          transparent 29% 100%
-        ),
-        linear-gradient(
-          transparent 0 58%,
-          rgba(139,234,111,.10) 58% 59%,
-          transparent 59% 100%
-        );
-
-      opacity:.92;
-    }
-
-    .planet::after{
-      content:"";
-
-      position:absolute;
-
-      inset:
-        8% 6% auto auto;
-
-      width:86%;
-      height:86%;
-
-      border-top:
-        1px solid
-        rgba(255,255,255,.06);
-
-      border-radius:
-        50%;
-
-      transform:
-        rotate(-8deg);
-
-      pointer-events:none;
+        rgba(46,199,241,.14);
     }
 
     .planet-grid-v,
-    .planet-grid-h,
-    .planet-grid-h2{
+    .planet-grid-h{
       position:absolute;
       inset:0;
-
-      pointer-events:none;
     }
 
     .planet-grid-v::before{
@@ -817,12 +611,10 @@
         1px solid
         rgba(46,199,241,.17);
 
-      border-radius:
-        50%;
+      border-radius:50%;
     }
 
-    .planet-grid-h::before,
-    .planet-grid-h2::before{
+    .planet-grid-h::before{
       content:"";
 
       position:absolute;
@@ -830,114 +622,15 @@
       left:10%;
       right:10%;
 
+      top:42%;
+
+      height:28%;
+
       border:
         1px solid
         rgba(139,234,111,.16);
 
-      border-radius:
-        50%;
-
-      height:26%;
-    }
-
-    .planet-grid-h::before{
-      top:34%;
-    }
-
-    .planet-grid-h2::before{
-      top:56%;
-
-      opacity:.55;
-    }
-
-
-    /* =========================
-       CONTINENTS
-    ========================= */
-
-    .continent,
-    .continent-two,
-    .continent-three{
-      position:absolute;
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(46,199,241,.28),
-          rgba(139,234,111,.22)
-        );
-
-      filter:
-        drop-shadow(
-          0 0 8px
-          rgba(139,234,111,.10)
-        );
-
-      opacity:.82;
-    }
-
-    .continent{
-      width:116px;
-      height:42px;
-
-      left:104px;
-      top:84px;
-
-      clip-path:
-        polygon(
-          0 44%,
-          14% 20%,
-          29% 6%,
-          48% 15%,
-          62% 0,
-          74% 18%,
-          100% 24%,
-          88% 48%,
-          68% 58%,
-          52% 80%,
-          30% 86%,
-          18% 74%,
-          8% 62%
-        );
-    }
-
-    .continent-two{
-      width:72px;
-      height:30px;
-
-      left:190px;
-      top:126px;
-
-      clip-path:
-        polygon(
-          0 34%,
-          16% 0,
-          52% 10%,
-          100% 32%,
-          78% 70%,
-          54% 100%,
-          20% 88%,
-          8% 66%
-        );
-    }
-
-    .continent-three{
-      width:58px;
-      height:24px;
-
-      left:76px;
-      top:136px;
-
-      clip-path:
-        polygon(
-          0 40%,
-          22% 4%,
-          60% 0,
-          100% 24%,
-          86% 78%,
-          42% 100%,
-          12% 82%
-        );
+      border-radius:50%;
     }
 
 
@@ -946,8 +639,7 @@
     ========================= */
 
     .ring,
-    .ring-two,
-    .ring-three{
+    .ring-two{
       position:absolute;
 
       border-radius:50%;
@@ -955,12 +647,6 @@
       border:
         2px solid
         rgba(46,199,241,.55);
-
-      filter:
-        drop-shadow(
-          0 0 10px
-          rgba(46,199,241,.10)
-        );
     }
 
     .ring{
@@ -988,27 +674,6 @@
         rgba(139,234,111,.48);
     }
 
-    .ring-three{
-      width:300px;
-      height:96px;
-
-      left:40px;
-      top:102px;
-
-      transform:
-        rotate(3deg);
-
-      border-color:
-        rgba(255,255,255,.16);
-
-      opacity:.45;
-    }
-
-
-    /* =========================
-       NODES
-    ========================= */
-
     .node{
       position:absolute;
 
@@ -1017,14 +682,11 @@
 
       border-radius:50%;
 
-      background:
-        #f5ffff;
+      background:#f5ffff;
 
       box-shadow:
         0 0 16px
-        rgba(46,199,241,.55),
-        0 0 26px
-        rgba(139,234,111,.30);
+        rgba(46,199,241,.55);
     }
 
     .node.one{
@@ -1035,22 +697,16 @@
     .node.two{
       left:128px;
       top:30px;
-
-      width:12px;
-      height:12px;
     }
 
     .node.three{
       right:46px;
       top:18px;
-
-      width:12px;
-      height:12px;
     }
 
 
     /* =========================
-       LOADING / ERROR
+       LOADING
     ========================= */
 
     .loading,
@@ -1064,26 +720,19 @@
         1px solid
         var(--line);
 
-      border-radius:
-        18px;
+      border-radius:18px;
 
       color:
         var(--text-soft);
 
       background:
         rgba(255,255,255,.04);
-
-      backdrop-filter:
-        blur(10px);
     }
 
     .error{
       display:none;
 
       color:#ffe0e0;
-
-      border-color:
-        rgba(255,123,123,.24);
 
       background:
         rgba(255,123,123,.08);
@@ -1103,8 +752,6 @@
       gap:24px;
 
       margin-top:24px;
-
-      align-items:start;
     }
 
     .card{
@@ -1112,18 +759,15 @@
         1px solid
         var(--line);
 
-      border-radius:
-        30px;
+      border-radius:30px;
 
-      padding:
-        30px;
+      padding:30px;
 
       background:
         linear-gradient(
           180deg,
           rgba(255,255,255,.05),
-          rgba(255,255,255,.018) 24%,
-          rgba(255,255,255,.012) 100%
+          rgba(255,255,255,.018)
         ),
         linear-gradient(
           180deg,
@@ -1137,8 +781,6 @@
       position:relative;
 
       overflow:hidden;
-
-      isolation:isolate;
     }
 
     .card::before{
@@ -1146,8 +788,8 @@
 
       position:absolute;
 
-      inset:
-        0 auto auto 0;
+      left:0;
+      top:0;
 
       width:100%;
       height:2px;
@@ -1159,34 +801,6 @@
           var(--green),
           transparent
         );
-
-      opacity:.9;
-    }
-
-    .card::after{
-      content:"";
-
-      position:absolute;
-
-      right:-60px;
-      bottom:-74px;
-
-      width:220px;
-      height:220px;
-
-      border-radius:50%;
-
-      border:
-        1px solid
-        rgba(255,255,255,.06);
-
-      box-shadow:
-        0 0 0 24px
-        rgba(255,255,255,.014),
-        0 0 0 48px
-        rgba(46,199,241,.018);
-
-      z-index:-1;
     }
 
     .card-title{
@@ -1194,17 +808,13 @@
 
       color:#dfe9ee;
 
-      text-transform:
-        uppercase;
+      text-transform:uppercase;
 
-      letter-spacing:
-        .16em;
+      letter-spacing:.16em;
 
-      font-weight:
-        900;
+      font-weight:900;
 
-      margin-bottom:
-        18px;
+      margin-bottom:18px;
     }
 
 
@@ -1214,13 +824,11 @@
 
     .profile-row{
       display:flex;
-
       align-items:center;
 
       gap:16px;
 
-      margin-bottom:
-        28px;
+      margin-bottom:28px;
     }
 
     .avatar{
@@ -1245,24 +853,13 @@
         rgba(255,255,255,.20);
 
       font-size:32px;
-
-      box-shadow:
-        0 14px 28px
-        rgba(0,0,0,.22);
     }
 
     .profile-email{
       font-size:
-        clamp(
-          18px,
-          3vw,
-          28px
-        );
+        clamp(18px,3vw,28px);
 
       font-weight:900;
-
-      overflow-wrap:
-        anywhere;
 
       color:#fff;
     }
@@ -1273,8 +870,7 @@
 
       margin-top:5px;
 
-      font-size:
-        14px;
+      font-size:14px;
     }
 
 
@@ -1286,10 +882,7 @@
       display:grid;
 
       grid-template-columns:
-        repeat(
-          2,
-          minmax(0,1fr)
-        );
+        repeat(2,minmax(0,1fr));
 
       gap:14px;
     }
@@ -1309,33 +902,6 @@
           rgba(255,255,255,.07),
           rgba(255,255,255,.03)
         );
-
-      position:relative;
-
-      overflow:hidden;
-    }
-
-    .status-box::after{
-      content:"";
-
-      position:absolute;
-
-      right:-18px;
-      top:-18px;
-
-      width:84px;
-      height:84px;
-
-      border-radius:50%;
-
-      background:
-        radial-gradient(
-          circle,
-          rgba(255,255,255,.13),
-          transparent 68%
-        );
-
-      opacity:.75;
     }
 
     .status-label{
@@ -1343,17 +909,13 @@
 
       font-size:12px;
 
-      text-transform:
-        uppercase;
+      text-transform:uppercase;
 
-      letter-spacing:
-        .12em;
+      letter-spacing:.12em;
 
-      font-weight:
-        800;
+      font-weight:800;
 
-      margin-bottom:
-        8px;
+      margin-bottom:8px;
     }
 
     .status-value{
@@ -1361,36 +923,22 @@
 
       font-weight:900;
 
-      line-height:1.15;
-
       color:#fff;
     }
 
     .pill{
       display:inline-flex;
 
-      align-items:center;
-
-      gap:8px;
-
-      border-radius:
-        999px;
+      border-radius:999px;
 
       padding:
         8px 12px;
 
-      font-size:
-        13px;
+      font-size:13px;
 
-      font-weight:
-        900;
+      font-weight:900;
 
-      border:
-        1px solid
-        var(--line);
-
-      margin-top:
-        10px;
+      margin-top:10px;
     }
 
     .pill.active{
@@ -1399,9 +947,6 @@
 
       background:
         rgba(139,234,111,.10);
-
-      border-color:
-        rgba(139,234,111,.28);
     }
 
     .pill.inactive{
@@ -1409,9 +954,6 @@
 
       background:
         rgba(255,123,123,.09);
-
-      border-color:
-        rgba(255,123,123,.18);
     }
 
 
@@ -1423,10 +965,7 @@
       display:grid;
 
       grid-template-columns:
-        repeat(
-          2,
-          minmax(0,1fr)
-        );
+        repeat(2,minmax(0,1fr));
 
       gap:14px;
 
@@ -1435,16 +974,13 @@
 
     .plan-visual{
       display:flex;
-
       align-items:center;
 
       gap:14px;
 
-      padding:
-        16px;
+      padding:16px;
 
-      border-radius:
-        20px;
+      border-radius:20px;
 
       border:
         1px solid
@@ -1454,16 +990,10 @@
         rgba(255,255,255,.025);
 
       opacity:.58;
-
-      transition:
-        .2s ease;
     }
 
     .plan-visual.active-plan{
       opacity:1;
-
-      border-color:
-        rgba(139,234,111,.24);
 
       background:
         linear-gradient(
@@ -1471,32 +1001,23 @@
           rgba(46,199,241,.10),
           rgba(139,234,111,.08)
         );
-
-      box-shadow:
-        0 12px 26px
-        rgba(46,199,241,.08);
     }
 
     .plan-mark{
       min-width:108px;
-
       min-height:78px;
 
       display:grid;
-
       place-items:center;
 
-      border-radius:
-        16px;
+      border-radius:16px;
 
       color:#071018;
 
       font-size:14px;
-
       font-weight:950;
 
-      letter-spacing:
-        .10em;
+      letter-spacing:.10em;
 
       background:
         linear-gradient(
@@ -1523,23 +1044,18 @@
         var(--muted);
 
       font-size:13px;
-
-      line-height:1.45;
     }
 
 
     /* =========================
-       VALUE CARDS
+       PRODUCT VALUE
     ========================= */
 
     .insight-strip{
       display:grid;
 
       grid-template-columns:
-        repeat(
-          3,
-          minmax(0,1fr)
-        );
+        repeat(3,minmax(0,1fr));
 
       gap:12px;
 
@@ -1547,44 +1063,43 @@
     }
 
     .insight-box{
-      padding:16px;
+      padding:
+        18px;
 
-      border-radius:18px;
+      border-radius:
+        20px;
 
       background:
-        rgba(255,255,255,.05);
+        rgba(255,255,255,.045);
 
       border:
         1px solid
-        rgba(255,255,255,.09);
+        rgba(255,255,255,.10);
     }
 
     .insight-kicker{
-      font-size:11px;
+      font-size:15px;
 
-      color:#b1c2cc;
+      font-weight:950;
 
-      text-transform:
-        uppercase;
+      color:#ffffff;
 
-      letter-spacing:
-        .14em;
+      letter-spacing:.14em;
 
-      font-weight:
-        800;
+      text-transform:uppercase;
 
-      margin-bottom:
-        8px;
+      margin-bottom:12px;
     }
 
     .insight-value{
-      font-size:15px;
+      font-size:14px;
 
-      font-weight:800;
+      font-weight:500;
 
-      color:#fff;
+      color:
+        var(--muted);
 
-      line-height:1.45;
+      line-height:1.55;
     }
 
 
@@ -1606,11 +1121,6 @@
         rgba(255,255,255,.10);
 
       background:
-        radial-gradient(
-          circle at 0 0,
-          rgba(46,199,241,.12),
-          transparent 42%
-        ),
         linear-gradient(
           180deg,
           rgba(255,255,255,.05),
@@ -1622,8 +1132,7 @@
       margin:
         0 0 8px;
 
-      font-size:
-        24px;
+      font-size:24px;
 
       color:#fff;
     }
@@ -1635,8 +1144,7 @@
       color:
         var(--muted);
 
-      line-height:
-        1.6;
+      line-height:1.6;
     }
 
     .btn{
@@ -1650,11 +1158,9 @@
       padding:
         0 20px;
 
-      border-radius:
-        16px;
+      border-radius:16px;
 
-      font-weight:
-        900;
+      font-weight:900;
 
       background:
         linear-gradient(
@@ -1664,28 +1170,11 @@
         );
 
       color:#071018;
-
-      box-shadow:
-        0 12px 30px
-        rgba(46,199,241,.16);
-
-      transition:
-        transform .18s ease,
-        box-shadow .18s ease;
-    }
-
-    .btn:hover{
-      transform:
-        translateY(-1px);
-
-      box-shadow:
-        0 16px 34px
-        rgba(46,199,241,.22);
     }
 
 
     /* =========================
-       ACCESS LIST
+       ACCESS
     ========================= */
 
     .access-list{
@@ -1702,11 +1191,9 @@
 
       gap:14px;
 
-      padding:
-        18px;
+      padding:18px;
 
-      border-radius:
-        20px;
+      border-radius:20px;
 
       border:
         1px solid
@@ -1718,10 +1205,6 @@
           rgba(255,255,255,.065),
           rgba(255,255,255,.03)
         );
-
-      position:relative;
-
-      overflow:hidden;
     }
 
     .access-left{
@@ -1736,14 +1219,10 @@
       width:44px;
       height:44px;
 
-      border-radius:
-        14px;
+      border-radius:14px;
 
       display:grid;
-
       place-items:center;
-
-      flex:0 0 auto;
 
       color:#071018;
 
@@ -1754,31 +1233,6 @@
           135deg,
           var(--cyan),
           var(--green)
-        );
-    }
-
-    .access-item::after{
-      content:"";
-
-      position:absolute;
-
-      right:20px;
-      top:18px;
-
-      width:86px;
-      height:32px;
-
-      opacity:.34;
-
-      background-repeat:
-        no-repeat;
-
-      background-size:
-        contain;
-
-      background-image:
-        url(
-          "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 84 34'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='1' x2='1' y2='0'%3E%3Cstop offset='0%25' stop-color='%232ec7f1'/%3E%3Cstop offset='100%25' stop-color='%238bea6f'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpolyline fill='none' stroke='url(%23g)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' points='2,27 15,22 27,24 39,15 51,18 64,9 82,5'/%3E%3C/svg%3E"
         );
     }
 
@@ -1798,40 +1252,24 @@
 
       margin-top:5px;
 
-      max-width:
-        320px;
-
-      line-height:
-        1.55;
+      line-height:1.55;
     }
 
     .access-badge{
-      min-width:
-        94px;
+      min-width:94px;
 
       text-align:center;
 
       padding:
         9px 11px;
 
-      border-radius:
-        999px;
+      border-radius:999px;
 
-      font-size:
-        12px;
+      font-size:12px;
 
-      font-weight:
-        900;
+      font-weight:900;
 
-      text-transform:
-        uppercase;
-
-      letter-spacing:
-        .07em;
-
-      position:relative;
-
-      z-index:2;
+      text-transform:uppercase;
     }
 
     .access-badge.yes{
@@ -1843,10 +1281,6 @@
           var(--cyan),
           var(--green)
         );
-
-      box-shadow:
-        0 8px 22px
-        rgba(46,199,241,.18);
     }
 
     .access-badge.no{
@@ -1854,10 +1288,6 @@
 
       background:
         rgba(255,255,255,.08);
-
-      border:
-        1px solid
-        rgba(255,255,255,.14);
     }
 
 
@@ -1884,45 +1314,33 @@
        RESPONSIVE
     ========================= */
 
-    @media(
-      max-width:980px
-    ){
+    @media(max-width:980px){
+
       .grid{
-        grid-template-columns:
-          1fr;
+        grid-template-columns:1fr;
       }
 
       .hero{
-        padding-bottom:
-          184px;
-
-        min-height:
-          400px;
+        padding-bottom:184px;
       }
 
       .scene{
-        right:-34px;
-        bottom:-8px;
+        transform:scale(.85);
 
-        transform:
-          scale(.88);
+        right:-40px;
 
         transform-origin:
           bottom right;
-
-        opacity:.9;
       }
+
     }
 
-    @media(
-      max-width:680px
-    ){
+
+    @media(max-width:680px){
+
       .shell{
         width:
-          min(
-            100% - 20px,
-            1220px
-          );
+          calc(100% - 20px);
       }
 
       .brand-name{
@@ -1933,1245 +1351,1107 @@
         padding:
           9px 10px;
 
-        font-size:
-          12px;
+        font-size:12px;
       }
 
       .hero{
         padding:
-          34px 22px 182px;
-
-        min-height:auto;
+          34px 22px 180px;
       }
 
       .hero p{
-        font-size:
-          16px;
-      }
-
-      .hero-chip{
-        font-size:
-          11px;
-      }
-
-      .card{
-        padding:
-          22px;
-      }
-
-      .status-grid,
-      .plan-visuals,
-      .insight-strip{
-        grid-template-columns:
-          1fr;
-      }
-
-      .access-item{
-        align-items:
-          flex-start;
-
-        flex-direction:
-          column;
-      }
-
-      .access-item::after{
-        display:none;
-      }
-
-      .access-badge{
-        min-width:
-          unset;
+        font-size:16px;
       }
 
       .scene{
-        right:-96px;
+        transform:scale(.7);
 
-        transform:
-          scale(.72);
+        right:-100px;
       }
 
       .brand-orbit-card{
         display:none;
       }
+
+      .status-grid,
+      .plan-visuals,
+      .insight-strip{
+        grid-template-columns:1fr;
+      }
+
+      .access-item{
+        flex-direction:column;
+
+        align-items:flex-start;
+      }
+
     }
+
   </style>
 </head>
 
 
 <body>
 
-  <div class="shell">
+<div class="shell">
 
 
-    <!-- =========================
-         NAVBAR
-    ========================= -->
+  <!-- NAVBAR -->
 
-    <header class="topbar">
+  <header class="topbar">
 
-      <a
-        class="brand"
-        href="/"
+    <a
+      class="brand"
+      href="/"
+    >
+
+      <img
+        src="../logo.png"
+        alt="vikundey.crypto"
       >
 
-        <img
-          src="../logo.png"
-          alt="vikundey.crypto"
-        >
+      <div class="brand-name">
+        vikundey.crypto
+      </div>
 
-        <div class="brand-name">
-          vikundey.crypto
-        </div>
+    </a>
 
+
+    <nav class="nav">
+
+      <a href="/">
+        Головна
       </a>
 
+      <a href="/nfp/">
+        NFP
+      </a>
 
-      <nav class="nav">
+      <a href="/cpi/">
+        CPI
+      </a>
 
-        <a href="/">
-          Головна
-        </a>
+      <a href="/thoughts/">
+        Thoughts
+      </a>
 
-        <a href="/nfp/">
-          NFP
-        </a>
+      <a
+        class="active"
+        href="/profile/"
+      >
+        👤
+      </a>
 
-        <a href="/cpi/">
-          CPI
-        </a>
+    </nav>
 
-        <a href="/thoughts/">
-          Thoughts
-        </a>
-
-        <a
-          class="active"
-          href="/profile/"
-          aria-label="Профіль"
-        >
-          👤
-        </a>
-
-      </nav>
-
-    </header>
+  </header>
 
 
-    <!-- =========================
-         HERO
-    ========================= -->
+  <!-- HERO -->
 
-    <section class="hero">
+  <section class="hero">
 
-      <div class="hero-copy-wrap">
+    <div class="hero-copy-wrap">
 
-        <div class="eyebrow">
+      <div class="eyebrow">
 
-          <span class="dot"></span>
+        <span class="dot"></span>
 
-          Vikundey Space
-
-        </div>
-
-
-        <h1>
-          Мій профіль
-        </h1>
-
-
-        <p>
-          Твій персональний простір у Vikundey Space:
-          доступ до авторської макроаналітики,
-          ринкових розборів, сценаріїв та навчальних
-          матеріалів в одному місці.
-        </p>
-
-
-        <div class="hero-meta">
-
-          <div class="hero-chip">
-            Premium Access
-          </div>
-
-          <div class="hero-chip">
-            NFP · CPI · Thoughts
-          </div>
-
-          <div class="hero-chip">
-            Macro · Research · Markets
-          </div>
-
-        </div>
+        Vikundey Space
 
       </div>
 
 
-      <!-- VISUAL -->
+      <h1>
+        Мій профіль
+      </h1>
 
-      <div
-        class="scene"
-        aria-hidden="true"
+
+      <p>
+
+        Твій персональний простір у Vikundey Space:
+        доступ до авторської макроаналітики,
+        ринкових розборів, сценаріїв та
+        навчальних матеріалів в одному місці.
+
+      </p>
+
+
+      <div class="hero-meta">
+
+        <div class="hero-chip">
+          Premium Access
+        </div>
+
+        <div class="hero-chip">
+          NFP · CPI · Thoughts
+        </div>
+
+        <div class="hero-chip">
+          Macro · Research · Markets
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- HERO VISUAL -->
+
+    <div class="scene">
+
+
+      <div class="market-bars">
+
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+
+      </div>
+
+
+      <svg
+        class="trend"
+        viewBox="0 0 270 130"
       >
 
+        <defs>
 
-        <div class="market-bars">
+          <linearGradient
+            id="trendGradient"
+            x1="0"
+            y1="1"
+            x2="1"
+            y2="0"
+          >
 
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
+            <stop
+              offset="0%"
+              stop-color="#2ec7f1"
+            />
 
+            <stop
+              offset="100%"
+              stop-color="#8bea6f"
+            />
+
+          </linearGradient>
+
+        </defs>
+
+
+        <path
+          d="
+          M8 112
+          C40 108,
+          58 88,
+          86 90
+          S132 64,
+          156 68
+          S198 42,
+          224 48
+          S244 24,
+          264 8
+          "
+        />
+
+
+        <circle
+          cx="86"
+          cy="90"
+          r="4"
+        />
+
+
+        <circle
+          cx="224"
+          cy="48"
+          r="4"
+        />
+
+
+        <circle
+          cx="264"
+          cy="8"
+          r="4"
+        />
+
+      </svg>
+
+
+      <div class="brand-orbit-card card-a">
+
+        <div class="mini-icon">
+          ◉
         </div>
 
+        <div>
 
-        <svg
-          class="trend"
-          viewBox="0 0 270 130"
-          preserveAspectRatio="none"
-        >
+          <strong>
+            Macro
+          </strong>
 
-          <defs>
-
-            <linearGradient
-              id="trendGradient"
-              x1="0"
-              y1="1"
-              x2="1"
-              y2="0"
-            >
-
-              <stop
-                offset="0%"
-                stop-color="#2ec7f1"
-              />
-
-              <stop
-                offset="100%"
-                stop-color="#8bea6f"
-              />
-
-            </linearGradient>
-
-          </defs>
-
-
-          <path
-            d="
-              M8 112
-              C40 108,
-              58 88,
-              86 90
-              S132 64,
-              156 68
-              S198 42,
-              224 48
-              S244 24,
-              264 8
-            "
-          />
-
-
-          <circle
-            cx="86"
-            cy="90"
-            r="4"
-          />
-
-
-          <circle
-            cx="224"
-            cy="48"
-            r="4"
-          />
-
-
-          <circle
-            cx="264"
-            cy="8"
-            r="4.2"
-          />
-
-        </svg>
-
-
-        <div class="brand-orbit-card card-a">
-
-          <div class="mini-icon">
-            ◉
-          </div>
-
-          <div>
-
-            <strong>
-              Macro
-            </strong>
-
-            <span>
-              Global context
-            </span>
-
-          </div>
-
-        </div>
-
-
-        <div class="brand-orbit-card card-b">
-
-          <div class="mini-icon">
-            ▥
-          </div>
-
-          <div>
-
-            <strong>
-              Data
-            </strong>
-
-            <span>
-              Market reaction
-            </span>
-
-          </div>
-
-        </div>
-
-
-        <div class="planet-wrap">
-
-
-          <div class="ring"></div>
-
-          <div class="ring-two"></div>
-
-          <div class="ring-three"></div>
-
-
-          <span class="node one"></span>
-
-          <span class="node two"></span>
-
-          <span class="node three"></span>
-
-
-          <div class="planet planet-v3">
-
-            <div class="planet-shine"></div>
-
-            <div class="planet-grid-v"></div>
-
-            <div class="planet-grid-h"></div>
-
-            <div class="planet-grid-h2"></div>
-
-
-            <div class="continent"></div>
-
-            <div class="continent-two"></div>
-
-            <div class="continent-three"></div>
-
-          </div>
+          <span>
+            Global context
+          </span>
 
         </div>
 
       </div>
 
-    </section>
+
+      <div class="brand-orbit-card card-b">
+
+        <div class="mini-icon">
+          ▥
+        </div>
+
+        <div>
+
+          <strong>
+            Data
+          </strong>
+
+          <span>
+            Market reaction
+          </span>
+
+        </div>
+
+      </div>
 
 
-    <!-- =========================
-         LOADING
-    ========================= -->
+      <div class="planet-wrap">
 
-    <div
-      id="loading"
-      class="loading"
-    >
+        <div class="ring"></div>
 
-      Завантажуємо дані профілю…
+        <div class="ring-two"></div>
+
+
+        <span class="node one"></span>
+
+        <span class="node two"></span>
+
+        <span class="node three"></span>
+
+
+        <div class="planet">
+
+          <div class="planet-grid-v"></div>
+
+          <div class="planet-grid-h"></div>
+
+        </div>
+
+      </div>
 
     </div>
 
+  </section>
 
-    <div
-      id="error"
-      class="error"
-    >
 
-      Не вдалося завантажити профіль.
-      Онови сторінку або увійди повторно.
+  <!-- LOADING -->
 
-    </div>
+  <div
+    id="loading"
+    class="loading"
+  >
 
-
-    <!-- =========================
-         PROFILE
-    ========================= -->
-
-    <main
-      id="profileContent"
-      class="grid hidden"
-    >
-
-
-      <section class="card">
-
-
-        <div class="card-title">
-          Профіль
-        </div>
-
-
-        <div class="profile-row">
-
-
-          <div class="avatar">
-            👤
-          </div>
-
-
-          <div>
-
-
-            <div
-              id="email"
-              class="profile-email"
-            >
-              —
-            </div>
-
-
-            <div class="profile-note">
-              Авторизований користувач Vikundey Space
-            </div>
-
-
-          </div>
-
-
-        </div>
-
-
-        <!-- STATUS -->
-
-
-        <div class="status-grid">
-
-
-          <div class="status-box">
-
-
-            <div class="status-label">
-              Підписка
-            </div>
-
-
-            <div
-              id="plan"
-              class="status-value"
-            >
-              —
-            </div>
-
-
-          </div>
-
-
-          <div class="status-box">
-
-
-            <div class="status-label">
-              Статус
-            </div>
-
-
-            <div
-              id="statusText"
-              class="status-value"
-            >
-              —
-            </div>
-
-
-            <div
-              id="statusPill"
-              class="pill"
-            >
-              —
-            </div>
-
-
-          </div>
-
-
-        </div>
-
-
-        <!-- PLAN VISUALS -->
-
-
-        <div class="plan-visuals">
-
-
-          <div
-            id="fullPlanVisual"
-            class="plan-visual full"
-          >
-
-
-            <div class="plan-mark">
-              FULL
-            </div>
-
-
-            <div class="plan-copy">
-
-
-              <strong>
-                Full Vikundey Space
-              </strong>
-
-
-              <span>
-                NFP + CPI + Vikundey Thoughts
-              </span>
-
-
-            </div>
-
-
-          </div>
-
-
-          <div
-            id="newsPlanVisual"
-            class="plan-visual news"
-          >
-
-
-            <div class="plan-mark">
-              NEWS
-            </div>
-
-
-            <div class="plan-copy">
-
-
-              <strong>
-                News Vikundey Space
-              </strong>
-
-
-              <span>
-                NFP + CPI
-              </span>
-
-
-            </div>
-
-
-          </div>
-
-
-        </div>
-
-
-        <!-- PRODUCT VALUE -->
-
-
-        <div class="insight-strip">
-
-
-          <div class="insight-box">
-
-
-            <div class="insight-kicker">
-              RESEARCH
-            </div>
-
-
-            <div class="insight-value">
-              Авторські макророзбори з фокусом
-              на причинно-наслідкові зв’язки
-              та реакцію ринків.
-            </div>
-
-
-          </div>
-
-
-          <div class="insight-box">
-
-
-            <div class="insight-kicker">
-              MARKETS
-            </div>
-
-
-            <div class="insight-value">
-              NFP, CPI та ключові макроподії —
-              не просто цифри, а логіка їхнього
-              впливу на активи.
-            </div>
-
-
-          </div>
-
-
-          <div class="insight-box">
-
-
-            <div class="insight-kicker">
-              KNOWLEDGE
-            </div>
-
-
-            <div class="insight-value">
-              Навчальні матеріали, економіка
-              та геополітика для глибшого
-              розуміння глобальних процесів.
-            </div>
-
-
-          </div>
-
-
-        </div>
-
-
-        <!-- CTA -->
-
-
-        <div
-          id="cta"
-          class="cta"
-        >
-
-
-          <h3
-            id="ctaTitle"
-          >
-            Відкрий Vikundey Space
-          </h3>
-
-
-          <p
-            id="ctaText"
-          >
-
-            Обери формат доступу та отримай
-            авторську аналітику, ринковий контекст
-            і матеріали, які допомагають бачити
-            ринок ширше за окремий реліз чи новину.
-
-          </p>
-
-
-          <a
-            id="subscribeButton"
-            class="btn"
-            href="https://secure.wayforpay.com/sub/see534a7947df"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-
-            Обрати підписку →
-
-          </a>
-
-
-        </div>
-
-
-      </section>
-
-
-      <!-- =========================
-           ACCESS
-      ========================= -->
-
-
-      <aside class="card">
-
-
-        <div class="card-title">
-          Мій доступ
-        </div>
-
-
-        <div class="access-list">
-
-
-          <!-- NFP -->
-
-
-          <div class="access-item">
-
-
-            <div class="access-left">
-
-
-              <div class="access-icon">
-                N
-              </div>
-
-
-              <div>
-
-
-                <div class="access-name">
-                  NFP
-                </div>
-
-
-                <div class="access-desc">
-
-                  Ринок праці США,
-                  Nonfarm Payrolls
-                  та реакція ринку.
-
-                </div>
-
-
-              </div>
-
-
-            </div>
-
-
-            <div
-              id="accessNfp"
-              class="access-badge no"
-            >
-              Немає
-            </div>
-
-
-          </div>
-
-
-          <!-- CPI -->
-
-
-          <div class="access-item">
-
-
-            <div class="access-left">
-
-
-              <div class="access-icon">
-                C
-              </div>
-
-
-              <div>
-
-
-                <div class="access-name">
-                  CPI
-                </div>
-
-
-                <div class="access-desc">
-
-                  Інфляція США,
-                  Core CPI та сценарії
-                  для активів.
-
-                </div>
-
-
-              </div>
-
-
-            </div>
-
-
-            <div
-              id="accessCpi"
-              class="access-badge no"
-            >
-              Немає
-            </div>
-
-
-          </div>
-
-
-          <!-- THOUGHTS -->
-
-
-          <div class="access-item">
-
-
-            <div class="access-left">
-
-
-              <div class="access-icon">
-                V
-              </div>
-
-
-              <div>
-
-
-                <div class="access-name">
-                  Vikundey Thoughts
-                </div>
-
-
-                <div class="access-desc">
-
-                  Освіта, макроекономіка,
-                  геополітика та авторська
-                  аналітика.
-
-                </div>
-
-
-              </div>
-
-
-            </div>
-
-
-            <div
-              id="accessThoughts"
-              class="access-badge no"
-            >
-              Немає
-            </div>
-
-
-          </div>
-
-
-        </div>
-
-
-      </aside>
-
-
-    </main>
-
-
-    <footer class="footer">
-
-      © vikundey.crypto · Vikundey Space
-
-    </footer>
-
+    Завантажуємо дані профілю…
 
   </div>
 
 
-  <!-- =========================
-       PROFILE API
-  ========================= -->
+  <div
+    id="error"
+    class="error"
+  >
+
+    Не вдалося завантажити профіль.
+    Онови сторінку або увійди повторно.
+
+  </div>
 
 
-  <script>
+  <!-- PROFILE -->
 
-    const el =
-      (id) =>
-        document.getElementById(id);
-
-
-    function setAccessBadge(
-      id,
-      enabled
-    ){
-
-      const node =
-        el(id);
+  <main
+    id="profileContent"
+    class="grid hidden"
+  >
 
 
-      if(enabled){
-
-        node.textContent =
-          "Доступ";
+    <section class="card">
 
 
-        node.classList.remove(
-          "no"
-        );
+      <div class="card-title">
+        Профіль
+      </div>
 
 
-        node.classList.add(
-          "yes"
-        );
+      <div class="profile-row">
 
-      }else{
-
-        node.textContent =
-          "Немає";
+        <div class="avatar">
+          👤
+        </div>
 
 
-        node.classList.remove(
-          "yes"
-        );
+        <div>
+
+          <div
+            id="email"
+            class="profile-email"
+          >
+            —
+          </div>
 
 
-        node.classList.add(
-          "no"
-        );
+          <div class="profile-note">
+            Авторизований користувач Vikundey Space
+          </div>
 
-      }
+        </div>
+
+      </div>
+
+
+      <!-- STATUS -->
+
+      <div class="status-grid">
+
+
+        <div class="status-box">
+
+          <div class="status-label">
+            Підписка
+          </div>
+
+          <div
+            id="plan"
+            class="status-value"
+          >
+            —
+          </div>
+
+        </div>
+
+
+        <div class="status-box">
+
+          <div class="status-label">
+            Статус
+          </div>
+
+          <div
+            id="statusText"
+            class="status-value"
+          >
+            —
+          </div>
+
+          <div
+            id="statusPill"
+            class="pill"
+          >
+            —
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+      <!-- PLAN VISUALS -->
+
+      <div class="plan-visuals">
+
+
+        <div
+          id="fullPlanVisual"
+          class="plan-visual"
+        >
+
+          <div class="plan-mark">
+            FULL
+          </div>
+
+
+          <div class="plan-copy">
+
+            <strong>
+              Full Vikundey Space
+            </strong>
+
+            <span>
+              NFP + CPI + Vikundey Thoughts
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div
+          id="newsPlanVisual"
+          class="plan-visual"
+        >
+
+          <div class="plan-mark">
+            NEWS
+          </div>
+
+
+          <div class="plan-copy">
+
+            <strong>
+              News Vikundey Space
+            </strong>
+
+            <span>
+              NFP + CPI
+            </span>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+      <!-- PRODUCT VALUE -->
+
+      <div class="insight-strip">
+
+
+        <div class="insight-box">
+
+          <div class="insight-kicker">
+            RESEARCH
+          </div>
+
+          <div class="insight-value">
+
+            Авторські макророзбори
+            та логіка реакції ринків.
+
+          </div>
+
+        </div>
+
+
+        <div class="insight-box">
+
+          <div class="insight-kicker">
+            MARKETS
+          </div>
+
+          <div class="insight-value">
+
+            Підготовка до NFP та CPI
+            та моментний вплив на ринки.
+
+          </div>
+
+        </div>
+
+
+        <div class="insight-box">
+
+          <div class="insight-kicker">
+            KNOWLEDGE
+          </div>
+
+          <div class="insight-value">
+
+            Економіка, геополітика
+            та навчальні матеріали
+            для глибшого розуміння ринку.
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+      <!-- CTA -->
+
+      <div
+        id="cta"
+        class="cta"
+      >
+
+        <h3
+          id="ctaTitle"
+        >
+
+          Відкрий Vikundey Space
+
+        </h3>
+
+
+        <p
+          id="ctaText"
+        >
+
+          Обери формат доступу та отримай
+          авторську аналітику, ринковий контекст
+          і матеріали, які допомагають бачити
+          ринок ширше за окремий реліз чи новину.
+
+        </p>
+
+
+        <a
+          id="subscribeButton"
+          class="btn"
+          href="https://secure.wayforpay.com/sub/see534a7947df"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          Обрати підписку →
+
+        </a>
+
+      </div>
+
+
+    </section>
+
+
+    <!-- ACCESS -->
+
+    <aside class="card">
+
+
+      <div class="card-title">
+        Мій доступ
+      </div>
+
+
+      <div class="access-list">
+
+
+        <div class="access-item">
+
+          <div class="access-left">
+
+            <div class="access-icon">
+              N
+            </div>
+
+            <div>
+
+              <div class="access-name">
+                NFP
+              </div>
+
+              <div class="access-desc">
+
+                Ринок праці США,
+                Nonfarm Payrolls
+                та реакція ринку.
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div
+            id="accessNfp"
+            class="access-badge no"
+          >
+            Немає
+          </div>
+
+        </div>
+
+
+        <div class="access-item">
+
+          <div class="access-left">
+
+            <div class="access-icon">
+              C
+            </div>
+
+            <div>
+
+              <div class="access-name">
+                CPI
+              </div>
+
+              <div class="access-desc">
+
+                Інфляція США,
+                Core CPI та сценарії
+                для активів.
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div
+            id="accessCpi"
+            class="access-badge no"
+          >
+            Немає
+          </div>
+
+        </div>
+
+
+        <div class="access-item">
+
+          <div class="access-left">
+
+            <div class="access-icon">
+              V
+            </div>
+
+            <div>
+
+              <div class="access-name">
+                Vikundey Thoughts
+              </div>
+
+              <div class="access-desc">
+
+                Освіта, макроекономіка,
+                геополітика та авторська
+                аналітика.
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div
+            id="accessThoughts"
+            class="access-badge no"
+          >
+            Немає
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+    </aside>
+
+
+  </main>
+
+
+  <footer class="footer">
+
+    © vikundey.crypto · Vikundey Space
+
+  </footer>
+
+
+</div>
+
+
+<!-- PROFILE LOGIC -->
+
+<script>
+
+  const el =
+    id =>
+      document.getElementById(id);
+
+
+  function setAccessBadge(
+    id,
+    enabled
+  ){
+
+    const node =
+      el(id);
+
+
+    if(enabled){
+
+      node.textContent =
+        "Доступ";
+
+
+      node.classList.remove(
+        "no"
+      );
+
+
+      node.classList.add(
+        "yes"
+      );
+
+    }else{
+
+      node.textContent =
+        "Немає";
+
+
+      node.classList.remove(
+        "yes"
+      );
+
+
+      node.classList.add(
+        "no"
+      );
 
     }
 
+  }
 
-    function planLabel(
-      plan
+
+  function planLabel(
+    plan
+  ){
+
+    if(
+      plan ===
+      "full"
     ){
 
-      if(
-        plan ===
-        "full"
-      ){
-
-        return (
-          "Full Vikundey Space"
-        );
-
-      }
-
-
-      if(
-        plan ===
-        "news"
-      ){
-
-        return (
-          "News Vikundey Space"
-        );
-
-      }
-
-
       return (
-        "Немає активної"
+        "Full Vikundey Space"
       );
 
     }
 
 
-    async function loadProfile(){
-
-      try{
-
-
-        const response =
-          await fetch(
-            "/api/profile",
-            {
-
-              method:
-                "GET",
-
-              credentials:
-                "same-origin",
-
-              headers:{
-                "Accept":
-                  "application/json"
-              }
-
-            }
-          );
-
-
-        if(
-          !response.ok
-        ){
-
-          throw new Error(
-            "Profile API error"
-          );
-
-        }
-
-
-        const data =
-          await response.json();
-
-
-        if(
-          !data.ok
-        ){
-
-          throw new Error(
-            data.error ||
-            "Profile error"
-          );
-
-        }
-
-
-        /* EMAIL */
-
-
-        el(
-          "email"
-        ).textContent =
-          data.email ||
-          "—";
-
-
-        /* PLAN */
-
-
-        el(
-          "plan"
-        ).textContent =
-          planLabel(
-            data.plan
-          );
-
-
-        /* PLAN VISUAL */
-
-
-        const fullPlanVisual =
-          el(
-            "fullPlanVisual"
-          );
-
-
-        const newsPlanVisual =
-          el(
-            "newsPlanVisual"
-          );
-
-
-        fullPlanVisual
-          .classList
-          .toggle(
-            "active-plan",
-            data.plan ===
-            "full"
-          );
-
-
-        newsPlanVisual
-          .classList
-          .toggle(
-            "active-plan",
-            data.plan ===
-            "news"
-          );
-
-
-        /* STATUS */
-
-
-        const active =
-          data.status ===
-          "active";
-
-
-        el(
-          "statusText"
-        ).textContent =
-          active
-            ? "Активна"
-            : "Неактивна";
-
-
-        el(
-          "statusPill"
-        ).textContent =
-          active
-            ? "● Active"
-            : "● Inactive";
-
-
-        el(
-          "statusPill"
-        )
-        .classList
-        .toggle(
-          "active",
-          active
-        );
-
-
-        el(
-          "statusPill"
-        )
-        .classList
-        .toggle(
-          "inactive",
-          !active
-        );
-
-
-        /* ACCESS */
-
-
-        setAccessBadge(
-          "accessNfp",
-          !!data.access?.nfp
-        );
-
-
-        setAccessBadge(
-          "accessCpi",
-          !!data.access?.cpi
-        );
-
-
-        setAccessBadge(
-          "accessThoughts",
-          !!data.access
-            ?.thoughts
-        );
-
-
-        /* CTA */
-
-
-        const cta =
-          el(
-            "cta"
-          );
-
-
-        const button =
-          el(
-            "subscribeButton"
-          );
-
-
-        if(
-          data.subscriptionUrl
-        ){
-
-          button.href =
-            data.subscriptionUrl;
-
-        }
-
-
-        if(
-          data.plan ===
-          "none"
-        ){
-
-          cta.style.display =
-            "block";
-
-
-          el(
-            "ctaTitle"
-          ).textContent =
-            "Відкрий Vikundey Space";
-
-
-          el(
-            "ctaText"
-          ).textContent =
-            "Обери формат доступу та отримай авторську аналітику, ринковий контекст і матеріали, які допомагають бачити ринок ширше за окремий реліз чи новину.";
-
-
-          button.textContent =
-            "Обрати підписку →";
-
-        }
-
-
-        else if(
-          data.plan ===
-          "news"
-        ){
-
-          cta.style.display =
-            "block";
-
-
-          el(
-            "ctaTitle"
-          ).textContent =
-            "Перейти на Full";
-
-
-          el(
-            "ctaText"
-          ).textContent =
-            "У тебе вже є NFP та CPI. Full також відкриває Vikundey Thoughts.";
-
-
-          button.textContent =
-            "Переглянути Full →";
-
-        }
-
-
-        else{
-
-          cta.style.display =
-            "none";
-
-        }
-
-
-        /* SHOW PROFILE */
-
-
-        el(
-          "loading"
-        )
-        .classList
-        .add(
-          "hidden"
-        );
-
-
-        el(
-          "profileContent"
-        )
-        .classList
-        .remove(
-          "hidden"
-        );
-
-
-      }catch(error){
-
-
-        console.error(
-          error
-        );
-
-
-        el(
-          "loading"
-        )
-        .classList
-        .add(
-          "hidden"
-        );
-
-
-        el(
-          "error"
-        )
-        .style
-        .display =
-          "block";
-
-
-      }
+    if(
+      plan ===
+      "news"
+    ){
+
+      return (
+        "News Vikundey Space"
+      );
 
     }
 
 
-    loadProfile();
+    return (
+      "Немає активної"
+    );
 
-  </script>
+  }
 
+
+  async function loadProfile(){
+
+    try{
+
+
+      const response =
+        await fetch(
+          "/api/profile",
+          {
+
+            method:
+              "GET",
+
+            credentials:
+              "same-origin",
+
+            headers:{
+              "Accept":
+                "application/json"
+            }
+
+          }
+        );
+
+
+      if(
+        !response.ok
+      ){
+
+        throw new Error(
+          "Profile API error"
+        );
+
+      }
+
+
+      const data =
+        await response.json();
+
+
+      if(
+        !data.ok
+      ){
+
+        throw new Error(
+          data.error ||
+          "Profile error"
+        );
+
+      }
+
+
+      /* EMAIL */
+
+      el(
+        "email"
+      ).textContent =
+        data.email ||
+        "—";
+
+
+      /* PLAN */
+
+      el(
+        "plan"
+      ).textContent =
+        planLabel(
+          data.plan
+        );
+
+
+      /* PLAN HIGHLIGHT */
+
+      el(
+        "fullPlanVisual"
+      )
+      .classList
+      .toggle(
+        "active-plan",
+        data.plan ===
+        "full"
+      );
+
+
+      el(
+        "newsPlanVisual"
+      )
+      .classList
+      .toggle(
+        "active-plan",
+        data.plan ===
+        "news"
+      );
+
+
+      /* STATUS */
+
+      const active =
+        data.status ===
+        "active";
+
+
+      el(
+        "statusText"
+      ).textContent =
+        active
+          ? "Активна"
+          : "Неактивна";
+
+
+      el(
+        "statusPill"
+      ).textContent =
+        active
+          ? "● Active"
+          : "● Inactive";
+
+
+      el(
+        "statusPill"
+      )
+      .classList
+      .toggle(
+        "active",
+        active
+      );
+
+
+      el(
+        "statusPill"
+      )
+      .classList
+      .toggle(
+        "inactive",
+        !active
+      );
+
+
+      /* ACCESS */
+
+      setAccessBadge(
+        "accessNfp",
+        !!data.access?.nfp
+      );
+
+
+      setAccessBadge(
+        "accessCpi",
+        !!data.access?.cpi
+      );
+
+
+      setAccessBadge(
+        "accessThoughts",
+        !!data.access?.thoughts
+      );
+
+
+      /* CTA */
+
+      const cta =
+        el(
+          "cta"
+        );
+
+
+      const button =
+        el(
+          "subscribeButton"
+        );
+
+
+      if(
+        data.subscriptionUrl
+      ){
+
+        button.href =
+          data.subscriptionUrl;
+
+      }
+
+
+      if(
+        data.plan ===
+        "none"
+      ){
+
+        cta.style.display =
+          "block";
+
+
+        el(
+          "ctaTitle"
+        ).textContent =
+          "Відкрий Vikundey Space";
+
+
+        el(
+          "ctaText"
+        ).textContent =
+          "Обери формат доступу та отримай авторську аналітику, ринковий контекст і матеріали, які допомагають бачити ринок ширше за окремий реліз чи новину.";
+
+
+        button.textContent =
+          "Обрати підписку →";
+
+      }
+
+
+      else if(
+        data.plan ===
+        "news"
+      ){
+
+        cta.style.display =
+          "block";
+
+
+        el(
+          "ctaTitle"
+        ).textContent =
+          "Перейти на Full";
+
+
+        el(
+          "ctaText"
+        ).textContent =
+          "У тебе вже є NFP та CPI. Full також відкриває Vikundey Thoughts.";
+
+
+        button.textContent =
+          "Переглянути Full →";
+
+      }
+
+
+      else{
+
+        cta.style.display =
+          "none";
+
+      }
+
+
+      el(
+        "loading"
+      )
+      .classList
+      .add(
+        "hidden"
+      );
+
+
+      el(
+        "profileContent"
+      )
+      .classList
+      .remove(
+        "hidden"
+      );
+
+
+    }catch(error){
+
+
+      console.error(
+        error
+      );
+
+
+      el(
+        "loading"
+      )
+      .classList
+      .add(
+        "hidden"
+      );
+
+
+      el(
+        "error"
+      )
+      .style
+      .display =
+        "block";
+
+
+    }
+
+  }
+
+
+  loadProfile();
+
+</script>
 
 </body>
 </html>
