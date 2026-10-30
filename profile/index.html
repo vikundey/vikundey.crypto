@@ -4,780 +4,899 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vikundey Space — Профіль</title>
-
+  <meta name="description" content="Профіль підписника Vikundey Space" />
   <style>
-    :root {
-      --bg: #071018;
-      --panel: rgba(14, 28, 38, 0.82);
-      --line: rgba(255,255,255,.10);
-      --text: #f3f7fa;
-      --muted: #9fb0bc;
-      --cyan: #2ec7f1;
-      --green: #8bea6f;
+    :root{
+      --bg:#07111a;
+      --bg-deep:#050d15;
+      --panel:rgba(11,25,37,.88);
+      --panel-soft:rgba(15,31,45,.80);
+      --line:rgba(255,255,255,.12);
+      --line-strong:rgba(255,255,255,.18);
+      --cyan:#2ec7f1;
+      --green:#8bea6f;
+      --white:#ffffff;
+      --text:#ffffff;
+      --text-soft:#edf4f8;
+      --muted:#c4d3dc;
+      --muted-soft:#96aab8;
+      --red:#ffafaf;
+      --shadow:0 26px 80px rgba(0,0,0,.32);
     }
 
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
+    *{box-sizing:border-box}
+    html,body{margin:0;min-height:100%}
+    body{
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--text);
       background:
-        radial-gradient(circle at 78% 12%, rgba(139,234,111,.08), transparent 30%),
-        radial-gradient(circle at 16% 20%, rgba(46,199,241,.10), transparent 32%),
-        var(--bg);
-      color: var(--text);
-      font-family: Inter, system-ui, sans-serif;
+        radial-gradient(circle at 15% 12%, rgba(46,199,241,.15), transparent 24%),
+        radial-gradient(circle at 86% 10%, rgba(139,234,111,.12), transparent 22%),
+        linear-gradient(180deg, #07111a 0%, #081520 42%, #05111a 100%);
+      overflow-x:hidden;
+      position:relative;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
+      background-size:32px 32px;
+      mask-image:linear-gradient(180deg, rgba(0,0,0,.95), rgba(0,0,0,.55));
     }
 
-    .shell {
-      width: min(1180px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: 22px 0 60px;
+    a{color:inherit;text-decoration:none}
+
+    .shell{
+      width:min(1220px, calc(100% - 32px));
+      margin:0 auto;
+      padding:22px 0 64px;
+      position:relative;
+      z-index:1;
     }
 
-    .topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 14px 18px;
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      background: rgba(8,20,29,.86);
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:14px 18px;
+      border-radius:26px;
+      border:1px solid var(--line);
+      background:rgba(5,18,28,.86);
+      backdrop-filter:blur(16px);
+      box-shadow:var(--shadow);
+      position:sticky;
+      top:12px;
+      z-index:20;
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{width:42px;height:42px;object-fit:contain}
+    .brand-name{font-weight:900;font-size:18px;color:#fff}
+
+    .nav{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+    .nav a{
+      color:#edf4f8;
+      font-weight:800;
+      font-size:14px;
+      padding:10px 14px;
+      border-radius:14px;
+      transition:.2s ease;
+    }
+    .nav a:hover{background:rgba(255,255,255,.07)}
+    .nav .active{
+      color:#071018;
+      background:linear-gradient(135deg,var(--cyan),var(--green));
+      box-shadow:0 12px 24px rgba(46,199,241,.18);
     }
 
-    .brand img {
-      width: 42px;
-      height: 42px;
-      object-fit: contain;
+    .hero{
+      position:relative;
+      overflow:hidden;
+      margin-top:22px;
+      min-height:340px;
+      padding:58px 34px 42px;
+      border-radius:34px;
+      border:1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.015)),
+        linear-gradient(120deg, rgba(6,22,34,.90), rgba(7,25,37,.82));
+      box-shadow:var(--shadow);
+      isolation:isolate;
     }
 
-    .brand-name {
-      font-weight: 800;
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:auto -10% -40% auto;
+      width:560px;
+      height:560px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(46,199,241,.08), transparent 62%);
+      z-index:0;
     }
 
-    .nav {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-      flex-wrap: wrap;
+    .hero-copy-wrap{
+      position:relative;
+      z-index:4;
+      max-width:650px;
     }
 
-    .nav a {
-      padding: 10px 13px;
-      border-radius: 12px;
-      font-weight: 700;
-      font-size: 14px;
-      color: #c7d2d9;
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      color:var(--cyan);
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      font-size:12px;
+      font-weight:900;
+    }
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 16px rgba(139,234,111,.8)}
+
+    h1{
+      margin:16px 0 12px;
+      font-size:clamp(42px,6.2vw,82px);
+      line-height:.96;
+      letter-spacing:-.06em;
+      color:#fff;
+      text-shadow:0 4px 20px rgba(0,0,0,.18);
     }
 
-    .nav .active {
-      color: #071018;
-      background: linear-gradient(135deg, var(--cyan), var(--green));
+    .hero p{
+      margin:0;
+      max-width:630px;
+      color:var(--text-soft);
+      font-size:18px;
+      line-height:1.68;
     }
 
-    .hero {
-      padding: 72px 4px 26px;
+    .hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+    .hero-chip{
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:#fff;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.06em;
+      text-transform:uppercase;
     }
 
-    .eyebrow {
-      color: var(--cyan);
-      text-transform: uppercase;
-      letter-spacing: .16em;
-      font-size: 12px;
-      font-weight: 900;
+    .scene{
+      position:absolute;
+      right:-12px;
+      bottom:-10px;
+      width:470px;
+      height:320px;
+      pointer-events:none;
+      z-index:1;
+      opacity:.98;
     }
 
-    h1 {
-      margin: 14px 0 10px;
-      font-size: clamp(38px, 6vw, 70px);
-      line-height: .98;
+    .market-bars{
+      position:absolute;
+      right:18px;
+      top:8px;
+      height:132px;
+      display:flex;
+      align-items:flex-end;
+      gap:10px;
+      opacity:.42;
+    }
+    .market-bars span{
+      width:14px;
+      border-radius:4px 4px 0 0;
+      background:linear-gradient(180deg, rgba(139,234,111,.96), rgba(46,199,241,.45));
+      box-shadow:0 0 18px rgba(139,234,111,.10);
+    }
+    .market-bars span:nth-child(1){height:54px}
+    .market-bars span:nth-child(2){height:86px}
+    .market-bars span:nth-child(3){height:72px}
+    .market-bars span:nth-child(4){height:106px}
+    .market-bars span:nth-child(5){height:94px}
+    .market-bars span:nth-child(6){height:126px}
+
+    .trend{
+      position:absolute;
+      right:0;
+      top:0;
+      width:270px;
+      height:130px;
+      opacity:.9;
+    }
+    .trend path{fill:none;stroke:url(#trendGradient);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 8px rgba(46,199,241,.25))}
+    .trend circle{fill:#f7ffff;filter:drop-shadow(0 0 10px rgba(139,234,111,.7))}
+
+    .planet-wrap{
+      position:absolute;
+      right:20px;
+      bottom:-24px;
+      width:390px;
+      height:260px;
     }
 
-    .hero p {
-      color: var(--muted);
-      font-size: 18px;
+    .planet{
+      position:absolute;
+      right:0;
+      bottom:0;
+      width:330px;
+      height:220px;
+      border-radius:220px 220px 0 0;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 28% 34%, rgba(255,255,255,.14), transparent 18%),
+        radial-gradient(circle at 76% 26%, rgba(139,234,111,.14), transparent 18%),
+        linear-gradient(180deg, rgba(13,43,64,.96) 0%, rgba(5,17,28,.98) 62%, rgba(3,12,21,1) 100%);
+      border:1px solid rgba(46,199,241,.24);
+      box-shadow:
+        inset 0 14px 40px rgba(46,199,241,.07),
+        inset 0 -26px 44px rgba(0,0,0,.58),
+        0 0 42px rgba(46,199,241,.12);
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 22px;
-      margin-top: 26px;
+    .planet::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 20% 72%, rgba(0,0,0,.25), transparent 28%),
+        radial-gradient(circle at 64% 40%, rgba(0,0,0,.18), transparent 24%),
+        linear-gradient(90deg, transparent 0 28%, rgba(255,255,255,.04) 28% 29%, transparent 29% 100%),
+        linear-gradient(transparent 0 58%, rgba(139,234,111,.10) 58% 59%, transparent 59% 100%);
+      opacity:.92;
     }
 
-    .card {
-      border: 1px solid var(--line);
-      background: var(--panel);
-      border-radius: 28px;
-      padding: 28px;
+    .planet::after{
+      content:"";
+      position:absolute;
+      inset:8% 6% auto auto;
+      width:86%;
+      height:86%;
+      border-top:1px solid rgba(255,255,255,.06);
+      border-radius:50%;
+      transform:rotate(-8deg);
+      pointer-events:none;
     }
 
-    .card-title {
-      font-size: 14px;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: .13em;
-      font-weight: 900;
-      margin-bottom: 18px;
+    .planet-grid-v,
+    .planet-grid-h,
+    .planet-grid-h2{
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+    }
+    .planet-grid-v::before{
+      content:"";
+      position:absolute;
+      left:50%;
+      top:-8%;
+      transform:translateX(-50%);
+      width:40%;
+      height:116%;
+      border:1px solid rgba(46,199,241,.17);
+      border-radius:50%;
+    }
+    .planet-grid-h::before,
+    .planet-grid-h2::before{
+      content:"";
+      position:absolute;
+      left:10%;
+      right:10%;
+      border:1px solid rgba(139,234,111,.16);
+      border-radius:50%;
+      height:26%;
+    }
+    .planet-grid-h::before{top:34%}
+    .planet-grid-h2::before{top:56%;opacity:.55}
+
+    .continent,
+    .continent-two,
+    .continent-three{
+      position:absolute;
+      background:linear-gradient(135deg, rgba(46,199,241,.28), rgba(139,234,111,.22));
+      filter:drop-shadow(0 0 8px rgba(139,234,111,.10));
+      opacity:.82;
+    }
+    .continent{width:116px;height:42px;left:104px;top:84px;clip-path:polygon(0 44%, 14% 20%, 29% 6%, 48% 15%, 62% 0, 74% 18%, 100% 24%, 88% 48%, 68% 58%, 52% 80%, 30% 86%, 18% 74%, 8% 62%)}
+    .continent-two{width:72px;height:30px;left:190px;top:126px;clip-path:polygon(0 34%, 16% 0, 52% 10%, 100% 32%, 78% 70%, 54% 100%, 20% 88%, 8% 66%)}
+    .continent-three{width:58px;height:24px;left:76px;top:136px;clip-path:polygon(0 40%, 22% 4%, 60% 0, 100% 24%, 86% 78%, 42% 100%, 12% 82%)}
+
+    .ring,
+    .ring-two,
+    .ring-three{
+      position:absolute;
+      border-radius:50%;
+      border:2px solid rgba(46,199,241,.55);
+      filter:drop-shadow(0 0 10px rgba(46,199,241,.10));
+    }
+    .ring{
+      width:385px;height:118px;left:-8px;top:96px;transform:rotate(-11deg);
+    }
+    .ring-two{
+      width:352px;height:132px;left:8px;top:82px;transform:rotate(18deg);border-color:rgba(139,234,111,.48)
+    }
+    .ring-three{
+      width:300px;height:96px;left:40px;top:102px;transform:rotate(3deg);border-color:rgba(255,255,255,.16);opacity:.45
     }
 
-    .profile-row {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 28px;
+    .node{
+      position:absolute;
+      width:14px;height:14px;border-radius:50%;background:#f5ffff;
+      box-shadow:0 0 16px rgba(46,199,241,.55),0 0 26px rgba(139,234,111,.30);
+    }
+    .node.one{left:10px;top:146px}
+    .node.two{left:128px;top:30px;width:12px;height:12px}
+    .node.three{right:46px;top:18px;width:12px;height:12px}
+
+    .loading,.error{
+      margin-top:22px;
+      padding:18px 20px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      color:var(--text-soft);
+      background:rgba(255,255,255,.04);
+      backdrop-filter:blur(10px);
+    }
+    .error{display:none;color:#ffe0e0;border-color:rgba(255,123,123,.24);background:rgba(255,123,123,.08)}
+
+    .grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:24px;
+      margin-top:24px;
+      align-items:start;
     }
 
-    .avatar {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(
-        135deg,
-        rgba(46,199,241,.18),
-        rgba(139,234,111,.16)
-      );
-      border: 1px solid rgba(255,255,255,.14);
-      font-size: 28px;
+    .card{
+      border:1px solid var(--line);
+      border-radius:30px;
+      padding:30px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.018) 24%, rgba(255,255,255,.012) 100%),
+        linear-gradient(180deg, rgba(10,25,38,.95), rgba(8,22,33,.88));
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+      isolation:isolate;
     }
 
-    .profile-email {
-      font-size: 22px;
-      font-weight: 800;
-      overflow-wrap: anywhere;
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:0 auto auto 0;
+      width:100%;height:2px;
+      background:linear-gradient(90deg, var(--cyan), var(--green), transparent);
+      opacity:.9;
+    }
+    .card::after{
+      content:"";
+      position:absolute;
+      right:-60px;bottom:-74px;
+      width:220px;height:220px;border-radius:50%;
+      border:1px solid rgba(255,255,255,.06);
+      box-shadow:0 0 0 24px rgba(255,255,255,.014),0 0 0 48px rgba(46,199,241,.018);
+      z-index:-1;
     }
 
-    .profile-note {
-      color: var(--muted);
-      margin-top: 5px;
-      font-size: 14px;
+    .card-title{
+      font-size:13px;
+      color:#dfe9ee;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      font-weight:900;
+      margin-bottom:18px;
     }
 
-    .status-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
+    .profile-row{display:flex;align-items:center;gap:16px;margin-bottom:28px}
+    .avatar{
+      width:78px;height:78px;border-radius:50%;display:grid;place-items:center;
+      background:linear-gradient(135deg, rgba(255,255,255,.14), rgba(46,199,241,.18), rgba(139,234,111,.16));
+      border:1px solid rgba(255,255,255,.20);
+      font-size:32px;box-shadow:0 14px 28px rgba(0,0,0,.22)
+    }
+    .profile-email{font-size:clamp(18px,3vw,28px);font-weight:900;overflow-wrap:anywhere;color:#fff}
+    .profile-note{color:var(--muted);margin-top:5px;font-size:14px}
+
+    .status-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .status-box{
+      padding:20px;border-radius:20px;border:1px solid rgba(255,255,255,.10);
+      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      position:relative;overflow:hidden;
+    }
+    .status-box::after{
+      content:"";
+      position:absolute;right:-18px;top:-18px;width:84px;height:84px;border-radius:50%;
+      background:radial-gradient(circle, rgba(255,255,255,.13), transparent 68%);
+      opacity:.75;
+    }
+    .status-label{color:#d7e3ea;font-size:12px;text-transform:uppercase;letter-spacing:.12em;font-weight:800;margin-bottom:8px}
+    .status-value{font-size:24px;font-weight:900;line-height:1.15;color:#fff}
+
+    .pill{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:8px 12px;font-size:13px;font-weight:900;border:1px solid var(--line);margin-top:10px}
+    .pill.active{color:var(--green);background:rgba(139,234,111,.10);border-color:rgba(139,234,111,.28)}
+    .pill.inactive{color:#ffd0d0;background:rgba(255,123,123,.09);border-color:rgba(255,123,123,.18)}
+
+    .insight-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
+    .insight-box{
+      padding:16px;border-radius:18px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09)
+    }
+    .insight-kicker{font-size:11px;color:#b1c2cc;text-transform:uppercase;letter-spacing:.14em;font-weight:800;margin-bottom:8px}
+    .insight-value{font-size:15px;font-weight:800;color:#fff;line-height:1.35}
+
+    .cta{
+      margin-top:22px;display:none;padding:24px;border-radius:24px;
+      border:1px solid rgba(255,255,255,.10);
+      background:
+        radial-gradient(circle at 0 0, rgba(46,199,241,.12), transparent 42%),
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+    }
+    .cta h3{margin:0 0 8px;font-size:24px;color:#fff}
+    .cta p{margin:0 0 18px;color:var(--muted);line-height:1.6}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 20px;border-radius:16px;
+      font-weight:900;background:linear-gradient(135deg, var(--cyan), var(--green));color:#071018;
+      box-shadow:0 12px 30px rgba(46,199,241,.16);transition:transform .18s ease, box-shadow .18s ease;
+    }
+    .btn:hover{transform:translateY(-1px);box-shadow:0 16px 34px rgba(46,199,241,.22)}
+
+    .access-list{display:grid;gap:14px}
+    .access-item{
+      display:flex;align-items:center;justify-content:space-between;gap:14px;
+      padding:18px 18px;border-radius:20px;border:1px solid rgba(255,255,255,.10);
+      background:linear-gradient(180deg, rgba(255,255,255,.065), rgba(255,255,255,.03));
+      position:relative;overflow:hidden;
+    }
+    .access-item::after{
+      content:"";
+      position:absolute;right:20px;top:18px;width:86px;height:32px;opacity:.34;
+      background-repeat:no-repeat;background-size:contain;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 84 34'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='1' x2='1' y2='0'%3E%3Cstop offset='0%25' stop-color='%232ec7f1'/%3E%3Cstop offset='100%25' stop-color='%238bea6f'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpolyline fill='none' stroke='url(%23g)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' points='2,27 15,22 27,24 39,15 51,18 64,9 82,5'/%3E%3C/svg%3E");
+    }
+    .access-name{font-weight:900;font-size:18px;color:#fff}
+    .access-desc{color:var(--muted);font-size:13px;margin-top:5px;max-width:320px;line-height:1.55}
+    .access-badge{min-width:94px;text-align:center;padding:9px 11px;border-radius:999px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.07em}
+    .access-badge.yes{color:#071018;background:linear-gradient(135deg,var(--cyan),var(--green));box-shadow:0 8px 22px rgba(46,199,241,.18)}
+    .access-badge.no{color:#f4f8fb;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14)}
+
+
+
+    /* ===== V3 BRANDING ===== */
+    .planet-v3{
+      width:348px;
+      height:230px;
+      background:
+        radial-gradient(circle at 30% 26%,rgba(255,255,255,.18),transparent 14%),
+        radial-gradient(circle at 68% 38%,rgba(139,234,111,.16),transparent 18%),
+        linear-gradient(180deg,rgba(11,48,70,.98) 0%,rgba(6,27,41,.98) 44%,rgba(3,14,23,1) 100%);
+      border-color:rgba(255,255,255,.13);
+      box-shadow:
+        inset 0 18px 44px rgba(46,199,241,.08),
+        inset 0 -28px 46px rgba(0,0,0,.62),
+        0 0 48px rgba(46,199,241,.12),
+        0 0 26px rgba(139,234,111,.06);
     }
 
-    .status-box {
-      padding: 18px;
-      background: rgba(255,255,255,.035);
-      border: 1px solid var(--line);
-      border-radius: 18px;
+    .planet-shine{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(118deg,transparent 0 34%,rgba(255,255,255,.045) 42%,transparent 51%);
+      mix-blend-mode:screen;
+      opacity:.9;
     }
 
-    .status-label {
-      color: var(--muted);
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: .12em;
-      font-weight: 800;
-      margin-bottom: 8px;
+    .brand-orbit-card{
+      position:absolute;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width:160px;
+      padding:12px 14px;
+      border-radius:16px;
+      background:rgba(9,31,45,.72);
+      border:1px solid rgba(255,255,255,.12);
+      backdrop-filter:blur(10px);
+      box-shadow:0 14px 28px rgba(0,0,0,.22);
+      z-index:5;
     }
 
-    .status-value {
-      font-size: 22px;
-      font-weight: 900;
+    .brand-orbit-card.card-a{right:190px;top:82px;transform:rotate(-4deg)}
+    .brand-orbit-card.card-b{right:6px;top:128px;transform:rotate(4deg)}
+
+    .brand-orbit-card .mini-icon{
+      width:34px;height:34px;border-radius:10px;display:grid;place-items:center;
+      background:linear-gradient(135deg,rgba(46,199,241,.18),rgba(139,234,111,.18));
+      color:#fff;font-weight:900;
+    }
+    .brand-orbit-card strong{display:block;color:#fff;font-size:13px}
+    .brand-orbit-card span{display:block;color:#b8cad4;font-size:11px;margin-top:2px}
+
+    .plan-visuals{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+      margin-top:16px;
     }
 
-    .pill {
-      display: inline-flex;
-      margin-top: 8px;
-      border-radius: 999px;
-      padding: 8px 12px;
-      font-size: 13px;
-      font-weight: 900;
-      border: 1px solid var(--line);
+    .plan-visual{
+      position:relative;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-height:94px;
+      padding:16px;
+      border-radius:20px;
+      border:1px solid rgba(255,255,255,.10);
+      background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+      opacity:.5;
+      transition:.2s ease;
     }
 
-    .pill.active {
-      color: var(--green);
-      background: rgba(139,234,111,.08);
+    .plan-visual::after{
+      content:"";
+      position:absolute;
+      width:120px;height:120px;border-radius:50%;right:-46px;bottom:-58px;
+      background:radial-gradient(circle,rgba(46,199,241,.12),transparent 66%);
     }
 
-    .pill.inactive {
-      color: #f4a5a5;
-      background: rgba(255,123,123,.07);
+    .plan-visual.news::after{
+      background:radial-gradient(circle,rgba(139,234,111,.12),transparent 66%);
     }
 
-    .access-list {
-      display: grid;
-      gap: 12px;
+    .plan-visual.active-plan{
+      opacity:1;
+      border-color:rgba(255,255,255,.20);
+      box-shadow:0 10px 28px rgba(0,0,0,.18);
     }
 
-    .access-item {
-      display: flex;
-      justify-content: space-between;
-      gap: 14px;
-      padding: 16px 17px;
-      background: rgba(255,255,255,.035);
-      border: 1px solid var(--line);
-      border-radius: 17px;
+    .plan-visual.full.active-plan{
+      background:linear-gradient(135deg,rgba(46,199,241,.10),rgba(139,234,111,.07));
+    }
+    .plan-visual.news.active-plan{
+      background:linear-gradient(135deg,rgba(139,234,111,.08),rgba(46,199,241,.06));
     }
 
-    .access-name {
-      font-weight: 800;
+    .plan-mark{
+      position:relative;z-index:1;
+      min-width:62px;
+      height:62px;
+      border-radius:16px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg,var(--cyan),var(--green));
+      color:#071018;
+      font-weight:950;
+      font-size:11px;
+      letter-spacing:.06em;
+      box-shadow:0 10px 24px rgba(46,199,241,.14);
     }
 
-    .access-desc {
-      color: var(--muted);
-      font-size: 13px;
-      margin-top: 4px;
+    .plan-copy{position:relative;z-index:1}
+    .plan-copy strong{display:block;color:#fff;font-size:15px}
+    .plan-copy span{display:block;color:#c4d3dc;font-size:12px;margin-top:4px;line-height:1.4}
+
+    .access-left{display:flex;align-items:center;gap:14px;min-width:0}
+    .access-icon{
+      flex:0 0 auto;
+      width:42px;height:42px;border-radius:13px;display:grid;place-items:center;
+      background:linear-gradient(135deg,rgba(255,255,255,.11),rgba(46,199,241,.14),rgba(139,234,111,.12));
+      border:1px solid rgba(255,255,255,.12);
+      color:#fff;
+      font-weight:950;
+      box-shadow:0 8px 20px rgba(0,0,0,.15);
     }
 
-    .access-badge {
-      min-width: 92px;
-      text-align: center;
-      padding: 8px 10px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 900;
-      text-transform: uppercase;
+    @media(max-width:980px){
+      .brand-orbit-card{display:none}
     }
 
-    .access-badge.yes {
-      color: #071018;
-      background: linear-gradient(135deg, var(--cyan), var(--green));
+    @media(max-width:680px){
+      .plan-visuals{grid-template-columns:1fr}
+      .access-left{align-items:flex-start}
     }
 
-    .access-badge.no {
-      color: #d7e0e5;
-      background: rgba(255,255,255,.07);
-      border: 1px solid var(--line);
+    .footer{margin-top:44px;color:#a7bac5;font-size:13px;text-align:center}
+    .hidden{display:none !important}
+
+    @media(max-width:980px){
+      .grid{grid-template-columns:1fr}
+      .hero{padding-bottom:184px;min-height:400px}
+      .scene{right:-34px;bottom:-8px;transform:scale(.88);transform-origin:bottom right;opacity:.9}
     }
 
-    .cta {
-      margin-top: 22px;
-      display: none;
-      padding: 22px;
-      border-radius: 22px;
-      border: 1px solid rgba(46,199,241,.20);
-      background: rgba(255,255,255,.025);
-    }
-
-    .cta h3 {
-      margin: 0 0 8px;
-      font-size: 22px;
-    }
-
-    .cta p {
-      color: var(--muted);
-      line-height: 1.55;
-    }
-
-    .btn {
-      display: inline-flex;
-      min-height: 48px;
-      padding: 0 18px;
-      align-items: center;
-      justify-content: center;
-      border-radius: 14px;
-      font-weight: 900;
-      background: linear-gradient(135deg, var(--cyan), var(--green));
-      color: #071018;
-    }
-
-    .loading, .error {
-      margin-top: 26px;
-      padding: 18px 20px;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      color: var(--muted);
-      background: rgba(255,255,255,.03);
-    }
-
-    .error {
-      display: none;
-      color: #ffd1d1;
-    }
-
-    .hidden {
-      display: none !important;
-    }
-
-    @media (max-width: 860px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
+    @media(max-width:680px){
+      .shell{width:min(100% - 20px,1220px)}
+      .brand-name{display:none}
+      .nav a{padding:9px 10px;font-size:12px}
+      .hero{padding:34px 22px 182px;min-height:auto}
+      .hero p{font-size:16px}
+      .hero-chip{font-size:11px}
+      .card{padding:22px}
+      .status-grid,.insight-strip{grid-template-columns:1fr}
+      .access-item{align-items:flex-start;flex-direction:column}
+      .access-item::after{display:none}
+      .access-badge{min-width:unset}
+      .scene{right:-96px;transform:scale(.72)}
     }
   </style>
 </head>
-
 <body>
-
   <div class="shell">
-
     <header class="topbar">
-
-      <a class="brand" href="/">
-        <img src="../logo.png" alt="vikundey.crypto">
-        <div class="brand-name">vikundey.crypto</div>
-      </a>
-
+      <a class="brand" href="/"><img src="../logo.png" alt="vikundey.crypto"><div class="brand-name">vikundey.crypto</div></a>
       <nav class="nav">
         <a href="/">Головна</a>
         <a href="/nfp/">NFP</a>
         <a href="/cpi/">CPI</a>
         <a href="/thoughts/">Thoughts</a>
-        <a class="active" href="/profile/">👤</a>
+        <a class="active" href="/profile/" aria-label="Профіль">👤</a>
       </nav>
-
     </header>
 
     <section class="hero">
-      <div class="eyebrow">Vikundey Space</div>
+      <div class="hero-copy-wrap">
+        <div class="eyebrow"><span class="dot"></span>Vikundey Space</div>
+        <h1>Мій профіль</h1>
+        <p>Твій персональний простір Vikundey Space: тариф, статус підписки та доступ до макроаналітики, ринкових розборів і навчальних матеріалів.</p>
+        <div class="hero-meta">
+          <div class="hero-chip">Premium Access</div>
+          <div class="hero-chip">NFP · CPI · Thoughts</div>
+          <div class="hero-chip">Macro · Research · Markets</div>
+        </div>
+      </div>
 
-      <h1>Мій профіль</h1>
+      <div class="scene" aria-hidden="true">
+        <div class="market-bars"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <svg class="trend" viewBox="0 0 270 130" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="trendGradient" x1="0" y1="1" x2="1" y2="0">
+              <stop offset="0%" stop-color="#2ec7f1"/>
+              <stop offset="100%" stop-color="#8bea6f"/>
+            </linearGradient>
+          </defs>
+          <path d="M8 112 C40 108,58 88,86 90 S132 64,156 68 S198 42,224 48 S244 24,264 8"/>
+          <circle cx="86" cy="90" r="4"/>
+          <circle cx="224" cy="48" r="4"/>
+          <circle cx="264" cy="8" r="4.2"/>
+        </svg>
 
-      <p>
-        Тут відображається твій активний тариф і доступ до матеріалів Vikundey Space.
-      </p>
-    </section>
-
-    <div id="loading" class="loading">
-      Завантажуємо дані профілю…
-    </div>
-
-    <div id="error" class="error">
-      Не вдалося завантажити профіль.
-    </div>
-
-    <main id="profileContent" class="grid hidden">
-
-      <section class="card">
-
-        <div class="card-title">
-          Профіль
+        <div class="brand-orbit-card card-a">
+          <div class="mini-icon">◉</div>
+          <div>
+            <strong>Macro</strong>
+            <span>Global context</span>
+          </div>
         </div>
 
-        <div class="profile-row">
-
-          <div class="avatar">
-            👤
-          </div>
-
+        <div class="brand-orbit-card card-b">
+          <div class="mini-icon">▥</div>
           <div>
-            <div id="email" class="profile-email">
-              —
-            </div>
-
-            <div class="profile-note">
-              Авторизований користувач
-            </div>
+            <strong>Data</strong>
+            <span>Market reaction</span>
           </div>
+        </div>
 
+        <div class="planet-wrap">
+          <div class="ring"></div>
+          <div class="ring-two"></div>
+          <div class="ring-three"></div>
+          <span class="node one"></span>
+          <span class="node two"></span>
+          <span class="node three"></span>
+
+          <div class="planet planet-v3">
+            <div class="planet-shine"></div>
+            <div class="planet-grid-v"></div>
+            <div class="planet-grid-h"></div>
+            <div class="planet-grid-h2"></div>
+            <div class="continent"></div>
+            <div class="continent-two"></div>
+            <div class="continent-three"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="loading" class="loading">Завантажуємо дані профілю…</div>
+    <div id="error" class="error">Не вдалося завантажити профіль. Онови сторінку або увійди повторно.</div>
+
+    <main id="profileContent" class="grid hidden">
+      <section class="card">
+        <div class="card-title">Профіль</div>
+
+        <div class="profile-row">
+          <div class="avatar">👤</div>
+          <div>
+            <div id="email" class="profile-email">—</div>
+            <div class="profile-note">Авторизований користувач Vikundey Space</div>
+          </div>
         </div>
 
         <div class="status-grid">
-
           <div class="status-box">
-
-            <div class="status-label">
-              Підписка
-            </div>
-
-            <div id="plan" class="status-value">
-              —
-            </div>
-
+            <div class="status-label">Підписка</div>
+            <div id="plan" class="status-value">—</div>
           </div>
 
           <div class="status-box">
+            <div class="status-label">Статус</div>
+            <div id="statusText" class="status-value">—</div>
+            <div id="statusPill" class="pill">—</div>
+          </div>
+        </div>
 
-            <div class="status-label">
-              Статус
+        <div class="plan-visuals">
+          <div id="fullPlanVisual" class="plan-visual full">
+            <div class="plan-mark">FULL</div>
+            <div class="plan-copy">
+              <strong>Full Vikundey Space</strong>
+              <span>NFP + CPI + Vikundey Thoughts</span>
             </div>
-
-            <div id="statusText" class="status-value">
-              —
-            </div>
-
-            <div id="statusPill" class="pill">
-              —
-            </div>
-
           </div>
 
+          <div id="newsPlanVisual" class="plan-visual news">
+            <div class="plan-mark">NEWS</div>
+            <div class="plan-copy">
+              <strong>News Vikundey Space</strong>
+              <span>NFP + CPI</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="insight-strip">
+          <div class="insight-box">
+            <div class="insight-kicker">Profile</div>
+            <div class="insight-value">Єдиний простір для всіх доступів</div>
+          </div>
+          <div class="insight-box">
+            <div class="insight-kicker">Access</div>
+            <div class="insight-value">NFP, CPI та Thoughts синхронізуються автоматично</div>
+          </div>
+          <div class="insight-box">
+            <div class="insight-kicker">Sync</div>
+            <div class="insight-value">WayForPay + Worker оновлюють статус у фоні</div>
+          </div>
         </div>
 
         <div id="cta" class="cta">
-
-          <h3 id="ctaTitle">
-            Оформи Vikundey Space
-          </h3>
-
-          <p id="ctaText">
-            Обери тариф і відкрий доступ до матеріалів Vikundey Space.
-          </p>
-
-          <a
-            id="subscribeButton"
-            class="btn"
-            href="https://secure.wayforpay.com/sub/see534a7947df"
-            target="_blank"
-          >
-            Перейти до підписки →
-          </a>
-
+          <h3 id="ctaTitle">Оформи Vikundey Space</h3>
+          <p id="ctaText">Обери тариф і відкрий доступ до матеріалів Vikundey Space.</p>
+          <a id="subscribeButton" class="btn" href="https://secure.wayforpay.com/sub/see534a7947df" target="_blank" rel="noopener noreferrer">Перейти до підписки →</a>
         </div>
-
       </section>
 
       <aside class="card">
-
-        <div class="card-title">
-          Мій доступ
-        </div>
+        <div class="card-title">Мій доступ</div>
 
         <div class="access-list">
-
           <div class="access-item">
-
-            <div>
-              <div class="access-name">
-                NFP
-              </div>
-
-              <div class="access-desc">
-                Ринок праці США та реакція ринку.
+            <div class="access-left">
+              <div class="access-icon">N</div>
+              <div>
+              <div class="access-name">NFP</div>
+              <div class="access-desc">Ринок праці США, Nonfarm Payrolls та реакція ринку.</div>
               </div>
             </div>
-
-            <div id="accessNfp" class="access-badge no">
-              Немає
-            </div>
-
+            <div id="accessNfp" class="access-badge no">Немає</div>
           </div>
 
           <div class="access-item">
-
-            <div>
-              <div class="access-name">
-                CPI
-              </div>
-
-              <div class="access-desc">
-                Інфляція США та ринкові сценарії.
+            <div class="access-left">
+              <div class="access-icon">C</div>
+              <div>
+              <div class="access-name">CPI</div>
+              <div class="access-desc">Інфляція США, Core CPI та сценарії для активів.</div>
               </div>
             </div>
-
-            <div id="accessCpi" class="access-badge no">
-              Немає
-            </div>
-
+            <div id="accessCpi" class="access-badge no">Немає</div>
           </div>
 
           <div class="access-item">
-
-            <div>
-              <div class="access-name">
-                Vikundey Thoughts
-              </div>
-
-              <div class="access-desc">
-                Освіта, економіка та геополітична аналітика.
+            <div class="access-left">
+              <div class="access-icon">V</div>
+              <div>
+              <div class="access-name">Vikundey Thoughts</div>
+              <div class="access-desc">Освіта, макроекономіка, геополітика та авторська аналітика.</div>
               </div>
             </div>
-
-            <div id="accessThoughts" class="access-badge no">
-              Немає
-            </div>
-
+            <div id="accessThoughts" class="access-badge no">Немає</div>
           </div>
-
         </div>
-
       </aside>
-
     </main>
 
+    <footer class="footer">© vikundey.crypto · Vikundey Space</footer>
   </div>
 
   <script>
+    const el=(id)=>document.getElementById(id);
 
-    const el = id =>
-      document.getElementById(id);
-
-
-    function setAccessBadge(
-      id,
-      enabled
-    ) {
-
-      const node = el(id);
-
-      if (enabled) {
-
-        node.textContent =
-          "Доступ";
-
-        node.classList.remove(
-          "no"
-        );
-
-        node.classList.add(
-          "yes"
-        );
-
-      } else {
-
-        node.textContent =
-          "Немає";
-
-        node.classList.remove(
-          "yes"
-        );
-
-        node.classList.add(
-          "no"
-        );
-
+    function setAccessBadge(id,enabled){
+      const node=el(id);
+      if(enabled){
+        node.textContent="Доступ";
+        node.classList.remove("no");
+        node.classList.add("yes");
+      }else{
+        node.textContent="Немає";
+        node.classList.remove("yes");
+        node.classList.add("no");
       }
-
     }
 
-
-    function planLabel(plan) {
-
-      if (plan === "full") {
-        return "Full Vikundey Space";
-      }
-
-      if (plan === "news") {
-        return "News Vikundey Space";
-      }
-
+    function planLabel(plan){
+      if(plan==="full") return "Full Vikundey Space";
+      if(plan==="news") return "News Vikundey Space";
       return "Немає активної";
     }
 
+    async function loadProfile(){
+      try{
+        const response = await fetch("/api/profile",{
+          method:"GET",
+          credentials:"same-origin",
+          headers:{"Accept":"application/json"}
+        });
 
-    async function loadProfile() {
+        if(!response.ok) throw new Error("Profile API error");
 
-      try {
+        const data = await response.json();
+        if(!data.ok) throw new Error(data.error || "Profile error");
 
-        const response =
-          await fetch(
-            "/api/profile",
-            {
-              method: "GET",
+        el("email").textContent = data.email || "—";
+        el("plan").textContent = planLabel(data.plan);
 
-              credentials:
-                "same-origin",
+        const fullPlanVisual = el("fullPlanVisual");
+        const newsPlanVisual = el("newsPlanVisual");
+        fullPlanVisual.classList.toggle("active-plan", data.plan === "full");
+        newsPlanVisual.classList.toggle("active-plan", data.plan === "news");
 
-              headers: {
-                Accept:
-                  "application/json"
-              }
-            }
-          );
+        const active = data.status === "active";
+        el("statusText").textContent = active ? "Активна" : "Неактивна";
+        el("statusPill").textContent = active ? "● Active" : "● Inactive";
+        el("statusPill").classList.toggle("active", active);
+        el("statusPill").classList.toggle("inactive", !active);
 
+        setAccessBadge("accessNfp", !!data.access?.nfp);
+        setAccessBadge("accessCpi", !!data.access?.cpi);
+        setAccessBadge("accessThoughts", !!data.access?.thoughts);
 
-        if (!response.ok) {
-          throw new Error(
-            "Profile API error"
-          );
+        const cta = el("cta");
+        const button = el("subscribeButton");
+
+        if(data.subscriptionUrl) button.href = data.subscriptionUrl;
+
+        if(data.plan === "none"){
+          cta.style.display = "block";
+          el("ctaTitle").textContent = "Оформи Vikundey Space";
+          el("ctaText").textContent = "Обери тариф і відкрий доступ до матеріалів Vikundey Space.";
+          button.textContent = "Перейти до підписки →";
+        }else if(data.plan === "news"){
+          cta.style.display = "block";
+          el("ctaTitle").textContent = "Перейти на Full";
+          el("ctaText").textContent = "У тебе вже є NFP та CPI. Full також відкриває Vikundey Thoughts.";
+          button.textContent = "Переглянути Full →";
+        }else{
+          cta.style.display = "none";
         }
 
-
-        const data =
-          await response.json();
-
-
-        if (!data.ok) {
-
-          throw new Error(
-            data.error ||
-            "Profile error"
-          );
-
-        }
-
-
-        el("email").textContent =
-          data.email ||
-          "—";
-
-
-        el("plan").textContent =
-          planLabel(
-            data.plan
-          );
-
-
-        const active =
-          data.status ===
-          "active";
-
-
-        el("statusText").textContent =
-          active
-            ? "Активна"
-            : "Неактивна";
-
-
-        el("statusPill").textContent =
-          active
-            ? "● Active"
-            : "● Inactive";
-
-
-        el("statusPill")
-          .classList
-          .toggle(
-            "active",
-            active
-          );
-
-
-        el("statusPill")
-          .classList
-          .toggle(
-            "inactive",
-            !active
-          );
-
-
-        setAccessBadge(
-          "accessNfp",
-          !!data.access?.nfp
-        );
-
-
-        setAccessBadge(
-          "accessCpi",
-          !!data.access?.cpi
-        );
-
-
-        setAccessBadge(
-          "accessThoughts",
-          !!data.access?.thoughts
-        );
-
-
-        const cta =
-          el("cta");
-
-
-        const subscribeButton =
-          el(
-            "subscribeButton"
-          );
-
-
-        if (
-          data.subscriptionUrl
-        ) {
-
-          subscribeButton.href =
-            data.subscriptionUrl;
-
-        }
-
-
-        if (
-          data.plan ===
-          "none"
-        ) {
-
-          cta.style.display =
-            "block";
-
-          el("ctaTitle").textContent =
-            "Оформи Vikundey Space";
-
-          el("ctaText").textContent =
-            "Обери тариф і відкрий доступ до матеріалів Vikundey Space.";
-
-          subscribeButton.textContent =
-            "Перейти до підписки →";
-
-        }
-
-
-        else if (
-          data.plan ===
-          "news"
-        ) {
-
-          cta.style.display =
-            "block";
-
-          el("ctaTitle").textContent =
-            "Перейти на Full";
-
-          el("ctaText").textContent =
-            "У тебе вже є NFP та CPI. Full також відкриває Vikundey Thoughts.";
-
-          subscribeButton.textContent =
-            "Переглянути Full →";
-
-        }
-
-
-        else {
-
-          cta.style.display =
-            "none";
-
-        }
-
-
-        el("loading")
-          .classList
-          .add(
-            "hidden"
-          );
-
-
-        el("profileContent")
-          .classList
-          .remove(
-            "hidden"
-          );
-
+        el("loading").classList.add("hidden");
+        el("profileContent").classList.remove("hidden");
+      }catch(error){
+        console.error(error);
+        el("loading").classList.add("hidden");
+        el("error").style.display = "block";
       }
-
-
-      catch (error) {
-
-        console.error(
-          error
-        );
-
-        el("loading")
-          .classList
-          .add(
-            "hidden"
-          );
-
-        el("error")
-          .style
-          .display =
-            "block";
-
-      }
-
     }
 
-
     loadProfile();
-
   </script>
-
 </body>
 </html>
