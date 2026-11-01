@@ -1,39 +1,7 @@
 {
-  "status": "ok",
-  "updated_at": "2026-11-01T13:42:12.145086+02:00",
+  "status": "no_recent_event",
+  "updated_at": "2026-11-01T19:14:52.598402+02:00",
   "timezone": "Europe/Kyiv",
-  "event": {
-    "name": "Advance GDP q/q",
-    "impact": "high",
-    "released_at": "2026-10-29T14:30:00+02:00"
-  },
-  "assets": {
-    "EURUSD": {
-      "symbol": "EUR/USD",
-      "release_price": 1.11407,
-      "m15_price": 1.11451,
-      "m15_change_pct": 0.0395,
-      "h1_price": 1.11232,
-      "h1_change_pct": -0.1571,
-      "status": "ok"
-    },
-    "XAUUSD": {
-      "symbol": "XAU/USD",
-      "release_price": 4027.08465,
-      "m15_price": 4025.84122,
-      "m15_change_pct": -0.0309,
-      "h1_price": 4024.71613,
-      "h1_change_pct": -0.0588,
-      "status": "ok"
-    },
-    "BTC": {
-      "symbol": "BTC/USD",
-      "release_price": 80154.01,
-      "m15_price": 80129.91,
-      "m15_change_pct": -0.0301,
-      "h1_price": 80196.01,
-      "h1_change_pct": 0.0524,
-      "status": "ok"
-    }
-  }
+  "event": null,
+  "assets": {}
 }
