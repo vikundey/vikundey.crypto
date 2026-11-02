@@ -1,1619 +1,202 @@
-<!DOCTYPE html>
-<html lang="uk">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Мій профіль — Vikundey Space</title>
-
-  <style>
-    :root{
-      --bg:#06111a;
-      --panel:#0b1b27;
-      --panel-2:#102330;
-
-      --cyan:#2ec7f1;
-      --green:#8bea6f;
-
-      --white:#ffffff;
-      --text:#edf4f8;
-      --muted:#aebfc9;
-
-      --line:rgba(255,255,255,.11);
-
-      --shadow:0 24px 70px rgba(0,0,0,.30);
-    }
-
-    *{
-      box-sizing:border-box;
-    }
-
-    html,
-    body{
-      margin:0;
-      min-height:100%;
-    }
-
-    body{
-      font-family:
-        Inter,
-        ui-sans-serif,
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
-
-      color:var(--text);
-
-      background:
-        radial-gradient(
-          circle at 12% 8%,
-          rgba(46,199,241,.13),
-          transparent 25%
-        ),
-        radial-gradient(
-          circle at 90% 10%,
-          rgba(139,234,111,.09),
-          transparent 25%
-        ),
-        linear-gradient(
-          180deg,
-          #06111a 0%,
-          #071521 50%,
-          #051019 100%
-        );
-
-      overflow-x:hidden;
-    }
-
-    body::before{
-      content:"";
-      position:fixed;
-      inset:0;
-
-      pointer-events:none;
-
-      background-image:
-        linear-gradient(
-          rgba(255,255,255,.018) 1px,
-          transparent 1px
-        ),
-        linear-gradient(
-          90deg,
-          rgba(255,255,255,.018) 1px,
-          transparent 1px
-        );
-
-      background-size:32px 32px;
-    }
-
-    a{
-      text-decoration:none;
-      color:inherit;
-    }
-
-    .shell{
-      width:min(1220px,calc(100% - 32px));
-      margin:0 auto;
-      padding:20px 0 60px;
-
-      position:relative;
-      z-index:1;
-    }
-
-    /* NAV */
-
-    .topbar{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-
-      gap:20px;
-
-      padding:14px 18px;
-
-      border:1px solid var(--line);
-      border-radius:26px;
-
-      background:rgba(5,18,28,.90);
-
-      backdrop-filter:blur(16px);
-
-      box-shadow:var(--shadow);
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-    }
-
-    .brand img{
-      width:42px;
-      height:42px;
-      object-fit:contain;
-    }
-
-    .brand-name{
-      color:#fff;
-      font-size:18px;
-      font-weight:900;
-    }
-
-    .nav{
-      display:flex;
-      gap:8px;
-      align-items:center;
-    }
-
-    .nav a{
-      padding:10px 14px;
-
-      border-radius:14px;
-
-      color:#edf4f8;
-
-      font-size:14px;
-      font-weight:800;
-    }
-
-    .nav a:hover{
-      background:rgba(255,255,255,.06);
-    }
-
-    .nav .active{
-      color:#071018;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--cyan),
-          var(--green)
-        );
-    }
-
-    /* HERO */
-
-    .hero{
-      position:relative;
-      overflow:hidden;
-
-      margin-top:22px;
-
-      min-height:340px;
-
-      padding:54px 38px;
-
-      border:1px solid var(--line);
-      border-radius:34px;
-
-      background:
-        radial-gradient(
-          circle at 82% 25%,
-          rgba(139,234,111,.08),
-          transparent 28%
-        ),
-        linear-gradient(
-          120deg,
-          rgba(15,37,51,.95),
-          rgba(7,24,36,.94)
-        );
-
-      box-shadow:var(--shadow);
-    }
-
-    .hero-copy{
-      position:relative;
-      z-index:4;
-
-      max-width:650px;
-    }
-
-    .eyebrow{
-      display:flex;
-      align-items:center;
-
-      gap:8px;
-
-      color:var(--cyan);
-
-      font-size:12px;
-      font-weight:900;
-
-      letter-spacing:.17em;
-
-      text-transform:uppercase;
-    }
-
-    .dot{
-      width:8px;
-      height:8px;
-
-      border-radius:50%;
-
-      background:var(--green);
-
-      box-shadow:
-        0 0 15px
-        rgba(139,234,111,.8);
-    }
-
-    h1{
-      margin:16px 0 14px;
-
-      color:#fff;
-
-      font-size:
-        clamp(
-          46px,
-          6vw,
-          78px
-        );
-
-      line-height:.96;
-
-      letter-spacing:-.055em;
-    }
-
-    .hero-copy p{
-      margin:0;
-
-      max-width:610px;
-
-      color:#e5eef3;
-
-      font-size:17px;
-      line-height:1.7;
-    }
-
-    .hero-tags{
-      display:flex;
-      flex-wrap:wrap;
-
-      gap:10px;
-
-      margin-top:22px;
-    }
-
-    .hero-tag{
-      padding:9px 13px;
-
-      border:1px solid var(--line);
-
-      border-radius:999px;
-
-      background:rgba(255,255,255,.04);
-
-      color:#dce8ee;
-
-      font-size:11px;
-      font-weight:900;
-
-      letter-spacing:.08em;
-
-      text-transform:uppercase;
-    }
-
-    /* HERO VISUAL */
-
-    .visual{
-      position:absolute;
-
-      right:-20px;
-      bottom:-40px;
-
-      width:480px;
-      height:310px;
-
-      opacity:.95;
-
-      pointer-events:none;
-    }
-
-    .planet{
-      position:absolute;
-
-      right:25px;
-      bottom:0;
-
-      width:330px;
-      height:210px;
-
-      border-radius:
-        220px 220px 0 0;
-
-      border:
-        1px solid
-        rgba(46,199,241,.24);
-
-      background:
-        radial-gradient(
-          circle at 30% 30%,
-          rgba(46,199,241,.18),
-          transparent 30%
-        ),
-        linear-gradient(
-          180deg,
-          #102d3d,
-          #07131d
-        );
-
-      box-shadow:
-        0 0 50px
-        rgba(46,199,241,.10);
-    }
-
-    .planet::before{
-      content:"";
-
-      position:absolute;
-
-      left:50%;
-      top:-8%;
-
-      width:42%;
-      height:116%;
-
-      transform:translateX(-50%);
-
-      border:
-        1px solid
-        rgba(46,199,241,.17);
-
-      border-radius:50%;
-    }
-
-    .planet::after{
-      content:"";
-
-      position:absolute;
-
-      left:10%;
-      right:10%;
-
-      top:44%;
-
-      height:28%;
-
-      border:
-        1px solid
-        rgba(139,234,111,.16);
-
-      border-radius:50%;
-    }
-
-    .orbit{
-      position:absolute;
-
-      right:2px;
-      bottom:76px;
-
-      width:400px;
-      height:125px;
-
-      border:
-        2px solid
-        rgba(46,199,241,.45);
-
-      border-radius:50%;
-
-      transform:rotate(-12deg);
-    }
-
-    .orbit.two{
-      right:18px;
-      bottom:68px;
-
-      width:365px;
-      height:135px;
-
-      border-color:
-        rgba(139,234,111,.40);
-
-      transform:rotate(18deg);
-    }
-
-    .chart{
-      position:absolute;
-
-      right:30px;
-      top:25px;
-
-      display:flex;
-      align-items:flex-end;
-
-      gap:9px;
-
-      height:105px;
-
-      opacity:.40;
-    }
-
-    .chart span{
-      width:13px;
-
-      border-radius:
-        4px 4px 0 0;
-
-      background:
-        linear-gradient(
-          180deg,
-          var(--green),
-          var(--cyan)
-        );
-    }
-
-    .chart span:nth-child(1){height:42px;}
-    .chart span:nth-child(2){height:58px;}
-    .chart span:nth-child(3){height:52px;}
-    .chart span:nth-child(4){height:80px;}
-    .chart span:nth-child(5){height:68px;}
-    .chart span:nth-child(6){height:100px;}
-
-    /* STATES */
-
-    .loading,
-    .error{
-      margin-top:22px;
-
-      padding:18px 20px;
-
-      border:1px solid var(--line);
-      border-radius:18px;
-
-      background:rgba(255,255,255,.04);
-    }
-
-    .loading{
-      color:#dce7ed;
-    }
-
-    .error{
-      display:none;
-
-      color:#ffd7d7;
-
-      background:
-        rgba(255,100,100,.06);
-    }
-
-    .hidden{
-      display:none !important;
-    }
-
-    /* MAIN */
-
-    .dashboard{
-      display:grid;
-
-      grid-template-columns:
-        1.05fr .95fr;
-
-      gap:24px;
-
-      margin-top:24px;
-    }
-
-    .card{
-      position:relative;
-      overflow:hidden;
-
-      padding:30px;
-
-      border:1px solid var(--line);
-      border-radius:30px;
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(255,255,255,.055),
-          rgba(255,255,255,.018)
-        ),
-        rgba(10,26,38,.92);
-
-      box-shadow:var(--shadow);
-    }
-
-    .card::before{
-      content:"";
-
-      position:absolute;
-
-      left:0;
-      top:0;
-
-      width:100%;
-      height:2px;
-
-      background:
-        linear-gradient(
-          90deg,
-          var(--cyan),
-          var(--green),
-          transparent
-        );
-    }
-
-    .card-label{
-      margin-bottom:20px;
-
-      color:#e5edf1;
-
-      font-size:12px;
-      font-weight:900;
-
-      letter-spacing:.18em;
-
-      text-transform:uppercase;
-    }
-
-    /* USER */
-
-    .user{
-      display:flex;
-      align-items:center;
-
-      gap:15px;
-
-      margin-bottom:26px;
-    }
-
-    .avatar{
-      width:70px;
-      height:70px;
-
-      flex:0 0 auto;
-
-      display:grid;
-      place-items:center;
-
-      border-radius:50%;
-
-      border:
-        1px solid
-        rgba(255,255,255,.15);
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(46,199,241,.15),
-          rgba(139,234,111,.12)
-        );
-
-      font-size:28px;
-    }
-
-    .email{
-      color:#fff;
-
-      font-size:
-        clamp(
-          18px,
-          3vw,
-          27px
-        );
-
-      font-weight:900;
-    }
-
-    .user-note{
-      margin-top:4px;
-
-      color:var(--muted);
-
-      font-size:13px;
-    }
-
-    /* STATUS */
-
-    .status-grid{
-      display:grid;
-
-      grid-template-columns:
-        repeat(2,minmax(0,1fr));
-
-      gap:14px;
-    }
-
-    .status-card{
-      padding:20px;
-
-      border:1px solid var(--line);
-      border-radius:20px;
-
-      background:
-        rgba(255,255,255,.04);
-    }
-
-    .status-label{
-      margin-bottom:8px;
-
-      color:#c9d6dd;
-
-      font-size:11px;
-      font-weight:900;
-
-      letter-spacing:.14em;
-
-      text-transform:uppercase;
-    }
-
-    .status-value{
-      color:#fff;
-
-      font-size:22px;
-      font-weight:900;
-    }
-
-    .pill{
-      display:inline-flex;
-
-      margin-top:10px;
-
-      padding:7px 11px;
-
-      border-radius:999px;
-
-      font-size:12px;
-      font-weight:900;
-    }
-
-    .pill.active{
-      color:var(--green);
-
-      background:
-        rgba(139,234,111,.10);
-    }
-
-    .pill.inactive{
-      color:#ffc5c5;
-
-      background:
-        rgba(255,100,100,.08);
-    }
-
-    /* PLAN */
-
-    .plans{
-      display:grid;
-
-      grid-template-columns:
-        repeat(2,minmax(0,1fr));
-
-      gap:14px;
-
-      margin-top:18px;
-    }
-
-    .plan{
-      padding:18px;
-
-      border:1px solid var(--line);
-      border-radius:20px;
-
-      background:
-        rgba(255,255,255,.025);
-
-      opacity:.45;
-
-      transition:.2s ease;
-    }
-
-    .plan.active{
-      opacity:1;
-
-      border-color:
-        rgba(139,234,111,.28);
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(46,199,241,.08),
-          rgba(139,234,111,.07)
-        );
-    }
-
-    .plan-type{
-      color:var(--cyan);
-
-      font-size:11px;
-      font-weight:900;
-
-      letter-spacing:.14em;
-    }
-
-    .plan strong{
-      display:block;
-
-      margin-top:8px;
-
-      color:#fff;
-
-      font-size:18px;
-    }
-
-    .plan span{
-      display:block;
-
-      margin-top:5px;
-
-      color:var(--muted);
-
-      font-size:12px;
-    }
-
-    /* ACCESS */
-
-    .access-list{
-      display:grid;
-      gap:13px;
-    }
-
-    .access{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-
-      gap:14px;
-
-      padding:17px;
-
-      border:1px solid var(--line);
-      border-radius:19px;
-
-      background:
-        rgba(255,255,255,.04);
-    }
-
-    .access-main{
-      display:flex;
-      align-items:center;
-
-      gap:13px;
-    }
-
-    .access-icon{
-      width:42px;
-      height:42px;
-
-      flex:0 0 auto;
-
-      display:grid;
-      place-items:center;
-
-      border-radius:13px;
-
-      color:#071018;
-
-      font-size:14px;
-      font-weight:950;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--cyan),
-          var(--green)
-        );
-    }
-
-    .access-name{
-      color:#fff;
-
-      font-size:17px;
-      font-weight:900;
-    }
-
-    .access-desc{
-      margin-top:4px;
-
-      color:var(--muted);
-
-      font-size:12px;
-    }
-
-    .access-state{
-      min-width:88px;
-
-      padding:8px 11px;
-
-      border-radius:999px;
-
-      text-align:center;
-
-      font-size:11px;
-      font-weight:950;
-
-      text-transform:uppercase;
-    }
-
-    .access-state.yes{
-      color:#071018;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--cyan),
-          var(--green)
-        );
-    }
-
-    .access-state.no{
-      color:#a9bac4;
-
-      background:
-        rgba(255,255,255,.07);
-    }
-
-    /* CTA */
-
-    .cta{
-      display:none;
-
-      margin-top:24px;
-
-      padding:26px;
-
-      border:
-        1px solid
-        rgba(46,199,241,.16);
-
-      border-radius:24px;
-
-      background:
-        radial-gradient(
-          circle at 5% 10%,
-          rgba(46,199,241,.08),
-          transparent 30%
-        ),
-        rgba(255,255,255,.025);
-    }
-
-    .cta h3{
-      margin:0;
-
-      color:#fff;
-
-      font-size:25px;
-    }
-
-    .cta p{
-      margin:9px 0 18px;
-
-      color:var(--muted);
-
-      line-height:1.6;
-    }
-
-    .button{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-
-      min-height:50px;
-
-      padding:0 20px;
-
-      border-radius:16px;
-
-      color:#071018;
-
-      font-size:14px;
-      font-weight:900;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--cyan),
-          var(--green)
-        );
-    }
-
-    /* LOGOUT / BACK */
-
-    .account-actions{
-      display:flex;
-      flex-wrap:wrap;
-
-      gap:10px;
-
-      margin-top:18px;
-    }
-
-    .secondary{
-      display:inline-flex;
-      align-items:center;
-
-      min-height:44px;
-
-      padding:0 15px;
-
-      border:1px solid var(--line);
-      border-radius:14px;
-
-      color:#dce7ed;
-
-      background:
-        rgba(255,255,255,.04);
-
-      font-size:13px;
-      font-weight:800;
-    }
-
-    /* FOOTER */
-
-    .footer{
-      padding-top:40px;
-
-      color:#8ea2ae;
-
-      font-size:12px;
-
-      text-align:center;
-    }
-
-    @media(max-width:950px){
-
-      .dashboard{
-        grid-template-columns:1fr;
-      }
-
-      .hero{
-        padding-bottom:180px;
-      }
-
-      .visual{
-        transform:scale(.78);
-
-        right:-60px;
-
-        transform-origin:
-          bottom right;
-      }
-
-    }
-
-    @media(max-width:680px){
-
-      .shell{
-        width:
-          calc(100% - 20px);
-      }
-
-      .brand-name{
-        display:none;
-      }
-
-      .nav a{
-        padding:9px 9px;
-
-        font-size:12px;
-      }
-
-      .hero{
-        padding:
-          36px 22px 175px;
-      }
-
-      .hero-copy p{
-        font-size:15px;
-      }
-
-      .visual{
-        right:-120px;
-
-        transform:scale(.62);
-      }
-
-      .status-grid,
-      .plans{
-        grid-template-columns:1fr;
-      }
-
-      .access{
-        align-items:flex-start;
-        flex-direction:column;
-      }
-
-    }
-  </style>
-</head>
-
-<body>
-
-<div class="shell">
-
-  <!-- NAV -->
-
-  <header class="topbar">
-
-    <a class="brand" href="/">
-
-      <img
-        src="../../logo.png"
-        alt="vikundey.crypto"
-      >
-
-      <div class="brand-name">
-        vikundey.crypto
-      </div>
-
-    </a>
-
-    <nav class="nav">
-
-      <a href="/">
-        Головна
-      </a>
-
-      <a href="/nfp/">
-        NFP
-      </a>
-
-      <a href="/cpi/">
-        CPI
-      </a>
-
-      <a href="/thoughts/">
-        Thoughts
-      </a>
-
-      <a
-        class="active"
-        href="/profile/account/"
-      >
-        👤
-      </a>
-
-    </nav>
-
-  </header>
-
-
-  <!-- HERO -->
-
-  <section class="hero">
-
-    <div class="hero-copy">
-
-      <div class="eyebrow">
-
-        <span class="dot"></span>
-
-        Vikundey Space
-
-      </div>
-
-      <h1>
-        Мій профіль
-      </h1>
-
-      <p>
-
-        Твій персональний простір у Vikundey Space:
-        активна підписка, доступні розділи та
-        авторські матеріали в одному місці.
-
-      </p>
-
-      <div class="hero-tags">
-
-        <span class="hero-tag">
-          Personal Space
-        </span>
-
-        <span class="hero-tag">
-          NFP · CPI · Thoughts
-        </span>
-
-        <span class="hero-tag">
-          Macro Research
-        </span>
-
-      </div>
-
-    </div>
-
-    <div class="visual">
-
-      <div class="chart">
-
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-
-      </div>
-
-      <div class="orbit"></div>
-      <div class="orbit two"></div>
-
-      <div class="planet"></div>
-
-    </div>
-
-  </section>
-
-
-  <!-- LOADING -->
-
-  <div
-    id="loading"
-    class="loading"
-  >
-    Завантажуємо твій профіль…
-  </div>
-
-
-  <div
-    id="error"
-    class="error"
-  >
-    Не вдалося завантажити профіль.
-    Спробуй оновити сторінку.
-  </div>
-
-
-  <!-- DASHBOARD -->
-
-  <main
-    id="dashboard"
-    class="dashboard hidden"
-  >
-
-
-    <!-- PROFILE -->
-
-    <section class="card">
-
-      <div class="card-label">
-        Профіль
-      </div>
-
-      <div class="user">
-
-        <div class="avatar">
-          👤
-        </div>
-
-        <div>
-
-          <div
-            id="email"
-            class="email"
-          >
-            —
-          </div>
-
-          <div class="user-note">
-            Авторизований користувач Vikundey Space
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <!-- STATUS -->
-
-      <div class="status-grid">
-
-        <div class="status-card">
-
-          <div class="status-label">
-            Підписка
-          </div>
-
-          <div
-            id="plan"
-            class="status-value"
-          >
-            —
-          </div>
-
-        </div>
-
-
-        <div class="status-card">
-
-          <div class="status-label">
-            Статус
-          </div>
-
-          <div
-            id="status"
-            class="status-value"
-          >
-            —
-          </div>
-
-          <div
-            id="statusPill"
-            class="pill"
-          >
-            —
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <!-- PLANS -->
-
-      <div class="plans">
-
-        <div
-          id="fullPlan"
-          class="plan"
-        >
-
-          <div class="plan-type">
-            FULL
-          </div>
-
-          <strong>
-            Full Vikundey Space
-          </strong>
-
-          <span>
-            NFP + CPI + Vikundey Thoughts
-          </span>
-
-        </div>
-
-
-        <div
-          id="newsPlan"
-          class="plan"
-        >
-
-          <div class="plan-type">
-            NEWS
-          </div>
-
-          <strong>
-            News Vikundey Space
-          </strong>
-
-          <span>
-            NFP + CPI
-          </span>
-
-        </div>
-
-      </div>
-
-
-      <!-- CTA -->
-
-      <div
-        id="cta"
-        class="cta"
-      >
-
-        <h3 id="ctaTitle">
-          Відкрий Vikundey Space
-        </h3>
-
-        <p id="ctaText">
-          Обери формат доступу та відкрий
-          авторську макроаналітику Vikundey Space.
-        </p>
-
-        <a
-          id="subscribeButton"
-          class="button"
-          href="https://secure.wayforpay.com/sub/see534a7947df"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Обрати підписку →
-        </a>
-
-      </div>
-
-
-      <div class="account-actions">
-
-        <a
-          class="secondary"
-          href="/profile/"
-        >
-          ← Про Vikundey Space
-        </a>
-
-      </div>
-
-    </section>
-
-
-    <!-- ACCESS -->
-
-    <aside class="card">
-
-      <div class="card-label">
-        Мій доступ
-      </div>
-
-
-      <div class="access-list">
-
-
-        <div class="access">
-
-          <div class="access-main">
-
-            <div class="access-icon">
-              N
-            </div>
-
-            <div>
-
-              <div class="access-name">
-                NFP
-              </div>
-
-              <div class="access-desc">
-                Підготовка та аналіз ринку праці США
-              </div>
-
-            </div>
-
-          </div>
-
-          <div
-            id="accessNfp"
-            class="access-state no"
-          >
-            Немає
-          </div>
-
-        </div>
-
-
-        <div class="access">
-
-          <div class="access-main">
-
-            <div class="access-icon">
-              C
-            </div>
-
-            <div>
-
-              <div class="access-name">
-                CPI
-              </div>
-
-              <div class="access-desc">
-                Інфляція та ринкові сценарії
-              </div>
-
-            </div>
-
-          </div>
-
-          <div
-            id="accessCpi"
-            class="access-state no"
-          >
-            Немає
-          </div>
-
-        </div>
-
-
-        <div class="access">
-
-          <div class="access-main">
-
-            <div class="access-icon">
-              V
-            </div>
-
-            <div>
-
-              <div class="access-name">
-                Vikundey Thoughts
-              </div>
-
-              <div class="access-desc">
-                Економіка, освіта та геополітика
-              </div>
-
-            </div>
-
-          </div>
-
-          <div
-            id="accessThoughts"
-            class="access-state no"
-          >
-            Немає
-          </div>
-
-        </div>
-
-
-      </div>
-
-    </aside>
-
-  </main>
-
-
-  <footer class="footer">
-    © vikundey.crypto · Vikundey Space
-  </footer>
-
-</div>
-
-
 <script>
+  const el = (id) => document.getElementById(id);
 
-  const el = id =>
-    document.getElementById(id);
-
-
-  function setAccess(
-    id,
-    enabled
-  ){
-
+  function setAccessBadge(id, enabled) {
     const node = el(id);
 
-    if(enabled){
-
+    if (enabled) {
       node.textContent = "Доступ";
-
       node.classList.remove("no");
       node.classList.add("yes");
-
-    }else{
-
+    } else {
       node.textContent = "Немає";
-
       node.classList.remove("yes");
       node.classList.add("no");
-
     }
-
   }
 
-
-  function getPlanName(plan){
-
-    if(plan === "full"){
-      return "Full Vikundey Space";
-    }
-
-    if(plan === "news"){
-      return "News Vikundey Space";
-    }
-
+  function planLabel(plan) {
+    if (plan === "full") return "Full Vikundey Space";
+    if (plan === "news") return "News Vikundey Space";
     return "Немає активної";
   }
 
+  async function claimInviteIfPresent() {
+    const params = new URLSearchParams(window.location.search);
 
-  async function loadProfile(){
+    const claimToken =
+      params.get("invite_claim");
 
-    try{
+    if (!claimToken) {
+      return;
+    }
 
+    el("loading").textContent =
+      "Активуємо твоє запрошення…";
+
+    try {
+      const response =
+        await fetch(
+          "/api/profile/invite/claim",
+          {
+            method: "POST",
+            credentials: "same-origin",
+
+            headers: {
+              "Content-Type":
+                "application/json",
+
+              "Accept":
+                "application/json"
+            },
+
+            body: JSON.stringify({
+              claimToken
+            })
+          }
+        );
+
+      let data = {};
+
+      try {
+        data = await response.json();
+      } catch {
+        data = {};
+      }
+
+      if (
+        !response.ok ||
+        !data.ok
+      ) {
+        throw new Error(
+          data.error ||
+          "Не вдалося активувати запрошення."
+        );
+      }
+
+      // Прибираємо token із URL,
+      // щоб він не залишався в адресному рядку.
+      window.history.replaceState(
+        {},
+        document.title,
+        "/profile/account/"
+      );
+
+      el("loading").textContent =
+        "Запрошення активовано. Завантажуємо профіль…";
+
+    } catch (error) {
+      console.error(
+        "Invite claim failed",
+        error
+      );
+
+      el("loading").classList.add("hidden");
+
+      el("error").textContent =
+        error.message ||
+        "Не вдалося активувати запрошення.";
+
+      el("error").style.display =
+        "block";
+
+      throw error;
+    }
+  }
+
+  async function loadProfile() {
+    try {
       const response =
         await fetch(
           "/api/profile",
           {
-            method:"GET",
-            credentials:"same-origin",
-            headers:{
-              "Accept":"application/json"
+            method: "GET",
+
+            credentials:
+              "same-origin",
+
+            headers: {
+              "Accept":
+                "application/json"
             }
           }
         );
 
-
-      if(!response.ok){
-        throw new Error("Profile API error");
+      if (!response.ok) {
+        throw new Error(
+          "Profile API error"
+        );
       }
-
 
       const data =
         await response.json();
 
-
-      if(!data.ok){
+      if (!data.ok) {
         throw new Error(
-          data.error || "Profile error"
+          data.error ||
+          "Profile error"
         );
       }
-
-
-      /* EMAIL */
 
       el("email").textContent =
         data.email || "—";
 
-
-      /* PLAN */
-
       el("plan").textContent =
-        getPlanName(data.plan);
+        planLabel(data.plan);
 
+      const fullPlanVisual =
+        el("fullPlanVisual");
 
-      el("fullPlan")
-        .classList
-        .toggle(
-          "active",
-          data.plan === "full"
-        );
+      const newsPlanVisual =
+        el("newsPlanVisual");
 
+      fullPlanVisual.classList.toggle(
+        "active-plan",
+        data.plan === "full"
+      );
 
-      el("newsPlan")
-        .classList
-        .toggle(
-          "active",
-          data.plan === "news"
-        );
+      newsPlanVisual.classList.toggle(
+        "active-plan",
+        data.plan === "news"
+      );
 
-
-      /* STATUS */
-
-      const isActive =
+      const active =
         data.status === "active";
 
-
-      el("status").textContent =
-        isActive
+      el("statusText").textContent =
+        active
           ? "Активна"
           : "Неактивна";
 
-
       el("statusPill").textContent =
-        isActive
+        active
           ? "● Active"
           : "● Inactive";
 
+      el("statusPill").classList.toggle(
+        "active",
+        active
+      );
 
-      el("statusPill")
-        .classList
-        .toggle(
-          "active",
-          isActive
-        );
+      el("statusPill").classList.toggle(
+        "inactive",
+        !active
+      );
 
-
-      el("statusPill")
-        .classList
-        .toggle(
-          "inactive",
-          !isActive
-        );
-
-
-      /* ACCESS */
-
-      setAccess(
+      setAccessBadge(
         "accessNfp",
         !!data.access?.nfp
       );
 
-
-      setAccess(
+      setAccessBadge(
         "accessCpi",
         !!data.access?.cpi
       );
 
-
-      setAccess(
+      setAccessBadge(
         "accessThoughts",
         !!data.access?.thoughts
       );
-
-
-      /* CTA */
 
       const cta =
         el("cta");
@@ -1621,95 +204,77 @@
       const button =
         el("subscribeButton");
 
-
-      if(data.subscriptionUrl){
-
+      if (data.subscriptionUrl) {
         button.href =
           data.subscriptionUrl;
-
       }
 
-
-      if(data.plan === "none"){
-
+      if (data.plan === "none") {
         cta.style.display =
           "block";
-
 
         el("ctaTitle").textContent =
           "Відкрий Vikundey Space";
 
-
         el("ctaText").textContent =
-          "Обери формат доступу та відкрий авторську макроаналітику, підготовку до NFP і CPI та матеріали Vikundey Thoughts.";
-
+          "Обери формат доступу та отримай авторську аналітику, ринковий контекст і матеріали, які допомагають бачити ринок ширше за окремий реліз чи новину.";
 
         button.textContent =
           "Обрати підписку →";
 
-      }
-
-      else if(data.plan === "news"){
-
+      } else if (
+        data.plan === "news"
+      ) {
         cta.style.display =
           "block";
 
-
         el("ctaTitle").textContent =
-          "Відкрий повний Vikundey Space";
-
+          "Перейти на Full";
 
         el("ctaText").textContent =
-          "Твій News доступ вже відкриває NFP та CPI. Full Vikundey Space також включає Vikundey Thoughts.";
-
+          "У тебе вже є NFP та CPI. Full також відкриває Vikundey Thoughts.";
 
         button.textContent =
-          "Перейти на Full →";
+          "Переглянути Full →";
 
-      }
-
-      else{
-
+      } else {
         cta.style.display =
           "none";
-
       }
 
+      el("loading").classList.add(
+        "hidden"
+      );
 
-      /* SHOW */
+      el("profileContent").classList.remove(
+        "hidden"
+      );
 
-      el("loading")
-        .classList
-        .add("hidden");
+    } catch (error) {
+      console.error(
+        "Profile load failed",
+        error
+      );
 
-
-      el("dashboard")
-        .classList
-        .remove("hidden");
-
-    }
-
-    catch(error){
-
-      console.error(error);
-
-
-      el("loading")
-        .classList
-        .add("hidden");
-
+      el("loading").classList.add(
+        "hidden"
+      );
 
       el("error").style.display =
         "block";
-
     }
-
   }
 
+  async function initProfile() {
+    try {
+      await claimInviteIfPresent();
 
-  loadProfile();
+      await loadProfile();
 
+    } catch {
+      // Помилка вже показана користувачу.
+    }
+  }
+
+  initProfile();
 </script>
-
-</body>
-</html>
