@@ -8,24 +8,23 @@
 
   <meta
     name="description"
-    content="Авторські матеріали Vikundey Thoughts про економіку, геополітику та макроекономіку."
+    content="Авторські матеріали Vikundey Thoughts про економіку, геополітику, ринки та макроекономіку."
   >
 
   <style>
     :root{
-      --bg:#051019;
-      --panel:#0a1822;
-      --panel2:#0d202c;
+      --bg:#06111a;
+      --panel:#0b1b27;
 
       --cyan:#2ec7f1;
       --green:#8bea6f;
 
-      --text:#f3f8fb;
-      --muted:#9fb2bd;
+      --text:#edf4f8;
+      --muted:#aebfc9;
 
-      --line:rgba(46,199,241,.18);
+      --line:rgba(255,255,255,.11);
 
-      --shadow:0 22px 70px rgba(0,0,0,.34);
+      --shadow:0 24px 70px rgba(0,0,0,.30);
     }
 
     *{
@@ -39,6 +38,8 @@
     body{
       margin:0;
 
+      color:var(--text);
+
       font-family:
         Inter,
         ui-sans-serif,
@@ -48,27 +49,25 @@
         "Segoe UI",
         sans-serif;
 
-      color:var(--text);
-
       background:
         radial-gradient(
-          circle at 18% 0%,
-          rgba(46,199,241,.10),
-          transparent 28%
+          circle at 12% 8%,
+          rgba(46,199,241,.13),
+          transparent 25%
         ),
         radial-gradient(
-          circle at 86% 12%,
-          rgba(139,234,111,.07),
+          circle at 88% 10%,
+          rgba(139,234,111,.09),
           transparent 25%
         ),
         linear-gradient(
           180deg,
-          #041018 0%,
-          #06131c 55%,
-          #041018 100%
+          #06111a 0%,
+          #071521 50%,
+          #051019 100%
         );
 
-      min-height:100vh;
+      overflow-x:hidden;
     }
 
     body::before{
@@ -90,20 +89,20 @@
           transparent 1px
         );
 
-      background-size:36px 36px;
+      background-size:32px 32px;
     }
 
     a{
-      color:inherit;
       text-decoration:none;
+      color:inherit;
     }
 
     .shell{
-      width:min(1180px,calc(100% - 28px));
+      width:min(1220px,calc(100% - 32px));
 
       margin:0 auto;
 
-      padding:18px 0 48px;
+      padding:20px 0 60px;
 
       position:relative;
       z-index:1;
@@ -118,12 +117,12 @@
 
       gap:20px;
 
-      padding:13px 16px;
+      padding:14px 18px;
 
       border:1px solid var(--line);
-      border-radius:22px;
+      border-radius:26px;
 
-      background:rgba(5,15,23,.88);
+      background:rgba(5,18,28,.90);
 
       backdrop-filter:blur(16px);
 
@@ -134,161 +133,148 @@
       display:flex;
       align-items:center;
 
-      gap:11px;
-
-      font-weight:900;
+      gap:12px;
     }
 
     .brand img{
-      width:40px;
-      height:40px;
+      width:42px;
+      height:42px;
 
       object-fit:contain;
+    }
+
+    .brand-name{
+      color:#fff;
+
+      font-size:18px;
+      font-weight:900;
     }
 
     .nav{
       display:flex;
       align-items:center;
 
-      gap:7px;
+      gap:8px;
+
+      flex-wrap:wrap;
     }
 
     .nav a{
-      padding:9px 12px;
+      padding:10px 14px;
 
-      border-radius:11px;
+      border-radius:14px;
 
-      color:#d7e2e8;
+      color:#edf4f8;
 
-      font-size:13px;
-      font-weight:750;
+      font-size:14px;
+      font-weight:800;
     }
 
     .nav a:hover{
-      background:rgba(255,255,255,.05);
+      background:rgba(255,255,255,.06);
     }
 
     .nav .active{
-      position:relative;
-
-      color:#fff;
-    }
-
-    .nav .active::after{
-      content:"";
-
-      position:absolute;
-
-      left:12px;
-      right:12px;
-      bottom:2px;
-
-      height:2px;
-
-      border-radius:99px;
-
-      background:var(--cyan);
-    }
-
-    .profile-link{
-      width:38px;
-      height:38px;
-
-      display:grid;
-      place-items:center;
-
-      padding:0 !important;
-
-      border:1px solid rgba(46,199,241,.45);
-      border-radius:50% !important;
-
-      font-size:16px !important;
-    }
-
-
-    /* HERO */
-
-    .hero{
-      display:grid;
-
-      grid-template-columns:
-        minmax(0,1.1fr)
-        minmax(320px,.9fr);
-
-      gap:28px;
-
-      align-items:center;
-
-      min-height:420px;
-
-      margin-top:18px;
-
-      padding:40px 34px;
-
-      border:1px solid var(--line);
-      border-radius:28px;
+      color:#071018;
 
       background:
         linear-gradient(
           135deg,
-          rgba(255,255,255,.035),
-          rgba(255,255,255,.012)
+          var(--cyan),
+          var(--green)
+        );
+    }
+
+    /* HERO */
+
+    .hero{
+      position:relative;
+
+      overflow:hidden;
+
+      margin-top:22px;
+
+      min-height:450px;
+
+      padding:60px 38px;
+
+      border:1px solid var(--line);
+      border-radius:34px;
+
+      background:
+        radial-gradient(
+          circle at 82% 24%,
+          rgba(139,234,111,.08),
+          transparent 28%
+        ),
+        linear-gradient(
+          120deg,
+          rgba(15,37,51,.95),
+          rgba(7,24,36,.94)
         );
 
       box-shadow:var(--shadow);
-
-      overflow:hidden;
     }
 
-    .space-badge{
-      display:inline-flex;
+    .hero-copy{
+      position:relative;
+      z-index:4;
+
+      max-width:700px;
+    }
+
+    .eyebrow{
+      display:flex;
       align-items:center;
 
-      padding:8px 14px;
-
-      border:1px solid var(--cyan);
-      border-radius:999px;
+      gap:8px;
 
       color:var(--cyan);
 
-      font-size:11px;
+      font-size:12px;
       font-weight:900;
 
-      letter-spacing:.14em;
+      letter-spacing:.17em;
 
       text-transform:uppercase;
     }
 
-    .research-label{
-      margin-top:18px;
+    .dot{
+      width:8px;
+      height:8px;
 
-      color:#d6e3e9;
+      border-radius:50%;
 
-      font-size:12px;
-      font-weight:850;
+      background:var(--green);
 
-      letter-spacing:.28em;
-
-      text-transform:uppercase;
+      box-shadow:
+        0 0 15px
+        rgba(139,234,111,.8);
     }
 
     h1{
-      margin:14px 0 0;
+      margin:18px 0 8px;
+
+      color:#fff;
 
       font-size:
         clamp(
-          52px,
-          7vw,
-          84px
+          54px,
+          8vw,
+          100px
         );
 
       line-height:.92;
 
-      letter-spacing:-.055em;
+      letter-spacing:-.06em;
     }
 
-    h1 .accent{
+    .hero-subtitle{
       display:block;
+
+      margin-top:12px;
+
+      color:transparent;
 
       background:
         linear-gradient(
@@ -300,319 +286,56 @@
       -webkit-background-clip:text;
       background-clip:text;
 
-      color:transparent;
+      font-size:
+        clamp(
+          25px,
+          4vw,
+          44px
+        );
+
+      font-weight:900;
+
+      letter-spacing:-.045em;
     }
 
-    .hero-copy{
-      max-width:620px;
+    .hero p{
+      max-width:650px;
 
-      margin:20px 0 0;
+      margin:22px 0 0;
 
-      color:#c7d4db;
+      color:#e4edf2;
 
-      font-size:16px;
+      font-size:17px;
 
       line-height:1.7;
     }
 
-
-    /* HERO VISUAL */
-
-    .visual{
-      position:relative;
-
-      min-height:300px;
-    }
-
-    .globe{
-      position:absolute;
-
-      right:24px;
-      top:10px;
-
-      width:250px;
-      height:250px;
-
-      border:1px solid rgba(46,199,241,.42);
-      border-radius:50%;
-
-      background:
-        radial-gradient(
-          circle at 32% 30%,
-          rgba(46,199,241,.20),
-          transparent 25%
-        ),
-        radial-gradient(
-          circle at 68% 65%,
-          rgba(139,234,111,.13),
-          transparent 30%
-        ),
-        #071822;
-
-      box-shadow:
-        0 0 50px rgba(46,199,241,.12);
-    }
-
-    .globe::before{
-      content:"";
-
-      position:absolute;
-
-      left:50%;
-      top:5%;
-
-      width:40%;
-      height:90%;
-
-      transform:translateX(-50%);
-
-      border:1px solid rgba(46,199,241,.28);
-      border-radius:50%;
-    }
-
-    .globe::after{
-      content:"";
-
-      position:absolute;
-
-      left:7%;
-      right:7%;
-      top:40%;
-
-      height:25%;
-
-      border:1px solid rgba(139,234,111,.22);
-      border-radius:50%;
-    }
-
-    .paper-stack{
-      position:absolute;
-
-      right:25px;
-      bottom:8px;
-
-      width:170px;
-      height:130px;
-
-      transform:rotate(-8deg);
-    }
-
-    .paper{
-      position:absolute;
-
-      inset:0;
-
-      border:1px solid rgba(46,199,241,.35);
-      border-radius:12px;
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(46,199,241,.26),
-          rgba(46,199,241,.05)
-        );
-
-      box-shadow:
-        0 0 24px rgba(46,199,241,.12);
-    }
-
-    .paper:nth-child(2){
-      transform:translate(14px,12px);
-
-      border-color:rgba(139,234,111,.25);
-    }
-
-    .paper:nth-child(3){
-      transform:translate(28px,24px);
-    }
-
-    .paper-lines{
-      position:absolute;
-
-      left:28px;
-      top:34px;
-
-      width:95px;
-
-      display:grid;
-
-      gap:9px;
-
-      z-index:4;
-    }
-
-    .paper-lines span{
-      height:3px;
-
-      border-radius:99px;
-
-      background:
-        linear-gradient(
-          90deg,
-          var(--cyan),
-          var(--green)
-        );
-    }
-
-
-    /* FEATURE CARDS */
-
-    .features{
-      display:grid;
-
-      grid-template-columns:
-        repeat(3,minmax(0,1fr));
-
-      gap:14px;
-
-      margin-top:18px;
-    }
-
-    .feature{
-      min-height:140px;
-
-      padding:22px;
-
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-
-      text-align:center;
-
-      border:1px solid var(--line);
-      border-radius:20px;
-
-      background:
-        rgba(255,255,255,.025);
-    }
-
-    .feature-icon{
-      width:42px;
-      height:42px;
-
-      display:grid;
-      place-items:center;
-
-      margin-bottom:14px;
-
-      border-radius:13px;
-
-      border:1px solid rgba(46,199,241,.30);
-
-      color:var(--cyan);
-
-      font-size:20px;
-    }
-
-    .feature strong{
-      font-size:15px;
-    }
-
-    .feature span{
-      margin-top:6px;
-
-      color:var(--muted);
-
-      font-size:12px;
-
-      line-height:1.45;
-    }
-
-
-    /* CTA */
-
-    .cta{
-      margin-top:34px;
-
-      padding:28px 30px;
-
-      border:1px solid rgba(46,199,241,.20);
-      border-radius:24px;
-
-      background:
-        radial-gradient(
-          circle at 10% 10%,
-          rgba(46,199,241,.08),
-          transparent 30%
-        ),
-        radial-gradient(
-          circle at 90% 90%,
-          rgba(139,234,111,.07),
-          transparent 30%
-        ),
-        rgba(255,255,255,.025);
-
-      box-shadow:var(--shadow);
-    }
-
-    .cta h2{
-      margin:0;
-
-      max-width:680px;
-
-      font-size:
-        clamp(
-          28px,
-          4vw,
-          42px
-        );
-
-      line-height:1.1;
-
-      letter-spacing:-.04em;
-    }
-
-    .cta h2 span{
-      background:
-        linear-gradient(
-          90deg,
-          var(--cyan),
-          var(--green)
-        );
-
-      -webkit-background-clip:text;
-      background-clip:text;
-
-      color:transparent;
-    }
-
-    .cta p{
-      max-width:700px;
-
-      margin:12px 0 0;
-
-      color:var(--muted);
-
-      line-height:1.65;
-    }
-
-    .actions{
+    .hero-actions{
       display:flex;
       flex-wrap:wrap;
 
       gap:12px;
 
-      margin-top:24px;
+      margin-top:28px;
     }
 
     .btn{
-      min-height:50px;
-
       display:inline-flex;
       align-items:center;
       justify-content:center;
 
+      min-height:52px;
+
       padding:0 20px;
 
-      border-radius:14px;
+      border-radius:16px;
 
       font-size:14px;
       font-weight:900;
     }
 
     .btn-primary{
-      color:#061018;
+      color:#071018;
 
       background:
         linear-gradient(
@@ -623,77 +346,518 @@
     }
 
     .btn-secondary{
-      border:1px solid rgba(46,199,241,.45);
-
       color:#fff;
 
-      background:transparent;
+      border:1px solid var(--line);
+
+      background:
+        rgba(255,255,255,.04);
     }
 
     .login-note{
       display:flex;
-      align-items:flex-start;
+      align-items:center;
 
-      gap:10px;
+      gap:9px;
 
-      margin-top:22px;
+      margin-top:18px;
 
-      color:#a7b8c2;
+      color:var(--muted);
 
-      font-size:12px;
-
-      line-height:1.5;
+      font-size:13px;
     }
 
     .login-icon{
-      color:var(--cyan);
+      width:25px;
+      height:25px;
 
-      font-size:18px;
+      display:grid;
+      place-items:center;
+
+      flex:0 0 auto;
+
+      border-radius:50%;
+
+      color:#071018;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--cyan),
+          var(--green)
+        );
+
+      font-size:12px;
+      font-weight:950;
     }
 
+    /* HERO VISUAL */
 
-    /* FOOTER */
+    .visual{
+      position:absolute;
 
-    footer{
+      right:30px;
+      top:60px;
+
+      width:390px;
+      height:320px;
+
+      pointer-events:none;
+    }
+
+    .orbit{
+      position:absolute;
+
+      inset:30px;
+
+      border:1px solid
+        rgba(46,199,241,.35);
+
+      border-radius:50%;
+
+      transform:rotate(-18deg);
+    }
+
+    .orbit.two{
+      inset:55px 5px;
+
+      border-color:
+        rgba(139,234,111,.30);
+
+      transform:rotate(26deg);
+    }
+
+    .core{
+      position:absolute;
+
+      left:50%;
+      top:50%;
+
+      width:155px;
+      height:155px;
+
+      transform:
+        translate(-50%,-50%);
+
+      border-radius:50%;
+
+      background:
+        radial-gradient(
+          circle at 30% 25%,
+          rgba(46,199,241,.30),
+          transparent 30%
+        ),
+        linear-gradient(
+          145deg,
+          #123042,
+          #08151e
+        );
+
+      border:
+        1px solid
+        rgba(46,199,241,.22);
+
+      box-shadow:
+        0 0 60px
+        rgba(46,199,241,.13);
+    }
+
+    .core::after{
+      content:"";
+
+      position:absolute;
+
+      inset:28px;
+
+      border:
+        1px solid
+        rgba(139,234,111,.23);
+
+      border-radius:50%;
+    }
+
+    .node{
+      position:absolute;
+
+      padding:9px 12px;
+
+      border:
+        1px solid
+        rgba(255,255,255,.11);
+
+      border-radius:12px;
+
+      color:#dceaf0;
+
+      background:
+        rgba(9,24,35,.86);
+
+      font-size:11px;
+      font-weight:850;
+    }
+
+    .n1{
+      top:8px;
+      left:105px;
+    }
+
+    .n2{
+      top:135px;
+      right:-5px;
+    }
+
+    .n3{
+      bottom:15px;
+      left:70px;
+    }
+
+    /* SECTIONS */
+
+    .section{
+      margin-top:26px;
+    }
+
+    .section-head{
       display:flex;
+      align-items:flex-end;
       justify-content:space-between;
 
       gap:20px;
 
-      margin-top:30px;
-
-      padding:22px 4px 4px;
-
-      border-top:1px solid var(--line);
-
-      color:#7f939f;
-
-      font-size:11px;
+      margin-bottom:18px;
     }
 
+    .section-head h2{
+      margin:0;
 
-    /* RESPONSIVE */
+      color:#fff;
 
-    @media(max-width:900px){
+      font-size:
+        clamp(
+          30px,
+          4vw,
+          44px
+        );
+
+      letter-spacing:-.04em;
+    }
+
+    .section-head p{
+      max-width:520px;
+
+      margin:0;
+
+      color:var(--muted);
+
+      line-height:1.6;
+    }
+
+    /* CATEGORIES */
+
+    .category-grid{
+      display:grid;
+
+      grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
+      gap:16px;
+    }
+
+    .category-card{
+      min-height:220px;
+
+      padding:24px;
+
+      border:1px solid var(--line);
+      border-radius:26px;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,.055),
+          rgba(255,255,255,.018)
+        );
+
+      position:relative;
+
+      overflow:hidden;
+    }
+
+    .category-card::after{
+      content:"";
+
+      position:absolute;
+
+      width:160px;
+      height:160px;
+
+      right:-70px;
+      bottom:-80px;
+
+      border-radius:50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(46,199,241,.10),
+          transparent 70%
+        );
+    }
+
+    .category-number{
+      color:var(--cyan);
+
+      font-size:11px;
+      font-weight:950;
+
+      letter-spacing:.15em;
+    }
+
+    .category-card h3{
+      margin:18px 0 10px;
+
+      color:#fff;
+
+      font-size:25px;
+    }
+
+    .category-card p{
+      margin:0;
+
+      color:var(--muted);
+
+      font-size:14px;
+
+      line-height:1.65;
+    }
+
+    /* VALUE */
+
+    .value-grid{
+      display:grid;
+
+      grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
+      gap:16px;
+    }
+
+    .value-card{
+      padding:22px;
+
+      border:1px solid var(--line);
+      border-radius:22px;
+
+      background:
+        rgba(255,255,255,.03);
+    }
+
+    .value-label{
+      color:var(--cyan);
+
+      font-size:11px;
+      font-weight:900;
+
+      letter-spacing:.14em;
+
+      text-transform:uppercase;
+    }
+
+    .value-card h3{
+      margin:10px 0 7px;
+
+      color:#fff;
+
+      font-size:20px;
+    }
+
+    .value-card p{
+      margin:0;
+
+      color:var(--muted);
+
+      line-height:1.6;
+
+      font-size:14px;
+    }
+
+    /* PREVIEW */
+
+    .preview{
+      display:grid;
+
+      grid-template-columns:
+        .9fr 1.1fr;
+
+      gap:18px;
+
+      padding:30px;
+
+      border:1px solid var(--line);
+      border-radius:30px;
+
+      background:
+        radial-gradient(
+          circle at 90% 10%,
+          rgba(139,234,111,.07),
+          transparent 30%
+        ),
+        rgba(255,255,255,.025);
+    }
+
+    .preview-copy h2{
+      margin:8px 0 12px;
+
+      color:#fff;
+
+      font-size:
+        clamp(
+          30px,
+          4vw,
+          46px
+        );
+
+      letter-spacing:-.04em;
+    }
+
+    .preview-copy p{
+      margin:0;
+
+      color:var(--muted);
+
+      line-height:1.65;
+    }
+
+    .article-list{
+      display:grid;
+
+      gap:10px;
+    }
+
+    .article-row{
+      padding:17px 18px;
+
+      border:1px solid var(--line);
+      border-radius:17px;
+
+      background:
+        rgba(255,255,255,.035);
+    }
+
+    .article-type{
+      color:var(--cyan);
+
+      font-size:10px;
+      font-weight:900;
+
+      letter-spacing:.13em;
+
+      text-transform:uppercase;
+    }
+
+    .article-title{
+      margin-top:6px;
+
+      color:#fff;
+
+      font-size:15px;
+      font-weight:850;
+    }
+
+    /* CTA */
+
+    .final-cta{
+      margin-top:26px;
+
+      padding:36px;
+
+      border:
+        1px solid
+        rgba(46,199,241,.17);
+
+      border-radius:30px;
+
+      text-align:center;
+
+      background:
+        radial-gradient(
+          circle at 10% 20%,
+          rgba(46,199,241,.09),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 90% 80%,
+          rgba(139,234,111,.07),
+          transparent 30%
+        ),
+        rgba(255,255,255,.025);
+    }
+
+    .final-cta h2{
+      margin:0;
+
+      color:#fff;
+
+      font-size:
+        clamp(
+          30px,
+          4vw,
+          44px
+        );
+    }
+
+    .final-cta p{
+      max-width:680px;
+
+      margin:12px auto 0;
+
+      color:var(--muted);
+
+      line-height:1.65;
+    }
+
+    .final-actions{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+
+      gap:12px;
+
+      margin-top:22px;
+    }
+
+    .footer{
+      padding-top:40px;
+
+      color:#8ea2ae;
+
+      font-size:12px;
+
+      text-align:center;
+    }
+
+    @media(max-width:980px){
 
       .hero{
-        grid-template-columns:1fr;
+        padding-bottom:230px;
       }
 
       .visual{
-        min-height:260px;
+        top:auto;
+        bottom:-40px;
+        right:-20px;
+
+        transform:scale(.75);
+        transform-origin:bottom right;
       }
 
-      .globe{
-        right:50%;
-        transform:translateX(50%);
+      .category-grid,
+      .value-grid{
+        grid-template-columns:1fr;
       }
 
-      .paper-stack{
-        right:50%;
-        transform:
-          translateX(60%)
-          rotate(-8deg);
+      .preview{
+        grid-template-columns:1fr;
       }
 
     }
@@ -701,36 +865,36 @@
     @media(max-width:700px){
 
       .shell{
-        width:calc(100% - 18px);
+        width:calc(100% - 20px);
       }
 
-      .brand span{
+      .brand-name{
         display:none;
       }
 
-      .nav{
-        gap:2px;
-      }
-
       .nav a{
-        padding:8px 7px;
+        padding:9px;
 
-        font-size:11px;
+        font-size:12px;
       }
 
       .hero{
-        padding:30px 20px;
+        padding:
+          38px 22px 210px;
       }
 
-      .features{
-        grid-template-columns:1fr;
+      .hero p{
+        font-size:15px;
       }
 
-      .cta{
-        padding:24px 20px;
+      .visual{
+        right:-95px;
+
+        transform:scale(.58);
       }
 
-      footer{
+      .section-head{
+        align-items:flex-start;
         flex-direction:column;
       }
 
@@ -742,7 +906,6 @@
 <body>
 
 <div class="shell">
-
 
   <!-- NAV -->
 
@@ -758,9 +921,9 @@
         alt="vikundey.crypto"
       >
 
-      <span>
+      <div class="brand-name">
         vikundey.crypto
-      </span>
+      </div>
 
     </a>
 
@@ -786,11 +949,8 @@
         Thoughts
       </a>
 
-      <a
-        class="profile-link"
-        href="/profile/"
-      >
-        ♙
+      <a href="/profile/">
+        👤
       </a>
 
     </nav>
@@ -802,35 +962,71 @@
 
   <section class="hero">
 
-    <div>
+    <div class="hero-copy">
 
-      <div class="space-badge">
-        Vikundey Space
-      </div>
+      <div class="eyebrow">
 
-      <div class="research-label">
-        Author Research
+        <span class="dot"></span>
+
+        Vikundey Space · Author Research
+
       </div>
 
 
       <h1>
-
         Vikundey
-
-        <span class="accent">
-          Thoughts
-        </span>
-
+        <br>
+        Thoughts
       </h1>
 
 
-      <p class="hero-copy">
+      <span class="hero-subtitle">
+        Thinking beyond the data
+      </span>
 
-        Авторські матеріали про економіку,
-        геополітику та ключові ринкові процеси
-        у зрозумілому та структурованому форматі.
+
+      <p>
+
+        Авторський простір про економіку,
+        геополітику, макроекономіку та ринки.
+        Тут дані поєднуються з контекстом,
+        причинно-наслідковими зв'язками
+        та власним поглядом на події.
 
       </p>
+
+
+      <div class="hero-actions">
+
+        <a
+          class="btn btn-primary"
+          href="/thoughts/access/"
+        >
+          Відкрити Thoughts →
+        </a>
+
+
+        <a
+          class="btn btn-secondary"
+          href="https://secure.wayforpay.com/sub/see534a7947df"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Обрати підписку
+        </a>
+
+      </div>
+
+
+      <div class="login-note">
+
+        <span class="login-icon">
+          ✓
+        </span>
+
+        Vikundey Thoughts доступний у Full Vikundey Space.
+
+      </div>
 
     </div>
 
@@ -840,20 +1036,258 @@
       aria-hidden="true"
     >
 
-      <div class="globe"></div>
+      <div class="orbit"></div>
+      <div class="orbit two"></div>
 
-      <div class="paper-stack">
+      <div class="core"></div>
 
-        <div class="paper"></div>
-        <div class="paper"></div>
-        <div class="paper"></div>
+      <div class="node n1">
+        ECONOMICS
+      </div>
 
-        <div class="paper-lines">
+      <div class="node n2">
+        GEOPOLITICS
+      </div>
 
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
+      <div class="node n3">
+        EDUCATION
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CATEGORIES -->
+
+  <section class="section">
+
+    <div class="section-head">
+
+      <h2>
+        Три напрямки думок
+      </h2>
+
+      <p>
+
+        Thoughts — це не стрічка новин.
+        Кожен матеріал розбирає логіку,
+        контекст і потенційні наслідки подій.
+
+      </p>
+
+    </div>
+
+
+    <div class="category-grid">
+
+      <article class="category-card">
+
+        <div class="category-number">
+          01 · GEOPOLITICS
+        </div>
+
+        <h3>
+          Геополітика
+        </h3>
+
+        <p>
+
+          Політичні рішення,
+          міжнародні конфлікти,
+          санкції та їхній вплив
+          на економіку й глобальні ринки.
+
+        </p>
+
+      </article>
+
+
+      <article class="category-card">
+
+        <div class="category-number">
+          02 · ECONOMICS
+        </div>
+
+        <h3>
+          Економіка
+        </h3>
+
+        <p>
+
+          Інфляція, економічне зростання,
+          центральні банки, ліквідність
+          та взаємозв'язок макроданих.
+
+        </p>
+
+      </article>
+
+
+      <article class="category-card">
+
+        <div class="category-number">
+          03 · EDUCATION
+        </div>
+
+        <h3>
+          Освіта
+        </h3>
+
+        <p>
+
+          Просте пояснення складних
+          економічних механізмів,
+          ринкової логіки
+          та макроаналізу.
+
+        </p>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- WHY -->
+
+  <section class="section">
+
+    <div class="value-grid">
+
+      <article class="value-card">
+
+        <div class="value-label">
+          Context
+        </div>
+
+        <h3>
+          Не лише факт
+        </h3>
+
+        <p>
+
+          Матеріали пояснюють,
+          чому подія важлива
+          і що стоїть за цифрами.
+
+        </p>
+
+      </article>
+
+
+      <article class="value-card">
+
+        <div class="value-label">
+          Logic
+        </div>
+
+        <h3>
+          Причина → Наслідок
+        </h3>
+
+        <p>
+
+          Від економічного процесу
+          до потенційного впливу
+          на політику та ринки.
+
+        </p>
+
+      </article>
+
+
+      <article class="value-card">
+
+        <div class="value-label">
+          View
+        </div>
+
+        <h3>
+          Авторський погляд
+        </h3>
+
+        <p>
+
+          Власне бачення ситуації,
+          ризиків та сценаріїв,
+          а не переписування новин.
+
+        </p>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- PREVIEW -->
+
+  <section class="section">
+
+    <div class="preview">
+
+      <div class="preview-copy">
+
+        <div class="eyebrow">
+          Inside Vikundey Thoughts
+        </div>
+
+        <h2>
+          Матеріали для глибшого розуміння
+        </h2>
+
+        <p>
+
+          У бібліотеці зібрані
+          авторські матеріали,
+          які допомагають краще розуміти
+          макросередовище та логіку ринку.
+
+        </p>
+
+      </div>
+
+
+      <div class="article-list">
+
+        <div class="article-row">
+
+          <div class="article-type">
+            Education
+          </div>
+
+          <div class="article-title">
+            Як ставки ФРС впливають на EUR та DXY
+          </div>
+
+        </div>
+
+
+        <div class="article-row">
+
+          <div class="article-type">
+            Education
+          </div>
+
+          <div class="article-title">
+            Як працює макроаналіз
+          </div>
+
+        </div>
+
+
+        <div class="article-row">
+
+          <div class="article-type">
+            Economics · Geopolitics
+          </div>
+
+          <div class="article-title">
+            Нові авторські матеріали у Vikundey Space
+          </div>
 
         </div>
 
@@ -864,88 +1298,24 @@
   </section>
 
 
-  <!-- FEATURES -->
-
-  <section class="features">
-
-    <article class="feature">
-
-      <div class="feature-icon">
-        ◫
-      </div>
-
-      <strong>
-        Освітні матеріали
-      </strong>
-
-      <span>
-        Макроекономіка та ринкова логіка
-      </span>
-
-    </article>
-
-
-    <article class="feature">
-
-      <div class="feature-icon">
-        ◎
-      </div>
-
-      <strong>
-        Економіка та геополітика
-      </strong>
-
-      <span>
-        Контекст глобальних подій
-      </span>
-
-    </article>
-
-
-    <article class="feature">
-
-      <div class="feature-icon">
-        ◇
-      </div>
-
-      <strong>
-        Авторська аналітика
-      </strong>
-
-      <span>
-        Власний погляд і причинно-наслідкова логіка
-      </span>
-
-    </article>
-
-  </section>
-
-
   <!-- CTA -->
 
-  <section class="cta">
+  <section class="final-cta">
 
     <h2>
-
-      Отримай повний доступ до
-
-      <span>
-        Vikundey Thoughts
-      </span>
-
+      Відкрий Vikundey Thoughts
     </h2>
-
 
     <p>
 
-      Vikundey Thoughts доступний у Full Vikundey Space.
-      Матеріали, аналітика та освітні статті —
-      в одному місці.
+      Thoughts входить до Full Vikundey Space.
+      Якщо в тебе вже є активна Full-підписка —
+      увійди через email та відкрий бібліотеку матеріалів.
 
     </p>
 
 
-    <div class="actions">
+    <div class="final-actions">
 
       <a
         class="btn btn-primary"
@@ -961,41 +1331,16 @@
         target="_blank"
         rel="noopener noreferrer"
       >
-        Обрати підписку
+        Full Vikundey Space
       </a>
-
-    </div>
-
-
-    <div class="login-note">
-
-      <span class="login-icon">
-        ✉
-      </span>
-
-      <div>
-
-        Вхід через одноразовий код на email.
-        <br>
-        Пароль створювати не потрібно.
-
-      </div>
 
     </div>
 
   </section>
 
 
-  <footer>
-
-    <span>
-      © 2026 vikundey.crypto
-    </span>
-
-    <span>
-      Vikundey Space · Author Research
-    </span>
-
+  <footer class="footer">
+    © vikundey.crypto · Vikundey Space
   </footer>
 
 </div>
