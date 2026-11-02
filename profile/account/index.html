@@ -3,2527 +3,1625 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Vikundey Space — Мій профіль</title>
-
-  <meta
-    name="description"
-    content="Особистий профіль Vikundey Space"
-  />
-  <title>Мій профіль — Vikundey Space</title>
-
-<style>
-:root{
+  <title>Vikundey Space — Профіль</title>
+  <meta name="description" content="Профіль підписника Vikundey Space" />
+  <style>
+    :root{
       --bg:#07111a;
+      --bg-deep:#050d15;
       --panel:rgba(11,25,37,.88);
+      --panel-soft:rgba(15,31,45,.80);
       --line:rgba(255,255,255,.12);
-      --bg:#06111a;
-      --panel:#0b1b27;
-      --panel-2:#102330;
-
---cyan:#2ec7f1;
---green:#8bea6f;
-
---white:#ffffff;
+      --line-strong:rgba(255,255,255,.18);
+      --cyan:#2ec7f1;
+      --green:#8bea6f;
+      --white:#ffffff;
       --text:#ffffff;
       --text-soft:#edf4f8;
       --muted:#c4d3dc;
       --muted-soft:#96aab8;
-      --text:#edf4f8;
-      --muted:#aebfc9;
-
-      --line:rgba(255,255,255,.11);
-
+      --red:#ffafaf;
       --shadow:0 26px 80px rgba(0,0,0,.32);
-      --shadow:0 24px 70px rgba(0,0,0,.30);
-}
+    }
 
-*{
-@@ -53,63 +48,61 @@
-
-background:
-radial-gradient(
-          circle at 15% 12%,
-          rgba(46,199,241,.15),
-          transparent 24%
-          circle at 12% 8%,
-          rgba(46,199,241,.13),
-          transparent 25%
-),
-radial-gradient(
-          circle at 86% 10%,
-          rgba(139,234,111,.12),
-          transparent 22%
-          circle at 90% 10%,
-          rgba(139,234,111,.09),
-          transparent 25%
-),
-linear-gradient(
-180deg,
-          #07111a 0%,
-          #081520 42%,
-          #05111a 100%
-          #06111a 0%,
-          #071521 50%,
-          #051019 100%
-);
-
-overflow-x:hidden;
+    *{box-sizing:border-box}
+    html,body{margin:0;min-height:100%}
+    body{
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 15% 12%, rgba(46,199,241,.15), transparent 24%),
+        radial-gradient(circle at 86% 10%, rgba(139,234,111,.12), transparent 22%),
+        linear-gradient(180deg, #07111a 0%, #081520 42%, #05111a 100%);
+      overflow-x:hidden;
       position:relative;
-}
+    }
 
-body::before{
-content:"";
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
+      background-size:32px 32px;
+      mask-image:linear-gradient(180deg, rgba(0,0,0,.95), rgba(0,0,0,.55));
+    }
 
-position:fixed;
-inset:0;
+    a{color:inherit;text-decoration:none}
 
-pointer-events:none;
-
-background-image:
-linear-gradient(
-          rgba(255,255,255,.02) 1px,
-          rgba(255,255,255,.018) 1px,
-transparent 1px
-),
-linear-gradient(
-90deg,
-          rgba(255,255,255,.02) 1px,
-          rgba(255,255,255,.018) 1px,
-transparent 1px
-);
-
-background-size:32px 32px;
-}
-
-a{
-      color:inherit;
-text-decoration:none;
-      color:inherit;
-}
-
-.shell{
-width:min(1220px,calc(100% - 32px));
-margin:0 auto;
+    .shell{
+      width:min(1220px, calc(100% - 32px));
+      margin:0 auto;
       padding:22px 0 64px;
-      padding:20px 0 60px;
+      position:relative;
+      z-index:1;
+    }
 
-position:relative;
-z-index:1;
-}
-
-    /* NAVBAR */
-    /* NAV */
-
-.topbar{
-display:flex;
-@@ -120,20 +113,14 @@
-
-padding:14px 18px;
-
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:14px 18px;
       border-radius:26px;
-
-border:1px solid var(--line);
-      border-radius:26px;
-
+      border:1px solid var(--line);
       background:rgba(5,18,28,.86);
-      background:rgba(5,18,28,.90);
-
-backdrop-filter:blur(16px);
-
-box-shadow:var(--shadow);
-
+      backdrop-filter:blur(16px);
+      box-shadow:var(--shadow);
       position:sticky;
       top:12px;
-
       z-index:20;
-}
+    }
 
-.brand{
-@@ -149,31 +136,30 @@
-}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{width:42px;height:42px;object-fit:contain}
+    .brand-name{font-weight:900;font-size:18px;color:#fff}
 
-.brand-name{
-      font-weight:900;
-      font-size:18px;
-color:#fff;
-      font-size:18px;
-      font-weight:900;
-}
-
-.nav{
-display:flex;
-      align-items:center;
-gap:8px;
-      flex-wrap:wrap;
-      align-items:center;
-}
-
-.nav a{
+    .nav{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+    .nav a{
       color:#edf4f8;
       font-weight:800;
       font-size:14px;
-
-padding:10px 14px;
-
-border-radius:14px;
-
+      padding:10px 14px;
+      border-radius:14px;
       transition:.2s ease;
-      color:#edf4f8;
+    }
+    .nav a:hover{background:rgba(255,255,255,.07)}
+    .nav .active{
+      color:#071018;
+      background:linear-gradient(135deg,var(--cyan),var(--green));
+      box-shadow:0 12px 24px rgba(46,199,241,.18);
+    }
 
-      font-size:14px;
-      font-weight:800;
-}
-
-.nav a:hover{
-      background:rgba(255,255,255,.07);
-      background:rgba(255,255,255,.06);
-}
-
-.nav .active{
-@@ -185,10 +171,6 @@
-var(--cyan),
-var(--green)
-);
-
-      box-shadow:
-        0 12px 24px
-        rgba(46,199,241,.18);
-}
-
-/* HERO */
-@@ -201,48 +183,47 @@
-
-min-height:340px;
-
+    .hero{
+      position:relative;
+      overflow:hidden;
+      margin-top:22px;
+      min-height:340px;
       padding:58px 34px 42px;
-
       border-radius:34px;
-      padding:54px 38px;
-
-border:1px solid var(--line);
-      border-radius:34px;
-
-background:
-        linear-gradient(
-          180deg,
-          rgba(255,255,255,.06),
-          rgba(255,255,255,.015)
-        radial-gradient(
-          circle at 82% 25%,
-          rgba(139,234,111,.08),
-          transparent 28%
-),
-linear-gradient(
-120deg,
-          rgba(6,22,34,.90),
-          rgba(7,25,37,.82)
-          rgba(15,37,51,.95),
-          rgba(7,24,36,.94)
-);
-
-box-shadow:var(--shadow);
-
+      border:1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.015)),
+        linear-gradient(120deg, rgba(6,22,34,.90), rgba(7,25,37,.82));
+      box-shadow:var(--shadow);
       isolation:isolate;
-}
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:auto -10% -40% auto;
+      width:560px;
+      height:560px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(46,199,241,.08), transparent 62%);
+      z-index:0;
+    }
 
     .hero-copy-wrap{
-    .hero-copy{
-position:relative;
-z-index:4;
+      position:relative;
+      z-index:4;
+      max-width:650px;
+    }
 
-max-width:650px;
-}
-
-.eyebrow{
+    .eyebrow{
       display:inline-flex;
-      display:flex;
-align-items:center;
-
-gap:8px;
-
-color:var(--cyan);
-
+      align-items:center;
+      gap:8px;
+      color:var(--cyan);
       text-transform:uppercase;
       letter-spacing:.18em;
+      font-size:12px;
+      font-weight:900;
+    }
 
-font-size:12px;
-font-weight:900;
+    .dot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--green);
+      box-shadow:0 0 16px rgba(139,234,111,.8)
+    }
 
-      letter-spacing:.17em;
-
-      text-transform:uppercase;
-}
-
-.dot{
-@@ -254,32 +235,39 @@
-background:var(--green);
-
-box-shadow:
-        0 0 16px
-        0 0 15px
-rgba(139,234,111,.8);
-}
-
-h1{
+    h1{
       margin:16px 0 12px;
-      margin:16px 0 14px;
-
-      color:#fff;
-
-      font-size:
-        clamp(
-          46px,
-          6vw,
-          78px
-        );
-
       font-size:clamp(42px,6.2vw,82px);
-line-height:.96;
+      line-height:.96;
       letter-spacing:-.06em;
-
       color:#fff;
-      letter-spacing:-.055em;
-}
+      text-shadow:0 4px 20px rgba(0,0,0,.18);
+    }
 
     .hero p{
-    .hero-copy p{
-margin:0;
-
+      margin:0;
       max-width:630px;
-      max-width:610px;
-
       color:var(--text-soft);
-      color:#e5eef3;
-
       font-size:18px;
       line-height:1.68;
-      font-size:17px;
-      line-height:1.7;
-}
+    }
 
     .hero-meta{
-    .hero-tags{
-display:flex;
-flex-wrap:wrap;
-
-@@ -288,270 +276,103 @@
-margin-top:22px;
-}
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:22px
+    }
 
     .hero-chip{
       padding:10px 14px;
-    .hero-tag{
-      padding:9px 13px;
-
       border-radius:999px;
-      border:1px solid var(--line);
-
-      border:
-        1px solid
-        rgba(255,255,255,.14);
-      border-radius:999px;
-
-      background:
-        rgba(255,255,255,.06);
-      background:rgba(255,255,255,.04);
-
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
       color:#fff;
-      color:#dce8ee;
-
       font-size:12px;
       font-weight:800;
-      font-size:11px;
-      font-weight:900;
-
       letter-spacing:.06em;
-      letter-spacing:.08em;
-
-text-transform:uppercase;
-}
-
-/* HERO VISUAL */
+      text-transform:uppercase;
+    }
 
     .scene{
       position:absolute;
-
       right:-12px;
       bottom:-10px;
-
       width:470px;
       height:320px;
-
       pointer-events:none;
-
       z-index:1;
+      opacity:.98;
     }
 
     .market-bars{
       position:absolute;
-
       right:18px;
       top:8px;
-
       height:132px;
-
       display:flex;
       align-items:flex-end;
-
       gap:10px;
-
       opacity:.42;
     }
 
     .market-bars span{
       width:14px;
-
-      border-radius:
-        4px 4px 0 0;
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(139,234,111,.96),
-          rgba(46,199,241,.45)
-        );
+      border-radius:4px 4px 0 0;
+      background:linear-gradient(180deg, rgba(139,234,111,.96), rgba(46,199,241,.45));
+      box-shadow:0 0 18px rgba(139,234,111,.10);
     }
 
-    .market-bars span:nth-child(1){height:54px;}
-    .market-bars span:nth-child(2){height:86px;}
-    .market-bars span:nth-child(3){height:72px;}
-    .market-bars span:nth-child(4){height:106px;}
-    .market-bars span:nth-child(5){height:94px;}
-    .market-bars span:nth-child(6){height:126px;}
+    .market-bars span:nth-child(1){height:54px}
+    .market-bars span:nth-child(2){height:86px}
+    .market-bars span:nth-child(3){height:72px}
+    .market-bars span:nth-child(4){height:106px}
+    .market-bars span:nth-child(5){height:94px}
+    .market-bars span:nth-child(6){height:126px}
 
     .trend{
       position:absolute;
-
       right:0;
       top:0;
-
       width:270px;
       height:130px;
+      opacity:.9;
     }
 
     .trend path{
       fill:none;
-
       stroke:url(#trendGradient);
-
       stroke-width:3;
-
       stroke-linecap:round;
       stroke-linejoin:round;
+      filter:drop-shadow(0 0 8px rgba(46,199,241,.25))
     }
 
     .trend circle{
       fill:#f7ffff;
-    }
-
-    .brand-orbit-card{
-    .visual{
-position:absolute;
-
-      display:flex;
-      align-items:center;
-
-      gap:10px;
-
-      min-width:140px;
-
-      padding:11px 13px;
-
-      border-radius:14px;
-
-      border:
-        1px solid
-        rgba(46,199,241,.24);
-
-      background:
-        rgba(7,28,40,.82);
-
-      backdrop-filter:blur(12px);
-
-      z-index:3;
-    }
-
-    .brand-orbit-card.card-a{
-      right:20px;
-      top:76px;
-    }
-
-    .brand-orbit-card.card-b{
-      right:210px;
-      top:138px;
-    }
-
-    .mini-icon{
-      width:34px;
-      height:34px;
-
-      border-radius:10px;
-
-      display:grid;
-      place-items:center;
-
-      color:#071018;
-
-      font-weight:900;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--cyan),
-          var(--green)
-        );
-    }
-
-    .brand-orbit-card strong{
-      display:block;
-
-      color:#fff;
-
-      font-size:13px;
-    }
-
-    .brand-orbit-card span{
-      display:block;
-      right:-20px;
-      bottom:-40px;
-
-      margin-top:3px;
-      width:480px;
-      height:310px;
-
-      color:var(--muted-soft);
-      opacity:.95;
-
-      font-size:10px;
+      filter:drop-shadow(0 0 10px rgba(139,234,111,.7))
     }
 
     .planet-wrap{
       position:absolute;
-
       right:20px;
       bottom:-24px;
-
       width:390px;
       height:260px;
-      pointer-events:none;
-}
+    }
 
-.planet{
-position:absolute;
-
+    .planet{
+      position:absolute;
       right:0;
-      right:25px;
-bottom:0;
-
-width:330px;
+      bottom:0;
+      width:330px;
       height:220px;
-      height:210px;
-
-border-radius:
-220px 220px 0 0;
-
+      border-radius:220px 220px 0 0;
       overflow:hidden;
-      border:
-        1px solid
-        rgba(46,199,241,.24);
+      background:
+        radial-gradient(circle at 28% 34%, rgba(255,255,255,.14), transparent 18%),
+        radial-gradient(circle at 76% 26%, rgba(139,234,111,.14), transparent 18%),
+        linear-gradient(180deg, rgba(13,43,64,.96) 0%, rgba(5,17,28,.98) 62%, rgba(3,12,21,1) 100%);
+      border:1px solid rgba(46,199,241,.24);
+      box-shadow:
+        inset 0 14px 40px rgba(46,199,241,.07),
+        inset 0 -26px 44px rgba(0,0,0,.58),
+        0 0 42px rgba(46,199,241,.12);
+    }
 
-background:
-radial-gradient(
-          circle at 28% 34%,
-          rgba(255,255,255,.14),
-          transparent 18%
-        ),
-        radial-gradient(
-          circle at 76% 26%,
-          rgba(139,234,111,.14),
-          transparent 18%
-          circle at 30% 30%,
-          rgba(46,199,241,.18),
-          transparent 30%
-),
-linear-gradient(
-180deg,
-          rgba(13,43,64,.96) 0%,
-          rgba(5,17,28,.98) 62%,
-          rgba(3,12,21,1) 100%
-          #102d3d,
-          #07131d
-);
+    .planet::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 20% 72%, rgba(0,0,0,.25), transparent 28%),
+        radial-gradient(circle at 64% 40%, rgba(0,0,0,.18), transparent 24%),
+        linear-gradient(90deg, transparent 0 28%, rgba(255,255,255,.04) 28% 29%, transparent 29% 100%),
+        linear-gradient(transparent 0 58%, rgba(139,234,111,.10) 58% 59%, transparent 59% 100%);
+      opacity:.92;
+    }
 
-      border:
-        1px solid
-        rgba(46,199,241,.24);
-
-box-shadow:
-        inset 0 20px 50px
-        rgba(46,199,241,.10),
-        inset 0 -30px 50px
-        rgba(0,0,0,.62),
-        0 0 54px
-        rgba(46,199,241,.14);
+    .planet::after{
+      content:"";
+      position:absolute;
+      inset:8% 6% auto auto;
+      width:86%;
+      height:86%;
+      border-top:1px solid rgba(255,255,255,.06);
+      border-radius:50%;
+      transform:rotate(-8deg);
+      pointer-events:none;
     }
 
     .planet-grid-v,
-    .planet-grid-h{
+    .planet-grid-h,
+    .planet-grid-h2{
       position:absolute;
       inset:0;
-        0 0 50px
-        rgba(46,199,241,.10);
-}
+      pointer-events:none;
+    }
 
     .planet-grid-v::before{
-    .planet::before{
-content:"";
-
-position:absolute;
-
-left:50%;
-top:-8%;
-
+      content:"";
+      position:absolute;
+      left:50%;
+      top:-8%;
       transform:translateX(-50%);
-
       width:40%;
-      width:42%;
-height:116%;
+      height:116%;
+      border:1px solid rgba(46,199,241,.17);
+      border-radius:50%;
+    }
 
-      transform:translateX(-50%);
+    .planet-grid-h::before,
+    .planet-grid-h2::before{
+      content:"";
+      position:absolute;
+      left:10%;
+      right:10%;
+      border:1px solid rgba(139,234,111,.16);
+      border-radius:50%;
+      height:26%;
+    }
 
-border:
-1px solid
-rgba(46,199,241,.17);
+    .planet-grid-h::before{top:34%}
+    .planet-grid-h2::before{top:56%;opacity:.55}
 
-border-radius:50%;
-}
+    .continent,
+    .continent-two,
+    .continent-three{
+      position:absolute;
+      background:linear-gradient(135deg, rgba(46,199,241,.28), rgba(139,234,111,.22));
+      filter:drop-shadow(0 0 8px rgba(139,234,111,.10));
+      opacity:.82;
+    }
 
-    .planet-grid-h::before{
-    .planet::after{
-content:"";
+    .continent{
+      width:116px;
+      height:42px;
+      left:104px;
+      top:84px;
+      clip-path:polygon(0 44%, 14% 20%, 29% 6%, 48% 15%, 62% 0, 74% 18%, 100% 24%, 88% 48%, 68% 58%, 52% 80%, 30% 86%, 18% 74%, 8% 62%)
+    }
 
-position:absolute;
+    .continent-two{
+      width:72px;
+      height:30px;
+      left:190px;
+      top:126px;
+      clip-path:polygon(0 34%, 16% 0, 52% 10%, 100% 32%, 78% 70%, 54% 100%, 20% 88%, 8% 66%)
+    }
 
-left:10%;
-right:10%;
-      top:42%;
-
-      top:44%;
-
-height:28%;
-
-@@ -562,71 +383,75 @@
-border-radius:50%;
-}
+    .continent-three{
+      width:58px;
+      height:24px;
+      left:76px;
+      top:136px;
+      clip-path:polygon(0 40%, 22% 4%, 60% 0, 100% 24%, 86% 78%, 42% 100%, 12% 82%)
+    }
 
     .ring,
-    .ring-two{
-    .orbit{
-position:absolute;
-
+    .ring-two,
+    .ring-three{
+      position:absolute;
       border-radius:50%;
-      right:2px;
-      bottom:76px;
-
-      width:400px;
-      height:125px;
-
-border:
-2px solid
-        rgba(46,199,241,.55);
+      border:2px solid rgba(46,199,241,.55);
+      filter:drop-shadow(0 0 10px rgba(46,199,241,.10));
     }
-        rgba(46,199,241,.45);
 
     .ring{
       width:385px;
       height:118px;
-
       left:-8px;
       top:96px;
-      border-radius:50%;
-
       transform:rotate(-11deg);
-      transform:rotate(-12deg);
-}
+    }
 
     .ring-two{
       width:352px;
       height:132px;
-
       left:8px;
       top:82px;
-    .orbit.two{
-      right:18px;
-      bottom:68px;
-
       transform:rotate(18deg);
-      width:365px;
-      height:135px;
+      border-color:rgba(139,234,111,.48)
+    }
 
-border-color:
-        rgba(139,234,111,.48);
-        rgba(139,234,111,.40);
-
-      transform:rotate(18deg);
-}
+    .ring-three{
+      width:300px;
+      height:96px;
+      left:40px;
+      top:102px;
+      transform:rotate(3deg);
+      border-color:rgba(255,255,255,.16);
+      opacity:.45
+    }
 
     .node{
-    .chart{
-position:absolute;
-
+      position:absolute;
       width:14px;
       height:14px;
-      right:30px;
-      top:25px;
-
       border-radius:50%;
-      display:flex;
-      align-items:flex-end;
-
       background:#f5ffff;
-      gap:9px;
-
       box-shadow:
-        0 0 16px
-        rgba(46,199,241,.55);
+        0 0 16px rgba(46,199,241,.55),
+        0 0 26px rgba(139,234,111,.30);
     }
-      height:105px;
 
-    .node.one{
-      left:10px;
-      top:146px;
-      opacity:.40;
-}
+    .node.one{left:10px;top:146px}
+    .node.two{left:128px;top:30px;width:12px;height:12px}
+    .node.three{right:46px;top:18px;width:12px;height:12px}
 
-    .node.two{
-      left:128px;
-      top:30px;
-    }
-    .chart span{
-      width:13px;
-
-      border-radius:
-        4px 4px 0 0;
-
-    .node.three{
-      right:46px;
-      top:18px;
-      background:
-        linear-gradient(
-          180deg,
-          var(--green),
-          var(--cyan)
-        );
-}
-
-    /* LOADING */
-    .chart span:nth-child(1){height:42px;}
-    .chart span:nth-child(2){height:58px;}
-    .chart span:nth-child(3){height:52px;}
-    .chart span:nth-child(4){height:80px;}
-    .chart span:nth-child(5){height:68px;}
-    .chart span:nth-child(6){height:100px;}
-
-    /* STATES */
-
-.loading,
-.error{
-@@ -635,27 +460,31 @@
-padding:18px 20px;
-
-border:1px solid var(--line);
-
-border-radius:18px;
-
+    .loading,
+    .error{
+      margin-top:22px;
+      padding:18px 20px;
+      border:1px solid var(--line);
+      border-radius:18px;
       color:var(--text-soft);
       background:rgba(255,255,255,.04);
+      backdrop-filter:blur(10px);
     }
 
-      background:
-        rgba(255,255,255,.04);
-    .loading{
-      color:#dce7ed;
-}
-
-.error{
-display:none;
-
+    .error{
+      display:none;
       color:#ffe0e0;
-      color:#ffd7d7;
-
-background:
-        rgba(255,123,123,.08);
-        rgba(255,100,100,.06);
+      border-color:rgba(255,123,123,.24);
+      background:rgba(255,123,123,.08)
     }
-
-    .hidden{
-      display:none !important;
-}
-
-    /* PROFILE GRID */
-    /* MAIN */
 
     .grid{
-    .dashboard{
-display:grid;
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:24px;
+      margin-top:24px;
+      align-items:start;
+    }
 
-grid-template-columns:
-@@ -667,28 +496,23 @@
-}
-
-.card{
-      border:1px solid var(--line);
-
-      border-radius:30px;
-      position:relative;
-      overflow:hidden;
-
-padding:30px;
-
+    .card{
       border:1px solid var(--line);
       border-radius:30px;
-
-background:
-linear-gradient(
-180deg,
-          rgba(255,255,255,.05),
-          rgba(255,255,255,.055),
-rgba(255,255,255,.018)
-),
-        linear-gradient(
-          180deg,
-          rgba(10,25,38,.95),
-          rgba(8,22,33,.88)
-        );
-        rgba(10,26,38,.92);
-
-box-shadow:var(--shadow);
-
+      padding:30px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.018) 24%, rgba(255,255,255,.012) 100%),
+        linear-gradient(180deg, rgba(10,25,38,.95), rgba(8,22,33,.88));
+      box-shadow:var(--shadow);
       position:relative;
       overflow:hidden;
-}
+      isolation:isolate;
+    }
 
-.card::before{
-@@ -711,70 +535,74 @@
-);
-}
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:0 auto auto 0;
+      width:100%;
+      height:2px;
+      background:linear-gradient(90deg, var(--cyan), var(--green), transparent);
+      opacity:.9;
+    }
+
+    .card::after{
+      content:"";
+      position:absolute;
+      right:-60px;
+      bottom:-74px;
+      width:220px;
+      height:220px;
+      border-radius:50%;
+      border:1px solid rgba(255,255,255,.06);
+      box-shadow:
+        0 0 0 24px rgba(255,255,255,.014),
+        0 0 0 48px rgba(46,199,241,.018);
+      z-index:-1;
+    }
 
     .card-title{
       font-size:13px;
-
       color:#dfe9ee;
-
       text-transform:uppercase;
-    .card-label{
-      margin-bottom:20px;
-
       letter-spacing:.16em;
-      color:#e5edf1;
-
-      font-size:12px;
-font-weight:900;
-
+      font-weight:900;
       margin-bottom:18px;
-      letter-spacing:.18em;
-
-      text-transform:uppercase;
-}
-
-    /* PROFILE */
-    /* USER */
+    }
 
     .profile-row{
-    .user{
-display:flex;
-align-items:center;
-
+      display:flex;
+      align-items:center;
       gap:16px;
-      gap:15px;
+      margin-bottom:28px
+    }
 
-      margin-bottom:28px;
-      margin-bottom:26px;
-}
-
-.avatar{
+    .avatar{
       width:78px;
       height:78px;
-      width:70px;
-      height:70px;
-
       border-radius:50%;
-      flex:0 0 auto;
-
-display:grid;
-place-items:center;
-
-      border-radius:50%;
-
-      border:
-        1px solid
-        rgba(255,255,255,.15);
-
-background:
-linear-gradient(
-135deg,
-          rgba(255,255,255,.14),
-          rgba(46,199,241,.18),
-          rgba(139,234,111,.16)
-          rgba(46,199,241,.15),
-          rgba(139,234,111,.12)
-);
-
-      border:
-        1px solid
-        rgba(255,255,255,.20);
-
+      display:grid;
+      place-items:center;
+      background:linear-gradient(
+        135deg,
+        rgba(255,255,255,.14),
+        rgba(46,199,241,.18),
+        rgba(139,234,111,.16)
+      );
+      border:1px solid rgba(255,255,255,.20);
       font-size:32px;
-      font-size:28px;
-}
+      box-shadow:0 14px 28px rgba(0,0,0,.22)
+    }
 
     .profile-email{
-    .email{
-      color:#fff;
-
-font-size:
-        clamp(18px,3vw,28px);
-        clamp(
-          18px,
-          3vw,
-          27px
-        );
-
-font-weight:900;
-
-      color:#fff;
-}
+      font-size:clamp(18px,3vw,28px);
+      font-weight:900;
+      overflow-wrap:anywhere;
+      color:#fff
+    }
 
     .profile-note{
       color:var(--muted);
-    .user-note{
-      margin-top:4px;
-
       margin-top:5px;
-      color:var(--muted);
+      font-size:14px
+    }
 
-      font-size:14px;
-      font-size:13px;
-}
-
-/* STATUS */
-@@ -788,57 +616,47 @@
-gap:14px;
-}
+    .status-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:14px
+    }
 
     .status-box{
-    .status-card{
-padding:20px;
+      padding:20px;
+      border-radius:20px;
+      border:1px solid rgba(255,255,255,.10);
+      background:linear-gradient(
+        180deg,
+        rgba(255,255,255,.07),
+        rgba(255,255,255,.03)
+      );
+      position:relative;
+      overflow:hidden;
+    }
 
-      border:1px solid var(--line);
-border-radius:20px;
+    .status-box::after{
+      content:"";
+      position:absolute;
+      right:-18px;
+      top:-18px;
+      width:84px;
+      height:84px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(255,255,255,.13), transparent 68%);
+      opacity:.75;
+    }
 
-      border:
-        1px solid
-        rgba(255,255,255,.10);
-
-background:
-        linear-gradient(
-          180deg,
-          rgba(255,255,255,.07),
-          rgba(255,255,255,.03)
-        );
-        rgba(255,255,255,.04);
-}
-
-.status-label{
+    .status-label{
       color:#d7e3ea;
-
       font-size:12px;
-      margin-bottom:8px;
-
       text-transform:uppercase;
-      color:#c9d6dd;
-
       letter-spacing:.12em;
-      font-size:11px;
-      font-weight:900;
-
       font-weight:800;
-      letter-spacing:.14em;
+      margin-bottom:8px
+    }
 
-      margin-bottom:8px;
-      text-transform:uppercase;
-}
-
-.status-value{
+    .status-value{
       font-size:24px;
-      color:#fff;
-
-      font-size:22px;
-font-weight:900;
-
-      color:#fff;
-}
-
-.pill{
-display:inline-flex;
-
-      border-radius:999px;
-      margin-top:10px;
-
-      padding:8px 12px;
-      padding:7px 11px;
-
-      font-size:13px;
-      border-radius:999px;
-
-      font-size:12px;
-font-weight:900;
-
-      margin-top:10px;
-}
-
-.pill.active{
-@@ -849,15 +667,15 @@
-}
-
-.pill.inactive{
-      color:#ffd0d0;
-      color:#ffc5c5;
-
-background:
-        rgba(255,123,123,.09);
-        rgba(255,100,100,.08);
-}
-
-    /* PLAN VISUALS */
-    /* PLAN */
-
-    .plan-visuals{
-    .plans{
-display:grid;
-
-grid-template-columns:
-@@ -868,171 +686,207 @@
-margin-top:18px;
-}
-
-    .plan-visual{
-      display:flex;
-      align-items:center;
-
-      gap:14px;
-
-      padding:16px;
-    .plan{
-      padding:18px;
-
-      border:1px solid var(--line);
-border-radius:20px;
-
-      border:
-        1px solid
-        rgba(255,255,255,.09);
-
-background:
-rgba(255,255,255,.025);
-
-      opacity:.58;
-      opacity:.45;
-
-      transition:.2s ease;
-}
-
-    .plan-visual.active-plan{
-    .plan.active{
-opacity:1;
-
-      border-color:
-        rgba(139,234,111,.28);
-
-background:
-linear-gradient(
-135deg,
-          rgba(46,199,241,.10),
-          rgba(139,234,111,.08)
-          rgba(46,199,241,.08),
-          rgba(139,234,111,.07)
-);
-}
-
-    .plan-mark{
-      min-width:108px;
-      min-height:78px;
-
-      display:grid;
-      place-items:center;
-
-      border-radius:16px;
-
-      color:#071018;
-
-      font-size:14px;
-      font-weight:950;
-    .plan-type{
-      color:var(--cyan);
-
-      letter-spacing:.10em;
-      font-size:11px;
       font-weight:900;
+      line-height:1.15;
+      color:#fff
+    }
 
-      background:
-        linear-gradient(
-          135deg,
-          var(--cyan),
-          var(--green)
-        );
-      letter-spacing:.14em;
-}
-
-    .plan-copy strong{
-    .plan strong{
-display:block;
-
-      margin-top:8px;
-
-color:#fff;
-
-font-size:18px;
-}
-
-    .plan-copy span{
-    .plan span{
-display:block;
-
-margin-top:5px;
-
-color:var(--muted);
-
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      border-radius:999px;
+      padding:8px 12px;
       font-size:13px;
-      font-size:12px;
-}
+      font-weight:900;
+      border:1px solid var(--line);
+      margin-top:10px
+    }
 
-    /* VALUE */
-    /* ACCESS */
+    .pill.active{
+      color:var(--green);
+      background:rgba(139,234,111,.10);
+      border-color:rgba(139,234,111,.28)
+    }
+
+    .pill.inactive{
+      color:#ffd0d0;
+      background:rgba(255,123,123,.09);
+      border-color:rgba(255,123,123,.18)
+    }
 
     .insight-strip{
-    .access-list{
-display:grid;
-      gap:13px;
-    }
-
-      grid-template-columns:
-        repeat(3,minmax(0,1fr));
-    .access{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
       gap:12px;
-      gap:14px;
-
-      margin-top:18px;
-      padding:17px;
-
-      border:1px solid var(--line);
-      border-radius:19px;
-
-      background:
-        rgba(255,255,255,.04);
-}
+      margin-top:18px
+    }
 
     .insight-box{
-      padding:18px;
-    .access-main{
-      display:flex;
-      align-items:center;
-
-      border-radius:20px;
-      gap:13px;
+      padding:16px;
+      border-radius:18px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.09)
     }
-
-    .access-icon{
-      width:42px;
-      height:42px;
-
-      flex:0 0 auto;
-
-      display:grid;
-      place-items:center;
-
-      border-radius:13px;
-
-      color:#071018;
-
-      font-size:14px;
-      font-weight:950;
-
-background:
-        rgba(255,255,255,.045);
-        linear-gradient(
-          135deg,
-          var(--cyan),
-          var(--green)
-        );
-    }
-
-      border:
-        1px solid
-        rgba(255,255,255,.10);
-    .access-name{
-      color:#fff;
-
-      font-size:17px;
-      font-weight:900;
-}
 
     .insight-kicker{
-      font-size:15px;
-    .access-desc{
-      margin-top:4px;
-
-      font-weight:950;
-      color:var(--muted);
-
-      font-size:12px;
-    }
-
-      color:#ffffff;
-    .access-state{
-      min-width:88px;
-
-      letter-spacing:.14em;
-      padding:8px 11px;
-
-      text-transform:uppercase;
-      border-radius:999px;
-
-      text-align:center;
-
-      margin-bottom:12px;
       font-size:11px;
-      font-weight:950;
-
+      color:#b1c2cc;
       text-transform:uppercase;
-}
+      letter-spacing:.14em;
+      font-weight:800;
+      margin-bottom:8px
+    }
 
     .insight-value{
-      font-size:14px;
-    .access-state.yes{
-      color:#071018;
-
-      font-weight:500;
-      background:
-        linear-gradient(
-          135deg,
-          var(--cyan),
-          var(--green)
-        );
+      font-size:15px;
+      font-weight:800;
+      color:#fff;
+      line-height:1.35
     }
 
-      color:var(--muted);
-    .access-state.no{
-      color:#a9bac4;
-
-      line-height:1.55;
-      background:
-        rgba(255,255,255,.07);
-}
-
-/* CTA */
-
-.cta{
+    .cta{
       margin-top:22px;
-
-display:none;
-
+      display:none;
       padding:24px;
-      margin-top:24px;
-
       border-radius:24px;
-      padding:26px;
+      border:1px solid rgba(255,255,255,.10);
+      background:
+        radial-gradient(circle at 0 0, rgba(46,199,241,.12), transparent 42%),
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+    }
 
-border:
-1px solid
-        rgba(255,255,255,.10);
-        rgba(46,199,241,.16);
-
-      border-radius:24px;
-
-background:
-        linear-gradient(
-          180deg,
-          rgba(255,255,255,.05),
-          rgba(255,255,255,.03)
-        );
-        radial-gradient(
-          circle at 5% 10%,
-          rgba(46,199,241,.08),
-          transparent 30%
-        ),
-        rgba(255,255,255,.025);
-}
-
-.cta h3{
+    .cta h3{
       margin:0 0 8px;
-
       font-size:24px;
-      margin:0;
+      color:#fff
+    }
 
-color:#fff;
-
-      font-size:25px;
-}
-
-.cta p{
+    .cta p{
       margin:0 0 18px;
-      margin:9px 0 18px;
-
-color:var(--muted);
-
-line-height:1.6;
-}
+      color:var(--muted);
+      line-height:1.6
+    }
 
     .btn{
-    .button{
-display:inline-flex;
-
-align-items:center;
-justify-content:center;
-
-@@ -1042,6 +896,9 @@
-
-border-radius:16px;
-
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:50px;
+      padding:0 20px;
+      border-radius:16px;
+      font-weight:900;
+      background:linear-gradient(135deg, var(--cyan), var(--green));
       color:#071018;
+      box-shadow:0 12px 30px rgba(46,199,241,.16);
+      transition:transform .18s ease, box-shadow .18s ease;
+    }
 
-      font-size:14px;
-font-weight:900;
-
-background:
-@@ -1050,148 +907,65 @@
-var(--cyan),
-var(--green)
-);
-
-      color:#071018;
-}
-
-    /* ACCESS */
+    .btn:hover{
+      transform:translateY(-1px);
+      box-shadow:0 16px 34px rgba(46,199,241,.22)
+    }
 
     .access-list{
       display:grid;
-      gap:14px;
+      gap:14px
     }
-    /* LOGOUT / BACK */
 
     .access-item{
-    .account-actions{
-display:flex;
-      flex-wrap:wrap;
-
+      display:flex;
       align-items:center;
       justify-content:space-between;
-
       gap:14px;
-
-      padding:18px;
-
+      padding:18px 18px;
       border-radius:20px;
-
-      border:
-        1px solid
-        rgba(255,255,255,.10);
-      gap:10px;
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(255,255,255,.065),
-          rgba(255,255,255,.03)
-        );
-      margin-top:18px;
-}
-
-    .access-left{
-      display:flex;
-    .secondary{
-      display:inline-flex;
-align-items:center;
-      gap:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background:linear-gradient(
+        180deg,
+        rgba(255,255,255,.065),
+        rgba(255,255,255,.03)
+      );
+      position:relative;
+      overflow:hidden;
     }
 
-    .access-icon{
-      width:44px;
-      height:44px;
-
-      border-radius:14px;
-      min-height:44px;
-
-      display:grid;
-      place-items:center;
-      padding:0 15px;
-
-      color:#071018;
-      border:1px solid var(--line);
-      border-radius:14px;
-
-      font-weight:950;
-      color:#dce7ed;
-
-background:
-        linear-gradient(
-          135deg,
-          var(--cyan),
-          var(--green)
-        );
+    .access-item::after{
+      content:"";
+      position:absolute;
+      right:20px;
+      top:18px;
+      width:86px;
+      height:32px;
+      opacity:.34;
+      background-repeat:no-repeat;
+      background-size:contain;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 84 34'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='1' x2='1' y2='0'%3E%3Cstop offset='0%25' stop-color='%232ec7f1'/%3E%3Cstop offset='100%25' stop-color='%238bea6f'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpolyline fill='none' stroke='url(%23g)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' points='2,27 15,22 27,24 39,15 51,18 64,9 82,5'/%3E%3C/svg%3E");
     }
 
     .access-name{
       font-weight:900;
-
       font-size:18px;
-
-      color:#fff;
+      color:#fff
     }
 
     .access-desc{
       color:var(--muted);
-        rgba(255,255,255,.04);
-
-font-size:13px;
-
+      font-size:13px;
       margin-top:5px;
-
-      line-height:1.55;
+      max-width:320px;
+      line-height:1.55
     }
 
     .access-badge{
       min-width:94px;
-
       text-align:center;
-
       padding:9px 11px;
-
       border-radius:999px;
-
       font-size:12px;
-
       font-weight:900;
-
       text-transform:uppercase;
+      letter-spacing:.07em
     }
 
     .access-badge.yes{
       color:#071018;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--cyan),
-          var(--green)
-        );
-      font-weight:800;
-}
+      background:linear-gradient(135deg,var(--cyan),var(--green));
+      box-shadow:0 8px 22px rgba(46,199,241,.18)
+    }
 
     .access-badge.no{
       color:#f4f8fb;
-
-      background:
-        rgba(255,255,255,.08);
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.14)
     }
-    /* FOOTER */
 
-.footer{
-      margin-top:44px;
-      padding-top:40px;
+    /* ===== V3 BRANDING ===== */
+        .planet-v3{
+      width:348px;
+      height:230px;
+      background:
+        radial-gradient(circle at 30% 26%,rgba(255,255,255,.18),transparent 14%),
+        radial-gradient(circle at 68% 38%,rgba(139,234,111,.16),transparent 18%),
+        linear-gradient(180deg,rgba(11,48,70,.98) 0%,rgba(6,27,41,.98) 44%,rgba(3,14,23,1) 100%);
+      border-color:rgba(255,255,255,.13);
+      box-shadow:
+        inset 0 18px 44px rgba(46,199,241,.08),
+        inset 0 -28px 46px rgba(0,0,0,.62),
+        0 0 48px rgba(46,199,241,.12),
+        0 0 26px rgba(139,234,111,.06);
+    }
 
-      color:#a7bac5;
-      color:#8ea2ae;
+    .planet-shine{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(118deg,transparent 0 34%,rgba(255,255,255,.045) 42%,transparent 51%);
+      mix-blend-mode:screen;
+      opacity:.9;
+    }
 
-      font-size:13px;
-      font-size:12px;
+    .brand-orbit-card{
+      position:absolute;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width:160px;
+      padding:12px 14px;
+      border-radius:16px;
+      background:rgba(9,31,45,.72);
+      border:1px solid rgba(255,255,255,.12);
+      backdrop-filter:blur(10px);
+      box-shadow:0 14px 28px rgba(0,0,0,.22);
+      z-index:5;
+    }
 
-text-align:center;
-}
+    .brand-orbit-card.card-a{right:190px;top:82px;transform:rotate(-4deg)}
+    .brand-orbit-card.card-b{right:6px;top:128px;transform:rotate(4deg)}
 
-    .hidden{
-      display:none !important;
+    .brand-orbit-card .mini-icon{
+      width:34px;
+      height:34px;
+      border-radius:10px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg,rgba(46,199,241,.18),rgba(139,234,111,.18));
+      color:#fff;
+      font-weight:900;
+    }
+
+    .brand-orbit-card strong{display:block;color:#fff;font-size:13px}
+    .brand-orbit-card span{display:block;color:#b8cad4;font-size:11px;margin-top:2px}
+
+    .plan-visuals{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+      margin-top:16px;
+    }
+
+    .plan-visual{
+      position:relative;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-height:94px;
+      padding:16px;
+      border-radius:20px;
+      border:1px solid rgba(255,255,255,.10);
+      background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+      opacity:.5;
+      transition:.2s ease;
+    }
+
+    .plan-visual::after{
+      content:"";
+      position:absolute;
+      width:120px;
+      height:120px;
+      border-radius:50%;
+      right:-46px;
+      bottom:-58px;
+      background:radial-gradient(circle,rgba(46,199,241,.12),transparent 66%);
+    }
+
+    .plan-visual.news::after{
+      background:radial-gradient(circle,rgba(139,234,111,.12),transparent 66%);
+    }
+
+    .plan-visual.active-plan{
+      opacity:1;
+      border-color:rgba(255,255,255,.20);
+      box-shadow:0 10px 28px rgba(0,0,0,.18);
+    }
+
+    .plan-visual.full.active-plan{
+      background:linear-gradient(135deg,rgba(46,199,241,.10),rgba(139,234,111,.07));
+    }
+
+    .plan-visual.news.active-plan{
+      background:linear-gradient(135deg,rgba(139,234,111,.08),rgba(46,199,241,.06));
+    }
+
+    .plan-mark{
+      position:relative;
+      z-index:1;
+      min-width:62px;
+      height:62px;
+      border-radius:16px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg,var(--cyan),var(--green));
+      color:#071018;
+      font-weight:950;
+      font-size:11px;
+      letter-spacing:.06em;
+      box-shadow:0 10px 24px rgba(46,199,241,.14);
+    }
+
+    .plan-copy{position:relative;z-index:1}
+    .plan-copy strong{display:block;color:#fff;font-size:15px}
+    .plan-copy span{display:block;color:#c4d3dc;font-size:12px;margin-top:4px;line-height:1.4}
+
+    .access-left{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width:0
+    }
+
+    .access-icon{
+      flex:0 0 auto;
+      width:42px;
+      height:42px;
+      border-radius:13px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg,rgba(255,255,255,.11),rgba(46,199,241,.14),rgba(139,234,111,.12));
+      border:1px solid rgba(255,255,255,.12);
+      color:#fff;
+      font-weight:950;
+      box-shadow:0 8px 20px rgba(0,0,0,.15);
     }
 
     @media(max-width:980px){
-    @media(max-width:950px){
+      .brand-orbit-card{display:none}
+    }
 
-      .grid{
-      .dashboard{
-grid-template-columns:1fr;
-}
+    @media(max-width:680px){
+      .plan-visuals{grid-template-columns:1fr}
+      .access-left{align-items:flex-start}
+    }
 
-.hero{
-        padding-bottom:184px;
-        padding-bottom:180px;
-}
+    .footer{
+      margin-top:44px;
+      color:#a7bac5;
+      font-size:13px;
+      text-align:center
+    }
 
+    .hidden{display:none !important}
+
+    @media(max-width:980px){
+      .grid{grid-template-columns:1fr}
+      .hero{padding-bottom:184px;min-height:400px}
       .scene{
-        transform:scale(.85);
-      .visual{
-        transform:scale(.78);
-
-        right:-40px;
-        right:-60px;
-
-transform-origin:
-bottom right;
-@@ -1211,39 +985,34 @@
-}
-
-.nav a{
-        padding:9px 10px;
-        padding:9px 9px;
-
-font-size:12px;
-}
-
-.hero{
-padding:
-          34px 22px 180px;
-          36px 22px 175px;
-}
-
-      .hero p{
-        font-size:16px;
-      .hero-copy p{
-        font-size:15px;
-}
-
-      .scene{
-        transform:scale(.7);
-
-        right:-100px;
+        right:-34px;
+        bottom:-8px;
+        transform:scale(.88);
+        transform-origin:bottom right;
+        opacity:.9
       }
-      .visual{
-        right:-120px;
+    }
 
-      .brand-orbit-card{
-        display:none;
-        transform:scale(.62);
-}
+    @media(max-width:680px){
+      .shell{width:min(100% - 20px,1220px)}
+      .brand-name{display:none}
+      .nav a{padding:9px 10px;font-size:12px}
+      .hero{padding:34px 22px 182px;min-height:auto}
+      .hero p{font-size:16px}
+      .hero-chip{font-size:11px}
+      .card{padding:22px}
+      .status-grid,.insight-strip{grid-template-columns:1fr}
+      .access-item{align-items:flex-start;flex-direction:column}
+      .access-item::after{display:none}
+      .access-badge{min-width:unset}
+      .scene{right:-96px;transform:scale(.72)}
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
 
-.status-grid,
-      .plan-visuals,
-      .insight-strip{
-      .plans{
-grid-template-columns:1fr;
-}
+    <header class="topbar">
+      <a class="brand" href="/">
+        <img src="../logo.png" alt="vikundey.crypto">
+        <div class="brand-name">vikundey.crypto</div>
+      </a>
 
-      .access-item{
-        flex-direction:column;
-      .access{
-align-items:flex-start;
-        flex-direction:column;
-}
+      <nav class="nav">
+        <a href="/">Головна</a>
+        <a href="/nfp/">NFP</a>
+        <a href="/cpi/">CPI</a>
+        <a href="/thoughts/">Thoughts</a>
+        <a class="active" href="/profile/" aria-label="Профіль">👤</a>
+      </nav>
+    </header>
 
-}
-@@ -1254,12 +1023,11 @@
+    <section class="hero">
 
-<div class="shell">
-
-  <!-- NAV -->
-
-<header class="topbar">
-
-    <a
-      class="brand"
-      href="/"
-    >
-    <a class="brand" href="/">
-
-<img
-src="../../logo.png"
-@@ -1302,9 +1070,11 @@
-</header>
-
-
-  <!-- HERO -->
-
-<section class="hero">
-
-    <div class="hero-copy-wrap">
-    <div class="hero-copy">
-
-<div class="eyebrow">
-
-@@ -1319,34 +1089,34 @@ <h1>
-</h1>
-
-<p>
-
-Твій персональний простір у Vikundey Space:
-        доступ до авторської макроаналітики,
-        ринкових розборів, сценаріїв та
-        навчальних матеріалів в одному місці.
-        активна підписка, доступні розділи та
-        авторські матеріали в одному місці.
-
-</p>
-
-      <div class="hero-meta">
-      <div class="hero-tags">
-
-        <div class="hero-chip">
-          Premium Access
+      <div class="hero-copy-wrap">
+        <div class="eyebrow">
+          <span class="dot"></span>
+          Vikundey Space
         </div>
-        <span class="hero-tag">
-          Personal Space
-        </span>
 
-        <div class="hero-chip">
-        <span class="hero-tag">
-NFP · CPI · Thoughts
+        <h1>Мій профіль</h1>
+
+        <p>
+          Твій персональний простір Vikundey Space:
+          тариф, статус підписки та доступ до макроаналітики,
+          ринкових розборів і навчальних матеріалів.
+        </p>
+
+        <div class="hero-meta">
+          <div class="hero-chip">Premium Access</div>
+          <div class="hero-chip">NFP · CPI · Thoughts</div>
+          <div class="hero-chip">Macro · Research · Markets</div>
         </div>
-        </span>
+      </div>
 
-        <div class="hero-chip">
-          Macro · Research · Markets
+      <div class="scene" aria-hidden="true">
+
+        <div class="market-bars">
+          <span></span><span></span><span></span>
+          <span></span><span></span><span></span>
         </div>
-        <span class="hero-tag">
-          Macro Research
-        </span>
 
-</div>
+        <svg class="trend" viewBox="0 0 270 130" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="trendGradient" x1="0" y1="1" x2="1" y2="0">
+              <stop offset="0%" stop-color="#2ec7f1"/>
+              <stop offset="100%" stop-color="#8bea6f"/>
+            </linearGradient>
+          </defs>
 
-</div>
+          <path d="M8 112 C40 108,58 88,86 90 S132 64,156 68 S198 42,224 48 S244 24,264 8"/>
+          <circle cx="86" cy="90" r="4"/>
+          <circle cx="224" cy="48" r="4"/>
+          <circle cx="264" cy="8" r="4.2"/>
+        </svg>
 
-    <div class="visual">
+        <div class="brand-orbit-card card-a">
+          <div class="mini-icon">◉</div>
+          <div>
+            <strong>Macro</strong>
+            <span>Global context</span>
+          </div>
+        </div>
 
-    <div class="scene">
+        <div class="brand-orbit-card card-b">
+          <div class="mini-icon">▥</div>
+          <div>
+            <strong>Data</strong>
+            <span>Market reaction</span>
+          </div>
+        </div>
 
-      <div class="market-bars">
-      <div class="chart">
+        <div class="planet-wrap">
+          <div class="ring"></div>
+          <div class="ring-two"></div>
+          <div class="ring-three"></div>
 
-<span></span>
-<span></span>
-@@ -1357,161 +1127,52 @@ <h1>
+          <span class="node one"></span>
+          <span class="node two"></span>
+          <span class="node three"></span>
 
-</div>
+          <div class="planet planet-v3">
+            <div class="planet-shine"></div>
+            <div class="planet-grid-v"></div>
+            <div class="planet-grid-h"></div>
+            <div class="planet-grid-h2"></div>
+            <div class="continent"></div>
+            <div class="continent-two"></div>
+            <div class="continent-three"></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <svg
-        class="trend"
-        viewBox="0 0 270 130"
-      >
+    <div id="loading" class="loading">
+      Завантажуємо дані профілю…
+    </div>
 
-        <defs>
+    <div id="error" class="error">
+      Не вдалося завантажити профіль. Онови сторінку або увійди повторно.
+    </div>
 
-          <linearGradient
-            id="trendGradient"
-            x1="0"
-            y1="1"
-            x2="1"
-            y2="0"
+    <main id="profileContent" class="grid hidden">
+
+      <section class="card">
+
+        <div class="card-title">Профіль</div>
+
+        <div class="profile-row">
+
+          <div class="avatar">👤</div>
+
+          <div>
+            <div id="email" class="profile-email">—</div>
+            <div class="profile-note">
+              Авторизований користувач Vikundey Space
+            </div>
+          </div>
+
+        </div>
+
+        <div class="status-grid">
+
+          <div class="status-box">
+            <div class="status-label">Підписка</div>
+            <div id="plan" class="status-value">—</div>
+          </div>
+
+          <div class="status-box">
+            <div class="status-label">Статус</div>
+            <div id="statusText" class="status-value">—</div>
+            <div id="statusPill" class="pill">—</div>
+          </div>
+
+        </div>
+
+        <div class="plan-visuals">
+
+          <div id="fullPlanVisual" class="plan-visual full">
+
+            <div class="plan-mark">FULL</div>
+
+            <div class="plan-copy">
+              <strong>Full Vikundey Space</strong>
+              <span>NFP + CPI + Vikundey Thoughts</span>
+            </div>
+
+          </div>
+
+          <div id="newsPlanVisual" class="plan-visual news">
+
+            <div class="plan-mark">NEWS</div>
+
+            <div class="plan-copy">
+              <strong>News Vikundey Space</strong>
+              <span>NFP + CPI</span>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="insight-strip">
+
+          <div class="insight-box">
+            <div class="insight-kicker">Profile</div>
+            <div class="insight-value">
+              Авторські макророзбори з фокусом на причинно-наслідкові зв’язки та реакцію ринків.
+            </div>
+          </div>
+
+          <div class="insight-box">
+            <div class="insight-kicker">Access</div>
+            <div class="insight-value">
+              NFP, CPI та ключові макроподії — не просто цифри, а логіка їхнього впливу на активи.
+            </div>
+          </div>
+
+          <div class="insight-box">
+            <div class="insight-kicker">Sync</div>
+            <div class="insight-value">
+              Навчальні матеріали, економіка та геополітика для глибшого розуміння глобальних процесів.
+            </div>
+          </div>
+
+        </div>
+
+        <div id="cta" class="cta">
+
+          <h3 id="ctaTitle">
+            Відкрий Vikundey Space
+          </h3>
+
+          <p id="ctaText">
+            Обери формат доступу та отримай авторську аналітику,
+            ринковий контекст і матеріали, які допомагають бачити
+            ринок ширше за окремий реліз чи новину.
+          </p>
+
+          <a
+            id="subscribeButton"
+            class="btn"
+            href="https://secure.wayforpay.com/sub/see534a7947df"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-
-            <stop
-              offset="0%"
-              stop-color="#2ec7f1"
-            />
-
-            <stop
-              offset="100%"
-              stop-color="#8bea6f"
-            />
-
-          </linearGradient>
-
-        </defs>
-
-        <path
-          d="
-          M8 112
-          C40 108,
-          58 88,
-          86 90
-          S132 64,
-          156 68
-          S198 42,
-          224 48
-          S244 24,
-          264 8
-          "
-        />
-
-        <circle
-          cx="86"
-          cy="90"
-          r="4"
-        />
-
-        <circle
-          cx="224"
-          cy="48"
-          r="4"
-        />
-
-        <circle
-          cx="264"
-          cy="8"
-          r="4"
-        />
-
-      </svg>
-
-      <div class="brand-orbit-card card-a">
-
-        <div class="mini-icon">
-          ◉
-        </div>
-
-        <div>
-
-          <strong>
-            Macro
-          </strong>
-
-          <span>
-            Global context
-          </span>
+            Обрати підписку →
+          </a>
 
         </div>
 
-      </div>
+      </section>
 
-      <div class="brand-orbit-card card-b">
+      <aside class="card">
 
-        <div class="mini-icon">
-          ▥
+        <div class="card-title">
+          Мій доступ
         </div>
 
-        <div>
+        <div class="access-list">
 
-          <strong>
-            Data
-          </strong>
+          <div class="access-item">
 
-          <span>
-            Market reaction
-          </span>
+            <div class="access-left">
 
-        </div>
+              <div class="access-icon">N</div>
 
-      </div>
+              <div>
+                <div class="access-name">NFP</div>
+                <div class="access-desc">
+                  Ринок праці США, Nonfarm Payrolls та реакція ринку.
+                </div>
+              </div>
 
-      <div class="planet-wrap">
+            </div>
 
-        <div class="ring"></div>
-        <div class="ring-two"></div>
-
-        <span class="node one"></span>
-        <span class="node two"></span>
-        <span class="node three"></span>
-
-        <div class="planet">
-      <div class="orbit"></div>
-      <div class="orbit two"></div>
-
-          <div class="planet-grid-v"></div>
-          <div class="planet-grid-h"></div>
-
-        </div>
-
-      </div>
-      <div class="planet"></div>
-
-</div>
-
-</section>
-
-
-  <!-- LOADING -->
-
-<div
-id="loading"
-class="loading"
->
-    Завантажуємо дані профілю…
-    Завантажуємо твій профіль…
-</div>
-
-
-<div
-id="error"
-class="error"
->
-Не вдалося завантажити профіль.
-    Онови сторінку або увійди повторно.
-    Спробуй оновити сторінку.
-</div>
-
-
-  <!-- DASHBOARD -->
-
-<main
-    id="profileContent"
-    class="grid hidden"
-    id="dashboard"
-    class="dashboard hidden"
->
-
-
-    <!-- PROFILE -->
-
-<section class="card">
-
-      <div class="card-title">
-      <div class="card-label">
-Профіль
-</div>
-
-      <div class="profile-row">
-      <div class="user">
-
-<div class="avatar">
-👤
-@@ -1521,12 +1182,12 @@ <h1>
-
-<div
-id="email"
-            class="profile-email"
-            class="email"
->
-—
-</div>
-
-          <div class="profile-note">
-          <div class="user-note">
-Авторизований користувач Vikundey Space
-</div>
-
-@@ -1535,9 +1196,11 @@ <h1>
-</div>
-
-
-      <!-- STATUS -->
-
-<div class="status-grid">
-
-        <div class="status-box">
-        <div class="status-card">
-
-<div class="status-label">
-Підписка
-@@ -1552,14 +1215,15 @@ <h1>
-
-</div>
-
-        <div class="status-box">
-
-        <div class="status-card">
-
-<div class="status-label">
-Статус
-</div>
-
-<div
-            id="statusText"
-            id="status"
-class="status-value"
->
-—
-@@ -1577,125 +1241,71 @@ <h1>
-</div>
-
-
-      <div class="plan-visuals">
-      <!-- PLANS -->
-
-      <div class="plans">
-
-<div
-          id="fullPlanVisual"
-          class="plan-visual"
-          id="fullPlan"
-          class="plan"
->
-
-          <div class="plan-mark">
-          <div class="plan-type">
-FULL
-</div>
-
-          <div class="plan-copy">
-
-            <strong>
-              Full Vikundey Space
-            </strong>
-
-            <span>
-              NFP + CPI + Vikundey Thoughts
-            </span>
-          <strong>
-            Full Vikundey Space
-          </strong>
+            <div id="accessNfp" class="access-badge no">
+              Немає
+            </div>
 
           </div>
-          <span>
-            NFP + CPI + Vikundey Thoughts
-          </span>
 
-</div>
+          <div class="access-item">
 
+            <div class="access-left">
 
-<div
-          id="newsPlanVisual"
-          class="plan-visual"
-          id="newsPlan"
-          class="plan"
->
+              <div class="access-icon">C</div>
 
-          <div class="plan-mark">
-          <div class="plan-type">
-NEWS
-</div>
+              <div>
+                <div class="access-name">CPI</div>
+                <div class="access-desc">
+                  Інфляція США, Core CPI та сценарії для активів.
+                </div>
+              </div>
 
-          <div class="plan-copy">
+            </div>
 
-            <strong>
-              News Vikundey Space
-            </strong>
-
-            <span>
-              NFP + CPI
-            </span>
-          <strong>
-            News Vikundey Space
-          </strong>
+            <div id="accessCpi" class="access-badge no">
+              Немає
+            </div>
 
           </div>
-          <span>
-            NFP + CPI
-          </span>
 
-</div>
+          <div class="access-item">
 
-</div>
+            <div class="access-left">
 
+              <div class="access-icon">V</div>
 
-      <div class="insight-strip">
+              <div>
+                <div class="access-name">
+                  Vikundey Thoughts
+                </div>
 
-        <div class="insight-box">
+                <div class="access-desc">
+                  Освіта, макроекономіка, геополітика та авторська аналітика.
+                </div>
+              </div>
 
-          <div class="insight-kicker">
-            RESEARCH
-          </div>
+            </div>
 
-          <div class="insight-value">
-            Авторські макророзбори
-            та логіка реакції ринків.
+            <div id="accessThoughts" class="access-badge no">
+              Немає
+            </div>
+
           </div>
 
         </div>
 
-        <div class="insight-box">
+      </aside>
 
-          <div class="insight-kicker">
-            MARKETS
-          </div>
+    </main>
 
-          <div class="insight-value">
-            Підготовка до NFP та CPI
-            та моментний вплив на ринки.
-          </div>
+    <footer class="footer">
+      © vikundey.crypto · Vikundey Space
+    </footer>
 
-        </div>
+  </div>
 
-        <div class="insight-box">
+  <script>
 
-          <div class="insight-kicker">
-            KNOWLEDGE
-          </div>
-
-          <div class="insight-value">
-            Економіка, геополітика
-            та навчальні матеріали
-            для глибшого розуміння ринку.
-          </div>
-
-        </div>
-
-      </div>
-
-      <!-- CTA -->
-
-<div
-id="cta"
-class="cta"
->
-
-        <h3
-          id="ctaTitle"
-        >
-        <h3 id="ctaTitle">
-Відкрий Vikundey Space
-</h3>
-
-        <p
-          id="ctaText"
-        >
-          Обери формат доступу та отримай
-          авторську аналітику, ринковий контекст
-          і матеріали, які допомагають бачити
-          ринок ширше за окремий реліз чи новину.
-        <p id="ctaText">
-          Обери формат доступу та відкрий
-          авторську макроаналітику Vikundey Space.
-</p>
-
-<a
-id="subscribeButton"
-          class="btn"
-          class="button"
-href="https://secure.wayforpay.com/sub/see534a7947df"
-target="_blank"
-rel="noopener noreferrer"
-@@ -1705,20 +1315,36 @@ <h1>
-
-</div>
+    const el =
+      (id) =>
+        document.getElementById(id);
 
 
-      <div class="account-actions">
+    function setAccessBadge(
+      id,
+      enabled
+    ) {
 
-        <a
-          class="secondary"
-          href="/profile/"
-        >
-          ← Про Vikundey Space
-        </a>
+      const node =
+        el(id);
 
-      </div>
+      if (enabled) {
 
-</section>
+        node.textContent =
+          "Доступ";
 
+        node.classList.remove(
+          "no"
+        );
 
-    <!-- ACCESS -->
+        node.classList.add(
+          "yes"
+        );
 
-<aside class="card">
+      } else {
 
-      <div class="card-title">
-      <div class="card-label">
-Мій доступ
-</div>
+        node.textContent =
+          "Немає";
 
+        node.classList.remove(
+          "yes"
+        );
 
-<div class="access-list">
+        node.classList.add(
+          "no"
+        );
 
-        <div class="access-item">
+      }
 
-          <div class="access-left">
-        <div class="access">
-
-          <div class="access-main">
-
-<div class="access-icon">
-N
-@@ -1731,9 +1357,7 @@ <h1>
-</div>
-
-<div class="access-desc">
-                Ринок праці США,
-                Nonfarm Payrolls
-                та реакція ринку.
-                Підготовка та аналіз ринку праці США
-</div>
-
-</div>
-@@ -1742,16 +1366,17 @@ <h1>
-
-<div
-id="accessNfp"
-            class="access-badge no"
-            class="access-state no"
->
-Немає
-</div>
-
-</div>
-
-        <div class="access-item">
-
-          <div class="access-left">
-        <div class="access">
-
-          <div class="access-main">
-
-<div class="access-icon">
-C
-@@ -1764,9 +1389,7 @@ <h1>
-</div>
-
-<div class="access-desc">
-                Інфляція США,
-                Core CPI та сценарії
-                для активів.
-                Інфляція та ринкові сценарії
-</div>
-
-</div>
-@@ -1775,16 +1398,17 @@ <h1>
-
-<div
-id="accessCpi"
-            class="access-badge no"
-            class="access-state no"
->
-Немає
-</div>
-
-</div>
-
-        <div class="access-item">
-
-          <div class="access-left">
-        <div class="access">
-
-          <div class="access-main">
-
-<div class="access-icon">
-V
-@@ -1797,9 +1421,7 @@ <h1>
-</div>
-
-<div class="access-desc">
-                Освіта, макроекономіка,
-                геополітика та авторська
-                аналітика.
-                Економіка, освіта та геополітика
-</div>
-
-</div>
-@@ -1808,13 +1430,14 @@ <h1>
-
-<div
-id="accessThoughts"
-            class="access-badge no"
-            class="access-state no"
->
-Немає
-</div>
-
-</div>
+    }
 
 
-</div>
+    function planLabel(plan) {
 
-</aside>
-@@ -1831,74 +1454,47 @@ <h1>
+      if (plan === "full") {
+        return "Full Vikundey Space";
+      }
 
-<script>
+      if (plan === "news") {
+        return "News Vikundey Space";
+      }
 
-  const el =
-    id =>
-      document.getElementById(id);
-  const el = id =>
-    document.getElementById(id);
+      return "Немає активної";
+
+    }
 
 
-  function setAccessBadge(
-  function setAccess(
-id,
-enabled
-){
+    async function claimInviteIfPresent() {
 
-    const node =
-      el(id);
-    const node = el(id);
+      const params =
+        new URLSearchParams(
+          window.location.search
+        );
 
-if(enabled){
+      const claimToken =
+        params.get(
+          "invite_claim"
+        );
 
-      node.textContent =
-        "Доступ";
+      if (!claimToken) {
+        return;
+      }
 
-      node.classList.remove(
-        "no"
+      el("loading").textContent =
+        "Активуємо твоє запрошення…";
+
+
+      const response =
+        await fetch(
+          "/api/profile/invite/claim",
+          {
+            method:
+              "POST",
+
+            credentials:
+              "same-origin",
+
+            headers: {
+              "Content-Type":
+                "application/json",
+
+              "Accept":
+                "application/json"
+            },
+
+            body:
+              JSON.stringify({
+                claimToken
+              })
+          }
+        );
+
+
+      let data = {};
+
+      try {
+        data =
+          await response.json();
+      } catch {
+        data = {};
+      }
+
+
+      if (
+        !response.ok ||
+        !data.ok
+      ) {
+
+        throw new Error(
+          data.error ||
+          "Не вдалося активувати запрошення."
+        );
+
+      }
+
+
+      window.history.replaceState(
+        {},
+        document.title,
+        "/profile/account/"
       );
-      node.textContent = "Доступ";
-
-      node.classList.add(
-        "yes"
-      );
-      node.classList.remove("no");
-      node.classList.add("yes");
-
-}else{
-
-      node.textContent =
-        "Немає";
-
-      node.classList.remove(
-        "yes"
-      );
-      node.textContent = "Немає";
-
-      node.classList.add(
-        "no"
-      );
-      node.classList.remove("yes");
-      node.classList.add("no");
-
-}
-
-}
 
 
-  function planLabel(
-    plan
-  ){
+      el("loading").textContent =
+        "Запрошення активовано. Завантажуємо профіль…";
 
-    if(
-      plan ===
-      "full"
-    ){
-  function getPlanName(plan){
-
-    if(plan === "full"){
-return "Full Vikundey Space";
-
-}
-
-    if(
-      plan ===
-      "news"
-    ){
-
-    if(plan === "news"){
-return "News Vikundey Space";
-
-}
-
-return "Немає активної";
-
-}
+    }
 
 
-@@ -1918,195 +1514,157 @@ <h1>
-}
-);
+    async function loadProfile() {
 
-      if(
-        !response.ok
-      ){
+      const response =
+        await fetch(
+          "/api/profile",
+          {
+            method:
+              "GET",
+
+            credentials:
+              "same-origin",
+
+            headers: {
+              "Accept":
+                "application/json"
+            }
+          }
+        );
+
+
+      if (!response.ok) {
 
         throw new Error(
           "Profile API error"
         );
 
-      if(!response.ok){
-        throw new Error("Profile API error");
-}
+      }
 
 
-const data =
-await response.json();
+      const data =
+        await response.json();
 
-      if(
-        !data.ok
-      ){
 
-      if(!data.ok){
-throw new Error(
+      if (!data.ok) {
+
+        throw new Error(
           data.error ||
           "Profile error"
-          data.error || "Profile error"
-);
+        );
 
-}
+      }
 
-
-      el(
-        "email"
-      ).textContent =
-        data.email ||
-        "—";
-      /* EMAIL */
 
       el("email").textContent =
-        data.email || "—";
+        data.email ||
+        "—";
 
-      el(
-        "plan"
-      ).textContent =
+
+      el("plan").textContent =
         planLabel(
           data.plan
         );
 
-      /* PLAN */
 
-      el(
-        "fullPlanVisual"
-      )
-      .classList
-      .toggle(
-        "active-plan",
-        data.plan ===
-        "full"
-      );
-      el("plan").textContent =
-        getPlanName(data.plan);
-
-
-      el(
-        "newsPlanVisual"
-      )
-      .classList
-      .toggle(
-        "active-plan",
-        data.plan ===
-        "news"
-      );
-      el("fullPlan")
-        .classList
-        .toggle(
-          "active",
-          data.plan === "full"
+      const fullPlanVisual =
+        el(
+          "fullPlanVisual"
         );
 
 
-      el("newsPlan")
-        .classList
-        .toggle(
-          "active",
-          data.plan === "news"
+      const newsPlanVisual =
+        el(
+          "newsPlanVisual"
         );
 
 
-      /* STATUS */
+      fullPlanVisual.classList.toggle(
+        "active-plan",
+        data.plan === "full"
+      );
+
+
+      newsPlanVisual.classList.toggle(
+        "active-plan",
+        data.plan === "news"
+      );
+
 
       const active =
         data.status ===
         "active";
-      const isActive =
-        data.status === "active";
 
 
-      el(
-        "statusText"
-      ).textContent =
+      el("statusText").textContent =
         active
-      el("status").textContent =
-        isActive
-? "Активна"
-: "Неактивна";
+          ? "Активна"
+          : "Неактивна";
 
 
-      el(
-        "statusPill"
-      ).textContent =
-        active
       el("statusPill").textContent =
-        isActive
-? "● Active"
-: "● Inactive";
+        active
+          ? "● Active"
+          : "● Inactive";
 
 
-      el(
-        "statusPill"
-      )
-      .classList
-      .toggle(
+      el("statusPill").classList.toggle(
         "active",
         active
       );
-      el("statusPill")
-        .classList
-        .toggle(
-          "active",
-          isActive
-        );
 
 
-      el(
-        "statusPill"
-      )
-      .classList
-      .toggle(
+      el("statusPill").classList.toggle(
         "inactive",
         !active
       );
-      el("statusPill")
-        .classList
-        .toggle(
-          "inactive",
-          !isActive
-        );
 
 
       setAccessBadge(
-      /* ACCESS */
+        "accessNfp",
+        !!data.access?.nfp
+      );
 
-      setAccess(
-"accessNfp",
-!!data.access?.nfp
-);
 
       setAccessBadge(
+        "accessCpi",
+        !!data.access?.cpi
+      );
 
-      setAccess(
-"accessCpi",
-!!data.access?.cpi
-);
 
       setAccessBadge(
-
-      setAccess(
-"accessThoughts",
-!!data.access?.thoughts
-);
+        "accessThoughts",
+        !!data.access?.thoughts
+      );
 
 
-      /* CTA */
-
-const cta =
+      const cta =
         el(
           "cta"
         );
-        el("cta");
 
-const button =
+
+      const button =
         el(
           "subscribeButton"
         );
-        el("subscribeButton");
 
 
-      if(
+      if (
         data.subscriptionUrl
-      ){
-      if(data.subscriptionUrl){
+      ) {
 
-button.href =
-data.subscriptionUrl;
+        button.href =
+          data.subscriptionUrl;
 
-}
+      }
 
 
-      if(
+      if (
         data.plan ===
         "none"
-      ){
-      if(data.plan === "none"){
+      ) {
 
-cta.style.display =
-"block";
+        cta.style.display =
+          "block";
 
 
-        el(
-          "ctaTitle"
-        ).textContent =
         el("ctaTitle").textContent =
-"Відкрий Vikundey Space";
+          "Відкрий Vikundey Space";
 
 
-        el(
-          "ctaText"
-        ).textContent =
-          "Обери формат доступу та отримай авторську аналітику, ринковий контекст і матеріали, які допомагають бачити ринок ширше за окремий реліз чи новину.";
         el("ctaText").textContent =
-          "Обери формат доступу та відкрий авторську макроаналітику, підготовку до NFP і CPI та матеріали Vikundey Thoughts.";
+          "Обери формат доступу та отримай авторську аналітику, ринковий контекст і матеріали, які допомагають бачити ринок ширше за окремий реліз чи новину.";
 
 
-button.textContent =
-"Обрати підписку →";
+        button.textContent =
+          "Обрати підписку →";
 
-}
 
-      else if(
+      } else if (
         data.plan ===
         "news"
-      ){
-      else if(data.plan === "news"){
+      ) {
 
-cta.style.display =
-"block";
+        cta.style.display =
+          "block";
 
 
-        el(
-          "ctaTitle"
-        ).textContent =
-          "Перейти на Full";
         el("ctaTitle").textContent =
-          "Відкрий повний Vikundey Space";
+          "Перейти на Full";
 
 
-        el(
-          "ctaText"
-        ).textContent =
-          "У тебе вже є NFP та CPI. Full також відкриває Vikundey Thoughts.";
         el("ctaText").textContent =
-          "Твій News доступ вже відкриває NFP та CPI. Full Vikundey Space також включає Vikundey Thoughts.";
+          "У тебе вже є NFP та CPI. Full також відкриває Vikundey Thoughts.";
 
 
-button.textContent =
+        button.textContent =
           "Переглянути Full →";
-          "Перейти на Full →";
-
-}
-
-@@ -2118,45 +1676,30 @@ <h1>
-}
 
 
-      el(
-        "loading"
-      )
-      .classList
-      .add(
-        "hidden"
-      );
-      /* SHOW */
+      } else {
 
-      el("loading")
-        .classList
-        .add("hidden");
+        cta.style.display =
+          "none";
 
-      el(
-        "profileContent"
-      )
-      .classList
-      .remove(
+      }
+
+
+      el("loading").classList.add(
         "hidden"
       );
 
-      el("dashboard")
-        .classList
-        .remove("hidden");
 
-    }catch(error){
+      el("profileContent").classList.remove(
+        "hidden"
+      );
+
     }
 
-      console.error(
-        error
-      );
-    catch(error){
 
-      console.error(error);
+    async function initProfile() {
 
-      el(
-        "loading"
-      )
-      .classList
-      .add(
-        "hidden"
-      );
+      try {
 
-      el("loading")
-        .classList
-        .add("hidden");
+        await claimInviteIfPresent();
+
+        await loadProfile();
+
+      } catch (error) {
+
+        console.error(
+          error
+        );
 
 
-      el(
-        "error"
-      )
-      .style
-      .display =
-      el("error").style.display =
-"block";
+        el("loading").classList.add(
+          "hidden"
+        );
 
-}
+
+        el("error").textContent =
+          error.message ||
+          "Не вдалося завантажити профіль.";
+
+
+        el("error").style.display =
+          "block";
+
+      }
+
+    }
+
+
+    initProfile();
+
+  </script>
+
+</body>
+</html>
