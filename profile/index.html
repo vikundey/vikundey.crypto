@@ -3,14 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Vikundey Space — Профіль</title>
-  <meta name="description" content="Профіль підписника Vikundey Space" />
+
+  <meta
+    name="description"
+    content="Vikundey Space — персональний простір з макроаналітикою, NFP, CPI та Vikundey Thoughts."
+  />
 
   <style>
     :root{
       --bg:#07111a;
-      --panel:rgba(11,25,37,.88);
-      --line:rgba(255,255,255,.12);
+      --bg-2:#091722;
+      --panel:rgba(12,27,39,.88);
+      --panel-soft:rgba(16,32,45,.80);
+
+      --line:rgba(255,255,255,.11);
+      --line-strong:rgba(255,255,255,.18);
 
       --cyan:#2ec7f1;
       --green:#8bea6f;
@@ -18,10 +27,11 @@
       --white:#ffffff;
       --text:#ffffff;
       --text-soft:#edf4f8;
-      --muted:#c4d3dc;
-      --muted-soft:#96aab8;
+      --muted:#c3d0d8;
+      --muted-2:#91a4af;
 
-      --shadow:0 26px 80px rgba(0,0,0,.32);
+      --shadow:
+        0 24px 80px rgba(0,0,0,.34);
     }
 
     *{
@@ -48,44 +58,53 @@
 
       background:
         radial-gradient(
-          circle at 15% 12%,
-          rgba(46,199,241,.15),
+          circle at 14% 10%,
+          rgba(46,199,241,.14),
           transparent 24%
         ),
         radial-gradient(
-          circle at 86% 10%,
-          rgba(139,234,111,.12),
+          circle at 88% 8%,
+          rgba(139,234,111,.10),
           transparent 22%
         ),
         linear-gradient(
           180deg,
           #07111a 0%,
-          #081520 42%,
-          #05111a 100%
+          #081722 48%,
+          #051019 100%
         );
 
       overflow-x:hidden;
-      position:relative;
     }
 
     body::before{
       content:"";
+
       position:fixed;
       inset:0;
+
       pointer-events:none;
 
       background-image:
         linear-gradient(
-          rgba(255,255,255,.02) 1px,
+          rgba(255,255,255,.018) 1px,
           transparent 1px
         ),
         linear-gradient(
           90deg,
-          rgba(255,255,255,.02) 1px,
+          rgba(255,255,255,.018) 1px,
           transparent 1px
         );
 
-      background-size:32px 32px;
+      background-size:
+        32px 32px;
+
+      mask-image:
+        linear-gradient(
+          180deg,
+          rgba(0,0,0,.95),
+          rgba(0,0,0,.45)
+        );
     }
 
     a{
@@ -93,23 +112,25 @@
       text-decoration:none;
     }
 
-
-    /* =========================
-       SHELL
-    ========================= */
-
     .shell{
-      width:min(1220px,calc(100% - 32px));
-      margin:0 auto;
-      padding:22px 0 64px;
+      width:
+        min(
+          1220px,
+          calc(100% - 32px)
+        );
+
+      margin:
+        0 auto;
+
+      padding:
+        22px 0 64px;
 
       position:relative;
       z-index:1;
     }
 
-
     /* =========================
-       NAVBAR
+       NAV
     ========================= */
 
     .topbar{
@@ -119,13 +140,14 @@
 
       gap:20px;
 
-      padding:14px 18px;
-
-      border-radius:26px;
+      padding:
+        14px 18px;
 
       border:
-        1px solid
-        var(--line);
+        1px solid var(--line);
+
+      border-radius:
+        26px;
 
       background:
         rgba(5,18,28,.86);
@@ -157,10 +179,10 @@
     }
 
     .brand-name{
-      font-weight:900;
-      font-size:18px;
-
       color:#fff;
+
+      font-size:18px;
+      font-weight:900;
     }
 
     .nav{
@@ -173,21 +195,23 @@
     }
 
     .nav a{
+      padding:
+        10px 14px;
+
+      border-radius:
+        14px;
+
       color:#edf4f8;
 
-      font-weight:800;
       font-size:14px;
-
-      padding:10px 14px;
-
-      border-radius:14px;
+      font-weight:800;
 
       transition:.2s ease;
     }
 
     .nav a:hover{
       background:
-        rgba(255,255,255,.07);
+        rgba(255,255,255,.06);
     }
 
     .nav .active{
@@ -201,10 +225,9 @@
         );
 
       box-shadow:
-        0 12px 24px
+        0 10px 26px
         rgba(46,199,241,.18);
     }
-
 
     /* =========================
        HERO
@@ -212,31 +235,32 @@
 
     .hero{
       position:relative;
+
       overflow:hidden;
 
       margin-top:22px;
 
-      min-height:340px;
+      min-height:460px;
 
       padding:
-        58px 34px 42px;
-
-      border-radius:34px;
+        64px 38px 46px;
 
       border:
-        1px solid
-        var(--line);
+        1px solid var(--line);
+
+      border-radius:
+        34px;
 
       background:
         linear-gradient(
           180deg,
-          rgba(255,255,255,.06),
+          rgba(255,255,255,.055),
           rgba(255,255,255,.015)
         ),
         linear-gradient(
           120deg,
-          rgba(6,22,34,.90),
-          rgba(7,25,37,.82)
+          rgba(6,22,34,.92),
+          rgba(7,25,37,.84)
         );
 
       box-shadow:
@@ -245,10 +269,9 @@
       isolation:isolate;
     }
 
-    .hero-copy-wrap{
+    .hero-copy{
       position:relative;
-
-      z-index:4;
+      z-index:5;
 
       max-width:650px;
     }
@@ -259,11 +282,9 @@
 
       gap:8px;
 
-      color:
-        var(--cyan);
+      color:var(--cyan);
 
-      text-transform:
-        uppercase;
+      text-transform:uppercase;
 
       letter-spacing:.18em;
 
@@ -271,14 +292,13 @@
       font-weight:900;
     }
 
-    .dot{
+    .eyebrow-dot{
       width:8px;
       height:8px;
 
       border-radius:50%;
 
-      background:
-        var(--green);
+      background:var(--green);
 
       box-shadow:
         0 0 16px
@@ -287,64 +307,129 @@
 
     h1{
       margin:
-        16px 0 12px;
+        16px 0 14px;
+
+      color:#fff;
 
       font-size:
-        clamp(42px,6.2vw,82px);
+        clamp(
+          44px,
+          6.4vw,
+          84px
+        );
 
       line-height:.96;
 
       letter-spacing:-.06em;
-
-      color:#fff;
     }
 
-    .hero p{
+    .hero-text{
+      max-width:620px;
+
       margin:0;
 
-      max-width:630px;
-
-      color:
-        var(--text-soft);
+      color:var(--text-soft);
 
       font-size:18px;
 
-      line-height:1.68;
+      line-height:1.7;
     }
 
-    .hero-meta{
+    .hero-actions{
       display:flex;
       flex-wrap:wrap;
 
-      gap:10px;
+      gap:12px;
 
-      margin-top:22px;
+      margin-top:28px;
     }
 
-    .hero-chip{
-      padding:
-        10px 14px;
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
 
-      border-radius:999px;
+      min-height:52px;
+
+      padding:
+        0 20px;
+
+      border-radius:
+        16px;
+
+      font-size:14px;
+      font-weight:900;
+
+      transition:
+        transform .18s ease,
+        box-shadow .18s ease;
+    }
+
+    .btn:hover{
+      transform:
+        translateY(-1px);
+    }
+
+    .btn-primary{
+      color:#071018;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--cyan),
+          var(--green)
+        );
+
+      box-shadow:
+        0 12px 30px
+        rgba(46,199,241,.18);
+    }
+
+    .btn-secondary{
+      color:#fff;
 
       border:
         1px solid
-        rgba(255,255,255,.14);
+        rgba(255,255,255,.13);
 
       background:
-        rgba(255,255,255,.06);
-
-      color:#fff;
-
-      font-size:12px;
-      font-weight:800;
-
-      letter-spacing:.06em;
-
-      text-transform:
-        uppercase;
+        rgba(255,255,255,.055);
     }
 
+    .login-note{
+      display:flex;
+      align-items:center;
+
+      gap:9px;
+
+      margin-top:18px;
+
+      color:var(--muted);
+
+      font-size:13px;
+    }
+
+    .login-note-icon{
+      width:24px;
+      height:24px;
+
+      display:grid;
+      place-items:center;
+
+      border-radius:50%;
+
+      color:#071018;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--cyan),
+          var(--green)
+        );
+
+      font-size:12px;
+      font-weight:900;
+    }
 
     /* =========================
        HERO VISUAL
@@ -353,35 +438,118 @@
     .scene{
       position:absolute;
 
-      right:-12px;
-      bottom:-10px;
+      right:-10px;
+      bottom:-24px;
 
-      width:470px;
-      height:320px;
+      width:510px;
+      height:390px;
 
       pointer-events:none;
 
       z-index:1;
     }
 
-    .market-bars{
+    .scene-card{
       position:absolute;
 
-      right:18px;
-      top:8px;
+      z-index:4;
 
-      height:132px;
+      display:flex;
+      align-items:center;
+
+      gap:10px;
+
+      min-width:150px;
+
+      padding:
+        12px 14px;
+
+      border:
+        1px solid
+        rgba(46,199,241,.22);
+
+      border-radius:
+        15px;
+
+      background:
+        rgba(8,27,39,.84);
+
+      backdrop-filter:
+        blur(12px);
+
+      box-shadow:
+        0 12px 30px
+        rgba(0,0,0,.22);
+    }
+
+    .scene-card.one{
+      right:28px;
+      top:70px;
+    }
+
+    .scene-card.two{
+      right:230px;
+      top:155px;
+    }
+
+    .scene-icon{
+      width:34px;
+      height:34px;
+
+      display:grid;
+      place-items:center;
+
+      border-radius:10px;
+
+      color:#071018;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--cyan),
+          var(--green)
+        );
+
+      font-size:15px;
+      font-weight:950;
+    }
+
+    .scene-card strong{
+      display:block;
+
+      color:#fff;
+
+      font-size:13px;
+    }
+
+    .scene-card span{
+      display:block;
+
+      margin-top:3px;
+
+      color:var(--muted-2);
+
+      font-size:10px;
+    }
+
+    .bars{
+      position:absolute;
+
+      right:24px;
+      top:18px;
+
+      height:120px;
 
       display:flex;
       align-items:flex-end;
 
-      gap:10px;
+      gap:9px;
 
-      opacity:.42;
+      opacity:.36;
     }
 
-    .market-bars span{
-      width:14px;
+    .bars span{
+      width:13px;
 
       border-radius:
         4px 4px 0 0;
@@ -389,42 +557,42 @@
       background:
         linear-gradient(
           180deg,
-          rgba(139,234,111,.96),
-          rgba(46,199,241,.45)
+          rgba(139,234,111,.94),
+          rgba(46,199,241,.40)
         );
     }
 
-    .market-bars span:nth-child(1){
-      height:54px;
+    .bars span:nth-child(1){
+      height:46px;
     }
 
-    .market-bars span:nth-child(2){
-      height:86px;
-    }
-
-    .market-bars span:nth-child(3){
+    .bars span:nth-child(2){
       height:72px;
     }
 
-    .market-bars span:nth-child(4){
-      height:106px;
+    .bars span:nth-child(3){
+      height:64px;
     }
 
-    .market-bars span:nth-child(5){
-      height:94px;
+    .bars span:nth-child(4){
+      height:92px;
     }
 
-    .market-bars span:nth-child(6){
-      height:126px;
+    .bars span:nth-child(5){
+      height:82px;
+    }
+
+    .bars span:nth-child(6){
+      height:112px;
     }
 
     .trend{
       position:absolute;
 
-      right:0;
-      top:0;
+      right:4px;
+      top:8px;
 
-      width:270px;
+      width:280px;
       height:130px;
     }
 
@@ -441,105 +609,17 @@
     }
 
     .trend circle{
-      fill:#f7ffff;
+      fill:#f8ffff;
     }
 
-
-    /* =========================
-       FLOATING CARDS
-    ========================= */
-
-    .brand-orbit-card{
+    .planet-area{
       position:absolute;
 
-      display:flex;
-      align-items:center;
-
-      gap:10px;
-
-      min-width:140px;
-
-      padding:
-        11px 13px;
-
-      border-radius:14px;
-
-      border:
-        1px solid
-        rgba(46,199,241,.24);
-
-      background:
-        rgba(7,28,40,.82);
-
-      backdrop-filter:
-        blur(12px);
-
-      z-index:3;
-    }
-
-    .brand-orbit-card.card-a{
-      right:20px;
-      top:76px;
-    }
-
-    .brand-orbit-card.card-b{
-      right:210px;
-      top:138px;
-    }
-
-    .mini-icon{
-      width:34px;
-      height:34px;
-
-      border-radius:10px;
-
-      display:grid;
-      place-items:center;
-
-      color:#071018;
-
-      font-weight:900;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--cyan),
-          var(--green)
-        );
-    }
-
-    .brand-orbit-card strong{
-      display:block;
-
-      color:#fff;
-
-      font-size:13px;
-    }
-
-    .brand-orbit-card span{
-      display:block;
-
-      margin-top:3px;
-
-      color:
-        var(--muted-soft);
-
-      font-size:10px;
-    }
-
-
-    /* =========================
-       PLANET
-    ========================= */
-
-    .planet-wrap{
-      position:absolute;
-
-      right:20px;
-      bottom:-24px;
+      right:24px;
+      bottom:-6px;
 
       width:390px;
-      height:260px;
+      height:270px;
     }
 
     .planet{
@@ -548,52 +628,45 @@
       right:0;
       bottom:0;
 
-      width:330px;
-      height:220px;
+      width:340px;
+      height:225px;
 
       border-radius:
-        220px 220px 0 0;
+        230px 230px 0 0;
 
       overflow:hidden;
 
+      border:
+        1px solid
+        rgba(46,199,241,.22);
+
       background:
         radial-gradient(
-          circle at 28% 34%,
+          circle at 28% 30%,
           rgba(255,255,255,.14),
           transparent 18%
         ),
         radial-gradient(
-          circle at 76% 26%,
-          rgba(139,234,111,.14),
+          circle at 74% 26%,
+          rgba(139,234,111,.13),
           transparent 18%
         ),
         linear-gradient(
           180deg,
-          rgba(13,43,64,.96) 0%,
-          rgba(5,17,28,.98) 62%,
-          rgba(3,12,21,1) 100%
+          rgba(14,44,64,.96),
+          rgba(5,18,29,.99)
         );
 
-      border:
-        1px solid
-        rgba(46,199,241,.24);
-
       box-shadow:
-        inset 0 20px 50px
-        rgba(46,199,241,.10),
-        inset 0 -30px 50px
-        rgba(0,0,0,.62),
-        0 0 54px
-        rgba(46,199,241,.14);
+        inset 0 18px 48px
+        rgba(46,199,241,.08),
+        inset 0 -28px 48px
+        rgba(0,0,0,.58),
+        0 0 50px
+        rgba(46,199,241,.12);
     }
 
-    .planet-grid-v,
-    .planet-grid-h{
-      position:absolute;
-      inset:0;
-    }
-
-    .planet-grid-v::before{
+    .planet::before{
       content:"";
 
       position:absolute;
@@ -601,42 +674,37 @@
       left:50%;
       top:-8%;
 
-      transform:
-        translateX(-50%);
-
       width:40%;
       height:116%;
 
+      transform:
+        translateX(-50%);
+
       border:
         1px solid
-        rgba(46,199,241,.17);
+        rgba(46,199,241,.16);
 
       border-radius:50%;
     }
 
-    .planet-grid-h::before{
+    .planet::after{
       content:"";
 
       position:absolute;
 
-      left:10%;
-      right:10%;
+      left:9%;
+      right:9%;
 
       top:42%;
 
-      height:28%;
+      height:29%;
 
       border:
         1px solid
-        rgba(139,234,111,.16);
+        rgba(139,234,111,.15);
 
       border-radius:50%;
     }
-
-
-    /* =========================
-       ORBITS
-    ========================= */
 
     .ring,
     .ring-two{
@@ -646,141 +714,144 @@
 
       border:
         2px solid
-        rgba(46,199,241,.55);
+        rgba(46,199,241,.52);
     }
 
     .ring{
-      width:385px;
-      height:118px;
+      width:390px;
+      height:120px;
 
-      left:-8px;
-      top:96px;
+      left:-10px;
+      top:112px;
 
       transform:
-        rotate(-11deg);
+        rotate(-10deg);
     }
 
     .ring-two{
-      width:352px;
-      height:132px;
+      width:360px;
+      height:138px;
 
-      left:8px;
-      top:82px;
+      left:10px;
+      top:96px;
 
       transform:
         rotate(18deg);
 
       border-color:
-        rgba(139,234,111,.48);
+        rgba(139,234,111,.45);
     }
 
     .node{
       position:absolute;
 
-      width:14px;
-      height:14px;
+      width:13px;
+      height:13px;
 
       border-radius:50%;
 
-      background:#f5ffff;
+      background:#f7ffff;
 
       box-shadow:
         0 0 16px
-        rgba(46,199,241,.55);
+        rgba(46,199,241,.60);
     }
 
-    .node.one{
-      left:10px;
-      top:146px;
+    .node.a{
+      left:8px;
+      top:158px;
     }
 
-    .node.two{
-      left:128px;
-      top:30px;
+    .node.b{
+      left:132px;
+      top:38px;
     }
 
-    .node.three{
-      right:46px;
-      top:18px;
+    .node.c{
+      right:48px;
+      top:24px;
     }
-
 
     /* =========================
-       LOADING
+       PREVIEW
     ========================= */
 
-    .loading,
-    .error{
-      margin-top:22px;
-
+    .preview-section{
       padding:
-        18px 20px;
-
-      border:
-        1px solid
-        var(--line);
-
-      border-radius:18px;
-
-      color:
-        var(--text-soft);
-
-      background:
-        rgba(255,255,255,.04);
+        34px 0 0;
     }
 
-    .error{
-      display:none;
+    .section-heading{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
 
-      color:#ffe0e0;
+      gap:20px;
 
-      background:
-        rgba(255,123,123,.08);
+      margin-bottom:18px;
     }
 
+    .section-heading h2{
+      margin:0;
 
-    /* =========================
-       PROFILE GRID
-    ========================= */
+      color:#fff;
 
-    .grid{
+      font-size:
+        clamp(
+          28px,
+          4vw,
+          44px
+        );
+
+      letter-spacing:-.04em;
+    }
+
+    .section-heading p{
+      max-width:520px;
+
+      margin:0;
+
+      color:var(--muted);
+
+      line-height:1.6;
+    }
+
+    .preview-grid{
       display:grid;
 
       grid-template-columns:
         1.05fr .95fr;
 
       gap:24px;
-
-      margin-top:24px;
     }
 
     .card{
+      position:relative;
+
+      overflow:hidden;
+
+      padding:30px;
+
       border:
         1px solid
         var(--line);
 
       border-radius:30px;
 
-      padding:30px;
-
       background:
         linear-gradient(
           180deg,
-          rgba(255,255,255,.05),
+          rgba(255,255,255,.055),
           rgba(255,255,255,.018)
         ),
         linear-gradient(
           180deg,
-          rgba(10,25,38,.95),
-          rgba(8,22,33,.88)
+          rgba(10,25,38,.94),
+          rgba(8,22,33,.90)
         );
 
       box-shadow:
         var(--shadow);
-
-      position:relative;
-
-      overflow:hidden;
     }
 
     .card::before{
@@ -804,429 +875,177 @@
     }
 
     .card-title{
+      margin-bottom:18px;
+
+      color:#dfe8ed;
+
       font-size:13px;
-
-      color:#dfe9ee;
-
-      text-transform:uppercase;
+      font-weight:900;
 
       letter-spacing:.16em;
 
-      font-weight:900;
-
-      margin-bottom:18px;
+      text-transform:uppercase;
     }
 
-
-    /* =========================
-       PROFILE HEADER
-    ========================= */
-
-    .profile-row{
+    .profile-preview{
       display:flex;
       align-items:center;
 
       gap:16px;
 
-      margin-bottom:28px;
+      margin-bottom:24px;
     }
 
     .avatar{
-      width:78px;
-      height:78px;
-
-      border-radius:50%;
+      width:72px;
+      height:72px;
 
       display:grid;
       place-items:center;
 
-      background:
-        linear-gradient(
-          135deg,
-          rgba(255,255,255,.14),
-          rgba(46,199,241,.18),
-          rgba(139,234,111,.16)
-        );
+      flex:0 0 auto;
 
       border:
         1px solid
-        rgba(255,255,255,.20);
+        rgba(255,255,255,.18);
 
-      font-size:32px;
+      border-radius:50%;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,.12),
+          rgba(46,199,241,.18),
+          rgba(139,234,111,.15)
+        );
+
+      font-size:30px;
     }
 
-    .profile-email{
-      font-size:
-        clamp(18px,3vw,28px);
-
-      font-weight:900;
-
+    .fake-email{
       color:#fff;
+
+      font-size:22px;
+      font-weight:900;
     }
 
-    .profile-note{
-      color:
-        var(--muted);
-
+    .fake-subtitle{
       margin-top:5px;
+
+      color:var(--muted);
 
       font-size:14px;
     }
-
-
-    /* =========================
-       STATUS
-    ========================= */
 
     .status-grid{
       display:grid;
 
       grid-template-columns:
-        repeat(2,minmax(0,1fr));
+        repeat(
+          2,
+          minmax(0,1fr)
+        );
 
       gap:14px;
     }
 
     .status-box{
-      padding:20px;
-
-      border-radius:20px;
+      padding:18px;
 
       border:
         1px solid
         rgba(255,255,255,.10);
 
-      background:
-        linear-gradient(
-          180deg,
-          rgba(255,255,255,.07),
-          rgba(255,255,255,.03)
-        );
-    }
-
-    .status-label{
-      color:#d7e3ea;
-
-      font-size:12px;
-
-      text-transform:uppercase;
-
-      letter-spacing:.12em;
-
-      font-weight:800;
-
-      margin-bottom:8px;
-    }
-
-    .status-value{
-      font-size:24px;
-
-      font-weight:900;
-
-      color:#fff;
-    }
-
-    .pill{
-      display:inline-flex;
-
-      border-radius:999px;
-
-      padding:
-        8px 12px;
-
-      font-size:13px;
-
-      font-weight:900;
-
-      margin-top:10px;
-    }
-
-    .pill.active{
-      color:
-        var(--green);
-
-      background:
-        rgba(139,234,111,.10);
-    }
-
-    .pill.inactive{
-      color:#ffd0d0;
-
-      background:
-        rgba(255,123,123,.09);
-    }
-
-
-    /* =========================
-       PLAN VISUALS
-    ========================= */
-
-    .plan-visuals{
-      display:grid;
-
-      grid-template-columns:
-        repeat(2,minmax(0,1fr));
-
-      gap:14px;
-
-      margin-top:18px;
-    }
-
-    .plan-visual{
-      display:flex;
-      align-items:center;
-
-      gap:14px;
-
-      padding:16px;
-
       border-radius:20px;
-
-      border:
-        1px solid
-        rgba(255,255,255,.09);
-
-      background:
-        rgba(255,255,255,.025);
-
-      opacity:.58;
-    }
-
-    .plan-visual.active-plan{
-      opacity:1;
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(46,199,241,.10),
-          rgba(139,234,111,.08)
-        );
-    }
-
-    .plan-mark{
-      min-width:108px;
-      min-height:78px;
-
-      display:grid;
-      place-items:center;
-
-      border-radius:16px;
-
-      color:#071018;
-
-      font-size:14px;
-      font-weight:950;
-
-      letter-spacing:.10em;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--cyan),
-          var(--green)
-        );
-    }
-
-    .plan-copy strong{
-      display:block;
-
-      color:#fff;
-
-      font-size:18px;
-    }
-
-    .plan-copy span{
-      display:block;
-
-      margin-top:5px;
-
-      color:
-        var(--muted);
-
-      font-size:13px;
-    }
-
-
-    /* =========================
-       PRODUCT VALUE
-    ========================= */
-
-    .insight-strip{
-      display:grid;
-
-      grid-template-columns:
-        repeat(3,minmax(0,1fr));
-
-      gap:12px;
-
-      margin-top:18px;
-    }
-
-    .insight-box{
-      padding:
-        18px;
-
-      border-radius:
-        20px;
 
       background:
         rgba(255,255,255,.045);
-
-      border:
-        1px solid
-        rgba(255,255,255,.10);
     }
 
-    .insight-kicker{
-      font-size:15px;
+    .status-label{
+      margin-bottom:8px;
 
-      font-weight:950;
+      color:#d3e0e7;
 
-      color:#ffffff;
+      font-size:11px;
+      font-weight:800;
 
-      letter-spacing:.14em;
+      letter-spacing:.12em;
 
       text-transform:uppercase;
-
-      margin-bottom:12px;
     }
 
-    .insight-value{
-      font-size:14px;
-
-      font-weight:500;
-
-      color:
-        var(--muted);
-
-      line-height:1.55;
-    }
-
-
-    /* =========================
-       CTA
-    ========================= */
-
-    .cta{
-      margin-top:22px;
-
-      display:none;
-
-      padding:24px;
-
-      border-radius:24px;
-
-      border:
-        1px solid
-        rgba(255,255,255,.10);
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(255,255,255,.05),
-          rgba(255,255,255,.03)
-        );
-    }
-
-    .cta h3{
-      margin:
-        0 0 8px;
-
-      font-size:24px;
-
+    .status-value{
       color:#fff;
+
+      font-size:22px;
+      font-weight:900;
     }
 
-    .cta p{
-      margin:
-        0 0 18px;
-
-      color:
-        var(--muted);
-
-      line-height:1.6;
-    }
-
-    .btn{
+    .active-pill{
       display:inline-flex;
 
-      align-items:center;
-      justify-content:center;
-
-      min-height:50px;
+      margin-top:8px;
 
       padding:
-        0 20px;
+        7px 11px;
 
-      border-radius:16px;
+      border-radius:999px;
 
-      font-weight:900;
+      color:var(--green);
 
       background:
-        linear-gradient(
-          135deg,
-          var(--cyan),
-          var(--green)
-        );
+        rgba(139,234,111,.09);
 
-      color:#071018;
+      font-size:12px;
+      font-weight:900;
     }
-
-
-    /* =========================
-       ACCESS
-    ========================= */
 
     .access-list{
       display:grid;
 
-      gap:14px;
+      gap:13px;
     }
 
     .access-item{
       display:flex;
-
       align-items:center;
       justify-content:space-between;
 
       gap:14px;
 
-      padding:18px;
-
-      border-radius:20px;
+      padding:
+        17px;
 
       border:
         1px solid
         rgba(255,255,255,.10);
 
+      border-radius:19px;
+
       background:
-        linear-gradient(
-          180deg,
-          rgba(255,255,255,.065),
-          rgba(255,255,255,.03)
-        );
+        rgba(255,255,255,.045);
     }
 
     .access-left{
       display:flex;
-
       align-items:center;
 
-      gap:14px;
+      gap:13px;
     }
 
     .access-icon{
-      width:44px;
-      height:44px;
-
-      border-radius:14px;
+      width:42px;
+      height:42px;
 
       display:grid;
       place-items:center;
 
-      color:#071018;
+      flex:0 0 auto;
 
-      font-weight:950;
+      border-radius:13px;
+
+      color:#071018;
 
       background:
         linear-gradient(
@@ -1234,81 +1053,302 @@
           var(--cyan),
           var(--green)
         );
+
+      font-size:14px;
+      font-weight:950;
     }
 
     .access-name{
-      font-weight:900;
-
-      font-size:18px;
-
       color:#fff;
+
+      font-size:17px;
+      font-weight:900;
     }
 
     .access-desc{
-      color:
-        var(--muted);
+      margin-top:4px;
 
-      font-size:13px;
+      color:var(--muted);
 
-      margin-top:5px;
-
-      line-height:1.55;
+      font-size:12px;
     }
 
     .access-badge{
-      min-width:94px;
-
-      text-align:center;
-
       padding:
-        9px 11px;
+        8px 11px;
 
       border-radius:999px;
 
-      font-size:12px;
+      color:#071018;
 
-      font-weight:900;
+      background:
+        linear-gradient(
+          135deg,
+          var(--cyan),
+          var(--green)
+        );
+
+      font-size:11px;
+      font-weight:950;
 
       text-transform:uppercase;
     }
 
-    .access-badge.yes{
-      color:#071018;
+    /* =========================
+       PRODUCT VALUE
+    ========================= */
+
+    .value-section{
+      padding-top:24px;
+    }
+
+    .value-grid{
+      display:grid;
+
+      grid-template-columns:
+        repeat(
+          3,
+          minmax(0,1fr)
+        );
+
+      gap:16px;
+    }
+
+    .value-card{
+      min-height:170px;
+
+      padding:24px;
+
+      border:
+        1px solid
+        var(--line);
+
+      border-radius:24px;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,.05),
+          rgba(255,255,255,.018)
+        );
+
+      box-shadow:
+        0 16px 50px
+        rgba(0,0,0,.18);
+    }
+
+    .value-card strong{
+      display:block;
+
+      color:#fff;
+
+      font-size:16px;
+      font-weight:950;
+
+      letter-spacing:.14em;
+    }
+
+    .value-card p{
+      margin:
+        12px 0 0;
+
+      color:var(--muted);
+
+      font-size:14px;
+
+      line-height:1.55;
+    }
+
+    /* =========================
+       PLANS
+    ========================= */
+
+    .plans-section{
+      padding-top:24px;
+    }
+
+    .plans-grid{
+      display:grid;
+
+      grid-template-columns:
+        repeat(
+          2,
+          minmax(0,1fr)
+        );
+
+      gap:18px;
+    }
+
+    .plan-card{
+      position:relative;
+
+      overflow:hidden;
+
+      padding:26px;
+
+      border:
+        1px solid
+        var(--line);
+
+      border-radius:26px;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,.05),
+          rgba(255,255,255,.018)
+        );
+
+      box-shadow:
+        0 18px 56px
+        rgba(0,0,0,.20);
+    }
+
+    .plan-card.featured{
+      border-color:
+        rgba(139,234,111,.20);
 
       background:
         linear-gradient(
           135deg,
-          var(--cyan),
-          var(--green)
+          rgba(46,199,241,.08),
+          rgba(139,234,111,.06)
         );
     }
 
-    .access-badge.no{
-      color:#f4f8fb;
+    .plan-label{
+      color:var(--cyan);
 
-      background:
-        rgba(255,255,255,.08);
+      font-size:11px;
+      font-weight:900;
+
+      letter-spacing:.16em;
+
+      text-transform:uppercase;
     }
 
+    .plan-card h3{
+      margin:
+        10px 0 8px;
+
+      color:#fff;
+
+      font-size:28px;
+    }
+
+    .plan-card p{
+      margin:0;
+
+      color:var(--muted);
+
+      line-height:1.55;
+    }
+
+    .plan-items{
+      display:grid;
+
+      gap:9px;
+
+      margin-top:18px;
+    }
+
+    .plan-item{
+      display:flex;
+      align-items:center;
+
+      gap:8px;
+
+      color:var(--text-soft);
+
+      font-size:14px;
+    }
+
+    .check{
+      color:var(--green);
+
+      font-weight:950;
+    }
+
+    /* =========================
+       FINAL CTA
+    ========================= */
+
+    .final-cta{
+      margin-top:24px;
+
+      padding:
+        32px;
+
+      border:
+        1px solid
+        rgba(46,199,241,.18);
+
+      border-radius:30px;
+
+      background:
+        radial-gradient(
+          circle at 10% 10%,
+          rgba(46,199,241,.10),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 90% 80%,
+          rgba(139,234,111,.08),
+          transparent 28%
+        ),
+        rgba(255,255,255,.025);
+
+      text-align:center;
+    }
+
+    .final-cta h2{
+      margin:0;
+
+      color:#fff;
+
+      font-size:
+        clamp(
+          28px,
+          4vw,
+          42px
+        );
+    }
+
+    .final-cta p{
+      max-width:650px;
+
+      margin:
+        12px auto 0;
+
+      color:var(--muted);
+
+      line-height:1.6;
+    }
+
+    .final-actions{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+
+      gap:12px;
+
+      margin-top:22px;
+    }
 
     /* =========================
        FOOTER
     ========================= */
 
     .footer{
-      margin-top:44px;
+      padding:
+        40px 0 4px;
 
-      color:#a7bac5;
+      color:#9aadb8;
 
       font-size:13px;
 
       text-align:center;
     }
-
-    .hidden{
-      display:none !important;
-    }
-
 
     /* =========================
        RESPONSIVE
@@ -1316,27 +1356,32 @@
 
     @media(max-width:980px){
 
-      .grid{
-        grid-template-columns:1fr;
-      }
-
       .hero{
-        padding-bottom:184px;
+        padding-bottom:210px;
       }
 
       .scene{
-        transform:scale(.85);
-
         right:-40px;
+        bottom:-38px;
+
+        transform:
+          scale(.86);
 
         transform-origin:
           bottom right;
       }
 
+      .preview-grid{
+        grid-template-columns:1fr;
+      }
+
+      .value-grid{
+        grid-template-columns:1fr;
+      }
+
     }
 
-
-    @media(max-width:680px){
+    @media(max-width:700px){
 
       .shell{
         width:
@@ -1356,33 +1401,44 @@
 
       .hero{
         padding:
-          34px 22px 180px;
+          38px 22px 210px;
+
+        min-height:auto;
       }
 
-      .hero p{
+      .hero-text{
         font-size:16px;
       }
 
       .scene{
-        transform:scale(.7);
+        right:-110px;
 
-        right:-100px;
+        transform:
+          scale(.68);
       }
 
-      .brand-orbit-card{
+      .scene-card{
         display:none;
       }
 
-      .status-grid,
-      .plan-visuals,
-      .insight-strip{
+      .section-heading{
+        align-items:flex-start;
+
+        flex-direction:column;
+      }
+
+      .status-grid{
+        grid-template-columns:1fr;
+      }
+
+      .plans-grid{
         grid-template-columns:1fr;
       }
 
       .access-item{
-        flex-direction:column;
-
         align-items:flex-start;
+
+        flex-direction:column;
       }
 
     }
@@ -1390,535 +1446,281 @@
   </style>
 </head>
 
-
 <body>
 
-<div class="shell">
+  <div class="shell">
 
 
-  <!-- NAVBAR -->
+    <!-- NAVBAR -->
 
-  <header class="topbar">
-
-    <a
-      class="brand"
-      href="/"
-    >
-
-      <img
-        src="../logo.png"
-        alt="vikundey.crypto"
-      >
-
-      <div class="brand-name">
-        vikundey.crypto
-      </div>
-
-    </a>
-
-
-    <nav class="nav">
-
-      <a href="/">
-        Головна
-      </a>
-
-      <a href="/nfp/">
-        NFP
-      </a>
-
-      <a href="/cpi/">
-        CPI
-      </a>
-
-      <a href="/thoughts/">
-        Thoughts
-      </a>
+    <header class="topbar">
 
       <a
-        class="active"
-        href="/profile/"
+        class="brand"
+        href="/"
       >
-        👤
+
+        <img
+          src="../logo.png"
+          alt="vikundey.crypto"
+        >
+
+        <div class="brand-name">
+          vikundey.crypto
+        </div>
+
       </a>
 
-    </nav>
 
-  </header>
+      <nav class="nav">
 
+        <a href="/">
+          Головна
+        </a>
 
-  <!-- HERO -->
+        <a href="/nfp/">
+          NFP
+        </a>
 
-  <section class="hero">
+        <a href="/cpi/">
+          CPI
+        </a>
 
-    <div class="hero-copy-wrap">
+        <a href="/thoughts/">
+          Thoughts
+        </a>
 
-      <div class="eyebrow">
-
-        <span class="dot"></span>
-
-        Vikundey Space
-
-      </div>
-
-
-      <h1>
-        Мій профіль
-      </h1>
-
-
-      <p>
-
-        Твій персональний простір у Vikundey Space:
-        доступ до авторської макроаналітики,
-        ринкових розборів, сценаріїв та
-        навчальних матеріалів в одному місці.
-
-      </p>
-
-
-      <div class="hero-meta">
-
-        <div class="hero-chip">
-          Premium Access
-        </div>
-
-        <div class="hero-chip">
-          NFP · CPI · Thoughts
-        </div>
-
-        <div class="hero-chip">
-          Macro · Research · Markets
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- HERO VISUAL -->
-
-    <div class="scene">
-
-
-      <div class="market-bars">
-
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-
-      </div>
-
-
-      <svg
-        class="trend"
-        viewBox="0 0 270 130"
-      >
-
-        <defs>
-
-          <linearGradient
-            id="trendGradient"
-            x1="0"
-            y1="1"
-            x2="1"
-            y2="0"
-          >
-
-            <stop
-              offset="0%"
-              stop-color="#2ec7f1"
-            />
-
-            <stop
-              offset="100%"
-              stop-color="#8bea6f"
-            />
-
-          </linearGradient>
-
-        </defs>
-
-
-        <path
-          d="
-          M8 112
-          C40 108,
-          58 88,
-          86 90
-          S132 64,
-          156 68
-          S198 42,
-          224 48
-          S244 24,
-          264 8
-          "
-        />
-
-
-        <circle
-          cx="86"
-          cy="90"
-          r="4"
-        />
-
-
-        <circle
-          cx="224"
-          cy="48"
-          r="4"
-        />
-
-
-        <circle
-          cx="264"
-          cy="8"
-          r="4"
-        />
-
-      </svg>
-
-
-      <div class="brand-orbit-card card-a">
-
-        <div class="mini-icon">
-          ◉
-        </div>
-
-        <div>
-
-          <strong>
-            Macro
-          </strong>
-
-          <span>
-            Global context
-          </span>
-
-        </div>
-
-      </div>
-
-
-      <div class="brand-orbit-card card-b">
-
-        <div class="mini-icon">
-          ▥
-        </div>
-
-        <div>
-
-          <strong>
-            Data
-          </strong>
-
-          <span>
-            Market reaction
-          </span>
-
-        </div>
-
-      </div>
-
-
-      <div class="planet-wrap">
-
-        <div class="ring"></div>
-
-        <div class="ring-two"></div>
-
-
-        <span class="node one"></span>
-
-        <span class="node two"></span>
-
-        <span class="node three"></span>
-
-
-        <div class="planet">
-
-          <div class="planet-grid-v"></div>
-
-          <div class="planet-grid-h"></div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- LOADING -->
-
-  <div
-    id="loading"
-    class="loading"
-  >
-
-    Завантажуємо дані профілю…
-
-  </div>
-
-
-  <div
-    id="error"
-    class="error"
-  >
-
-    Не вдалося завантажити профіль.
-    Онови сторінку або увійди повторно.
-
-  </div>
-
-
-  <!-- PROFILE -->
-
-  <main
-    id="profileContent"
-    class="grid hidden"
-  >
-
-
-    <section class="card">
-
-
-      <div class="card-title">
-        Профіль
-      </div>
-
-
-      <div class="profile-row">
-
-        <div class="avatar">
+        <a
+          class="active"
+          href="/profile/"
+        >
           👤
-        </div>
+        </a>
+
+      </nav>
+
+    </header>
 
 
-        <div>
+    <!-- HERO -->
 
-          <div
-            id="email"
-            class="profile-email"
-          >
-            —
-          </div>
+    <section class="hero">
 
 
-          <div class="profile-note">
-            Авторизований користувач Vikundey Space
-          </div>
-
-        </div>
-
-      </div>
+      <div class="hero-copy">
 
 
-      <!-- STATUS -->
+        <div class="eyebrow">
 
-      <div class="status-grid">
+          <span class="eyebrow-dot"></span>
 
-
-        <div class="status-box">
-
-          <div class="status-label">
-            Підписка
-          </div>
-
-          <div
-            id="plan"
-            class="status-value"
-          >
-            —
-          </div>
+          Vikundey Space
 
         </div>
 
 
-        <div class="status-box">
+        <h1>
+          Твій профіль
+        </h1>
 
-          <div class="status-label">
-            Статус
-          </div>
 
-          <div
-            id="statusText"
-            class="status-value"
-          >
-            —
-          </div>
+        <p class="hero-text">
 
-          <div
-            id="statusPill"
-            class="pill"
-          >
-            —
-          </div>
-
-        </div>
-
-
-      </div>
-
-
-      <!-- PLAN VISUALS -->
-
-      <div class="plan-visuals">
-
-
-        <div
-          id="fullPlanVisual"
-          class="plan-visual"
-        >
-
-          <div class="plan-mark">
-            FULL
-          </div>
-
-
-          <div class="plan-copy">
-
-            <strong>
-              Full Vikundey Space
-            </strong>
-
-            <span>
-              NFP + CPI + Vikundey Thoughts
-            </span>
-
-          </div>
-
-        </div>
-
-
-        <div
-          id="newsPlanVisual"
-          class="plan-visual"
-        >
-
-          <div class="plan-mark">
-            NEWS
-          </div>
-
-
-          <div class="plan-copy">
-
-            <strong>
-              News Vikundey Space
-            </strong>
-
-            <span>
-              NFP + CPI
-            </span>
-
-          </div>
-
-        </div>
-
-
-      </div>
-
-
-      <!-- PRODUCT VALUE -->
-
-      <div class="insight-strip">
-
-
-        <div class="insight-box">
-
-          <div class="insight-kicker">
-            RESEARCH
-          </div>
-
-          <div class="insight-value">
-
-            Авторські макророзбори
-            та логіка реакції ринків.
-
-          </div>
-
-        </div>
-
-
-        <div class="insight-box">
-
-          <div class="insight-kicker">
-            MARKETS
-          </div>
-
-          <div class="insight-value">
-
-            Підготовка до NFP та CPI
-            та моментний вплив на ринки.
-
-          </div>
-
-        </div>
-
-
-        <div class="insight-box">
-
-          <div class="insight-kicker">
-            KNOWLEDGE
-          </div>
-
-          <div class="insight-value">
-
-            Економіка, геополітика
-            та навчальні матеріали
-            для глибшого розуміння ринку.
-
-          </div>
-
-        </div>
-
-
-      </div>
-
-
-      <!-- CTA -->
-
-      <div
-        id="cta"
-        class="cta"
-      >
-
-        <h3
-          id="ctaTitle"
-        >
-
-          Відкрий Vikundey Space
-
-        </h3>
-
-
-        <p
-          id="ctaText"
-        >
-
-          Обери формат доступу та отримай
-          авторську аналітику, ринковий контекст
-          і матеріали, які допомагають бачити
-          ринок ширше за окремий реліз чи новину.
+          Персональний простір для доступу до
+          авторської макроаналітики, підготовки до
+          ключових релізів та матеріалів Vikundey Thoughts.
 
         </p>
 
 
-        <a
-          id="subscribeButton"
-          class="btn"
-          href="https://secure.wayforpay.com/sub/see534a7947df"
-          target="_blank"
-          rel="noopener noreferrer"
+        <div class="hero-actions">
+
+
+          <a
+            class="btn btn-primary"
+            href="/profile/account/"
+          >
+            Увійти у профіль →
+          </a>
+
+
+          <a
+            class="btn btn-secondary"
+            href="https://secure.wayforpay.com/sub/see534a7947df"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Обрати підписку
+          </a>
+
+
+        </div>
+
+
+        <div class="login-note">
+
+          <span class="login-note-icon">
+            ✓
+          </span>
+
+          Вхід через одноразовий код на email.
+          Пароль створювати не потрібно.
+
+        </div>
+
+
+      </div>
+
+
+      <!-- VISUAL -->
+
+      <div
+        class="scene"
+        aria-hidden="true"
+      >
+
+
+        <div class="bars">
+
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+
+        </div>
+
+
+        <svg
+          class="trend"
+          viewBox="0 0 280 130"
         >
 
-          Обрати підписку →
+          <defs>
 
-        </a>
+            <linearGradient
+              id="trendGradient"
+              x1="0"
+              y1="1"
+              x2="1"
+              y2="0"
+            >
+
+              <stop
+                offset="0%"
+                stop-color="#2ec7f1"
+              />
+
+              <stop
+                offset="100%"
+                stop-color="#8bea6f"
+              />
+
+            </linearGradient>
+
+          </defs>
+
+
+          <path
+            d="
+              M8 112
+              C42 108,
+              60 90,
+              88 91
+              S136 64,
+              160 68
+              S202 40,
+              228 47
+              S250 23,
+              272 8
+            "
+          />
+
+
+          <circle
+            cx="88"
+            cy="91"
+            r="4"
+          />
+
+
+          <circle
+            cx="228"
+            cy="47"
+            r="4"
+          />
+
+
+          <circle
+            cx="272"
+            cy="8"
+            r="4"
+          />
+
+        </svg>
+
+
+        <div class="scene-card one">
+
+          <div class="scene-icon">
+            ◉
+          </div>
+
+          <div>
+
+            <strong>
+              Macro
+            </strong>
+
+            <span>
+              Global context
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="scene-card two">
+
+          <div class="scene-icon">
+            ▥
+          </div>
+
+          <div>
+
+            <strong>
+              Research
+            </strong>
+
+            <span>
+              Market scenarios
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="planet-area">
+
+          <div class="ring"></div>
+
+          <div class="ring-two"></div>
+
+
+          <span class="node a"></span>
+
+          <span class="node b"></span>
+
+          <span class="node c"></span>
+
+
+          <div class="planet"></div>
+
+        </div>
+
 
       </div>
 
@@ -1926,532 +1728,515 @@
     </section>
 
 
-    <!-- ACCESS -->
+    <!-- PROFILE PREVIEW -->
 
-    <aside class="card">
-
-
-      <div class="card-title">
-        Мій доступ
-      </div>
+    <section class="preview-section">
 
 
-      <div class="access-list">
+      <div class="section-heading">
 
+        <div>
 
-        <div class="access-item">
-
-          <div class="access-left">
-
-            <div class="access-icon">
-              N
-            </div>
-
-            <div>
-
-              <div class="access-name">
-                NFP
-              </div>
-
-              <div class="access-desc">
-
-                Ринок праці США,
-                Nonfarm Payrolls
-                та реакція ринку.
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <div
-            id="accessNfp"
-            class="access-badge no"
-          >
-            Немає
-          </div>
+          <h2>
+            Як виглядає твій профіль
+          </h2>
 
         </div>
 
 
-        <div class="access-item">
+        <p>
 
-          <div class="access-left">
+          Після входу ти побачиш свій тариф,
+          статус підписки та доступні матеріали
+          в одному кабінеті.
 
-            <div class="access-icon">
-              C
-            </div>
-
-            <div>
-
-              <div class="access-name">
-                CPI
-              </div>
-
-              <div class="access-desc">
-
-                Інфляція США,
-                Core CPI та сценарії
-                для активів.
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <div
-            id="accessCpi"
-            class="access-badge no"
-          >
-            Немає
-          </div>
-
-        </div>
-
-
-        <div class="access-item">
-
-          <div class="access-left">
-
-            <div class="access-icon">
-              V
-            </div>
-
-            <div>
-
-              <div class="access-name">
-                Vikundey Thoughts
-              </div>
-
-              <div class="access-desc">
-
-                Освіта, макроекономіка,
-                геополітика та авторська
-                аналітика.
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <div
-            id="accessThoughts"
-            class="access-badge no"
-          >
-            Немає
-          </div>
-
-        </div>
-
+        </p>
 
       </div>
 
 
-    </aside>
+      <div class="preview-grid">
 
 
-  </main>
+        <!-- PROFILE -->
 
+        <article class="card">
 
-  <footer class="footer">
 
-    © vikundey.crypto · Vikundey Space
+          <div class="card-title">
+            Профіль
+          </div>
 
-  </footer>
 
+          <div class="profile-preview">
 
-</div>
 
+            <div class="avatar">
+              👤
+            </div>
 
-<!-- PROFILE LOGIC -->
 
-<script>
+            <div>
 
-  const el =
-    id =>
-      document.getElementById(id);
 
+              <div class="fake-email">
+                user@email.com
+              </div>
 
-  function setAccessBadge(
-    id,
-    enabled
-  ){
 
-    const node =
-      el(id);
+              <div class="fake-subtitle">
+                Приклад особистого профілю
+              </div>
 
 
-    if(enabled){
+            </div>
 
-      node.textContent =
-        "Доступ";
 
+          </div>
 
-      node.classList.remove(
-        "no"
-      );
 
+          <div class="status-grid">
 
-      node.classList.add(
-        "yes"
-      );
 
-    }else{
+            <div class="status-box">
 
-      node.textContent =
-        "Немає";
 
+              <div class="status-label">
+                Підписка
+              </div>
 
-      node.classList.remove(
-        "yes"
-      );
 
+              <div class="status-value">
+                Full Vikundey Space
+              </div>
 
-      node.classList.add(
-        "no"
-      );
 
-    }
+            </div>
 
-  }
 
+            <div class="status-box">
 
-  function planLabel(
-    plan
-  ){
 
-    if(
-      plan ===
-      "full"
-    ){
+              <div class="status-label">
+                Статус
+              </div>
 
-      return (
-        "Full Vikundey Space"
-      );
 
-    }
+              <div class="status-value">
+                Активна
+              </div>
 
 
-    if(
-      plan ===
-      "news"
-    ){
+              <div class="active-pill">
+                ● Active
+              </div>
 
-      return (
-        "News Vikundey Space"
-      );
 
-    }
+            </div>
 
 
-    return (
-      "Немає активної"
-    );
+          </div>
 
-  }
 
+        </article>
 
-  async function loadProfile(){
 
-    try{
+        <!-- ACCESS -->
 
+        <article class="card">
 
-      const response =
-        await fetch(
-          "/api/profile",
-          {
 
-            method:
-              "GET",
+          <div class="card-title">
+            Мій доступ
+          </div>
 
-            credentials:
-              "same-origin",
 
-            headers:{
-              "Accept":
-                "application/json"
-            }
+          <div class="access-list">
 
-          }
-        );
 
+            <div class="access-item">
 
-      if(
-        !response.ok
-      ){
 
-        throw new Error(
-          "Profile API error"
-        );
+              <div class="access-left">
 
-      }
 
+                <div class="access-icon">
+                  N
+                </div>
 
-      const data =
-        await response.json();
 
+                <div>
 
-      if(
-        !data.ok
-      ){
 
-        throw new Error(
-          data.error ||
-          "Profile error"
-        );
+                  <div class="access-name">
+                    NFP
+                  </div>
 
-      }
 
+                  <div class="access-desc">
+                    Підготовка та аналіз
+                  </div>
 
-      /* EMAIL */
 
-      el(
-        "email"
-      ).textContent =
-        data.email ||
-        "—";
+                </div>
 
 
-      /* PLAN */
+              </div>
 
-      el(
-        "plan"
-      ).textContent =
-        planLabel(
-          data.plan
-        );
 
+              <div class="access-badge">
+                Доступ
+              </div>
 
-      /* PLAN HIGHLIGHT */
 
-      el(
-        "fullPlanVisual"
-      )
-      .classList
-      .toggle(
-        "active-plan",
-        data.plan ===
-        "full"
-      );
+            </div>
 
 
-      el(
-        "newsPlanVisual"
-      )
-      .classList
-      .toggle(
-        "active-plan",
-        data.plan ===
-        "news"
-      );
+            <div class="access-item">
 
 
-      /* STATUS */
+              <div class="access-left">
 
-      const active =
-        data.status ===
-        "active";
 
+                <div class="access-icon">
+                  C
+                </div>
 
-      el(
-        "statusText"
-      ).textContent =
-        active
-          ? "Активна"
-          : "Неактивна";
 
+                <div>
 
-      el(
-        "statusPill"
-      ).textContent =
-        active
-          ? "● Active"
-          : "● Inactive";
 
+                  <div class="access-name">
+                    CPI
+                  </div>
 
-      el(
-        "statusPill"
-      )
-      .classList
-      .toggle(
-        "active",
-        active
-      );
 
+                  <div class="access-desc">
+                    Інфляція та ринкові сценарії
+                  </div>
 
-      el(
-        "statusPill"
-      )
-      .classList
-      .toggle(
-        "inactive",
-        !active
-      );
 
+                </div>
 
-      /* ACCESS */
 
-      setAccessBadge(
-        "accessNfp",
-        !!data.access?.nfp
-      );
+              </div>
 
 
-      setAccessBadge(
-        "accessCpi",
-        !!data.access?.cpi
-      );
+              <div class="access-badge">
+                Доступ
+              </div>
 
 
-      setAccessBadge(
-        "accessThoughts",
-        !!data.access?.thoughts
-      );
+            </div>
 
 
-      /* CTA */
+            <div class="access-item">
 
-      const cta =
-        el(
-          "cta"
-        );
 
+              <div class="access-left">
 
-      const button =
-        el(
-          "subscribeButton"
-        );
 
+                <div class="access-icon">
+                  V
+                </div>
 
-      if(
-        data.subscriptionUrl
-      ){
 
-        button.href =
-          data.subscriptionUrl;
+                <div>
 
-      }
 
+                  <div class="access-name">
+                    Vikundey Thoughts
+                  </div>
 
-      if(
-        data.plan ===
-        "none"
-      ){
 
-        cta.style.display =
-          "block";
+                  <div class="access-desc">
+                    Освіта, економіка та геополітика
+                  </div>
 
 
-        el(
-          "ctaTitle"
-        ).textContent =
-          "Відкрий Vikundey Space";
+                </div>
 
 
-        el(
-          "ctaText"
-        ).textContent =
-          "Обери формат доступу та отримай авторську аналітику, ринковий контекст і матеріали, які допомагають бачити ринок ширше за окремий реліз чи новину.";
+              </div>
 
 
-        button.textContent =
-          "Обрати підписку →";
+              <div class="access-badge">
+                Доступ
+              </div>
 
-      }
 
+            </div>
 
-      else if(
-        data.plan ===
-        "news"
-      ){
 
-        cta.style.display =
-          "block";
+          </div>
 
 
-        el(
-          "ctaTitle"
-        ).textContent =
-          "Перейти на Full";
+        </article>
 
 
-        el(
-          "ctaText"
-        ).textContent =
-          "У тебе вже є NFP та CPI. Full також відкриває Vikundey Thoughts.";
+      </div>
 
 
-        button.textContent =
-          "Переглянути Full →";
+    </section>
 
-      }
 
+    <!-- PRODUCT VALUE -->
 
-      else{
+    <section class="value-section">
 
-        cta.style.display =
-          "none";
 
-      }
+      <div class="value-grid">
 
 
-      el(
-        "loading"
-      )
-      .classList
-      .add(
-        "hidden"
-      );
+        <article class="value-card">
 
 
-      el(
-        "profileContent"
-      )
-      .classList
-      .remove(
-        "hidden"
-      );
+          <strong>
+            RESEARCH
+          </strong>
 
 
-    }catch(error){
+          <p>
 
+            Авторські макророзбори
+            та логіка реакції ринків.
 
-      console.error(
-        error
-      );
+          </p>
 
 
-      el(
-        "loading"
-      )
-      .classList
-      .add(
-        "hidden"
-      );
+        </article>
 
 
-      el(
-        "error"
-      )
-      .style
-      .display =
-        "block";
+        <article class="value-card">
 
 
-    }
+          <strong>
+            MARKETS
+          </strong>
 
-  }
 
+          <p>
 
-  loadProfile();
+            Підготовка до NFP та CPI
+            та моментний вплив на ринки.
 
-</script>
+          </p>
+
+
+        </article>
+
+
+        <article class="value-card">
+
+
+          <strong>
+            KNOWLEDGE
+          </strong>
+
+
+          <p>
+
+            Економіка, геополітика
+            та навчальні матеріали
+            для глибшого розуміння ринку.
+
+          </p>
+
+
+        </article>
+
+
+      </div>
+
+
+    </section>
+
+
+    <!-- PLANS -->
+
+    <section class="plans-section">
+
+
+      <div class="plans-grid">
+
+
+        <article class="plan-card featured">
+
+
+          <div class="plan-label">
+            Повний доступ
+          </div>
+
+
+          <h3>
+            Full Vikundey Space
+          </h3>
+
+
+          <p>
+
+            Повний доступ до аналітики
+            та навчального простору.
+
+          </p>
+
+
+          <div class="plan-items">
+
+
+            <div class="plan-item">
+
+              <span class="check">
+                ✓
+              </span>
+
+              NFP
+
+            </div>
+
+
+            <div class="plan-item">
+
+              <span class="check">
+                ✓
+              </span>
+
+              CPI
+
+            </div>
+
+
+            <div class="plan-item">
+
+              <span class="check">
+                ✓
+              </span>
+
+              Vikundey Thoughts
+
+            </div>
+
+
+          </div>
+
+
+        </article>
+
+
+        <article class="plan-card">
+
+
+          <div class="plan-label">
+            Macro News
+          </div>
+
+
+          <h3>
+            News Vikundey Space
+          </h3>
+
+
+          <p>
+
+            Фокус на ключових
+            макроекономічних релізах.
+
+          </p>
+
+
+          <div class="plan-items">
+
+
+            <div class="plan-item">
+
+              <span class="check">
+                ✓
+              </span>
+
+              NFP
+
+            </div>
+
+
+            <div class="plan-item">
+
+              <span class="check">
+                ✓
+              </span>
+
+              CPI
+
+            </div>
+
+
+          </div>
+
+
+        </article>
+
+
+      </div>
+
+
+    </section>
+
+
+    <!-- FINAL CTA -->
+
+    <section class="final-cta">
+
+
+      <h2>
+        Увійди у свій Vikundey Space
+      </h2>
+
+
+      <p>
+
+        Якщо в тебе вже є активна підписка —
+        увійди через email та отримай доступ
+        до свого персонального профілю.
+
+      </p>
+
+
+      <div class="final-actions">
+
+
+        <a
+          class="btn btn-primary"
+          href="/profile/account/"
+        >
+          Увійти у профіль →
+        </a>
+
+
+        <a
+          class="btn btn-secondary"
+          href="https://secure.wayforpay.com/sub/see534a7947df"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Обрати підписку
+        </a>
+
+
+      </div>
+
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+      © vikundey.crypto · Vikundey Space
+
+    </footer>
+
+
+  </div>
 
 </body>
 </html>
