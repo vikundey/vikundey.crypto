@@ -1,1 +1,2172 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>Vikundey Space — Мій профіль</title>
+
+  <meta
+    name="description"
+    content="Особистий профіль Vikundey Space"
+  />
+
+  <style>
+    :root{
+      --bg:#07111a;
+      --panel:rgba(11,25,37,.88);
+      --line:rgba(255,255,255,.12);
+
+      --cyan:#2ec7f1;
+      --green:#8bea6f;
+
+      --white:#ffffff;
+      --text:#ffffff;
+      --text-soft:#edf4f8;
+      --muted:#c4d3dc;
+      --muted-soft:#96aab8;
+
+      --shadow:0 26px 80px rgba(0,0,0,.32);
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
+    html,
+    body{
+      margin:0;
+      min-height:100%;
+    }
+
+    body{
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      color:var(--text);
+
+      background:
+        radial-gradient(
+          circle at 15% 12%,
+          rgba(46,199,241,.15),
+          transparent 24%
+        ),
+        radial-gradient(
+          circle at 86% 10%,
+          rgba(139,234,111,.12),
+          transparent 22%
+        ),
+        linear-gradient(
+          180deg,
+          #07111a 0%,
+          #081520 42%,
+          #05111a 100%
+        );
+
+      overflow-x:hidden;
+      position:relative;
+    }
+
+    body::before{
+      content:"";
+
+      position:fixed;
+      inset:0;
+
+      pointer-events:none;
+
+      background-image:
+        linear-gradient(
+          rgba(255,255,255,.02) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,.02) 1px,
+          transparent 1px
+        );
+
+      background-size:32px 32px;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .shell{
+      width:min(1220px,calc(100% - 32px));
+      margin:0 auto;
+      padding:22px 0 64px;
+
+      position:relative;
+      z-index:1;
+    }
+
+    /* NAVBAR */
+
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+
+      gap:20px;
+
+      padding:14px 18px;
+
+      border-radius:26px;
+
+      border:1px solid var(--line);
+
+      background:rgba(5,18,28,.86);
+
+      backdrop-filter:blur(16px);
+
+      box-shadow:var(--shadow);
+
+      position:sticky;
+      top:12px;
+
+      z-index:20;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .brand img{
+      width:42px;
+      height:42px;
+      object-fit:contain;
+    }
+
+    .brand-name{
+      font-weight:900;
+      font-size:18px;
+      color:#fff;
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+
+    .nav a{
+      color:#edf4f8;
+      font-weight:800;
+      font-size:14px;
+
+      padding:10px 14px;
+      border-radius:14px;
+
+      transition:.2s ease;
+    }
+
+    .nav a:hover{
+      background:rgba(255,255,255,.07);
+    }
+
+    .nav .active{
+      color:#071018;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--cyan),
+          var(--green)
+        );
+
+      box-shadow:
+        0 12px 24px
+        rgba(46,199,241,.18);
+    }
+
+    /* HERO */
+
+    .hero{
+      position:relative;
+      overflow:hidden;
+
+      margin-top:22px;
+
+      min-height:340px;
+
+      padding:58px 34px 42px;
+
+      border-radius:34px;
+
+      border:1px solid var(--line);
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,.06),
+          rgba(255,255,255,.015)
+        ),
+        linear-gradient(
+          120deg,
+          rgba(6,22,34,.90),
+          rgba(7,25,37,.82)
+        );
+
+      box-shadow:var(--shadow);
+
+      isolation:isolate;
+    }
+
+    .hero-copy-wrap{
+      position:relative;
+      z-index:4;
+      max-width:650px;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+
+      gap:8px;
+
+      color:var(--cyan);
+
+      text-transform:uppercase;
+      letter-spacing:.18em;
+
+      font-size:12px;
+      font-weight:900;
+    }
+
+    .dot{
+      width:8px;
+      height:8px;
+
+      border-radius:50%;
+
+      background:var(--green);
+
+      box-shadow:
+        0 0 16px
+        rgba(139,234,111,.8);
+    }
+
+    h1{
+      margin:16px 0 12px;
+
+      font-size:clamp(42px,6.2vw,82px);
+      line-height:.96;
+      letter-spacing:-.06em;
+
+      color:#fff;
+    }
+
+    .hero p{
+      margin:0;
+
+      max-width:630px;
+
+      color:var(--text-soft);
+
+      font-size:18px;
+      line-height:1.68;
+    }
+
+    .hero-meta{
+      display:flex;
+      flex-wrap:wrap;
+
+      gap:10px;
+
+      margin-top:22px;
+    }
+
+    .hero-chip{
+      padding:10px 14px;
+
+      border-radius:999px;
+
+      border:
+        1px solid
+        rgba(255,255,255,.14);
+
+      background:
+        rgba(255,255,255,.06);
+
+      color:#fff;
+
+      font-size:12px;
+      font-weight:800;
+
+      letter-spacing:.06em;
+
+      text-transform:uppercase;
+    }
+
+    /* HERO VISUAL */
+
+    .scene{
+      position:absolute;
+
+      right:-12px;
+      bottom:-10px;
+
+      width:470px;
+      height:320px;
+
+      pointer-events:none;
+
+      z-index:1;
+    }
+
+    .market-bars{
+      position:absolute;
+
+      right:18px;
+      top:8px;
+
+      height:132px;
+
+      display:flex;
+      align-items:flex-end;
+
+      gap:10px;
+
+      opacity:.42;
+    }
+
+    .market-bars span{
+      width:14px;
+
+      border-radius:
+        4px 4px 0 0;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(139,234,111,.96),
+          rgba(46,199,241,.45)
+        );
+    }
+
+    .market-bars span:nth-child(1){height:54px;}
+    .market-bars span:nth-child(2){height:86px;}
+    .market-bars span:nth-child(3){height:72px;}
+    .market-bars span:nth-child(4){height:106px;}
+    .market-bars span:nth-child(5){height:94px;}
+    .market-bars span:nth-child(6){height:126px;}
+
+    .trend{
+      position:absolute;
+
+      right:0;
+      top:0;
+
+      width:270px;
+      height:130px;
+    }
+
+    .trend path{
+      fill:none;
+
+      stroke:url(#trendGradient);
+
+      stroke-width:3;
+
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
+
+    .trend circle{
+      fill:#f7ffff;
+    }
+
+    .brand-orbit-card{
+      position:absolute;
+
+      display:flex;
+      align-items:center;
+
+      gap:10px;
+
+      min-width:140px;
+
+      padding:11px 13px;
+
+      border-radius:14px;
+
+      border:
+        1px solid
+        rgba(46,199,241,.24);
+
+      background:
+        rgba(7,28,40,.82);
+
+      backdrop-filter:blur(12px);
+
+      z-index:3;
+    }
+
+    .brand-orbit-card.card-a{
+      right:20px;
+      top:76px;
+    }
+
+    .brand-orbit-card.card-b{
+      right:210px;
+      top:138px;
+    }
+
+    .mini-icon{
+      width:34px;
+      height:34px;
+
+      border-radius:10px;
+
+      display:grid;
+      place-items:center;
+
+      color:#071018;
+
+      font-weight:900;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--cyan),
+          var(--green)
+        );
+    }
+
+    .brand-orbit-card strong{
+      display:block;
+
+      color:#fff;
+
+      font-size:13px;
+    }
+
+    .brand-orbit-card span{
+      display:block;
+
+      margin-top:3px;
+
+      color:var(--muted-soft);
+
+      font-size:10px;
+    }
+
+    .planet-wrap{
+      position:absolute;
+
+      right:20px;
+      bottom:-24px;
+
+      width:390px;
+      height:260px;
+    }
+
+    .planet{
+      position:absolute;
+
+      right:0;
+      bottom:0;
+
+      width:330px;
+      height:220px;
+
+      border-radius:
+        220px 220px 0 0;
+
+      overflow:hidden;
+
+      background:
+        radial-gradient(
+          circle at 28% 34%,
+          rgba(255,255,255,.14),
+          transparent 18%
+        ),
+        radial-gradient(
+          circle at 76% 26%,
+          rgba(139,234,111,.14),
+          transparent 18%
+        ),
+        linear-gradient(
+          180deg,
+          rgba(13,43,64,.96) 0%,
+          rgba(5,17,28,.98) 62%,
+          rgba(3,12,21,1) 100%
+        );
+
+      border:
+        1px solid
+        rgba(46,199,241,.24);
+
+      box-shadow:
+        inset 0 20px 50px
+        rgba(46,199,241,.10),
+        inset 0 -30px 50px
+        rgba(0,0,0,.62),
+        0 0 54px
+        rgba(46,199,241,.14);
+    }
+
+    .planet-grid-v,
+    .planet-grid-h{
+      position:absolute;
+      inset:0;
+    }
+
+    .planet-grid-v::before{
+      content:"";
+
+      position:absolute;
+
+      left:50%;
+      top:-8%;
+
+      transform:translateX(-50%);
+
+      width:40%;
+      height:116%;
+
+      border:
+        1px solid
+        rgba(46,199,241,.17);
+
+      border-radius:50%;
+    }
+
+    .planet-grid-h::before{
+      content:"";
+
+      position:absolute;
+
+      left:10%;
+      right:10%;
+      top:42%;
+
+      height:28%;
+
+      border:
+        1px solid
+        rgba(139,234,111,.16);
+
+      border-radius:50%;
+    }
+
+    .ring,
+    .ring-two{
+      position:absolute;
+
+      border-radius:50%;
+
+      border:
+        2px solid
+        rgba(46,199,241,.55);
+    }
+
+    .ring{
+      width:385px;
+      height:118px;
+
+      left:-8px;
+      top:96px;
+
+      transform:rotate(-11deg);
+    }
+
+    .ring-two{
+      width:352px;
+      height:132px;
+
+      left:8px;
+      top:82px;
+
+      transform:rotate(18deg);
+
+      border-color:
+        rgba(139,234,111,.48);
+    }
+
+    .node{
+      position:absolute;
+
+      width:14px;
+      height:14px;
+
+      border-radius:50%;
+
+      background:#f5ffff;
+
+      box-shadow:
+        0 0 16px
+        rgba(46,199,241,.55);
+    }
+
+    .node.one{
+      left:10px;
+      top:146px;
+    }
+
+    .node.two{
+      left:128px;
+      top:30px;
+    }
+
+    .node.three{
+      right:46px;
+      top:18px;
+    }
+
+    /* LOADING */
+
+    .loading,
+    .error{
+      margin-top:22px;
+
+      padding:18px 20px;
+
+      border:1px solid var(--line);
+
+      border-radius:18px;
+
+      color:var(--text-soft);
+
+      background:
+        rgba(255,255,255,.04);
+    }
+
+    .error{
+      display:none;
+
+      color:#ffe0e0;
+
+      background:
+        rgba(255,123,123,.08);
+    }
+
+    /* PROFILE GRID */
+
+    .grid{
+      display:grid;
+
+      grid-template-columns:
+        1.05fr .95fr;
+
+      gap:24px;
+
+      margin-top:24px;
+    }
+
+    .card{
+      border:1px solid var(--line);
+
+      border-radius:30px;
+
+      padding:30px;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,.05),
+          rgba(255,255,255,.018)
+        ),
+        linear-gradient(
+          180deg,
+          rgba(10,25,38,.95),
+          rgba(8,22,33,.88)
+        );
+
+      box-shadow:var(--shadow);
+
+      position:relative;
+      overflow:hidden;
+    }
+
+    .card::before{
+      content:"";
+
+      position:absolute;
+
+      left:0;
+      top:0;
+
+      width:100%;
+      height:2px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--cyan),
+          var(--green),
+          transparent
+        );
+    }
+
+    .card-title{
+      font-size:13px;
+
+      color:#dfe9ee;
+
+      text-transform:uppercase;
+
+      letter-spacing:.16em;
+
+      font-weight:900;
+
+      margin-bottom:18px;
+    }
+
+    /* PROFILE */
+
+    .profile-row{
+      display:flex;
+      align-items:center;
+
+      gap:16px;
+
+      margin-bottom:28px;
+    }
+
+    .avatar{
+      width:78px;
+      height:78px;
+
+      border-radius:50%;
+
+      display:grid;
+      place-items:center;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,.14),
+          rgba(46,199,241,.18),
+          rgba(139,234,111,.16)
+        );
+
+      border:
+        1px solid
+        rgba(255,255,255,.20);
+
+      font-size:32px;
+    }
+
+    .profile-email{
+      font-size:
+        clamp(18px,3vw,28px);
+
+      font-weight:900;
+
+      color:#fff;
+    }
+
+    .profile-note{
+      color:var(--muted);
+
+      margin-top:5px;
+
+      font-size:14px;
+    }
+
+    /* STATUS */
+
+    .status-grid{
+      display:grid;
+
+      grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+      gap:14px;
+    }
+
+    .status-box{
+      padding:20px;
+
+      border-radius:20px;
+
+      border:
+        1px solid
+        rgba(255,255,255,.10);
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,.07),
+          rgba(255,255,255,.03)
+        );
+    }
+
+    .status-label{
+      color:#d7e3ea;
+
+      font-size:12px;
+
+      text-transform:uppercase;
+
+      letter-spacing:.12em;
+
+      font-weight:800;
+
+      margin-bottom:8px;
+    }
+
+    .status-value{
+      font-size:24px;
+
+      font-weight:900;
+
+      color:#fff;
+    }
+
+    .pill{
+      display:inline-flex;
+
+      border-radius:999px;
+
+      padding:8px 12px;
+
+      font-size:13px;
+
+      font-weight:900;
+
+      margin-top:10px;
+    }
+
+    .pill.active{
+      color:var(--green);
+
+      background:
+        rgba(139,234,111,.10);
+    }
+
+    .pill.inactive{
+      color:#ffd0d0;
+
+      background:
+        rgba(255,123,123,.09);
+    }
+
+    /* PLAN VISUALS */
+
+    .plan-visuals{
+      display:grid;
+
+      grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+      gap:14px;
+
+      margin-top:18px;
+    }
+
+    .plan-visual{
+      display:flex;
+      align-items:center;
+
+      gap:14px;
+
+      padding:16px;
+
+      border-radius:20px;
+
+      border:
+        1px solid
+        rgba(255,255,255,.09);
+
+      background:
+        rgba(255,255,255,.025);
+
+      opacity:.58;
+    }
+
+    .plan-visual.active-plan{
+      opacity:1;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(46,199,241,.10),
+          rgba(139,234,111,.08)
+        );
+    }
+
+    .plan-mark{
+      min-width:108px;
+      min-height:78px;
+
+      display:grid;
+      place-items:center;
+
+      border-radius:16px;
+
+      color:#071018;
+
+      font-size:14px;
+      font-weight:950;
+
+      letter-spacing:.10em;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--cyan),
+          var(--green)
+        );
+    }
+
+    .plan-copy strong{
+      display:block;
+
+      color:#fff;
+
+      font-size:18px;
+    }
+
+    .plan-copy span{
+      display:block;
+
+      margin-top:5px;
+
+      color:var(--muted);
+
+      font-size:13px;
+    }
+
+    /* VALUE */
+
+    .insight-strip{
+      display:grid;
+
+      grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
+      gap:12px;
+
+      margin-top:18px;
+    }
+
+    .insight-box{
+      padding:18px;
+
+      border-radius:20px;
+
+      background:
+        rgba(255,255,255,.045);
+
+      border:
+        1px solid
+        rgba(255,255,255,.10);
+    }
+
+    .insight-kicker{
+      font-size:15px;
+
+      font-weight:950;
+
+      color:#ffffff;
+
+      letter-spacing:.14em;
+
+      text-transform:uppercase;
+
+      margin-bottom:12px;
+    }
+
+    .insight-value{
+      font-size:14px;
+
+      font-weight:500;
+
+      color:var(--muted);
+
+      line-height:1.55;
+    }
+
+    /* CTA */
+
+    .cta{
+      margin-top:22px;
+
+      display:none;
+
+      padding:24px;
+
+      border-radius:24px;
+
+      border:
+        1px solid
+        rgba(255,255,255,.10);
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,.05),
+          rgba(255,255,255,.03)
+        );
+    }
+
+    .cta h3{
+      margin:0 0 8px;
+
+      font-size:24px;
+
+      color:#fff;
+    }
+
+    .cta p{
+      margin:0 0 18px;
+
+      color:var(--muted);
+
+      line-height:1.6;
+    }
+
+    .btn{
+      display:inline-flex;
+
+      align-items:center;
+      justify-content:center;
+
+      min-height:50px;
+
+      padding:0 20px;
+
+      border-radius:16px;
+
+      font-weight:900;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--cyan),
+          var(--green)
+        );
+
+      color:#071018;
+    }
+
+    /* ACCESS */
+
+    .access-list{
+      display:grid;
+      gap:14px;
+    }
+
+    .access-item{
+      display:flex;
+
+      align-items:center;
+      justify-content:space-between;
+
+      gap:14px;
+
+      padding:18px;
+
+      border-radius:20px;
+
+      border:
+        1px solid
+        rgba(255,255,255,.10);
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,.065),
+          rgba(255,255,255,.03)
+        );
+    }
+
+    .access-left{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+
+    .access-icon{
+      width:44px;
+      height:44px;
+
+      border-radius:14px;
+
+      display:grid;
+      place-items:center;
+
+      color:#071018;
+
+      font-weight:950;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--cyan),
+          var(--green)
+        );
+    }
+
+    .access-name{
+      font-weight:900;
+
+      font-size:18px;
+
+      color:#fff;
+    }
+
+    .access-desc{
+      color:var(--muted);
+
+      font-size:13px;
+
+      margin-top:5px;
+
+      line-height:1.55;
+    }
+
+    .access-badge{
+      min-width:94px;
+
+      text-align:center;
+
+      padding:9px 11px;
+
+      border-radius:999px;
+
+      font-size:12px;
+
+      font-weight:900;
+
+      text-transform:uppercase;
+    }
+
+    .access-badge.yes{
+      color:#071018;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--cyan),
+          var(--green)
+        );
+    }
+
+    .access-badge.no{
+      color:#f4f8fb;
+
+      background:
+        rgba(255,255,255,.08);
+    }
+
+    .footer{
+      margin-top:44px;
+
+      color:#a7bac5;
+
+      font-size:13px;
+
+      text-align:center;
+    }
+
+    .hidden{
+      display:none !important;
+    }
+
+    @media(max-width:980px){
+
+      .grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero{
+        padding-bottom:184px;
+      }
+
+      .scene{
+        transform:scale(.85);
+
+        right:-40px;
+
+        transform-origin:
+          bottom right;
+      }
+
+    }
+
+    @media(max-width:680px){
+
+      .shell{
+        width:
+          calc(100% - 20px);
+      }
+
+      .brand-name{
+        display:none;
+      }
+
+      .nav a{
+        padding:9px 10px;
+
+        font-size:12px;
+      }
+
+      .hero{
+        padding:
+          34px 22px 180px;
+      }
+
+      .hero p{
+        font-size:16px;
+      }
+
+      .scene{
+        transform:scale(.7);
+
+        right:-100px;
+      }
+
+      .brand-orbit-card{
+        display:none;
+      }
+
+      .status-grid,
+      .plan-visuals,
+      .insight-strip{
+        grid-template-columns:1fr;
+      }
+
+      .access-item{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="shell">
+
+  <header class="topbar">
+
+    <a
+      class="brand"
+      href="/"
+    >
+
+      <img
+        src="../../logo.png"
+        alt="vikundey.crypto"
+      >
+
+      <div class="brand-name">
+        vikundey.crypto
+      </div>
+
+    </a>
+
+    <nav class="nav">
+
+      <a href="/">
+        Головна
+      </a>
+
+      <a href="/nfp/">
+        NFP
+      </a>
+
+      <a href="/cpi/">
+        CPI
+      </a>
+
+      <a href="/thoughts/">
+        Thoughts
+      </a>
+
+      <a
+        class="active"
+        href="/profile/account/"
+      >
+        👤
+      </a>
+
+    </nav>
+
+  </header>
+
+
+  <section class="hero">
+
+    <div class="hero-copy-wrap">
+
+      <div class="eyebrow">
+
+        <span class="dot"></span>
+
+        Vikundey Space
+
+      </div>
+
+      <h1>
+        Мій профіль
+      </h1>
+
+      <p>
+        Твій персональний простір у Vikundey Space:
+        доступ до авторської макроаналітики,
+        ринкових розборів, сценаріїв та
+        навчальних матеріалів в одному місці.
+      </p>
+
+      <div class="hero-meta">
+
+        <div class="hero-chip">
+          Premium Access
+        </div>
+
+        <div class="hero-chip">
+          NFP · CPI · Thoughts
+        </div>
+
+        <div class="hero-chip">
+          Macro · Research · Markets
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="scene">
+
+      <div class="market-bars">
+
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+
+      </div>
+
+      <svg
+        class="trend"
+        viewBox="0 0 270 130"
+      >
+
+        <defs>
+
+          <linearGradient
+            id="trendGradient"
+            x1="0"
+            y1="1"
+            x2="1"
+            y2="0"
+          >
+
+            <stop
+              offset="0%"
+              stop-color="#2ec7f1"
+            />
+
+            <stop
+              offset="100%"
+              stop-color="#8bea6f"
+            />
+
+          </linearGradient>
+
+        </defs>
+
+        <path
+          d="
+          M8 112
+          C40 108,
+          58 88,
+          86 90
+          S132 64,
+          156 68
+          S198 42,
+          224 48
+          S244 24,
+          264 8
+          "
+        />
+
+        <circle
+          cx="86"
+          cy="90"
+          r="4"
+        />
+
+        <circle
+          cx="224"
+          cy="48"
+          r="4"
+        />
+
+        <circle
+          cx="264"
+          cy="8"
+          r="4"
+        />
+
+      </svg>
+
+      <div class="brand-orbit-card card-a">
+
+        <div class="mini-icon">
+          ◉
+        </div>
+
+        <div>
+
+          <strong>
+            Macro
+          </strong>
+
+          <span>
+            Global context
+          </span>
+
+        </div>
+
+      </div>
+
+      <div class="brand-orbit-card card-b">
+
+        <div class="mini-icon">
+          ▥
+        </div>
+
+        <div>
+
+          <strong>
+            Data
+          </strong>
+
+          <span>
+            Market reaction
+          </span>
+
+        </div>
+
+      </div>
+
+      <div class="planet-wrap">
+
+        <div class="ring"></div>
+        <div class="ring-two"></div>
+
+        <span class="node one"></span>
+        <span class="node two"></span>
+        <span class="node three"></span>
+
+        <div class="planet">
+
+          <div class="planet-grid-v"></div>
+          <div class="planet-grid-h"></div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <div
+    id="loading"
+    class="loading"
+  >
+    Завантажуємо дані профілю…
+  </div>
+
+  <div
+    id="error"
+    class="error"
+  >
+    Не вдалося завантажити профіль.
+    Онови сторінку або увійди повторно.
+  </div>
+
+
+  <main
+    id="profileContent"
+    class="grid hidden"
+  >
+
+    <section class="card">
+
+      <div class="card-title">
+        Профіль
+      </div>
+
+      <div class="profile-row">
+
+        <div class="avatar">
+          👤
+        </div>
+
+        <div>
+
+          <div
+            id="email"
+            class="profile-email"
+          >
+            —
+          </div>
+
+          <div class="profile-note">
+            Авторизований користувач Vikundey Space
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="status-grid">
+
+        <div class="status-box">
+
+          <div class="status-label">
+            Підписка
+          </div>
+
+          <div
+            id="plan"
+            class="status-value"
+          >
+            —
+          </div>
+
+        </div>
+
+        <div class="status-box">
+
+          <div class="status-label">
+            Статус
+          </div>
+
+          <div
+            id="statusText"
+            class="status-value"
+          >
+            —
+          </div>
+
+          <div
+            id="statusPill"
+            class="pill"
+          >
+            —
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="plan-visuals">
+
+        <div
+          id="fullPlanVisual"
+          class="plan-visual"
+        >
+
+          <div class="plan-mark">
+            FULL
+          </div>
+
+          <div class="plan-copy">
+
+            <strong>
+              Full Vikundey Space
+            </strong>
+
+            <span>
+              NFP + CPI + Vikundey Thoughts
+            </span>
+
+          </div>
+
+        </div>
+
+        <div
+          id="newsPlanVisual"
+          class="plan-visual"
+        >
+
+          <div class="plan-mark">
+            NEWS
+          </div>
+
+          <div class="plan-copy">
+
+            <strong>
+              News Vikundey Space
+            </strong>
+
+            <span>
+              NFP + CPI
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="insight-strip">
+
+        <div class="insight-box">
+
+          <div class="insight-kicker">
+            RESEARCH
+          </div>
+
+          <div class="insight-value">
+            Авторські макророзбори
+            та логіка реакції ринків.
+          </div>
+
+        </div>
+
+        <div class="insight-box">
+
+          <div class="insight-kicker">
+            MARKETS
+          </div>
+
+          <div class="insight-value">
+            Підготовка до NFP та CPI
+            та моментний вплив на ринки.
+          </div>
+
+        </div>
+
+        <div class="insight-box">
+
+          <div class="insight-kicker">
+            KNOWLEDGE
+          </div>
+
+          <div class="insight-value">
+            Економіка, геополітика
+            та навчальні матеріали
+            для глибшого розуміння ринку.
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div
+        id="cta"
+        class="cta"
+      >
+
+        <h3
+          id="ctaTitle"
+        >
+          Відкрий Vikundey Space
+        </h3>
+
+        <p
+          id="ctaText"
+        >
+          Обери формат доступу та отримай
+          авторську аналітику, ринковий контекст
+          і матеріали, які допомагають бачити
+          ринок ширше за окремий реліз чи новину.
+        </p>
+
+        <a
+          id="subscribeButton"
+          class="btn"
+          href="https://secure.wayforpay.com/sub/see534a7947df"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Обрати підписку →
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <aside class="card">
+
+      <div class="card-title">
+        Мій доступ
+      </div>
+
+      <div class="access-list">
+
+        <div class="access-item">
+
+          <div class="access-left">
+
+            <div class="access-icon">
+              N
+            </div>
+
+            <div>
+
+              <div class="access-name">
+                NFP
+              </div>
+
+              <div class="access-desc">
+                Ринок праці США,
+                Nonfarm Payrolls
+                та реакція ринку.
+              </div>
+
+            </div>
+
+          </div>
+
+          <div
+            id="accessNfp"
+            class="access-badge no"
+          >
+            Немає
+          </div>
+
+        </div>
+
+        <div class="access-item">
+
+          <div class="access-left">
+
+            <div class="access-icon">
+              C
+            </div>
+
+            <div>
+
+              <div class="access-name">
+                CPI
+              </div>
+
+              <div class="access-desc">
+                Інфляція США,
+                Core CPI та сценарії
+                для активів.
+              </div>
+
+            </div>
+
+          </div>
+
+          <div
+            id="accessCpi"
+            class="access-badge no"
+          >
+            Немає
+          </div>
+
+        </div>
+
+        <div class="access-item">
+
+          <div class="access-left">
+
+            <div class="access-icon">
+              V
+            </div>
+
+            <div>
+
+              <div class="access-name">
+                Vikundey Thoughts
+              </div>
+
+              <div class="access-desc">
+                Освіта, макроекономіка,
+                геополітика та авторська
+                аналітика.
+              </div>
+
+            </div>
+
+          </div>
+
+          <div
+            id="accessThoughts"
+            class="access-badge no"
+          >
+            Немає
+          </div>
+
+        </div>
+
+      </div>
+
+    </aside>
+
+  </main>
+
+
+  <footer class="footer">
+    © vikundey.crypto · Vikundey Space
+  </footer>
+
+</div>
+
+
+<script>
+
+  const el =
+    id =>
+      document.getElementById(id);
+
+
+  function setAccessBadge(
+    id,
+    enabled
+  ){
+
+    const node =
+      el(id);
+
+    if(enabled){
+
+      node.textContent =
+        "Доступ";
+
+      node.classList.remove(
+        "no"
+      );
+
+      node.classList.add(
+        "yes"
+      );
+
+    }else{
+
+      node.textContent =
+        "Немає";
+
+      node.classList.remove(
+        "yes"
+      );
+
+      node.classList.add(
+        "no"
+      );
+
+    }
+
+  }
+
+
+  function planLabel(
+    plan
+  ){
+
+    if(
+      plan ===
+      "full"
+    ){
+
+      return "Full Vikundey Space";
+
+    }
+
+    if(
+      plan ===
+      "news"
+    ){
+
+      return "News Vikundey Space";
+
+    }
+
+    return "Немає активної";
+
+  }
+
+
+  async function loadProfile(){
+
+    try{
+
+      const response =
+        await fetch(
+          "/api/profile",
+          {
+            method:"GET",
+            credentials:"same-origin",
+            headers:{
+              "Accept":"application/json"
+            }
+          }
+        );
+
+      if(
+        !response.ok
+      ){
+
+        throw new Error(
+          "Profile API error"
+        );
+
+      }
+
+      const data =
+        await response.json();
+
+      if(
+        !data.ok
+      ){
+
+        throw new Error(
+          data.error ||
+          "Profile error"
+        );
+
+      }
+
+
+      el(
+        "email"
+      ).textContent =
+        data.email ||
+        "—";
+
+
+      el(
+        "plan"
+      ).textContent =
+        planLabel(
+          data.plan
+        );
+
+
+      el(
+        "fullPlanVisual"
+      )
+      .classList
+      .toggle(
+        "active-plan",
+        data.plan ===
+        "full"
+      );
+
+
+      el(
+        "newsPlanVisual"
+      )
+      .classList
+      .toggle(
+        "active-plan",
+        data.plan ===
+        "news"
+      );
+
+
+      const active =
+        data.status ===
+        "active";
+
+
+      el(
+        "statusText"
+      ).textContent =
+        active
+          ? "Активна"
+          : "Неактивна";
+
+
+      el(
+        "statusPill"
+      ).textContent =
+        active
+          ? "● Active"
+          : "● Inactive";
+
+
+      el(
+        "statusPill"
+      )
+      .classList
+      .toggle(
+        "active",
+        active
+      );
+
+
+      el(
+        "statusPill"
+      )
+      .classList
+      .toggle(
+        "inactive",
+        !active
+      );
+
+
+      setAccessBadge(
+        "accessNfp",
+        !!data.access?.nfp
+      );
+
+      setAccessBadge(
+        "accessCpi",
+        !!data.access?.cpi
+      );
+
+      setAccessBadge(
+        "accessThoughts",
+        !!data.access?.thoughts
+      );
+
+
+      const cta =
+        el(
+          "cta"
+        );
+
+      const button =
+        el(
+          "subscribeButton"
+        );
+
+
+      if(
+        data.subscriptionUrl
+      ){
+
+        button.href =
+          data.subscriptionUrl;
+
+      }
+
+
+      if(
+        data.plan ===
+        "none"
+      ){
+
+        cta.style.display =
+          "block";
+
+
+        el(
+          "ctaTitle"
+        ).textContent =
+          "Відкрий Vikundey Space";
+
+
+        el(
+          "ctaText"
+        ).textContent =
+          "Обери формат доступу та отримай авторську аналітику, ринковий контекст і матеріали, які допомагають бачити ринок ширше за окремий реліз чи новину.";
+
+
+        button.textContent =
+          "Обрати підписку →";
+
+      }
+
+      else if(
+        data.plan ===
+        "news"
+      ){
+
+        cta.style.display =
+          "block";
+
+
+        el(
+          "ctaTitle"
+        ).textContent =
+          "Перейти на Full";
+
+
+        el(
+          "ctaText"
+        ).textContent =
+          "У тебе вже є NFP та CPI. Full також відкриває Vikundey Thoughts.";
+
+
+        button.textContent =
+          "Переглянути Full →";
+
+      }
+
+      else{
+
+        cta.style.display =
+          "none";
+
+      }
+
+
+      el(
+        "loading"
+      )
+      .classList
+      .add(
+        "hidden"
+      );
+
+
+      el(
+        "profileContent"
+      )
+      .classList
+      .remove(
+        "hidden"
+      );
+
+
+    }catch(error){
+
+      console.error(
+        error
+      );
+
+
+      el(
+        "loading"
+      )
+      .classList
+      .add(
+        "hidden"
+      );
+
+
+      el(
+        "error"
+      )
+      .style
+      .display =
+        "block";
+
+    }
+
+  }
+
+
+  loadProfile();
+
+</script>
+
+</body>
+</html>
