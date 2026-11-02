@@ -1,32 +1,27 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Vikundey Space — Мій профіль</title>
-
-  <meta
-    name="description"
-    content="Особистий профіль Vikundey Space"
-  />
+  <title>Мій профіль — Vikundey Space</title>
 
   <style>
     :root{
-      --bg:#07111a;
-      --panel:rgba(11,25,37,.88);
-      --line:rgba(255,255,255,.12);
+      --bg:#06111a;
+      --panel:#0b1b27;
+      --panel-2:#102330;
 
       --cyan:#2ec7f1;
       --green:#8bea6f;
 
       --white:#ffffff;
-      --text:#ffffff;
-      --text-soft:#edf4f8;
-      --muted:#c4d3dc;
-      --muted-soft:#96aab8;
+      --text:#edf4f8;
+      --muted:#aebfc9;
 
-      --shadow:0 26px 80px rgba(0,0,0,.32);
+      --line:rgba(255,255,255,.11);
+
+      --shadow:0 24px 70px rgba(0,0,0,.30);
     }
 
     *{
@@ -53,29 +48,27 @@
 
       background:
         radial-gradient(
-          circle at 15% 12%,
-          rgba(46,199,241,.15),
-          transparent 24%
+          circle at 12% 8%,
+          rgba(46,199,241,.13),
+          transparent 25%
         ),
         radial-gradient(
-          circle at 86% 10%,
-          rgba(139,234,111,.12),
-          transparent 22%
+          circle at 90% 10%,
+          rgba(139,234,111,.09),
+          transparent 25%
         ),
         linear-gradient(
           180deg,
-          #07111a 0%,
-          #081520 42%,
-          #05111a 100%
+          #06111a 0%,
+          #071521 50%,
+          #051019 100%
         );
 
       overflow-x:hidden;
-      position:relative;
     }
 
     body::before{
       content:"";
-
       position:fixed;
       inset:0;
 
@@ -83,12 +76,12 @@
 
       background-image:
         linear-gradient(
-          rgba(255,255,255,.02) 1px,
+          rgba(255,255,255,.018) 1px,
           transparent 1px
         ),
         linear-gradient(
           90deg,
-          rgba(255,255,255,.02) 1px,
+          rgba(255,255,255,.018) 1px,
           transparent 1px
         );
 
@@ -96,20 +89,20 @@
     }
 
     a{
-      color:inherit;
       text-decoration:none;
+      color:inherit;
     }
 
     .shell{
       width:min(1220px,calc(100% - 32px));
       margin:0 auto;
-      padding:22px 0 64px;
+      padding:20px 0 60px;
 
       position:relative;
       z-index:1;
     }
 
-    /* NAVBAR */
+    /* NAV */
 
     .topbar{
       display:flex;
@@ -120,20 +113,14 @@
 
       padding:14px 18px;
 
+      border:1px solid var(--line);
       border-radius:26px;
 
-      border:1px solid var(--line);
-
-      background:rgba(5,18,28,.86);
+      background:rgba(5,18,28,.90);
 
       backdrop-filter:blur(16px);
 
       box-shadow:var(--shadow);
-
-      position:sticky;
-      top:12px;
-
-      z-index:20;
     }
 
     .brand{
@@ -149,31 +136,30 @@
     }
 
     .brand-name{
-      font-weight:900;
-      font-size:18px;
       color:#fff;
+      font-size:18px;
+      font-weight:900;
     }
 
     .nav{
       display:flex;
-      align-items:center;
       gap:8px;
-      flex-wrap:wrap;
+      align-items:center;
     }
 
     .nav a{
-      color:#edf4f8;
-      font-weight:800;
-      font-size:14px;
-
       padding:10px 14px;
+
       border-radius:14px;
 
-      transition:.2s ease;
+      color:#edf4f8;
+
+      font-size:14px;
+      font-weight:800;
     }
 
     .nav a:hover{
-      background:rgba(255,255,255,.07);
+      background:rgba(255,255,255,.06);
     }
 
     .nav .active{
@@ -185,10 +171,6 @@
           var(--cyan),
           var(--green)
         );
-
-      box-shadow:
-        0 12px 24px
-        rgba(46,199,241,.18);
     }
 
     /* HERO */
@@ -201,48 +183,47 @@
 
       min-height:340px;
 
-      padding:58px 34px 42px;
-
-      border-radius:34px;
+      padding:54px 38px;
 
       border:1px solid var(--line);
+      border-radius:34px;
 
       background:
-        linear-gradient(
-          180deg,
-          rgba(255,255,255,.06),
-          rgba(255,255,255,.015)
+        radial-gradient(
+          circle at 82% 25%,
+          rgba(139,234,111,.08),
+          transparent 28%
         ),
         linear-gradient(
           120deg,
-          rgba(6,22,34,.90),
-          rgba(7,25,37,.82)
+          rgba(15,37,51,.95),
+          rgba(7,24,36,.94)
         );
 
       box-shadow:var(--shadow);
-
-      isolation:isolate;
     }
 
-    .hero-copy-wrap{
+    .hero-copy{
       position:relative;
       z-index:4;
+
       max-width:650px;
     }
 
     .eyebrow{
-      display:inline-flex;
+      display:flex;
       align-items:center;
 
       gap:8px;
 
       color:var(--cyan);
 
-      text-transform:uppercase;
-      letter-spacing:.18em;
-
       font-size:12px;
       font-weight:900;
+
+      letter-spacing:.17em;
+
+      text-transform:uppercase;
     }
 
     .dot{
@@ -254,32 +235,39 @@
       background:var(--green);
 
       box-shadow:
-        0 0 16px
+        0 0 15px
         rgba(139,234,111,.8);
     }
 
     h1{
-      margin:16px 0 12px;
-
-      font-size:clamp(42px,6.2vw,82px);
-      line-height:.96;
-      letter-spacing:-.06em;
+      margin:16px 0 14px;
 
       color:#fff;
+
+      font-size:
+        clamp(
+          46px,
+          6vw,
+          78px
+        );
+
+      line-height:.96;
+
+      letter-spacing:-.055em;
     }
 
-    .hero p{
+    .hero-copy p{
       margin:0;
 
-      max-width:630px;
+      max-width:610px;
 
-      color:var(--text-soft);
+      color:#e5eef3;
 
-      font-size:18px;
-      line-height:1.68;
+      font-size:17px;
+      line-height:1.7;
     }
 
-    .hero-meta{
+    .hero-tags{
       display:flex;
       flex-wrap:wrap;
 
@@ -288,243 +276,75 @@
       margin-top:22px;
     }
 
-    .hero-chip{
-      padding:10px 14px;
+    .hero-tag{
+      padding:9px 13px;
+
+      border:1px solid var(--line);
 
       border-radius:999px;
 
-      border:
-        1px solid
-        rgba(255,255,255,.14);
+      background:rgba(255,255,255,.04);
 
-      background:
-        rgba(255,255,255,.06);
+      color:#dce8ee;
 
-      color:#fff;
+      font-size:11px;
+      font-weight:900;
 
-      font-size:12px;
-      font-weight:800;
-
-      letter-spacing:.06em;
+      letter-spacing:.08em;
 
       text-transform:uppercase;
     }
 
     /* HERO VISUAL */
 
-    .scene{
+    .visual{
       position:absolute;
 
-      right:-12px;
-      bottom:-10px;
+      right:-20px;
+      bottom:-40px;
 
-      width:470px;
-      height:320px;
+      width:480px;
+      height:310px;
+
+      opacity:.95;
 
       pointer-events:none;
-
-      z-index:1;
-    }
-
-    .market-bars{
-      position:absolute;
-
-      right:18px;
-      top:8px;
-
-      height:132px;
-
-      display:flex;
-      align-items:flex-end;
-
-      gap:10px;
-
-      opacity:.42;
-    }
-
-    .market-bars span{
-      width:14px;
-
-      border-radius:
-        4px 4px 0 0;
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(139,234,111,.96),
-          rgba(46,199,241,.45)
-        );
-    }
-
-    .market-bars span:nth-child(1){height:54px;}
-    .market-bars span:nth-child(2){height:86px;}
-    .market-bars span:nth-child(3){height:72px;}
-    .market-bars span:nth-child(4){height:106px;}
-    .market-bars span:nth-child(5){height:94px;}
-    .market-bars span:nth-child(6){height:126px;}
-
-    .trend{
-      position:absolute;
-
-      right:0;
-      top:0;
-
-      width:270px;
-      height:130px;
-    }
-
-    .trend path{
-      fill:none;
-
-      stroke:url(#trendGradient);
-
-      stroke-width:3;
-
-      stroke-linecap:round;
-      stroke-linejoin:round;
-    }
-
-    .trend circle{
-      fill:#f7ffff;
-    }
-
-    .brand-orbit-card{
-      position:absolute;
-
-      display:flex;
-      align-items:center;
-
-      gap:10px;
-
-      min-width:140px;
-
-      padding:11px 13px;
-
-      border-radius:14px;
-
-      border:
-        1px solid
-        rgba(46,199,241,.24);
-
-      background:
-        rgba(7,28,40,.82);
-
-      backdrop-filter:blur(12px);
-
-      z-index:3;
-    }
-
-    .brand-orbit-card.card-a{
-      right:20px;
-      top:76px;
-    }
-
-    .brand-orbit-card.card-b{
-      right:210px;
-      top:138px;
-    }
-
-    .mini-icon{
-      width:34px;
-      height:34px;
-
-      border-radius:10px;
-
-      display:grid;
-      place-items:center;
-
-      color:#071018;
-
-      font-weight:900;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--cyan),
-          var(--green)
-        );
-    }
-
-    .brand-orbit-card strong{
-      display:block;
-
-      color:#fff;
-
-      font-size:13px;
-    }
-
-    .brand-orbit-card span{
-      display:block;
-
-      margin-top:3px;
-
-      color:var(--muted-soft);
-
-      font-size:10px;
-    }
-
-    .planet-wrap{
-      position:absolute;
-
-      right:20px;
-      bottom:-24px;
-
-      width:390px;
-      height:260px;
     }
 
     .planet{
       position:absolute;
 
-      right:0;
+      right:25px;
       bottom:0;
 
       width:330px;
-      height:220px;
+      height:210px;
 
       border-radius:
         220px 220px 0 0;
-
-      overflow:hidden;
-
-      background:
-        radial-gradient(
-          circle at 28% 34%,
-          rgba(255,255,255,.14),
-          transparent 18%
-        ),
-        radial-gradient(
-          circle at 76% 26%,
-          rgba(139,234,111,.14),
-          transparent 18%
-        ),
-        linear-gradient(
-          180deg,
-          rgba(13,43,64,.96) 0%,
-          rgba(5,17,28,.98) 62%,
-          rgba(3,12,21,1) 100%
-        );
 
       border:
         1px solid
         rgba(46,199,241,.24);
 
+      background:
+        radial-gradient(
+          circle at 30% 30%,
+          rgba(46,199,241,.18),
+          transparent 30%
+        ),
+        linear-gradient(
+          180deg,
+          #102d3d,
+          #07131d
+        );
+
       box-shadow:
-        inset 0 20px 50px
-        rgba(46,199,241,.10),
-        inset 0 -30px 50px
-        rgba(0,0,0,.62),
-        0 0 54px
-        rgba(46,199,241,.14);
+        0 0 50px
+        rgba(46,199,241,.10);
     }
 
-    .planet-grid-v,
-    .planet-grid-h{
-      position:absolute;
-      inset:0;
-    }
-
-    .planet-grid-v::before{
+    .planet::before{
       content:"";
 
       position:absolute;
@@ -532,10 +352,10 @@
       left:50%;
       top:-8%;
 
-      transform:translateX(-50%);
-
-      width:40%;
+      width:42%;
       height:116%;
+
+      transform:translateX(-50%);
 
       border:
         1px solid
@@ -544,14 +364,15 @@
       border-radius:50%;
     }
 
-    .planet-grid-h::before{
+    .planet::after{
       content:"";
 
       position:absolute;
 
       left:10%;
       right:10%;
-      top:42%;
+
+      top:44%;
 
       height:28%;
 
@@ -562,71 +383,75 @@
       border-radius:50%;
     }
 
-    .ring,
-    .ring-two{
+    .orbit{
       position:absolute;
 
-      border-radius:50%;
+      right:2px;
+      bottom:76px;
+
+      width:400px;
+      height:125px;
 
       border:
         2px solid
-        rgba(46,199,241,.55);
-    }
-
-    .ring{
-      width:385px;
-      height:118px;
-
-      left:-8px;
-      top:96px;
-
-      transform:rotate(-11deg);
-    }
-
-    .ring-two{
-      width:352px;
-      height:132px;
-
-      left:8px;
-      top:82px;
-
-      transform:rotate(18deg);
-
-      border-color:
-        rgba(139,234,111,.48);
-    }
-
-    .node{
-      position:absolute;
-
-      width:14px;
-      height:14px;
+        rgba(46,199,241,.45);
 
       border-radius:50%;
 
-      background:#f5ffff;
-
-      box-shadow:
-        0 0 16px
-        rgba(46,199,241,.55);
+      transform:rotate(-12deg);
     }
 
-    .node.one{
-      left:10px;
-      top:146px;
+    .orbit.two{
+      right:18px;
+      bottom:68px;
+
+      width:365px;
+      height:135px;
+
+      border-color:
+        rgba(139,234,111,.40);
+
+      transform:rotate(18deg);
     }
 
-    .node.two{
-      left:128px;
-      top:30px;
+    .chart{
+      position:absolute;
+
+      right:30px;
+      top:25px;
+
+      display:flex;
+      align-items:flex-end;
+
+      gap:9px;
+
+      height:105px;
+
+      opacity:.40;
     }
 
-    .node.three{
-      right:46px;
-      top:18px;
+    .chart span{
+      width:13px;
+
+      border-radius:
+        4px 4px 0 0;
+
+      background:
+        linear-gradient(
+          180deg,
+          var(--green),
+          var(--cyan)
+        );
     }
 
-    /* LOADING */
+    .chart span:nth-child(1){height:42px;}
+    .chart span:nth-child(2){height:58px;}
+    .chart span:nth-child(3){height:52px;}
+    .chart span:nth-child(4){height:80px;}
+    .chart span:nth-child(5){height:68px;}
+    .chart span:nth-child(6){height:100px;}
+
+    /* STATES */
 
     .loading,
     .error{
@@ -635,27 +460,31 @@
       padding:18px 20px;
 
       border:1px solid var(--line);
-
       border-radius:18px;
 
-      color:var(--text-soft);
+      background:rgba(255,255,255,.04);
+    }
 
-      background:
-        rgba(255,255,255,.04);
+    .loading{
+      color:#dce7ed;
     }
 
     .error{
       display:none;
 
-      color:#ffe0e0;
+      color:#ffd7d7;
 
       background:
-        rgba(255,123,123,.08);
+        rgba(255,100,100,.06);
     }
 
-    /* PROFILE GRID */
+    .hidden{
+      display:none !important;
+    }
 
-    .grid{
+    /* MAIN */
+
+    .dashboard{
       display:grid;
 
       grid-template-columns:
@@ -667,28 +496,23 @@
     }
 
     .card{
-      border:1px solid var(--line);
-
-      border-radius:30px;
+      position:relative;
+      overflow:hidden;
 
       padding:30px;
+
+      border:1px solid var(--line);
+      border-radius:30px;
 
       background:
         linear-gradient(
           180deg,
-          rgba(255,255,255,.05),
+          rgba(255,255,255,.055),
           rgba(255,255,255,.018)
         ),
-        linear-gradient(
-          180deg,
-          rgba(10,25,38,.95),
-          rgba(8,22,33,.88)
-        );
+        rgba(10,26,38,.92);
 
       box-shadow:var(--shadow);
-
-      position:relative;
-      overflow:hidden;
     }
 
     .card::before{
@@ -711,70 +535,74 @@
         );
     }
 
-    .card-title{
-      font-size:13px;
+    .card-label{
+      margin-bottom:20px;
 
-      color:#dfe9ee;
+      color:#e5edf1;
 
-      text-transform:uppercase;
-
-      letter-spacing:.16em;
-
+      font-size:12px;
       font-weight:900;
 
-      margin-bottom:18px;
+      letter-spacing:.18em;
+
+      text-transform:uppercase;
     }
 
-    /* PROFILE */
+    /* USER */
 
-    .profile-row{
+    .user{
       display:flex;
       align-items:center;
 
-      gap:16px;
+      gap:15px;
 
-      margin-bottom:28px;
+      margin-bottom:26px;
     }
 
     .avatar{
-      width:78px;
-      height:78px;
+      width:70px;
+      height:70px;
 
-      border-radius:50%;
+      flex:0 0 auto;
 
       display:grid;
       place-items:center;
 
-      background:
-        linear-gradient(
-          135deg,
-          rgba(255,255,255,.14),
-          rgba(46,199,241,.18),
-          rgba(139,234,111,.16)
-        );
+      border-radius:50%;
 
       border:
         1px solid
-        rgba(255,255,255,.20);
+        rgba(255,255,255,.15);
 
-      font-size:32px;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(46,199,241,.15),
+          rgba(139,234,111,.12)
+        );
+
+      font-size:28px;
     }
 
-    .profile-email{
+    .email{
+      color:#fff;
+
       font-size:
-        clamp(18px,3vw,28px);
+        clamp(
+          18px,
+          3vw,
+          27px
+        );
 
       font-weight:900;
-
-      color:#fff;
     }
 
-    .profile-note{
+    .user-note{
+      margin-top:4px;
+
       color:var(--muted);
 
-      margin-top:5px;
-
-      font-size:14px;
+      font-size:13px;
     }
 
     /* STATUS */
@@ -788,57 +616,47 @@
       gap:14px;
     }
 
-    .status-box{
+    .status-card{
       padding:20px;
 
+      border:1px solid var(--line);
       border-radius:20px;
 
-      border:
-        1px solid
-        rgba(255,255,255,.10);
-
       background:
-        linear-gradient(
-          180deg,
-          rgba(255,255,255,.07),
-          rgba(255,255,255,.03)
-        );
+        rgba(255,255,255,.04);
     }
 
     .status-label{
-      color:#d7e3ea;
+      margin-bottom:8px;
 
-      font-size:12px;
+      color:#c9d6dd;
+
+      font-size:11px;
+      font-weight:900;
+
+      letter-spacing:.14em;
 
       text-transform:uppercase;
-
-      letter-spacing:.12em;
-
-      font-weight:800;
-
-      margin-bottom:8px;
     }
 
     .status-value{
-      font-size:24px;
-
-      font-weight:900;
-
       color:#fff;
+
+      font-size:22px;
+      font-weight:900;
     }
 
     .pill{
       display:inline-flex;
 
+      margin-top:10px;
+
+      padding:7px 11px;
+
       border-radius:999px;
 
-      padding:8px 12px;
-
-      font-size:13px;
-
+      font-size:12px;
       font-weight:900;
-
-      margin-top:10px;
     }
 
     .pill.active{
@@ -849,15 +667,15 @@
     }
 
     .pill.inactive{
-      color:#ffd0d0;
+      color:#ffc5c5;
 
       background:
-        rgba(255,123,123,.09);
+        rgba(255,100,100,.08);
     }
 
-    /* PLAN VISUALS */
+    /* PLAN */
 
-    .plan-visuals{
+    .plans{
       display:grid;
 
       grid-template-columns:
@@ -868,240 +686,107 @@
       margin-top:18px;
     }
 
-    .plan-visual{
-      display:flex;
-      align-items:center;
+    .plan{
+      padding:18px;
 
-      gap:14px;
-
-      padding:16px;
-
+      border:1px solid var(--line);
       border-radius:20px;
-
-      border:
-        1px solid
-        rgba(255,255,255,.09);
 
       background:
         rgba(255,255,255,.025);
 
-      opacity:.58;
+      opacity:.45;
+
+      transition:.2s ease;
     }
 
-    .plan-visual.active-plan{
+    .plan.active{
       opacity:1;
 
-      background:
-        linear-gradient(
-          135deg,
-          rgba(46,199,241,.10),
-          rgba(139,234,111,.08)
-        );
-    }
-
-    .plan-mark{
-      min-width:108px;
-      min-height:78px;
-
-      display:grid;
-      place-items:center;
-
-      border-radius:16px;
-
-      color:#071018;
-
-      font-size:14px;
-      font-weight:950;
-
-      letter-spacing:.10em;
+      border-color:
+        rgba(139,234,111,.28);
 
       background:
         linear-gradient(
           135deg,
-          var(--cyan),
-          var(--green)
+          rgba(46,199,241,.08),
+          rgba(139,234,111,.07)
         );
     }
 
-    .plan-copy strong{
+    .plan-type{
+      color:var(--cyan);
+
+      font-size:11px;
+      font-weight:900;
+
+      letter-spacing:.14em;
+    }
+
+    .plan strong{
       display:block;
+
+      margin-top:8px;
 
       color:#fff;
 
       font-size:18px;
     }
 
-    .plan-copy span{
+    .plan span{
       display:block;
 
       margin-top:5px;
 
       color:var(--muted);
 
-      font-size:13px;
-    }
-
-    /* VALUE */
-
-    .insight-strip{
-      display:grid;
-
-      grid-template-columns:
-        repeat(3,minmax(0,1fr));
-
-      gap:12px;
-
-      margin-top:18px;
-    }
-
-    .insight-box{
-      padding:18px;
-
-      border-radius:20px;
-
-      background:
-        rgba(255,255,255,.045);
-
-      border:
-        1px solid
-        rgba(255,255,255,.10);
-    }
-
-    .insight-kicker{
-      font-size:15px;
-
-      font-weight:950;
-
-      color:#ffffff;
-
-      letter-spacing:.14em;
-
-      text-transform:uppercase;
-
-      margin-bottom:12px;
-    }
-
-    .insight-value{
-      font-size:14px;
-
-      font-weight:500;
-
-      color:var(--muted);
-
-      line-height:1.55;
-    }
-
-    /* CTA */
-
-    .cta{
-      margin-top:22px;
-
-      display:none;
-
-      padding:24px;
-
-      border-radius:24px;
-
-      border:
-        1px solid
-        rgba(255,255,255,.10);
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(255,255,255,.05),
-          rgba(255,255,255,.03)
-        );
-    }
-
-    .cta h3{
-      margin:0 0 8px;
-
-      font-size:24px;
-
-      color:#fff;
-    }
-
-    .cta p{
-      margin:0 0 18px;
-
-      color:var(--muted);
-
-      line-height:1.6;
-    }
-
-    .btn{
-      display:inline-flex;
-
-      align-items:center;
-      justify-content:center;
-
-      min-height:50px;
-
-      padding:0 20px;
-
-      border-radius:16px;
-
-      font-weight:900;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--cyan),
-          var(--green)
-        );
-
-      color:#071018;
+      font-size:12px;
     }
 
     /* ACCESS */
 
     .access-list{
       display:grid;
-      gap:14px;
+      gap:13px;
     }
 
-    .access-item{
+    .access{
       display:flex;
-
       align-items:center;
       justify-content:space-between;
 
       gap:14px;
 
-      padding:18px;
+      padding:17px;
 
-      border-radius:20px;
-
-      border:
-        1px solid
-        rgba(255,255,255,.10);
+      border:1px solid var(--line);
+      border-radius:19px;
 
       background:
-        linear-gradient(
-          180deg,
-          rgba(255,255,255,.065),
-          rgba(255,255,255,.03)
-        );
+        rgba(255,255,255,.04);
     }
 
-    .access-left{
+    .access-main{
       display:flex;
       align-items:center;
-      gap:14px;
+
+      gap:13px;
     }
 
     .access-icon{
-      width:44px;
-      height:44px;
+      width:42px;
+      height:42px;
 
-      border-radius:14px;
+      flex:0 0 auto;
 
       display:grid;
       place-items:center;
 
+      border-radius:13px;
+
       color:#071018;
 
+      font-size:14px;
       font-weight:950;
 
       background:
@@ -1113,40 +798,36 @@
     }
 
     .access-name{
-      font-weight:900;
-
-      font-size:18px;
-
       color:#fff;
+
+      font-size:17px;
+      font-weight:900;
     }
 
     .access-desc{
+      margin-top:4px;
+
       color:var(--muted);
 
-      font-size:13px;
-
-      margin-top:5px;
-
-      line-height:1.55;
+      font-size:12px;
     }
 
-    .access-badge{
-      min-width:94px;
+    .access-state{
+      min-width:88px;
 
-      text-align:center;
-
-      padding:9px 11px;
+      padding:8px 11px;
 
       border-radius:999px;
 
-      font-size:12px;
+      text-align:center;
 
-      font-weight:900;
+      font-size:11px;
+      font-weight:950;
 
       text-transform:uppercase;
     }
 
-    .access-badge.yes{
+    .access-state.yes{
       color:#071018;
 
       background:
@@ -1157,41 +838,134 @@
         );
     }
 
-    .access-badge.no{
-      color:#f4f8fb;
+    .access-state.no{
+      color:#a9bac4;
 
       background:
-        rgba(255,255,255,.08);
+        rgba(255,255,255,.07);
     }
 
-    .footer{
-      margin-top:44px;
+    /* CTA */
 
-      color:#a7bac5;
+    .cta{
+      display:none;
+
+      margin-top:24px;
+
+      padding:26px;
+
+      border:
+        1px solid
+        rgba(46,199,241,.16);
+
+      border-radius:24px;
+
+      background:
+        radial-gradient(
+          circle at 5% 10%,
+          rgba(46,199,241,.08),
+          transparent 30%
+        ),
+        rgba(255,255,255,.025);
+    }
+
+    .cta h3{
+      margin:0;
+
+      color:#fff;
+
+      font-size:25px;
+    }
+
+    .cta p{
+      margin:9px 0 18px;
+
+      color:var(--muted);
+
+      line-height:1.6;
+    }
+
+    .button{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+
+      min-height:50px;
+
+      padding:0 20px;
+
+      border-radius:16px;
+
+      color:#071018;
+
+      font-size:14px;
+      font-weight:900;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--cyan),
+          var(--green)
+        );
+    }
+
+    /* LOGOUT / BACK */
+
+    .account-actions{
+      display:flex;
+      flex-wrap:wrap;
+
+      gap:10px;
+
+      margin-top:18px;
+    }
+
+    .secondary{
+      display:inline-flex;
+      align-items:center;
+
+      min-height:44px;
+
+      padding:0 15px;
+
+      border:1px solid var(--line);
+      border-radius:14px;
+
+      color:#dce7ed;
+
+      background:
+        rgba(255,255,255,.04);
 
       font-size:13px;
+      font-weight:800;
+    }
+
+    /* FOOTER */
+
+    .footer{
+      padding-top:40px;
+
+      color:#8ea2ae;
+
+      font-size:12px;
 
       text-align:center;
     }
 
-    .hidden{
-      display:none !important;
-    }
+    @media(max-width:950px){
 
-    @media(max-width:980px){
-
-      .grid{
+      .dashboard{
         grid-template-columns:1fr;
       }
 
       .hero{
-        padding-bottom:184px;
+        padding-bottom:180px;
       }
 
-      .scene{
-        transform:scale(.85);
+      .visual{
+        transform:scale(.78);
 
-        right:-40px;
+        right:-60px;
 
         transform-origin:
           bottom right;
@@ -1211,39 +985,34 @@
       }
 
       .nav a{
-        padding:9px 10px;
+        padding:9px 9px;
 
         font-size:12px;
       }
 
       .hero{
         padding:
-          34px 22px 180px;
+          36px 22px 175px;
       }
 
-      .hero p{
-        font-size:16px;
+      .hero-copy p{
+        font-size:15px;
       }
 
-      .scene{
-        transform:scale(.7);
+      .visual{
+        right:-120px;
 
-        right:-100px;
-      }
-
-      .brand-orbit-card{
-        display:none;
+        transform:scale(.62);
       }
 
       .status-grid,
-      .plan-visuals,
-      .insight-strip{
+      .plans{
         grid-template-columns:1fr;
       }
 
-      .access-item{
-        flex-direction:column;
+      .access{
         align-items:flex-start;
+        flex-direction:column;
       }
 
     }
@@ -1254,12 +1023,11 @@
 
 <div class="shell">
 
+  <!-- NAV -->
+
   <header class="topbar">
 
-    <a
-      class="brand"
-      href="/"
-    >
+    <a class="brand" href="/">
 
       <img
         src="../../logo.png"
@@ -1302,9 +1070,11 @@
   </header>
 
 
+  <!-- HERO -->
+
   <section class="hero">
 
-    <div class="hero-copy-wrap">
+    <div class="hero-copy">
 
       <div class="eyebrow">
 
@@ -1319,34 +1089,34 @@
       </h1>
 
       <p>
+
         Твій персональний простір у Vikundey Space:
-        доступ до авторської макроаналітики,
-        ринкових розборів, сценаріїв та
-        навчальних матеріалів в одному місці.
+        активна підписка, доступні розділи та
+        авторські матеріали в одному місці.
+
       </p>
 
-      <div class="hero-meta">
+      <div class="hero-tags">
 
-        <div class="hero-chip">
-          Premium Access
-        </div>
+        <span class="hero-tag">
+          Personal Space
+        </span>
 
-        <div class="hero-chip">
+        <span class="hero-tag">
           NFP · CPI · Thoughts
-        </div>
+        </span>
 
-        <div class="hero-chip">
-          Macro · Research · Markets
-        </div>
+        <span class="hero-tag">
+          Macro Research
+        </span>
 
       </div>
 
     </div>
 
+    <div class="visual">
 
-    <div class="scene">
-
-      <div class="market-bars">
+      <div class="chart">
 
         <span></span>
         <span></span>
@@ -1357,161 +1127,52 @@
 
       </div>
 
-      <svg
-        class="trend"
-        viewBox="0 0 270 130"
-      >
+      <div class="orbit"></div>
+      <div class="orbit two"></div>
 
-        <defs>
-
-          <linearGradient
-            id="trendGradient"
-            x1="0"
-            y1="1"
-            x2="1"
-            y2="0"
-          >
-
-            <stop
-              offset="0%"
-              stop-color="#2ec7f1"
-            />
-
-            <stop
-              offset="100%"
-              stop-color="#8bea6f"
-            />
-
-          </linearGradient>
-
-        </defs>
-
-        <path
-          d="
-          M8 112
-          C40 108,
-          58 88,
-          86 90
-          S132 64,
-          156 68
-          S198 42,
-          224 48
-          S244 24,
-          264 8
-          "
-        />
-
-        <circle
-          cx="86"
-          cy="90"
-          r="4"
-        />
-
-        <circle
-          cx="224"
-          cy="48"
-          r="4"
-        />
-
-        <circle
-          cx="264"
-          cy="8"
-          r="4"
-        />
-
-      </svg>
-
-      <div class="brand-orbit-card card-a">
-
-        <div class="mini-icon">
-          ◉
-        </div>
-
-        <div>
-
-          <strong>
-            Macro
-          </strong>
-
-          <span>
-            Global context
-          </span>
-
-        </div>
-
-      </div>
-
-      <div class="brand-orbit-card card-b">
-
-        <div class="mini-icon">
-          ▥
-        </div>
-
-        <div>
-
-          <strong>
-            Data
-          </strong>
-
-          <span>
-            Market reaction
-          </span>
-
-        </div>
-
-      </div>
-
-      <div class="planet-wrap">
-
-        <div class="ring"></div>
-        <div class="ring-two"></div>
-
-        <span class="node one"></span>
-        <span class="node two"></span>
-        <span class="node three"></span>
-
-        <div class="planet">
-
-          <div class="planet-grid-v"></div>
-          <div class="planet-grid-h"></div>
-
-        </div>
-
-      </div>
+      <div class="planet"></div>
 
     </div>
 
   </section>
 
 
+  <!-- LOADING -->
+
   <div
     id="loading"
     class="loading"
   >
-    Завантажуємо дані профілю…
+    Завантажуємо твій профіль…
   </div>
+
 
   <div
     id="error"
     class="error"
   >
     Не вдалося завантажити профіль.
-    Онови сторінку або увійди повторно.
+    Спробуй оновити сторінку.
   </div>
 
 
+  <!-- DASHBOARD -->
+
   <main
-    id="profileContent"
-    class="grid hidden"
+    id="dashboard"
+    class="dashboard hidden"
   >
+
+
+    <!-- PROFILE -->
 
     <section class="card">
 
-      <div class="card-title">
+      <div class="card-label">
         Профіль
       </div>
 
-      <div class="profile-row">
+      <div class="user">
 
         <div class="avatar">
           👤
@@ -1521,12 +1182,12 @@
 
           <div
             id="email"
-            class="profile-email"
+            class="email"
           >
             —
           </div>
 
-          <div class="profile-note">
+          <div class="user-note">
             Авторизований користувач Vikundey Space
           </div>
 
@@ -1535,9 +1196,11 @@
       </div>
 
 
+      <!-- STATUS -->
+
       <div class="status-grid">
 
-        <div class="status-box">
+        <div class="status-card">
 
           <div class="status-label">
             Підписка
@@ -1552,14 +1215,15 @@
 
         </div>
 
-        <div class="status-box">
+
+        <div class="status-card">
 
           <div class="status-label">
             Статус
           </div>
 
           <div
-            id="statusText"
+            id="status"
             class="status-value"
           >
             —
@@ -1577,125 +1241,71 @@
       </div>
 
 
-      <div class="plan-visuals">
+      <!-- PLANS -->
+
+      <div class="plans">
 
         <div
-          id="fullPlanVisual"
-          class="plan-visual"
+          id="fullPlan"
+          class="plan"
         >
 
-          <div class="plan-mark">
+          <div class="plan-type">
             FULL
           </div>
 
-          <div class="plan-copy">
+          <strong>
+            Full Vikundey Space
+          </strong>
 
-            <strong>
-              Full Vikundey Space
-            </strong>
-
-            <span>
-              NFP + CPI + Vikundey Thoughts
-            </span>
-
-          </div>
+          <span>
+            NFP + CPI + Vikundey Thoughts
+          </span>
 
         </div>
 
+
         <div
-          id="newsPlanVisual"
-          class="plan-visual"
+          id="newsPlan"
+          class="plan"
         >
 
-          <div class="plan-mark">
+          <div class="plan-type">
             NEWS
           </div>
 
-          <div class="plan-copy">
+          <strong>
+            News Vikundey Space
+          </strong>
 
-            <strong>
-              News Vikundey Space
-            </strong>
-
-            <span>
-              NFP + CPI
-            </span>
-
-          </div>
+          <span>
+            NFP + CPI
+          </span>
 
         </div>
 
       </div>
 
 
-      <div class="insight-strip">
-
-        <div class="insight-box">
-
-          <div class="insight-kicker">
-            RESEARCH
-          </div>
-
-          <div class="insight-value">
-            Авторські макророзбори
-            та логіка реакції ринків.
-          </div>
-
-        </div>
-
-        <div class="insight-box">
-
-          <div class="insight-kicker">
-            MARKETS
-          </div>
-
-          <div class="insight-value">
-            Підготовка до NFP та CPI
-            та моментний вплив на ринки.
-          </div>
-
-        </div>
-
-        <div class="insight-box">
-
-          <div class="insight-kicker">
-            KNOWLEDGE
-          </div>
-
-          <div class="insight-value">
-            Економіка, геополітика
-            та навчальні матеріали
-            для глибшого розуміння ринку.
-          </div>
-
-        </div>
-
-      </div>
-
+      <!-- CTA -->
 
       <div
         id="cta"
         class="cta"
       >
 
-        <h3
-          id="ctaTitle"
-        >
+        <h3 id="ctaTitle">
           Відкрий Vikundey Space
         </h3>
 
-        <p
-          id="ctaText"
-        >
-          Обери формат доступу та отримай
-          авторську аналітику, ринковий контекст
-          і матеріали, які допомагають бачити
-          ринок ширше за окремий реліз чи новину.
+        <p id="ctaText">
+          Обери формат доступу та відкрий
+          авторську макроаналітику Vikundey Space.
         </p>
 
         <a
           id="subscribeButton"
-          class="btn"
+          class="button"
           href="https://secure.wayforpay.com/sub/see534a7947df"
           target="_blank"
           rel="noopener noreferrer"
@@ -1705,20 +1315,36 @@
 
       </div>
 
+
+      <div class="account-actions">
+
+        <a
+          class="secondary"
+          href="/profile/"
+        >
+          ← Про Vikundey Space
+        </a>
+
+      </div>
+
     </section>
 
 
+    <!-- ACCESS -->
+
     <aside class="card">
 
-      <div class="card-title">
+      <div class="card-label">
         Мій доступ
       </div>
 
+
       <div class="access-list">
 
-        <div class="access-item">
 
-          <div class="access-left">
+        <div class="access">
+
+          <div class="access-main">
 
             <div class="access-icon">
               N
@@ -1731,9 +1357,7 @@
               </div>
 
               <div class="access-desc">
-                Ринок праці США,
-                Nonfarm Payrolls
-                та реакція ринку.
+                Підготовка та аналіз ринку праці США
               </div>
 
             </div>
@@ -1742,16 +1366,17 @@
 
           <div
             id="accessNfp"
-            class="access-badge no"
+            class="access-state no"
           >
             Немає
           </div>
 
         </div>
 
-        <div class="access-item">
 
-          <div class="access-left">
+        <div class="access">
+
+          <div class="access-main">
 
             <div class="access-icon">
               C
@@ -1764,9 +1389,7 @@
               </div>
 
               <div class="access-desc">
-                Інфляція США,
-                Core CPI та сценарії
-                для активів.
+                Інфляція та ринкові сценарії
               </div>
 
             </div>
@@ -1775,16 +1398,17 @@
 
           <div
             id="accessCpi"
-            class="access-badge no"
+            class="access-state no"
           >
             Немає
           </div>
 
         </div>
 
-        <div class="access-item">
 
-          <div class="access-left">
+        <div class="access">
+
+          <div class="access-main">
 
             <div class="access-icon">
               V
@@ -1797,9 +1421,7 @@
               </div>
 
               <div class="access-desc">
-                Освіта, макроекономіка,
-                геополітика та авторська
-                аналітика.
+                Економіка, освіта та геополітика
               </div>
 
             </div>
@@ -1808,12 +1430,13 @@
 
           <div
             id="accessThoughts"
-            class="access-badge no"
+            class="access-state no"
           >
             Немає
           </div>
 
         </div>
+
 
       </div>
 
@@ -1831,74 +1454,47 @@
 
 <script>
 
-  const el =
-    id =>
-      document.getElementById(id);
+  const el = id =>
+    document.getElementById(id);
 
 
-  function setAccessBadge(
+  function setAccess(
     id,
     enabled
   ){
 
-    const node =
-      el(id);
+    const node = el(id);
 
     if(enabled){
 
-      node.textContent =
-        "Доступ";
+      node.textContent = "Доступ";
 
-      node.classList.remove(
-        "no"
-      );
-
-      node.classList.add(
-        "yes"
-      );
+      node.classList.remove("no");
+      node.classList.add("yes");
 
     }else{
 
-      node.textContent =
-        "Немає";
+      node.textContent = "Немає";
 
-      node.classList.remove(
-        "yes"
-      );
-
-      node.classList.add(
-        "no"
-      );
+      node.classList.remove("yes");
+      node.classList.add("no");
 
     }
 
   }
 
 
-  function planLabel(
-    plan
-  ){
+  function getPlanName(plan){
 
-    if(
-      plan ===
-      "full"
-    ){
-
+    if(plan === "full"){
       return "Full Vikundey Space";
-
     }
 
-    if(
-      plan ===
-      "news"
-    ){
-
+    if(plan === "news"){
       return "News Vikundey Space";
-
     }
 
     return "Немає активної";
-
   }
 
 
@@ -1918,139 +1514,115 @@
           }
         );
 
-      if(
-        !response.ok
-      ){
 
-        throw new Error(
-          "Profile API error"
-        );
-
+      if(!response.ok){
+        throw new Error("Profile API error");
       }
+
 
       const data =
         await response.json();
 
-      if(
-        !data.ok
-      ){
 
+      if(!data.ok){
         throw new Error(
-          data.error ||
-          "Profile error"
+          data.error || "Profile error"
         );
-
       }
 
 
-      el(
-        "email"
-      ).textContent =
-        data.email ||
-        "—";
+      /* EMAIL */
+
+      el("email").textContent =
+        data.email || "—";
 
 
-      el(
-        "plan"
-      ).textContent =
-        planLabel(
-          data.plan
+      /* PLAN */
+
+      el("plan").textContent =
+        getPlanName(data.plan);
+
+
+      el("fullPlan")
+        .classList
+        .toggle(
+          "active",
+          data.plan === "full"
         );
 
 
-      el(
-        "fullPlanVisual"
-      )
-      .classList
-      .toggle(
-        "active-plan",
-        data.plan ===
-        "full"
-      );
+      el("newsPlan")
+        .classList
+        .toggle(
+          "active",
+          data.plan === "news"
+        );
 
 
-      el(
-        "newsPlanVisual"
-      )
-      .classList
-      .toggle(
-        "active-plan",
-        data.plan ===
-        "news"
-      );
+      /* STATUS */
+
+      const isActive =
+        data.status === "active";
 
 
-      const active =
-        data.status ===
-        "active";
-
-
-      el(
-        "statusText"
-      ).textContent =
-        active
+      el("status").textContent =
+        isActive
           ? "Активна"
           : "Неактивна";
 
 
-      el(
-        "statusPill"
-      ).textContent =
-        active
+      el("statusPill").textContent =
+        isActive
           ? "● Active"
           : "● Inactive";
 
 
-      el(
-        "statusPill"
-      )
-      .classList
-      .toggle(
-        "active",
-        active
-      );
+      el("statusPill")
+        .classList
+        .toggle(
+          "active",
+          isActive
+        );
 
 
-      el(
-        "statusPill"
-      )
-      .classList
-      .toggle(
-        "inactive",
-        !active
-      );
+      el("statusPill")
+        .classList
+        .toggle(
+          "inactive",
+          !isActive
+        );
 
 
-      setAccessBadge(
+      /* ACCESS */
+
+      setAccess(
         "accessNfp",
         !!data.access?.nfp
       );
 
-      setAccessBadge(
+
+      setAccess(
         "accessCpi",
         !!data.access?.cpi
       );
 
-      setAccessBadge(
+
+      setAccess(
         "accessThoughts",
         !!data.access?.thoughts
       );
 
 
+      /* CTA */
+
       const cta =
-        el(
-          "cta"
-        );
+        el("cta");
 
       const button =
-        el(
-          "subscribeButton"
-        );
+        el("subscribeButton");
 
 
-      if(
-        data.subscriptionUrl
-      ){
+      if(data.subscriptionUrl){
 
         button.href =
           data.subscriptionUrl;
@@ -2058,25 +1630,18 @@
       }
 
 
-      if(
-        data.plan ===
-        "none"
-      ){
+      if(data.plan === "none"){
 
         cta.style.display =
           "block";
 
 
-        el(
-          "ctaTitle"
-        ).textContent =
+        el("ctaTitle").textContent =
           "Відкрий Vikundey Space";
 
 
-        el(
-          "ctaText"
-        ).textContent =
-          "Обери формат доступу та отримай авторську аналітику, ринковий контекст і матеріали, які допомагають бачити ринок ширше за окремий реліз чи новину.";
+        el("ctaText").textContent =
+          "Обери формат доступу та відкрий авторську макроаналітику, підготовку до NFP і CPI та матеріали Vikundey Thoughts.";
 
 
         button.textContent =
@@ -2084,29 +1649,22 @@
 
       }
 
-      else if(
-        data.plan ===
-        "news"
-      ){
+      else if(data.plan === "news"){
 
         cta.style.display =
           "block";
 
 
-        el(
-          "ctaTitle"
-        ).textContent =
-          "Перейти на Full";
+        el("ctaTitle").textContent =
+          "Відкрий повний Vikundey Space";
 
 
-        el(
-          "ctaText"
-        ).textContent =
-          "У тебе вже є NFP та CPI. Full також відкриває Vikundey Thoughts.";
+        el("ctaText").textContent =
+          "Твій News доступ вже відкриває NFP та CPI. Full Vikundey Space також включає Vikundey Thoughts.";
 
 
         button.textContent =
-          "Переглянути Full →";
+          "Перейти на Full →";
 
       }
 
@@ -2118,45 +1676,30 @@
       }
 
 
-      el(
-        "loading"
-      )
-      .classList
-      .add(
-        "hidden"
-      );
+      /* SHOW */
+
+      el("loading")
+        .classList
+        .add("hidden");
 
 
-      el(
-        "profileContent"
-      )
-      .classList
-      .remove(
-        "hidden"
-      );
+      el("dashboard")
+        .classList
+        .remove("hidden");
+
+    }
+
+    catch(error){
+
+      console.error(error);
 
 
-    }catch(error){
-
-      console.error(
-        error
-      );
+      el("loading")
+        .classList
+        .add("hidden");
 
 
-      el(
-        "loading"
-      )
-      .classList
-      .add(
-        "hidden"
-      );
-
-
-      el(
-        "error"
-      )
-      .style
-      .display =
+      el("error").style.display =
         "block";
 
     }
