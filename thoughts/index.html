@@ -4,26 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Vikundey Thoughts | vikundey.crypto</title>
-  <meta name="description" content="Vikundey Thoughts — бібліотека навчальних, економічних та геополітичних матеріалів vikundey.crypto.">
+  <title>Vikundey Thoughts — Vikundey Space</title>
+
+  <meta
+    name="description"
+    content="Авторські матеріали Vikundey Thoughts про економіку, геополітику, ринки та макроекономіку."
+  >
 
   <style>
     :root{
-      --bg:#071018;
-      --bg-2:#0a131c;
-      --panel:#0d1721;
-      --panel-2:#101c27;
-      --text:#f4f8fb;
-      --muted:#9fb0bd;
-      --muted-2:#718693;
-      --line:rgba(255,255,255,.10);
+      --bg:#06111a;
+      --panel:#0b1b27;
+
       --cyan:#2ec7f1;
       --green:#8bea6f;
-      --shadow:0 24px 70px rgba(0,0,0,.28);
-      --radius:24px;
+
+      --text:#edf4f8;
+      --muted:#aebfc9;
+
+      --line:rgba(255,255,255,.11);
+
+      --shadow:0 24px 70px rgba(0,0,0,.30);
     }
 
-    *{box-sizing:border-box}
+    *{
+      box-sizing:border-box;
+    }
 
     html{
       scroll-behavior:smooth;
@@ -31,706 +37,1313 @@
 
     body{
       margin:0;
+
       color:var(--text);
-      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
       background:
-        radial-gradient(circle at 8% 0%,rgba(46,199,241,.13),transparent 25%),
-        radial-gradient(circle at 92% 8%,rgba(139,234,111,.09),transparent 30%),
-        linear-gradient(180deg,#071018 0%,#09131c 48%,#071018 100%);
-      min-height:100vh;
+        radial-gradient(
+          circle at 12% 8%,
+          rgba(46,199,241,.13),
+          transparent 25%
+        ),
+        radial-gradient(
+          circle at 88% 10%,
+          rgba(139,234,111,.09),
+          transparent 25%
+        ),
+        linear-gradient(
+          180deg,
+          #06111a 0%,
+          #071521 50%,
+          #051019 100%
+        );
+
+      overflow-x:hidden;
     }
 
     body::before{
       content:"";
+
       position:fixed;
       inset:0;
+
       pointer-events:none;
-      opacity:.22;
+
       background-image:
-        linear-gradient(rgba(255,255,255,.024) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.024) 1px,transparent 1px);
-      background-size:34px 34px;
-      mask-image:linear-gradient(to bottom,black,transparent 82%);
+        linear-gradient(
+          rgba(255,255,255,.018) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,.018) 1px,
+          transparent 1px
+        );
+
+      background-size:32px 32px;
     }
 
     a{
-      color:inherit;
       text-decoration:none;
+      color:inherit;
     }
 
     .shell{
-      width:min(1180px,calc(100% - 32px));
+      width:min(1220px,calc(100% - 32px));
+
       margin:0 auto;
-      padding:24px 0 64px;
+
+      padding:20px 0 60px;
+
       position:relative;
       z-index:1;
     }
 
+    /* NAV */
+
     .topbar{
-      position:sticky;
-      top:12px;
-      z-index:20;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:18px;
-      padding:12px 14px;
+
+      gap:20px;
+
+      padding:14px 18px;
+
       border:1px solid var(--line);
-      border-radius:18px;
-      background:rgba(7,16,24,.86);
+      border-radius:26px;
+
+      background:rgba(5,18,28,.90);
+
       backdrop-filter:blur(16px);
+
       box-shadow:var(--shadow);
     }
 
     .brand{
       display:flex;
       align-items:center;
-      gap:11px;
-      font-weight:900;
-      letter-spacing:-.02em;
+
+      gap:12px;
     }
 
     .brand img{
-      width:38px;
-      height:38px;
+      width:42px;
+      height:42px;
+
       object-fit:contain;
-      display:block;
     }
 
-    .back{
-      padding:9px 12px;
-      border:1px solid var(--line);
-      border-radius:12px;
-      color:#c8d4dc;
-      font-size:13px;
-      font-weight:800;
-      transition:.2s ease;
-    }
-
-    .back:hover{
-      background:rgba(255,255,255,.06);
+    .brand-name{
       color:#fff;
+
+      font-size:18px;
+      font-weight:900;
     }
+
+    .nav{
+      display:flex;
+      align-items:center;
+
+      gap:8px;
+
+      flex-wrap:wrap;
+    }
+
+    .nav a{
+      padding:10px 14px;
+
+      border-radius:14px;
+
+      color:#edf4f8;
+
+      font-size:14px;
+      font-weight:800;
+    }
+
+    .nav a:hover{
+      background:rgba(255,255,255,.06);
+    }
+
+    .nav .active{
+      color:#071018;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--cyan),
+          var(--green)
+        );
+    }
+
+    /* HERO */
 
     .hero{
-      padding:78px 0 38px;
-      display:grid;
-      grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);
-      gap:44px;
-      align-items:end;
-    }
+      position:relative;
 
-    .eyebrow{
-      margin-bottom:14px;
-      color:var(--cyan);
-      font-size:11px;
-      font-weight:950;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-    }
+      overflow:hidden;
 
-    h1{
-      margin:0;
-      font-size:clamp(46px,7vw,84px);
-      line-height:.94;
-      letter-spacing:-.065em;
-    }
+      margin-top:22px;
 
-    .accent{
-      background:linear-gradient(90deg,var(--cyan),var(--green));
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
+      min-height:450px;
+
+      padding:60px 38px;
+
+      border:1px solid var(--line);
+      border-radius:34px;
+
+      background:
+        radial-gradient(
+          circle at 82% 24%,
+          rgba(139,234,111,.08),
+          transparent 28%
+        ),
+        linear-gradient(
+          120deg,
+          rgba(15,37,51,.95),
+          rgba(7,24,36,.94)
+        );
+
+      box-shadow:var(--shadow);
     }
 
     .hero-copy{
-      margin:20px 0 0;
-      max-width:720px;
-      color:#a9bac5;
-      font-size:17px;
-      line-height:1.7;
+      position:relative;
+      z-index:4;
+
+      max-width:700px;
     }
 
-    .hero-side{
-      padding:22px 24px;
-      border:1px solid var(--line);
-      border-radius:20px;
-      background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.018));
-    }
+    .eyebrow{
+      display:flex;
+      align-items:center;
 
-    .hero-side-label{
-      color:var(--green);
-      font-size:11px;
-      font-weight:950;
-      letter-spacing:.13em;
+      gap:8px;
+
+      color:var(--cyan);
+
+      font-size:12px;
+      font-weight:900;
+
+      letter-spacing:.17em;
+
       text-transform:uppercase;
     }
 
-    .hero-side p{
-      margin:11px 0 0;
-      color:#a8b7c1;
-      font-size:14px;
-      line-height:1.65;
+    .dot{
+      width:8px;
+      height:8px;
+
+      border-radius:50%;
+
+      background:var(--green);
+
+      box-shadow:
+        0 0 15px
+        rgba(139,234,111,.8);
     }
 
-    .category-nav{
+    h1{
+      margin:18px 0 8px;
+
+      color:#fff;
+
+      font-size:
+        clamp(
+          54px,
+          8vw,
+          100px
+        );
+
+      line-height:.92;
+
+      letter-spacing:-.06em;
+    }
+
+    .hero-subtitle{
+      display:block;
+
+      margin-top:12px;
+
+      color:transparent;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--cyan),
+          var(--green)
+        );
+
+      -webkit-background-clip:text;
+      background-clip:text;
+
+      font-size:
+        clamp(
+          25px,
+          4vw,
+          44px
+        );
+
+      font-weight:900;
+
+      letter-spacing:-.045em;
+    }
+
+    .hero p{
+      max-width:650px;
+
+      margin:22px 0 0;
+
+      color:#e4edf2;
+
+      font-size:17px;
+
+      line-height:1.7;
+    }
+
+    .hero-actions{
       display:flex;
       flex-wrap:wrap;
-      gap:10px;
-      margin:10px 0 48px;
+
+      gap:12px;
+
+      margin-top:28px;
     }
 
-    .category-nav a{
-      padding:11px 15px;
-      border:1px solid var(--line);
-      border-radius:999px;
-      color:#c5d1d8;
-      background:rgba(255,255,255,.025);
-      font-size:13px;
-      font-weight:850;
-      transition:.2s ease;
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+
+      min-height:52px;
+
+      padding:0 20px;
+
+      border-radius:16px;
+
+      font-size:14px;
+      font-weight:900;
     }
 
-    .category-nav a:hover{
-      border-color:rgba(46,199,241,.45);
+    .btn-primary{
+      color:#071018;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--cyan),
+          var(--green)
+        );
+    }
+
+    .btn-secondary{
       color:#fff;
-      transform:translateY(-1px);
+
+      border:1px solid var(--line);
+
+      background:
+        rgba(255,255,255,.04);
     }
 
-    .library-section{
-      scroll-margin-top:100px;
-      margin-top:62px;
+    .login-note{
+      display:flex;
+      align-items:center;
+
+      gap:9px;
+
+      margin-top:18px;
+
+      color:var(--muted);
+
+      font-size:13px;
+    }
+
+    .login-icon{
+      width:25px;
+      height:25px;
+
+      display:grid;
+      place-items:center;
+
+      flex:0 0 auto;
+
+      border-radius:50%;
+
+      color:#071018;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--cyan),
+          var(--green)
+        );
+
+      font-size:12px;
+      font-weight:950;
+    }
+
+    /* HERO VISUAL */
+
+    .visual{
+      position:absolute;
+
+      right:30px;
+      top:60px;
+
+      width:390px;
+      height:320px;
+
+      pointer-events:none;
+    }
+
+    .orbit{
+      position:absolute;
+
+      inset:30px;
+
+      border:1px solid
+        rgba(46,199,241,.35);
+
+      border-radius:50%;
+
+      transform:rotate(-18deg);
+    }
+
+    .orbit.two{
+      inset:55px 5px;
+
+      border-color:
+        rgba(139,234,111,.30);
+
+      transform:rotate(26deg);
+    }
+
+    .core{
+      position:absolute;
+
+      left:50%;
+      top:50%;
+
+      width:155px;
+      height:155px;
+
+      transform:
+        translate(-50%,-50%);
+
+      border-radius:50%;
+
+      background:
+        radial-gradient(
+          circle at 30% 25%,
+          rgba(46,199,241,.30),
+          transparent 30%
+        ),
+        linear-gradient(
+          145deg,
+          #123042,
+          #08151e
+        );
+
+      border:
+        1px solid
+        rgba(46,199,241,.22);
+
+      box-shadow:
+        0 0 60px
+        rgba(46,199,241,.13);
+    }
+
+    .core::after{
+      content:"";
+
+      position:absolute;
+
+      inset:28px;
+
+      border:
+        1px solid
+        rgba(139,234,111,.23);
+
+      border-radius:50%;
+    }
+
+    .node{
+      position:absolute;
+
+      padding:9px 12px;
+
+      border:
+        1px solid
+        rgba(255,255,255,.11);
+
+      border-radius:12px;
+
+      color:#dceaf0;
+
+      background:
+        rgba(9,24,35,.86);
+
+      font-size:11px;
+      font-weight:850;
+    }
+
+    .n1{
+      top:8px;
+      left:105px;
+    }
+
+    .n2{
+      top:135px;
+      right:-5px;
+    }
+
+    .n3{
+      bottom:15px;
+      left:70px;
+    }
+
+    /* SECTIONS */
+
+    .section{
+      margin-top:26px;
     }
 
     .section-head{
       display:flex;
-      align-items:end;
+      align-items:flex-end;
       justify-content:space-between;
-      gap:24px;
-      margin-bottom:20px;
-    }
 
-    .section-kicker{
-      margin-bottom:8px;
-      color:var(--cyan);
-      font-size:10px;
-      font-weight:950;
-      letter-spacing:.15em;
-      text-transform:uppercase;
-    }
-
-    .section-title{
-      margin:0;
-      font-size:clamp(31px,4vw,46px);
-      letter-spacing:-.045em;
-    }
-
-    .section-desc{
-      max-width:480px;
-      margin:0;
-      color:#879aa6;
-      font-size:14px;
-      line-height:1.65;
-      text-align:right;
-    }
-
-    .category-panel{
-      padding:24px;
-      border:1px solid var(--line);
-      border-radius:28px;
-      background:
-        radial-gradient(circle at 100% 0%,rgba(46,199,241,.06),transparent 35%),
-        linear-gradient(180deg,rgba(255,255,255,.040),rgba(255,255,255,.018));
-      box-shadow:0 24px 70px rgba(0,0,0,.18);
-    }
-
-    .articles-grid{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:16px;
-    }
-
-    .article-card{
-      min-height:250px;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      padding:22px;
-      border:1px solid var(--line);
-      border-radius:20px;
-      background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.015));
-      transition:.22s ease;
-    }
-
-    .article-card:hover{
-      transform:translateY(-3px);
-      border-color:rgba(46,199,241,.34);
-      background:linear-gradient(180deg,rgba(46,199,241,.055),rgba(255,255,255,.018));
-    }
-
-    .article-meta{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      margin-bottom:28px;
-    }
-
-    .tag{
-      display:inline-flex;
-      align-items:center;
-      gap:7px;
-      color:var(--green);
-      font-size:10px;
-      font-weight:950;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-    }
-
-    .status{
-      color:#6f8490;
-      font-size:11px;
-      font-weight:800;
-    }
-
-    .article-card h3{
-      margin:0;
-      font-size:21px;
-      line-height:1.18;
-      letter-spacing:-.035em;
-    }
-
-    .article-card p{
-      margin:12px 0 0;
-      color:#8fa1ad;
-      font-size:13.5px;
-      line-height:1.65;
-    }
-
-    .read-more{
-      margin-top:28px;
-      display:inline-flex;
-      align-items:center;
-      gap:9px;
-      color:#dce7ed;
-      font-size:13px;
-      font-weight:900;
-    }
-
-    .read-more span{
-      color:var(--cyan);
-      font-size:18px;
-      transition:.2s ease;
-    }
-
-    .article-card:hover .read-more span{
-      transform:translateX(3px);
-    }
-
-    .empty-card{
-      min-height:250px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:26px;
-      border:1px dashed rgba(255,255,255,.14);
-      border-radius:20px;
-      text-align:center;
-      background:rgba(255,255,255,.012);
-    }
-
-    .empty-card strong{
-      display:block;
-      color:#c8d4db;
-      font-size:14px;
-      margin-bottom:7px;
-    }
-
-    .empty-card span{
-      color:#708490;
-      font-size:12px;
-      line-height:1.55;
-    }
-
-
-    .consultation-note{
-      margin-top:72px;
-      padding:28px 30px;
-      border:1px solid rgba(139,234,111,.22);
-      border-radius:24px;
-      background:
-        radial-gradient(circle at 100% 0%,rgba(139,234,111,.10),transparent 34%),
-        linear-gradient(180deg,rgba(46,199,241,.055),rgba(255,255,255,.018));
-      box-shadow:0 24px 70px rgba(0,0,0,.18);
-    }
-
-    .consultation-note .note-label{
-      margin-bottom:10px;
-      color:var(--green);
-      font-size:10px;
-      font-weight:950;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-    }
-
-    .consultation-note h2{
-      margin:0;
-      font-size:clamp(26px,4vw,38px);
-      line-height:1.05;
-      letter-spacing:-.045em;
-    }
-
-    .consultation-note p{
-      max-width:760px;
-      margin:14px 0 0;
-      color:#9fb0bd;
-      font-size:15px;
-      line-height:1.7;
-    }
-
-    .consult-btn{
-      display:inline-flex;
-      align-items:center;
-      gap:9px;
-      margin-top:20px;
-      padding:12px 16px;
-      border:1px solid rgba(46,199,241,.34);
-      border-radius:14px;
-      background:rgba(46,199,241,.08);
-      color:#f4f8fb;
-      font-size:13px;
-      font-weight:900;
-      transition:.2s ease;
-    }
-
-    .consult-btn:hover{
-      transform:translateY(-2px);
-      border-color:rgba(139,234,111,.42);
-      background:rgba(139,234,111,.08);
-    }
-
-    .consult-btn span{
-      color:var(--cyan);
-      font-size:18px;
-    }
-
-    .footer{
-      margin-top:72px;
-      padding-top:22px;
-      border-top:1px solid var(--line);
-      display:flex;
-      justify-content:space-between;
       gap:20px;
-      color:#748792;
-      font-size:12px;
+
+      margin-bottom:18px;
+    }
+
+    .section-head h2{
+      margin:0;
+
+      color:#fff;
+
+      font-size:
+        clamp(
+          30px,
+          4vw,
+          44px
+        );
+
+      letter-spacing:-.04em;
+    }
+
+    .section-head p{
+      max-width:520px;
+
+      margin:0;
+
+      color:var(--muted);
+
       line-height:1.6;
     }
 
-    @media(max-width:900px){
+    /* CATEGORIES */
+
+    .category-grid{
+      display:grid;
+
+      grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
+      gap:16px;
+    }
+
+    .category-card{
+      min-height:220px;
+
+      padding:24px;
+
+      border:1px solid var(--line);
+      border-radius:26px;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,.055),
+          rgba(255,255,255,.018)
+        );
+
+      position:relative;
+
+      overflow:hidden;
+    }
+
+    .category-card::after{
+      content:"";
+
+      position:absolute;
+
+      width:160px;
+      height:160px;
+
+      right:-70px;
+      bottom:-80px;
+
+      border-radius:50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(46,199,241,.10),
+          transparent 70%
+        );
+    }
+
+    .category-number{
+      color:var(--cyan);
+
+      font-size:11px;
+      font-weight:950;
+
+      letter-spacing:.15em;
+    }
+
+    .category-card h3{
+      margin:18px 0 10px;
+
+      color:#fff;
+
+      font-size:25px;
+    }
+
+    .category-card p{
+      margin:0;
+
+      color:var(--muted);
+
+      font-size:14px;
+
+      line-height:1.65;
+    }
+
+    /* VALUE */
+
+    .value-grid{
+      display:grid;
+
+      grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
+      gap:16px;
+    }
+
+    .value-card{
+      padding:22px;
+
+      border:1px solid var(--line);
+      border-radius:22px;
+
+      background:
+        rgba(255,255,255,.03);
+    }
+
+    .value-label{
+      color:var(--cyan);
+
+      font-size:11px;
+      font-weight:900;
+
+      letter-spacing:.14em;
+
+      text-transform:uppercase;
+    }
+
+    .value-card h3{
+      margin:10px 0 7px;
+
+      color:#fff;
+
+      font-size:20px;
+    }
+
+    .value-card p{
+      margin:0;
+
+      color:var(--muted);
+
+      line-height:1.6;
+
+      font-size:14px;
+    }
+
+    /* PREVIEW */
+
+    .preview{
+      display:grid;
+
+      grid-template-columns:
+        .9fr 1.1fr;
+
+      gap:18px;
+
+      padding:30px;
+
+      border:1px solid var(--line);
+      border-radius:30px;
+
+      background:
+        radial-gradient(
+          circle at 90% 10%,
+          rgba(139,234,111,.07),
+          transparent 30%
+        ),
+        rgba(255,255,255,.025);
+    }
+
+    .preview-copy h2{
+      margin:8px 0 12px;
+
+      color:#fff;
+
+      font-size:
+        clamp(
+          30px,
+          4vw,
+          46px
+        );
+
+      letter-spacing:-.04em;
+    }
+
+    .preview-copy p{
+      margin:0;
+
+      color:var(--muted);
+
+      line-height:1.65;
+    }
+
+    .article-list{
+      display:grid;
+
+      gap:10px;
+    }
+
+    .article-row{
+      padding:17px 18px;
+
+      border:1px solid var(--line);
+      border-radius:17px;
+
+      background:
+        rgba(255,255,255,.035);
+    }
+
+    .article-type{
+      color:var(--cyan);
+
+      font-size:10px;
+      font-weight:900;
+
+      letter-spacing:.13em;
+
+      text-transform:uppercase;
+    }
+
+    .article-title{
+      margin-top:6px;
+
+      color:#fff;
+
+      font-size:15px;
+      font-weight:850;
+    }
+
+    /* CTA */
+
+    .final-cta{
+      margin-top:26px;
+
+      padding:36px;
+
+      border:
+        1px solid
+        rgba(46,199,241,.17);
+
+      border-radius:30px;
+
+      text-align:center;
+
+      background:
+        radial-gradient(
+          circle at 10% 20%,
+          rgba(46,199,241,.09),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 90% 80%,
+          rgba(139,234,111,.07),
+          transparent 30%
+        ),
+        rgba(255,255,255,.025);
+    }
+
+    .final-cta h2{
+      margin:0;
+
+      color:#fff;
+
+      font-size:
+        clamp(
+          30px,
+          4vw,
+          44px
+        );
+    }
+
+    .final-cta p{
+      max-width:680px;
+
+      margin:12px auto 0;
+
+      color:var(--muted);
+
+      line-height:1.65;
+    }
+
+    .final-actions{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+
+      gap:12px;
+
+      margin-top:22px;
+    }
+
+    .footer{
+      padding-top:40px;
+
+      color:#8ea2ae;
+
+      font-size:12px;
+
+      text-align:center;
+    }
+
+    @media(max-width:980px){
+
       .hero{
+        padding-bottom:230px;
+      }
+
+      .visual{
+        top:auto;
+        bottom:-40px;
+        right:-20px;
+
+        transform:scale(.75);
+        transform-origin:bottom right;
+      }
+
+      .category-grid,
+      .value-grid{
         grid-template-columns:1fr;
-        gap:24px;
+      }
+
+      .preview{
+        grid-template-columns:1fr;
+      }
+
+    }
+
+    @media(max-width:700px){
+
+      .shell{
+        width:calc(100% - 20px);
+      }
+
+      .brand-name{
+        display:none;
+      }
+
+      .nav a{
+        padding:9px;
+
+        font-size:12px;
+      }
+
+      .hero{
+        padding:
+          38px 22px 210px;
+      }
+
+      .hero p{
+        font-size:15px;
+      }
+
+      .visual{
+        right:-95px;
+
+        transform:scale(.58);
       }
 
       .section-head{
-        align-items:start;
+        align-items:flex-start;
         flex-direction:column;
       }
 
-      .section-desc{
-        text-align:left;
-      }
-
-      .articles-grid{
-        grid-template-columns:1fr 1fr;
-      }
     }
 
-    @media(max-width:620px){
-      .shell{
-        width:min(100% - 24px,1180px);
-      }
-
-      .topbar{
-        position:relative;
-        top:0;
-      }
-
-      .hero{
-        padding-top:52px;
-      }
-
-      .category-panel{
-        padding:14px;
-      }
-
-      .articles-grid{
-        grid-template-columns:1fr;
-      }
-
-      .footer{
-        flex-direction:column;
-      }
-    }
   </style>
 </head>
 
 <body>
-  <div class="shell">
 
-    <header class="topbar">
-      <a class="brand" href="../index.html">
-        <img src="../logo.png" alt="vikundey.crypto logo">
-        <span>vikundey.crypto</span>
+<div class="shell">
+
+  <!-- NAV -->
+
+  <header class="topbar">
+
+    <a
+      class="brand"
+      href="/"
+    >
+
+      <img
+        src="../logo.png"
+        alt="vikundey.crypto"
+      >
+
+      <div class="brand-name">
+        vikundey.crypto
+      </div>
+
+    </a>
+
+
+    <nav class="nav">
+
+      <a href="/">
+        Головна
       </a>
 
-      <a class="back" href="../index.html">← На головну</a>
-    </header>
+      <a href="/nfp/">
+        NFP
+      </a>
 
-    <main>
+      <a href="/cpi/">
+        CPI
+      </a>
 
-      <section class="hero">
-        <div>
-          <div class="eyebrow">Education · Macro · Geo</div>
+      <a
+        class="active"
+        href="/thoughts/"
+      >
+        Thoughts
+      </a>
 
-          <h1>
-            Vikundey<br>
-            <span class="accent">Thoughts</span>
-          </h1>
+      <a href="/profile/">
+        👤
+      </a>
 
-          <p class="hero-copy">
-            Бібліотека навчальних та інформаційних матеріалів про економіку,
-            геополітику, макроекономічну логіку та взаємозв’язки, які формують
-            поведінку фінансових ринків.
-          </p>
+    </nav>
+
+  </header>
+
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-copy">
+
+      <div class="eyebrow">
+
+        <span class="dot"></span>
+
+        Vikundey Space · Author Research
+
+      </div>
+
+
+      <h1>
+        Vikundey
+        <br>
+        Thoughts
+      </h1>
+
+
+      <span class="hero-subtitle">
+        Thinking beyond the data
+      </span>
+
+
+      <p>
+
+        Авторський простір про економіку,
+        геополітику, макроекономіку та ринки.
+        Тут дані поєднуються з контекстом,
+        причинно-наслідковими зв'язками
+        та власним поглядом на події.
+
+      </p>
+
+
+      <div class="hero-actions">
+
+        <a
+          class="btn btn-primary"
+          href="/thoughts/access/"
+        >
+          Відкрити Thoughts →
+        </a>
+
+
+        <a
+          class="btn btn-secondary"
+          href="https://secure.wayforpay.com/sub/see534a7947df"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Обрати підписку
+        </a>
+
+      </div>
+
+
+      <div class="login-note">
+
+        <span class="login-icon">
+          ✓
+        </span>
+
+        Vikundey Thoughts доступний у Full Vikundey Space.
+
+      </div>
+
+    </div>
+
+
+    <div
+      class="visual"
+      aria-hidden="true"
+    >
+
+      <div class="orbit"></div>
+      <div class="orbit two"></div>
+
+      <div class="core"></div>
+
+      <div class="node n1">
+        ECONOMICS
+      </div>
+
+      <div class="node n2">
+        GEOPOLITICS
+      </div>
+
+      <div class="node n3">
+        EDUCATION
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CATEGORIES -->
+
+  <section class="section">
+
+    <div class="section-head">
+
+      <h2>
+        Три напрямки думок
+      </h2>
+
+      <p>
+
+        Thoughts — це не стрічка новин.
+        Кожен матеріал розбирає логіку,
+        контекст і потенційні наслідки подій.
+
+      </p>
+
+    </div>
+
+
+    <div class="category-grid">
+
+      <article class="category-card">
+
+        <div class="category-number">
+          01 · GEOPOLITICS
         </div>
 
-        <aside class="hero-side">
-          <div class="hero-side-label">Library</div>
-          <p>
-            Матеріали згруповані за тематикою. Обирай напрям нижче та переходь
-            до потрібної статті.
-          </p>
-        </aside>
-      </section>
+        <h3>
+          Геополітика
+        </h3>
 
-      <nav class="category-nav" aria-label="Категорії бібліотеки">
-        <a href="#geopolitics">Геополітика</a>
-        <a href="#economy">Економіка</a>
-        <a href="#education">Освіта</a>
-      </nav>
+        <p>
+
+          Політичні рішення,
+          міжнародні конфлікти,
+          санкції та їхній вплив
+          на економіку й глобальні ринки.
+
+        </p>
+
+      </article>
 
 
-      <!-- GEOPOLITICS -->
-      <section class="library-section" id="geopolitics">
-        <div class="section-head">
-          <div>
-            <div class="section-kicker">01 · Geopolitics</div>
-            <h2 class="section-title">Геополітика</h2>
-          </div>
+      <article class="category-card">
 
-          <p class="section-desc">
-            Геополітичні події, міжнародні конфлікти, вибори, торговельні
-            відносини та їхній вплив на глобальні ринки.
-          </p>
+        <div class="category-number">
+          02 · ECONOMICS
         </div>
 
-        <div class="category-panel">
-          <div class="articles-grid">
+        <h3>
+          Економіка
+        </h3>
 
-            <article class="article-card">
-              <div>
-                <div class="article-meta">
-                  <span class="tag">Геополітика</span>
-                  <span class="status">Скоро</span>
-                </div>
+        <p>
 
-                <h3>Перша стаття з геополітики</h3>
+          Інфляція, економічне зростання,
+          центральні банки, ліквідність
+          та взаємозв'язок макроданих.
 
-                <p>
-                  Тут буде короткий опис матеріалу, який допоможе зрозуміти,
-                  про що стаття і чому вона важлива.
-                </p>
-              </div>
+        </p>
 
-              <div class="read-more">
-                Читати матеріал <span>→</span>
-              </div>
-            </article>
-
-            <div class="empty-card">
-              <div>
-                <strong>Місце для нової статті</strong>
-                <span>Сюди можна буде додати наступний геополітичний матеріал.</span>
-              </div>
-            </div>
-
-            <div class="empty-card">
-              <div>
-                <strong>Місце для нової статті</strong>
-                <span>Структура готова до подальшого наповнення бібліотеки.</span>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
+      </article>
 
 
-      <!-- ECONOMY -->
-      <section class="library-section" id="economy">
-        <div class="section-head">
-          <div>
-            <div class="section-kicker">02 · Economy</div>
-            <h2 class="section-title">Економіка</h2>
-          </div>
+      <article class="category-card">
 
-          <p class="section-desc">
-            Інфляція, ринок праці, монетарна політика, економічні цикли,
-            центробанки та фундаментальна логіка макроданих.
-          </p>
+        <div class="category-number">
+          03 · EDUCATION
         </div>
 
-        <div class="category-panel">
-          <div class="articles-grid">
+        <h3>
+          Освіта
+        </h3>
 
-            <article class="article-card">
-              <div>
-                <div class="article-meta">
-                  <span class="tag">Економіка</span>
-                  <span class="status">Скоро</span>
-                </div>
+        <p>
 
-                <h3>Перша економічна стаття</h3>
+          Просте пояснення складних
+          економічних механізмів,
+          ринкової логіки
+          та макроаналізу.
 
-                <p>
-                  Тут буде короткий опис економічного матеріалу з основною
-                  тезою та контекстом для читача.
-                </p>
-              </div>
+        </p>
 
-              <div class="read-more">
-                Читати матеріал <span>→</span>
-              </div>
-            </article>
+      </article>
 
-            <div class="empty-card">
-              <div>
-                <strong>Місце для нової статті</strong>
-                <span>Наприклад: інфляція, ФРС, ставки або ринок праці.</span>
-              </div>
-            </div>
+    </div>
 
-            <div class="empty-card">
-              <div>
-                <strong>Місце для нової статті</strong>
-                <span>Нові матеріали можна буде додавати окремими картками.</span>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
+  </section>
 
 
-      <!-- EDUCATION -->
-      <section class="library-section" id="education">
-        <div class="section-head">
-          <div>
-            <div class="section-kicker">03 · Education</div>
-            <h2 class="section-title">Освіта</h2>
-          </div>
+  <!-- WHY -->
 
-          <p class="section-desc">
-            Пояснення базових і просунутих понять: від макроекономічних
-            показників до логіки реакції активів і побудови аналітичного мислення.
-          </p>
+  <section class="section">
+
+    <div class="value-grid">
+
+      <article class="value-card">
+
+        <div class="value-label">
+          Context
         </div>
 
-        <div class="category-panel">
-          <div class="articles-grid">
+        <h3>
+          Не лише факт
+        </h3>
 
-            <a class="article-card" href="./education/fed-rates-eur-dxy/">
-              <div>
-                <div class="article-meta">
-                  <span class="tag">Освіта</span>
-                  <span class="status">4 хв читання</span>
-                </div>
+        <p>
 
-                <h3>Вплив ставок ФРС на EUR & DXY</h3>
+          Матеріали пояснюють,
+          чому подія важлива
+          і що стоїть за цифрами.
 
-                <p>
-                  Як підвищення та зниження ставок ФРС впливає на євро,
-                  долар США, інвестиційні потоки та індекс DXY.
-                </p>
-              </div>
+        </p>
 
-              <div class="read-more">
-                Читати матеріал <span>→</span>
-              </div>
-            </a>
+      </article>
 
-            <a class="article-card" href="./education/macro-analysis-how-to/">
-              <div>
-                <div class="article-meta">
-                  <span class="tag">Освіта</span>
-                  <span class="status">6 хв читання</span>
-                </div>
 
-                <h3>Макроекономічний аналіз. Як проводити?</h3>
+      <article class="value-card">
 
-                <p>
-                  Як визначити мету аналізу, обрати економічні індикатори,
-                  поєднати їх між собою та сформувати заключну думку.
-                </p>
-              </div>
-
-              <div class="read-more">
-                Читати матеріал <span>→</span>
-              </div>
-            </a>
-
-            <div class="empty-card">
-              <div>
-                <strong>Місце для нової статті</strong>
-                <span>Бібліотеку можна поступово розширювати без зміни дизайну.</span>
-              </div>
-            </div>
-
-          </div>
+        <div class="value-label">
+          Logic
         </div>
-      </section>
+
+        <h3>
+          Причина → Наслідок
+        </h3>
+
+        <p>
+
+          Від економічного процесу
+          до потенційного впливу
+          на політику та ринки.
+
+        </p>
+
+      </article>
 
 
-      <section class="consultation-note">
-        <div class="note-label">Personal Consultation</div>
+      <article class="value-card">
+
+        <div class="value-label">
+          View
+        </div>
+
+        <h3>
+          Авторський погляд
+        </h3>
+
+        <p>
+
+          Власне бачення ситуації,
+          ризиків та сценаріїв,
+          а не переписування новин.
+
+        </p>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- PREVIEW -->
+
+  <section class="section">
+
+    <div class="preview">
+
+      <div class="preview-copy">
+
+        <div class="eyebrow">
+          Inside Vikundey Thoughts
+        </div>
 
         <h2>
-          Хочеш отримати індивідуальний підхід до свого питання або запиту?
+          Матеріали для глибшого розуміння
         </h2>
 
         <p>
-          Маєш конкретне питання або ситуацію, яку хочеш розібрати?
-          Запишись на індивідуальну консультацію.
+
+          У бібліотеці зібрані
+          авторські матеріали,
+          які допомагають краще розуміти
+          макросередовище та логіку ринку.
+
         </p>
 
-        <a
-          class="consult-btn"
-          href="https://t.me/vikundeymanager"
-          target="_blank"
-          rel="noopener"
-        >
-          Записатися на консультацію <span>→</span>
-        </a>
-      </section>
+      </div>
 
-    </main>
 
-    <footer class="footer">
-      <span>© 2026 vikundey.crypto</span>
-      <span>Освітня інформація · Не є індивідуальною інвестиційною рекомендацією.</span>
-    </footer>
+      <div class="article-list">
 
-  </div>
+        <div class="article-row">
+
+          <div class="article-type">
+            Education
+          </div>
+
+          <div class="article-title">
+            Як ставки ФРС впливають на EUR та DXY
+          </div>
+
+        </div>
+
+
+        <div class="article-row">
+
+          <div class="article-type">
+            Education
+          </div>
+
+          <div class="article-title">
+            Як працює макроаналіз
+          </div>
+
+        </div>
+
+
+        <div class="article-row">
+
+          <div class="article-type">
+            Economics · Geopolitics
+          </div>
+
+          <div class="article-title">
+            Нові авторські матеріали у Vikundey Space
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CTA -->
+
+  <section class="final-cta">
+
+    <h2>
+      Відкрий Vikundey Thoughts
+    </h2>
+
+    <p>
+
+      Thoughts входить до Full Vikundey Space.
+      Якщо в тебе вже є активна Full-підписка —
+      увійди через email та відкрий бібліотеку матеріалів.
+
+    </p>
+
+
+    <div class="final-actions">
+
+      <a
+        class="btn btn-primary"
+        href="/thoughts/access/"
+      >
+        Відкрити Thoughts →
+      </a>
+
+
+      <a
+        class="btn btn-secondary"
+        href="https://secure.wayforpay.com/sub/see534a7947df"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Full Vikundey Space
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <footer class="footer">
+    © vikundey.crypto · Vikundey Space
+  </footer>
+
+</div>
+
 </body>
 </html>
