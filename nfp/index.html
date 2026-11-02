@@ -1,45 +1,40 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>NFP — Vikundey Space</title>
 
   <meta
     name="description"
-    content="Підготовка до NFP, очікування ринку, сценарії та реакція USD у Vikundey Space."
-  />
+    content="NFP Labor Market Research — підготовка, сценарії та авторський макроаналіз у Vikundey Space."
+  >
 
   <style>
     :root{
-      --bg:#06111a;
-      --panel:#0b1b27;
-      --panel-soft:#102330;
-
+      --bg:#051019;
+      --panel:#0a1822;
       --cyan:#2ec7f1;
       --green:#8bea6f;
-
-      --white:#ffffff;
-      --text:#edf4f8;
-      --muted:#aebfc9;
-
-      --line:rgba(255,255,255,.11);
-
-      --shadow:0 24px 70px rgba(0,0,0,.30);
+      --text:#f3f8fb;
+      --muted:#9fb2bd;
+      --line:rgba(46,199,241,.18);
+      --shadow:0 22px 70px rgba(0,0,0,.34);
     }
 
     *{
       box-sizing:border-box;
     }
 
-    html,
-    body{
-      margin:0;
-      min-height:100%;
+    html{
+      scroll-behavior:smooth;
     }
 
     body{
+      margin:0;
+      min-height:100vh;
+
       font-family:
         Inter,
         ui-sans-serif,
@@ -53,23 +48,21 @@
 
       background:
         radial-gradient(
-          circle at 12% 8%,
-          rgba(46,199,241,.13),
-          transparent 25%
+          circle at 18% 0%,
+          rgba(46,199,241,.10),
+          transparent 28%
         ),
         radial-gradient(
-          circle at 90% 8%,
-          rgba(139,234,111,.09),
+          circle at 86% 12%,
+          rgba(139,234,111,.07),
           transparent 25%
         ),
         linear-gradient(
           180deg,
-          #06111a 0%,
-          #071521 50%,
-          #051019 100%
+          #041018 0%,
+          #06131c 55%,
+          #041018 100%
         );
-
-      overflow-x:hidden;
     }
 
     body::before{
@@ -91,20 +84,20 @@
           transparent 1px
         );
 
-      background-size:32px 32px;
+      background-size:36px 36px;
     }
 
     a{
-      text-decoration:none;
       color:inherit;
+      text-decoration:none;
     }
 
     .shell{
-      width:min(1220px,calc(100% - 32px));
+      width:min(1180px,calc(100% - 28px));
 
       margin:0 auto;
 
-      padding:20px 0 60px;
+      padding:18px 0 48px;
 
       position:relative;
       z-index:1;
@@ -119,12 +112,12 @@
 
       gap:20px;
 
-      padding:14px 18px;
+      padding:13px 16px;
 
       border:1px solid var(--line);
-      border-radius:26px;
+      border-radius:22px;
 
-      background:rgba(5,18,28,.90);
+      background:rgba(5,15,23,.88);
 
       backdrop-filter:blur(16px);
 
@@ -134,149 +127,155 @@
     .brand{
       display:flex;
       align-items:center;
-      gap:12px;
+      gap:11px;
+
+      font-weight:900;
     }
 
     .brand img{
-      width:42px;
-      height:42px;
+      width:40px;
+      height:40px;
 
       object-fit:contain;
-    }
-
-    .brand-name{
-      color:#fff;
-
-      font-size:18px;
-      font-weight:900;
     }
 
     .nav{
       display:flex;
       align-items:center;
 
-      gap:8px;
-
-      flex-wrap:wrap;
+      gap:7px;
     }
 
     .nav a{
-      padding:10px 14px;
+      padding:9px 12px;
 
-      border-radius:14px;
+      border-radius:11px;
 
-      color:#edf4f8;
+      color:#d7e2e8;
 
-      font-size:14px;
-      font-weight:800;
+      font-size:13px;
+      font-weight:750;
     }
 
     .nav a:hover{
-      background:rgba(255,255,255,.06);
+      background:rgba(255,255,255,.05);
     }
 
     .nav .active{
-      color:#071018;
+      position:relative;
+      color:#fff;
+    }
 
-      background:
-        linear-gradient(
-          135deg,
-          var(--cyan),
-          var(--green)
-        );
+    .nav .active::after{
+      content:"";
+
+      position:absolute;
+
+      left:12px;
+      right:12px;
+      bottom:2px;
+
+      height:2px;
+
+      border-radius:99px;
+
+      background:var(--cyan);
+    }
+
+    .profile-link{
+      width:38px;
+      height:38px;
+
+      display:grid !important;
+      place-items:center;
+
+      padding:0 !important;
+
+      border:1px solid rgba(46,199,241,.45);
+      border-radius:50% !important;
+
+      font-size:16px !important;
     }
 
     /* HERO */
 
     .hero{
-      position:relative;
+      display:grid;
 
-      overflow:hidden;
+      grid-template-columns:
+        minmax(0,1.08fr)
+        minmax(330px,.92fr);
 
-      margin-top:22px;
+      gap:28px;
 
-      min-height:430px;
+      align-items:center;
 
-      padding:58px 38px;
+      min-height:420px;
+
+      margin-top:18px;
+
+      padding:40px 34px;
 
       border:1px solid var(--line);
-      border-radius:34px;
+      border-radius:28px;
 
       background:
-        radial-gradient(
-          circle at 82% 24%,
-          rgba(139,234,111,.08),
-          transparent 28%
-        ),
         linear-gradient(
-          120deg,
-          rgba(15,37,51,.95),
-          rgba(7,24,36,.94)
+          135deg,
+          rgba(255,255,255,.035),
+          rgba(255,255,255,.012)
         );
 
       box-shadow:var(--shadow);
+
+      overflow:hidden;
     }
 
-    .hero-copy{
-      position:relative;
-      z-index:4;
+    .space-badge{
+      display:inline-flex;
 
-      max-width:670px;
-    }
+      padding:8px 14px;
 
-    .eyebrow{
-      display:flex;
-      align-items:center;
-
-      gap:8px;
+      border:1px solid var(--cyan);
+      border-radius:999px;
 
       color:var(--cyan);
 
-      font-size:12px;
+      font-size:11px;
       font-weight:900;
 
-      letter-spacing:.17em;
+      letter-spacing:.14em;
 
       text-transform:uppercase;
     }
 
-    .dot{
-      width:8px;
-      height:8px;
+    .research-label{
+      margin-top:18px;
 
-      border-radius:50%;
+      color:#d6e3e9;
 
-      background:var(--green);
+      font-size:12px;
+      font-weight:850;
 
-      box-shadow:
-        0 0 15px
-        rgba(139,234,111,.8);
+      letter-spacing:.28em;
+
+      text-transform:uppercase;
     }
 
     h1{
-      margin:16px 0 12px;
+      margin:14px 0 0;
 
-      color:#fff;
+      font-size:clamp(74px,10vw,125px);
 
-      font-size:
-        clamp(
-          62px,
-          8vw,
-          108px
-        );
+      line-height:.82;
 
-      line-height:.90;
-
-      letter-spacing:-.06em;
+      letter-spacing:-.065em;
     }
 
     .hero-subtitle{
       display:block;
 
-      margin-top:10px;
-
-      color:
-        transparent;
+      margin-top:16px;
 
       background:
         linear-gradient(
@@ -288,56 +287,313 @@
       -webkit-background-clip:text;
       background-clip:text;
 
+      color:transparent;
+
       font-size:
         clamp(
-          28px,
+          27px,
           4vw,
-          48px
+          42px
         );
 
-      font-weight:900;
+      font-weight:950;
 
-      letter-spacing:-.045em;
+      letter-spacing:-.04em;
     }
 
-    .hero p{
-      max-width:630px;
+    .hero-copy{
+      max-width:620px;
 
-      margin:22px 0 0;
+      margin:20px 0 0;
 
-      color:#e4edf2;
+      color:#c7d4db;
 
-      font-size:17px;
+      font-size:16px;
 
       line-height:1.7;
     }
 
-    .hero-actions{
+    /* VISUAL */
+
+    .visual{
+      position:relative;
+
+      min-height:300px;
+
+      overflow:hidden;
+    }
+
+    .flag{
+      position:absolute;
+
+      top:26px;
+      right:20px;
+
+      width:280px;
+      height:150px;
+
+      transform:
+        rotate(-7deg);
+
+      opacity:.35;
+
+      border-radius:10px;
+
+      background:
+        repeating-linear-gradient(
+          to bottom,
+          #8bea6f 0,
+          #8bea6f 11px,
+          transparent 11px,
+          transparent 22px
+        );
+    }
+
+    .flag::before{
+      content:"✦ ✦ ✦\A✦ ✦ ✦\A✦ ✦ ✦";
+
+      white-space:pre;
+
+      position:absolute;
+
+      left:0;
+      top:0;
+
+      width:115px;
+      height:84px;
+
+      padding:10px;
+
+      color:var(--cyan);
+
+      background:#0a2130;
+
+      font-size:15px;
+
+      line-height:1.45;
+    }
+
+    .bars{
+      position:absolute;
+
+      right:20px;
+      bottom:20px;
+
+      height:180px;
+
+      display:flex;
+      align-items:flex-end;
+
+      gap:13px;
+    }
+
+    .bar{
+      width:32px;
+
+      border:1px solid rgba(46,199,241,.40);
+
+      border-radius:6px 6px 0 0;
+
+      background:
+        linear-gradient(
+          180deg,
+          var(--cyan),
+          rgba(46,199,241,.08)
+        );
+
+      box-shadow:
+        0 0 22px
+        rgba(46,199,241,.14);
+    }
+
+    .bar:nth-child(1){height:55px;}
+    .bar:nth-child(2){height:82px;}
+    .bar:nth-child(3){height:110px;}
+    .bar:nth-child(4){height:142px;}
+    .bar:nth-child(5){height:175px;}
+
+    .baseline{
+      position:absolute;
+
+      right:2px;
+      bottom:18px;
+
+      width:310px;
+      height:1px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--cyan),
+          var(--green)
+        );
+
+      box-shadow:
+        0 0 18px
+        rgba(46,199,241,.50);
+    }
+
+    /* FEATURES */
+
+    .features{
+      display:grid;
+
+      grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
+      gap:14px;
+
+      margin-top:18px;
+    }
+
+    .feature{
+      min-height:140px;
+
+      padding:22px;
+
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+
+      text-align:center;
+
+      border:1px solid var(--line);
+      border-radius:20px;
+
+      background:
+        rgba(255,255,255,.025);
+    }
+
+    .feature-icon{
+      width:42px;
+      height:42px;
+
+      display:grid;
+      place-items:center;
+
+      margin-bottom:14px;
+
+      border-radius:13px;
+
+      border:
+        1px solid
+        rgba(46,199,241,.30);
+
+      color:var(--cyan);
+
+      font-size:19px;
+    }
+
+    .feature strong{
+      font-size:15px;
+    }
+
+    .feature span{
+      margin-top:6px;
+
+      color:var(--muted);
+
+      font-size:12px;
+
+      line-height:1.45;
+    }
+
+    /* CTA */
+
+    .cta{
+      margin-top:34px;
+
+      padding:28px 30px;
+
+      border:
+        1px solid
+        rgba(46,199,241,.20);
+
+      border-radius:24px;
+
+      background:
+        radial-gradient(
+          circle at 10% 10%,
+          rgba(46,199,241,.08),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 90% 90%,
+          rgba(139,234,111,.07),
+          transparent 30%
+        ),
+        rgba(255,255,255,.025);
+
+      box-shadow:var(--shadow);
+    }
+
+    .cta h2{
+      margin:0;
+
+      font-size:
+        clamp(
+          28px,
+          4vw,
+          42px
+        );
+
+      line-height:1.1;
+
+      letter-spacing:-.04em;
+    }
+
+    .cta h2 span{
+      background:
+        linear-gradient(
+          90deg,
+          var(--cyan),
+          var(--green)
+        );
+
+      -webkit-background-clip:text;
+      background-clip:text;
+
+      color:transparent;
+    }
+
+    .cta p{
+      max-width:700px;
+
+      margin:12px 0 0;
+
+      color:var(--muted);
+
+      line-height:1.65;
+    }
+
+    .actions{
       display:flex;
       flex-wrap:wrap;
 
       gap:12px;
 
-      margin-top:28px;
+      margin-top:24px;
     }
 
     .btn{
+      min-height:50px;
+
       display:inline-flex;
       align-items:center;
       justify-content:center;
 
-      min-height:52px;
-
       padding:0 20px;
 
-      border-radius:16px;
+      border-radius:14px;
 
       font-size:14px;
       font-weight:900;
     }
 
     .btn-primary{
-      color:#071018;
+      color:#061018;
 
       background:
         linear-gradient(
@@ -348,574 +604,63 @@
     }
 
     .btn-secondary{
+      border:
+        1px solid
+        rgba(46,199,241,.45);
+
       color:#fff;
 
-      border:1px solid var(--line);
-
-      background:
-        rgba(255,255,255,.04);
+      background:transparent;
     }
 
     .login-note{
       display:flex;
-      align-items:center;
-
-      gap:9px;
-
-      margin-top:18px;
-
-      color:var(--muted);
-
-      font-size:13px;
-    }
-
-    .login-icon{
-      width:25px;
-      height:25px;
-
-      display:grid;
-      place-items:center;
-
-      flex:0 0 auto;
-
-      border-radius:50%;
-
-      color:#071018;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--cyan),
-          var(--green)
-        );
-
-      font-size:12px;
-      font-weight:950;
-    }
-
-    /* HERO VISUAL */
-
-    .visual{
-      position:absolute;
-
-      right:-20px;
-      bottom:-30px;
-
-      width:500px;
-      height:340px;
-
-      pointer-events:none;
-    }
-
-    .chart-bars{
-      position:absolute;
-
-      right:28px;
-      top:35px;
-
-      height:120px;
-
-      display:flex;
-      align-items:flex-end;
+      align-items:flex-start;
 
       gap:10px;
 
-      opacity:.42;
+      margin-top:22px;
+
+      color:#a7b8c2;
+
+      font-size:12px;
+
+      line-height:1.5;
     }
 
-    .chart-bars span{
-      width:14px;
+    .login-icon{
+      color:var(--cyan);
 
-      border-radius:4px 4px 0 0;
-
-      background:
-        linear-gradient(
-          180deg,
-          var(--green),
-          rgba(46,199,241,.45)
-        );
+      font-size:18px;
     }
 
-    .chart-bars span:nth-child(1){height:48px;}
-    .chart-bars span:nth-child(2){height:68px;}
-    .chart-bars span:nth-child(3){height:55px;}
-    .chart-bars span:nth-child(4){height:88px;}
-    .chart-bars span:nth-child(5){height:78px;}
-    .chart-bars span:nth-child(6){height:112px;}
+    /* FOOTER */
 
-    .trend{
-      position:absolute;
-
-      right:5px;
-      top:15px;
-
-      width:290px;
-      height:135px;
-    }
-
-    .trend path{
-      fill:none;
-
-      stroke:url(#trendGradient);
-
-      stroke-width:3;
-
-      stroke-linecap:round;
-      stroke-linejoin:round;
-    }
-
-    .trend circle{
-      fill:#fff;
-    }
-
-    .planet{
-      position:absolute;
-
-      right:20px;
-      bottom:0;
-
-      width:350px;
-      height:220px;
-
-      border:1px solid
-        rgba(46,199,241,.22);
-
-      border-radius:
-        230px 230px 0 0;
-
-      background:
-        radial-gradient(
-          circle at 28% 30%,
-          rgba(46,199,241,.16),
-          transparent 28%
-        ),
-        linear-gradient(
-          180deg,
-          #102d3d,
-          #07131d
-        );
-
-      box-shadow:
-        0 0 50px
-        rgba(46,199,241,.10);
-    }
-
-    .planet::before{
-      content:"";
-
-      position:absolute;
-
-      left:50%;
-      top:-8%;
-
-      width:42%;
-      height:116%;
-
-      transform:translateX(-50%);
-
-      border:1px solid
-        rgba(46,199,241,.17);
-
-      border-radius:50%;
-    }
-
-    .planet::after{
-      content:"";
-
-      position:absolute;
-
-      left:10%;
-      right:10%;
-
-      top:44%;
-
-      height:28%;
-
-      border:1px solid
-        rgba(139,234,111,.16);
-
-      border-radius:50%;
-    }
-
-    .orbit{
-      position:absolute;
-
-      right:0;
-      bottom:80px;
-
-      width:410px;
-      height:125px;
-
-      border:2px solid
-        rgba(46,199,241,.44);
-
-      border-radius:50%;
-
-      transform:rotate(-12deg);
-    }
-
-    .orbit.two{
-      right:16px;
-      bottom:70px;
-
-      width:370px;
-      height:140px;
-
-      border-color:
-        rgba(139,234,111,.38);
-
-      transform:rotate(18deg);
-    }
-
-    /* SECTION */
-
-    .section{
-      margin-top:24px;
-    }
-
-    .section-head{
+    footer{
       display:flex;
-      align-items:flex-end;
       justify-content:space-between;
 
       gap:20px;
 
-      margin-bottom:18px;
-    }
+      margin-top:30px;
 
-    .section-head h2{
-      margin:0;
+      padding:22px 4px 4px;
 
-      color:#fff;
+      border-top:1px solid var(--line);
 
-      font-size:
-        clamp(
-          30px,
-          4vw,
-          44px
-        );
-
-      letter-spacing:-.04em;
-    }
-
-    .section-head p{
-      max-width:520px;
-
-      margin:0;
-
-      color:var(--muted);
-
-      line-height:1.6;
-    }
-
-    /* FLOW */
-
-    .flow-grid{
-      display:grid;
-
-      grid-template-columns:
-        repeat(4,minmax(0,1fr));
-
-      gap:16px;
-    }
-
-    .flow-card{
-      position:relative;
-
-      min-height:180px;
-
-      padding:22px;
-
-      border:1px solid var(--line);
-      border-radius:24px;
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(255,255,255,.05),
-          rgba(255,255,255,.018)
-        );
-
-      overflow:hidden;
-    }
-
-    .flow-number{
-      color:var(--cyan);
+      color:#7f939f;
 
       font-size:11px;
-      font-weight:950;
-
-      letter-spacing:.15em;
     }
 
-    .flow-card h3{
-      margin:14px 0 8px;
-
-      color:#fff;
-
-      font-size:20px;
-    }
-
-    .flow-card p{
-      margin:0;
-
-      color:var(--muted);
-
-      font-size:14px;
-      line-height:1.55;
-    }
-
-    /* WHAT INSIDE */
-
-    .content-grid{
-      display:grid;
-
-      grid-template-columns:
-        repeat(2,minmax(0,1fr));
-
-      gap:18px;
-    }
-
-    .content-card{
-      padding:26px;
-
-      border:1px solid var(--line);
-      border-radius:26px;
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(255,255,255,.05),
-          rgba(255,255,255,.018)
-        );
-
-      box-shadow:
-        0 18px 50px
-        rgba(0,0,0,.17);
-    }
-
-    .content-label{
-      color:var(--cyan);
-
-      font-size:11px;
-      font-weight:900;
-
-      letter-spacing:.16em;
-
-      text-transform:uppercase;
-    }
-
-    .content-card h3{
-      margin:10px 0 10px;
-
-      color:#fff;
-
-      font-size:26px;
-    }
-
-    .content-card p{
-      margin:0;
-
-      color:var(--muted);
-
-      line-height:1.65;
-    }
-
-    .content-list{
-      display:grid;
-
-      gap:10px;
-
-      margin-top:18px;
-    }
-
-    .content-item{
-      display:flex;
-      gap:10px;
-
-      color:#e7eff3;
-
-      font-size:14px;
-    }
-
-    .check{
-      color:var(--green);
-
-      font-weight:950;
-    }
-
-    /* RESEARCH LOGIC */
-
-    .logic{
-      display:grid;
-
-      grid-template-columns:
-        .85fr 1.15fr;
-
-      gap:20px;
-
-      padding:30px;
-
-      border:1px solid var(--line);
-      border-radius:30px;
-
-      background:
-        radial-gradient(
-          circle at 90% 10%,
-          rgba(139,234,111,.07),
-          transparent 30%
-        ),
-        rgba(255,255,255,.025);
-    }
-
-    .logic-title{
-      color:var(--cyan);
-
-      font-size:12px;
-      font-weight:950;
-
-      letter-spacing:.16em;
-
-      text-transform:uppercase;
-    }
-
-    .logic h2{
-      margin:10px 0 10px;
-
-      color:#fff;
-
-      font-size:
-        clamp(
-          32px,
-          4vw,
-          48px
-        );
-    }
-
-    .logic p{
-      margin:0;
-
-      color:var(--muted);
-
-      line-height:1.65;
-    }
-
-    .logic-steps{
-      display:grid;
-
-      gap:12px;
-    }
-
-    .logic-step{
-      padding:17px 18px;
-
-      border:1px solid var(--line);
-      border-radius:18px;
-
-      color:#fff;
-
-      background:
-        rgba(255,255,255,.035);
-
-      font-size:15px;
-      font-weight:850;
-    }
-
-    /* CTA */
-
-    .final-cta{
-      margin-top:24px;
-
-      padding:34px;
-
-      border:1px solid
-        rgba(46,199,241,.17);
-
-      border-radius:30px;
-
-      text-align:center;
-
-      background:
-        radial-gradient(
-          circle at 10% 20%,
-          rgba(46,199,241,.09),
-          transparent 30%
-        ),
-        radial-gradient(
-          circle at 90% 80%,
-          rgba(139,234,111,.07),
-          transparent 30%
-        ),
-        rgba(255,255,255,.025);
-    }
-
-    .final-cta h2{
-      margin:0;
-
-      color:#fff;
-
-      font-size:
-        clamp(
-          30px,
-          4vw,
-          44px
-        );
-    }
-
-    .final-cta p{
-      max-width:660px;
-
-      margin:12px auto 0;
-
-      color:var(--muted);
-
-      line-height:1.65;
-    }
-
-    .final-actions{
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-
-      gap:12px;
-
-      margin-top:22px;
-    }
-
-    .footer{
-      padding-top:40px;
-
-      color:#8ea2ae;
-
-      font-size:12px;
-
-      text-align:center;
-    }
-
-    /* RESPONSIVE */
-
-    @media(max-width:980px){
+    @media(max-width:900px){
 
       .hero{
-        padding-bottom:210px;
+        grid-template-columns:1fr;
       }
 
       .visual{
-        right:-60px;
-
-        transform:scale(.80);
-
-        transform-origin:
-          bottom right;
-      }
-
-      .flow-grid{
-        grid-template-columns:
-          repeat(2,minmax(0,1fr));
-      }
-
-      .logic{
-        grid-template-columns:1fr;
+        min-height:270px;
       }
 
     }
@@ -924,42 +669,37 @@
 
       .shell{
         width:
-          calc(100% - 20px);
+          calc(100% - 18px);
       }
 
-      .brand-name{
+      .brand span{
         display:none;
       }
 
-      .nav a{
-        padding:9px 9px;
+      .nav{
+        gap:2px;
+      }
 
-        font-size:12px;
+      .nav a{
+        padding:8px 7px;
+
+        font-size:11px;
       }
 
       .hero{
-        padding:
-          38px 22px 200px;
+        padding:30px 20px;
       }
 
-      .hero p{
-        font-size:15px;
-      }
-
-      .visual{
-        right:-115px;
-
-        transform:scale(.63);
-      }
-
-      .section-head{
-        align-items:flex-start;
-        flex-direction:column;
-      }
-
-      .flow-grid,
-      .content-grid{
+      .features{
         grid-template-columns:1fr;
+      }
+
+      .cta{
+        padding:24px 20px;
+      }
+
+      footer{
+        flex-direction:column;
       }
 
     }
@@ -971,25 +711,21 @@
 
 <div class="shell">
 
-  <!-- NAVBAR -->
-
   <header class="topbar">
 
-    <a
-      class="brand"
-      href="/"
-    >
+    <a class="brand" href="/">
 
       <img
         src="../logo.png"
         alt="vikundey.crypto"
       >
 
-      <div class="brand-name">
+      <span>
         vikundey.crypto
-      </div>
+      </span>
 
     </a>
+
 
     <nav class="nav">
 
@@ -1012,8 +748,11 @@
         Thoughts
       </a>
 
-      <a href="/profile/">
-        👤
+      <a
+        class="profile-link"
+        href="/profile/"
+      >
+        ♙
       </a>
 
     </nav>
@@ -1025,14 +764,14 @@
 
   <section class="hero">
 
-    <div class="hero-copy">
+    <div>
 
-      <div class="eyebrow">
+      <div class="space-badge">
+        Vikundey Space
+      </div>
 
-        <span class="dot"></span>
-
-        Vikundey Space · Macro Research
-
+      <div class="research-label">
+        Macro Research
       </div>
 
       <h1>
@@ -1040,415 +779,126 @@
       </h1>
 
       <span class="hero-subtitle">
-        Nonfarm Payrolls
+        Labor Market Research
       </span>
 
-      <p>
+      <p class="hero-copy">
 
-        Підготовка до ключового релізу ринку праці США:
-        очікування, структура даних, ринковий контекст
-        та можливі сценарії реакції долара і ризикових активів.
+        Комплексний аналіз ринку праці США:
+        очікування, ключові макросигнали,
+        сценарії реакції та потенційний вплив
+        на долар і фінансові ринки.
 
       </p>
 
-      <div class="hero-actions">
-
-        <a
-          class="btn btn-primary"
-          href="/nfp/access/"
-        >
-          Відкрити NFP Space →
-        </a>
-
-        <a
-          class="btn btn-secondary"
-          href="https://secure.wayforpay.com/sub/see534a7947df"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Обрати підписку
-        </a>
-
-      </div>
-
-      <div class="login-note">
-
-        <span class="login-icon">
-          ✓
-        </span>
-
-        Вхід через одноразовий код на email.
-        Пароль створювати не потрібно.
-
-      </div>
-
     </div>
 
-
-    <!-- VISUAL -->
 
     <div
       class="visual"
       aria-hidden="true"
     >
 
-      <div class="chart-bars">
+      <div class="flag"></div>
 
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
+      <div class="bars">
+
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
 
       </div>
 
-      <svg
-        class="trend"
-        viewBox="0 0 290 135"
-      >
-
-        <defs>
-
-          <linearGradient
-            id="trendGradient"
-            x1="0"
-            y1="1"
-            x2="1"
-            y2="0"
-          >
-
-            <stop
-              offset="0%"
-              stop-color="#2ec7f1"
-            />
-
-            <stop
-              offset="100%"
-              stop-color="#8bea6f"
-            />
-
-          </linearGradient>
-
-        </defs>
-
-        <path
-          d="
-            M8 118
-            C40 112,
-            60 94,
-            90 96
-            S140 66,
-            166 72
-            S208 44,
-            234 50
-            S260 25,
-            282 9
-          "
-        />
-
-        <circle
-          cx="90"
-          cy="96"
-          r="4"
-        />
-
-        <circle
-          cx="234"
-          cy="50"
-          r="4"
-        />
-
-        <circle
-          cx="282"
-          cy="9"
-          r="4"
-        />
-
-      </svg>
-
-      <div class="orbit"></div>
-      <div class="orbit two"></div>
-
-      <div class="planet"></div>
+      <div class="baseline"></div>
 
     </div>
 
   </section>
 
 
-  <!-- FLOW -->
+  <!-- FEATURES -->
 
-  <section class="section">
+  <section class="features">
 
-    <div class="section-head">
+    <article class="feature">
 
-      <div>
-        <h2>
-          Від даних до реакції ринку
-        </h2>
+      <div class="feature-icon">
+        ◫
       </div>
 
-      <p>
+      <strong>
+        Прогноз на реліз
+      </strong>
 
-        NFP важливий не сам по собі.
-        Головне — як фактичні дані змінюють
-        очікування ринку щодо економіки та ФРС.
+      <span>
+        Consensus, макродані та контекст перед NFP
+      </span>
 
-      </p>
+    </article>
 
-    </div>
 
-    <div class="flow-grid">
+    <article class="feature">
 
-      <article class="flow-card">
+      <div class="feature-icon">
+        ▥
+      </div>
 
-        <div class="flow-number">
-          01 · EXPECTATIONS
-        </div>
+      <strong>
+        Сценарії реакції ринку
+      </strong>
 
-        <h3>
-          Очікування
-        </h3>
+      <span>
+        USD, EUR/USD та risk assets
+      </span>
 
-        <p>
+    </article>
 
-          Forecast, consensus та позиціонування
-          ринку перед релізом.
 
-        </p>
+    <article class="feature">
 
-      </article>
+      <div class="feature-icon">
+        ◇
+      </div>
 
-      <article class="flow-card">
+      <strong>
+        Аналітичний огляд
+      </strong>
 
-        <div class="flow-number">
-          02 · DATA
-        </div>
+      <span>
+        Vikundey Thinking та post-fact analysis
+      </span>
 
-        <h3>
-          Дані
-        </h3>
-
-        <p>
-
-          Payrolls, безробіття, зарплати
-          та ключові деталі звіту.
-
-        </p>
-
-      </article>
-
-      <article class="flow-card">
-
-        <div class="flow-number">
-          03 · FED
-        </div>
-
-        <h3>
-          ФРС
-        </h3>
-
-        <p>
-
-          Як реліз змінює очікування
-          щодо процентних ставок.
-
-        </p>
-
-      </article>
-
-      <article class="flow-card">
-
-        <div class="flow-number">
-          04 · MARKETS
-        </div>
-
-        <h3>
-          Реакція
-        </h3>
-
-        <p>
-
-          USD, yields, crypto
-          та інші ризикові активи.
-
-        </p>
-
-      </article>
-
-    </div>
+    </article>
 
   </section>
 
 
-  <!-- CONTENT -->
+  <!-- CTA -->
 
-  <section class="section">
-
-    <div class="content-grid">
-
-      <article class="content-card">
-
-        <div class="content-label">
-          Before NFP
-        </div>
-
-        <h3>
-          Підготовка до релізу
-        </h3>
-
-        <p>
-
-          Перед виходом даних формуємо контекст,
-          щоб розуміти не лише цифру, а й те,
-          що ринок уже заклав у ціну.
-
-        </p>
-
-        <div class="content-list">
-
-          <div class="content-item">
-            <span class="check">✓</span>
-            Очікування ринку
-          </div>
-
-          <div class="content-item">
-            <span class="check">✓</span>
-            Попередні labor market indicators
-          </div>
-
-          <div class="content-item">
-            <span class="check">✓</span>
-            Контекст ФРС
-          </div>
-
-          <div class="content-item">
-            <span class="check">✓</span>
-            Сценарії для USD та risk assets
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <article class="content-card">
-
-        <div class="content-label">
-          Release Reaction
-        </div>
-
-        <h3>
-          Моментний вплив
-        </h3>
-
-        <p>
-
-          Після релізу дивимось, що саме здивувало
-          ринок і чому активи реагують саме так.
-
-        </p>
-
-        <div class="content-list">
-
-          <div class="content-item">
-            <span class="check">✓</span>
-            Actual vs Consensus
-          </div>
-
-          <div class="content-item">
-            <span class="check">✓</span>
-            Реакція USD
-          </div>
-
-          <div class="content-item">
-            <span class="check">✓</span>
-            Зміна rate expectations
-          </div>
-
-          <div class="content-item">
-            <span class="check">✓</span>
-            Market interpretation
-          </div>
-
-        </div>
-
-      </article>
-
-    </div>
-
-  </section>
-
-
-  <!-- LOGIC -->
-
-  <section class="section">
-
-    <div class="logic">
-
-      <div>
-
-        <div class="logic-title">
-          Research Logic
-        </div>
-
-        <h2>
-          Macro → Market
-        </h2>
-
-        <p>
-
-          Мета Vikundey Space — не просто показати
-          економічний реліз, а пояснити логіку,
-          через яку дані переходять у ринкову реакцію.
-
-        </p>
-
-      </div>
-
-      <div class="logic-steps">
-
-        <div class="logic-step">
-          Labor Data → Expectations
-        </div>
-
-        <div class="logic-step">
-          Expectations → Fed
-        </div>
-
-        <div class="logic-step">
-          Fed → USD
-        </div>
-
-        <div class="logic-step">
-          USD & Liquidity → Risk Assets
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- FINAL CTA -->
-
-  <section class="final-cta">
+  <section class="cta">
 
     <h2>
-      Відкрий NFP Space
+
+      Отримай повний доступ до
+
+      <span>
+        NFP Space
+      </span>
+
     </h2>
 
     <p>
 
-      Якщо в тебе вже є активна підписка —
-      увійди через email та отримай повний
-      доступ до підготовки й аналітики NFP.
+      Актуальні аналітичні матеріали,
+      авторські сценарії та архів
+      попередніх NFP-релізів.
 
     </p>
 
-    <div class="final-actions">
+
+    <div class="actions">
 
       <a
         class="btn btn-primary"
@@ -1468,11 +918,34 @@
 
     </div>
 
+
+    <div class="login-note">
+
+      <span class="login-icon">
+        ✉
+      </span>
+
+      <div>
+        Вхід через одноразовий код на email.
+        <br>
+        Пароль створювати не потрібно.
+      </div>
+
+    </div>
+
   </section>
 
 
-  <footer class="footer">
-    © vikundey.crypto · Vikundey Space
+  <footer>
+
+    <span>
+      © 2026 vikundey.crypto
+    </span>
+
+    <span>
+      Vikundey Space · Macro Research
+    </span>
+
   </footer>
 
 </div>
