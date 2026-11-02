@@ -8,30 +8,24 @@
 
   <meta
     name="description"
-    content="Vikundey Space — персональний простір з макроаналітикою, NFP, CPI та Vikundey Thoughts."
+    content="Vikundey Space — персональний простір для макроаналітики, NFP, CPI та Vikundey Thoughts."
   />
 
   <style>
     :root{
-      --bg:#07111a;
-      --bg-2:#091722;
-      --panel:rgba(12,27,39,.88);
-      --panel-soft:rgba(16,32,45,.80);
-
+      --bg:#06111a;
+      --bg2:#081722;
+      --panel:rgba(10,24,35,.88);
+      --panel2:rgba(15,31,45,.78);
       --line:rgba(255,255,255,.11);
-      --line-strong:rgba(255,255,255,.18);
-
+      --line2:rgba(46,199,241,.20);
+      --text:#ffffff;
+      --muted:#b9cad4;
+      --muted2:#8ea3af;
       --cyan:#2ec7f1;
       --green:#8bea6f;
-
-      --white:#ffffff;
-      --text:#ffffff;
-      --text-soft:#edf4f8;
-      --muted:#c3d0d8;
-      --muted-2:#91a4af;
-
-      --shadow:
-        0 24px 80px rgba(0,0,0,.34);
+      --danger:#ff7b7b;
+      --shadow:0 28px 80px rgba(0,0,0,.34);
     }
 
     *{
@@ -45,6 +39,7 @@
     }
 
     body{
+      color:var(--text);
       font-family:
         Inter,
         ui-sans-serif,
@@ -54,24 +49,22 @@
         "Segoe UI",
         sans-serif;
 
-      color:var(--text);
-
       background:
         radial-gradient(
-          circle at 14% 10%,
+          circle at 13% 12%,
           rgba(46,199,241,.14),
-          transparent 24%
+          transparent 25%
         ),
         radial-gradient(
-          circle at 88% 8%,
-          rgba(139,234,111,.10),
-          transparent 22%
+          circle at 88% 9%,
+          rgba(139,234,111,.12),
+          transparent 24%
         ),
         linear-gradient(
           180deg,
-          #07111a 0%,
-          #081722 48%,
-          #051019 100%
+          #06111a 0%,
+          #071722 48%,
+          #050f18 100%
         );
 
       overflow-x:hidden;
@@ -79,10 +72,8 @@
 
     body::before{
       content:"";
-
       position:fixed;
       inset:0;
-
       pointer-events:none;
 
       background-image:
@@ -96,14 +87,13 @@
           transparent 1px
         );
 
-      background-size:
-        32px 32px;
+      background-size:34px 34px;
 
       mask-image:
         linear-gradient(
           180deg,
-          rgba(0,0,0,.95),
-          rgba(0,0,0,.45)
+          rgba(0,0,0,.92),
+          rgba(0,0,0,.55)
         );
     }
 
@@ -112,42 +102,41 @@
       text-decoration:none;
     }
 
+    button,
+    input{
+      font:inherit;
+    }
+
     .shell{
-      width:
-        min(
-          1220px,
-          calc(100% - 32px)
-        );
+      width:min(
+        1220px,
+        calc(100% - 32px)
+      );
 
-      margin:
-        0 auto;
-
-      padding:
-        22px 0 64px;
+      margin:0 auto;
+      padding:22px 0 68px;
 
       position:relative;
       z-index:1;
     }
 
-    /* =========================
-       NAV
-    ========================= */
+    /* ======================================================
+       NAVBAR
+    ====================================================== */
 
     .topbar{
       display:flex;
       align-items:center;
       justify-content:space-between;
 
-      gap:20px;
+      gap:18px;
 
-      padding:
-        14px 18px;
+      padding:14px 18px;
 
       border:
         1px solid var(--line);
 
-      border-radius:
-        26px;
+      border-radius:26px;
 
       background:
         rgba(5,18,28,.86);
@@ -160,27 +149,22 @@
 
       position:sticky;
       top:12px;
-
       z-index:20;
     }
 
     .brand{
       display:flex;
       align-items:center;
-
       gap:12px;
     }
 
     .brand img{
       width:42px;
       height:42px;
-
       object-fit:contain;
     }
 
     .brand-name{
-      color:#fff;
-
       font-size:18px;
       font-weight:900;
     }
@@ -188,23 +172,18 @@
     .nav{
       display:flex;
       align-items:center;
-
       gap:8px;
-
       flex-wrap:wrap;
     }
 
     .nav a{
-      padding:
-        10px 14px;
-
-      border-radius:
-        14px;
-
-      color:#edf4f8;
+      padding:10px 14px;
+      border-radius:14px;
 
       font-size:14px;
       font-weight:800;
+
+      color:#edf4f8;
 
       transition:.2s ease;
     }
@@ -225,42 +204,39 @@
         );
 
       box-shadow:
-        0 10px 26px
+        0 12px 24px
         rgba(46,199,241,.18);
     }
 
-    /* =========================
+    /* ======================================================
        HERO
-    ========================= */
+    ====================================================== */
 
     .hero{
       position:relative;
-
       overflow:hidden;
 
-      margin-top:22px;
+      margin-top:24px;
 
-      min-height:460px;
+      min-height:720px;
 
-      padding:
-        64px 38px 46px;
+      padding:64px 38px;
 
       border:
         1px solid var(--line);
 
-      border-radius:
-        34px;
+      border-radius:36px;
 
       background:
         linear-gradient(
           180deg,
-          rgba(255,255,255,.055),
-          rgba(255,255,255,.015)
+          rgba(255,255,255,.04),
+          rgba(255,255,255,.012)
         ),
         linear-gradient(
           120deg,
-          rgba(6,22,34,.92),
-          rgba(7,25,37,.84)
+          rgba(5,20,31,.94),
+          rgba(6,22,32,.84)
         );
 
       box-shadow:
@@ -269,27 +245,27 @@
       isolation:isolate;
     }
 
-    .hero-copy{
+    .hero-left{
       position:relative;
-      z-index:5;
+      z-index:4;
 
-      max-width:650px;
+      width:min(51%,610px);
+
+      padding-top:22px;
     }
 
     .eyebrow{
-      display:inline-flex;
+      display:flex;
       align-items:center;
-
-      gap:8px;
+      gap:10px;
 
       color:var(--cyan);
 
       text-transform:uppercase;
-
       letter-spacing:.18em;
 
       font-size:12px;
-      font-weight:900;
+      font-weight:950;
     }
 
     .eyebrow-dot{
@@ -298,50 +274,68 @@
 
       border-radius:50%;
 
-      background:var(--green);
+      background:
+        var(--green);
 
       box-shadow:
         0 0 16px
-        rgba(139,234,111,.8);
+        rgba(139,234,111,.85);
     }
 
     h1{
       margin:
-        16px 0 14px;
-
-      color:#fff;
+        20px 0 18px;
 
       font-size:
         clamp(
-          44px,
-          6.4vw,
-          84px
+          52px,
+          7.2vw,
+          94px
         );
 
-      line-height:.96;
+      line-height:.92;
 
-      letter-spacing:-.06em;
+      letter-spacing:
+        -.065em;
     }
 
-    .hero-text{
-      max-width:620px;
+    .gradient-word{
+      background:
+        linear-gradient(
+          90deg,
+          var(--cyan),
+          var(--green)
+        );
+
+      -webkit-background-clip:text;
+      background-clip:text;
+
+      color:transparent;
+    }
+
+    .hero-copy{
+      max-width:610px;
 
       margin:0;
 
-      color:var(--text-soft);
+      color:#e8f0f4;
 
-      font-size:18px;
+      font-size:20px;
 
-      line-height:1.7;
+      line-height:1.6;
     }
+
+    /* ======================================================
+       MAIN BUTTONS
+    ====================================================== */
 
     .hero-actions{
       display:flex;
       flex-wrap:wrap;
 
-      gap:12px;
+      gap:14px;
 
-      margin-top:28px;
+      margin-top:30px;
     }
 
     .btn{
@@ -349,25 +343,20 @@
       align-items:center;
       justify-content:center;
 
-      min-height:52px;
+      gap:10px;
 
-      padding:
-        0 20px;
+      min-height:54px;
 
-      border-radius:
-        16px;
+      padding:0 22px;
 
-      font-size:14px;
+      border-radius:17px;
+
       font-weight:900;
 
-      transition:
-        transform .18s ease,
-        box-shadow .18s ease;
-    }
+      border:
+        1px solid var(--line);
 
-    .btn:hover{
-      transform:
-        translateY(-1px);
+      transition:.2s ease;
     }
 
     .btn-primary{
@@ -381,667 +370,171 @@
         );
 
       box-shadow:
-        0 12px 30px
-        rgba(46,199,241,.18);
+        0 15px 34px
+        rgba(46,199,241,.16);
     }
 
     .btn-secondary{
       color:#fff;
 
-      border:
-        1px solid
-        rgba(255,255,255,.13);
-
       background:
-        rgba(255,255,255,.055);
+        rgba(255,255,255,.035);
     }
+
+    .btn:hover{
+      transform:
+        translateY(-1px);
+    }
+
+    /* ======================================================
+       LOGIN NOTE
+    ====================================================== */
 
     .login-note{
       display:flex;
-      align-items:center;
+      align-items:flex-start;
 
-      gap:9px;
+      gap:12px;
 
-      margin-top:18px;
-
-      color:var(--muted);
-
-      font-size:13px;
-    }
-
-    .login-note-icon{
-      width:24px;
-      height:24px;
-
-      display:grid;
-      place-items:center;
-
-      border-radius:50%;
-
-      color:#071018;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--cyan),
-          var(--green)
-        );
-
-      font-size:12px;
-      font-weight:900;
-    }
-
-    /* =========================
-       HERO VISUAL
-    ========================= */
-
-    .scene{
-      position:absolute;
-
-      right:-10px;
-      bottom:-24px;
-
-      width:510px;
-      height:390px;
-
-      pointer-events:none;
-
-      z-index:1;
-    }
-
-    .scene-card{
-      position:absolute;
-
-      z-index:4;
-
-      display:flex;
-      align-items:center;
-
-      gap:10px;
-
-      min-width:150px;
-
-      padding:
-        12px 14px;
-
-      border:
-        1px solid
-        rgba(46,199,241,.22);
-
-      border-radius:
-        15px;
-
-      background:
-        rgba(8,27,39,.84);
-
-      backdrop-filter:
-        blur(12px);
-
-      box-shadow:
-        0 12px 30px
-        rgba(0,0,0,.22);
-    }
-
-    .scene-card.one{
-      right:28px;
-      top:70px;
-    }
-
-    .scene-card.two{
-      right:230px;
-      top:155px;
-    }
-
-    .scene-icon{
-      width:34px;
-      height:34px;
-
-      display:grid;
-      place-items:center;
-
-      border-radius:10px;
-
-      color:#071018;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--cyan),
-          var(--green)
-        );
-
-      font-size:15px;
-      font-weight:950;
-    }
-
-    .scene-card strong{
-      display:block;
-
-      color:#fff;
-
-      font-size:13px;
-    }
-
-    .scene-card span{
-      display:block;
-
-      margin-top:3px;
-
-      color:var(--muted-2);
-
-      font-size:10px;
-    }
-
-    .bars{
-      position:absolute;
-
-      right:24px;
-      top:18px;
-
-      height:120px;
-
-      display:flex;
-      align-items:flex-end;
-
-      gap:9px;
-
-      opacity:.36;
-    }
-
-    .bars span{
-      width:13px;
-
-      border-radius:
-        4px 4px 0 0;
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(139,234,111,.94),
-          rgba(46,199,241,.40)
-        );
-    }
-
-    .bars span:nth-child(1){
-      height:46px;
-    }
-
-    .bars span:nth-child(2){
-      height:72px;
-    }
-
-    .bars span:nth-child(3){
-      height:64px;
-    }
-
-    .bars span:nth-child(4){
-      height:92px;
-    }
-
-    .bars span:nth-child(5){
-      height:82px;
-    }
-
-    .bars span:nth-child(6){
-      height:112px;
-    }
-
-    .trend{
-      position:absolute;
-
-      right:4px;
-      top:8px;
-
-      width:280px;
-      height:130px;
-    }
-
-    .trend path{
-      fill:none;
-
-      stroke:
-        url(#trendGradient);
-
-      stroke-width:3;
-
-      stroke-linecap:round;
-      stroke-linejoin:round;
-    }
-
-    .trend circle{
-      fill:#f8ffff;
-    }
-
-    .planet-area{
-      position:absolute;
-
-      right:24px;
-      bottom:-6px;
-
-      width:390px;
-      height:270px;
-    }
-
-    .planet{
-      position:absolute;
-
-      right:0;
-      bottom:0;
-
-      width:340px;
-      height:225px;
-
-      border-radius:
-        230px 230px 0 0;
-
-      overflow:hidden;
-
-      border:
-        1px solid
-        rgba(46,199,241,.22);
-
-      background:
-        radial-gradient(
-          circle at 28% 30%,
-          rgba(255,255,255,.14),
-          transparent 18%
-        ),
-        radial-gradient(
-          circle at 74% 26%,
-          rgba(139,234,111,.13),
-          transparent 18%
-        ),
-        linear-gradient(
-          180deg,
-          rgba(14,44,64,.96),
-          rgba(5,18,29,.99)
-        );
-
-      box-shadow:
-        inset 0 18px 48px
-        rgba(46,199,241,.08),
-        inset 0 -28px 48px
-        rgba(0,0,0,.58),
-        0 0 50px
-        rgba(46,199,241,.12);
-    }
-
-    .planet::before{
-      content:"";
-
-      position:absolute;
-
-      left:50%;
-      top:-8%;
-
-      width:40%;
-      height:116%;
-
-      transform:
-        translateX(-50%);
-
-      border:
-        1px solid
-        rgba(46,199,241,.16);
-
-      border-radius:50%;
-    }
-
-    .planet::after{
-      content:"";
-
-      position:absolute;
-
-      left:9%;
-      right:9%;
-
-      top:42%;
-
-      height:29%;
-
-      border:
-        1px solid
-        rgba(139,234,111,.15);
-
-      border-radius:50%;
-    }
-
-    .ring,
-    .ring-two{
-      position:absolute;
-
-      border-radius:50%;
-
-      border:
-        2px solid
-        rgba(46,199,241,.52);
-    }
-
-    .ring{
-      width:390px;
-      height:120px;
-
-      left:-10px;
-      top:112px;
-
-      transform:
-        rotate(-10deg);
-    }
-
-    .ring-two{
-      width:360px;
-      height:138px;
-
-      left:10px;
-      top:96px;
-
-      transform:
-        rotate(18deg);
-
-      border-color:
-        rgba(139,234,111,.45);
-    }
-
-    .node{
-      position:absolute;
-
-      width:13px;
-      height:13px;
-
-      border-radius:50%;
-
-      background:#f7ffff;
-
-      box-shadow:
-        0 0 16px
-        rgba(46,199,241,.60);
-    }
-
-    .node.a{
-      left:8px;
-      top:158px;
-    }
-
-    .node.b{
-      left:132px;
-      top:38px;
-    }
-
-    .node.c{
-      right:48px;
-      top:24px;
-    }
-
-    /* =========================
-       PREVIEW
-    ========================= */
-
-    .preview-section{
-      padding:
-        34px 0 0;
-    }
-
-    .section-heading{
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-end;
-
-      gap:20px;
-
-      margin-bottom:18px;
-    }
-
-    .section-heading h2{
-      margin:0;
-
-      color:#fff;
-
-      font-size:
-        clamp(
-          28px,
-          4vw,
-          44px
-        );
-
-      letter-spacing:-.04em;
-    }
-
-    .section-heading p{
-      max-width:520px;
-
-      margin:0;
-
-      color:var(--muted);
-
-      line-height:1.6;
-    }
-
-    .preview-grid{
-      display:grid;
-
-      grid-template-columns:
-        1.05fr .95fr;
-
-      gap:24px;
-    }
-
-    .card{
-      position:relative;
-
-      overflow:hidden;
-
-      padding:30px;
-
-      border:
-        1px solid
-        var(--line);
-
-      border-radius:30px;
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(255,255,255,.055),
-          rgba(255,255,255,.018)
-        ),
-        linear-gradient(
-          180deg,
-          rgba(10,25,38,.94),
-          rgba(8,22,33,.90)
-        );
-
-      box-shadow:
-        var(--shadow);
-    }
-
-    .card::before{
-      content:"";
-
-      position:absolute;
-
-      left:0;
-      top:0;
-
-      width:100%;
-      height:2px;
-
-      background:
-        linear-gradient(
-          90deg,
-          var(--cyan),
-          var(--green),
-          transparent
-        );
-    }
-
-    .card-title{
-      margin-bottom:18px;
-
-      color:#dfe8ed;
-
-      font-size:13px;
-      font-weight:900;
-
-      letter-spacing:.16em;
-
-      text-transform:uppercase;
-    }
-
-    .profile-preview{
-      display:flex;
-      align-items:center;
-
-      gap:16px;
-
-      margin-bottom:24px;
-    }
-
-    .avatar{
-      width:72px;
-      height:72px;
-
-      display:grid;
-      place-items:center;
-
-      flex:0 0 auto;
-
-      border:
-        1px solid
-        rgba(255,255,255,.18);
-
-      border-radius:50%;
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(255,255,255,.12),
-          rgba(46,199,241,.18),
-          rgba(139,234,111,.15)
-        );
-
-      font-size:30px;
-    }
-
-    .fake-email{
-      color:#fff;
-
-      font-size:22px;
-      font-weight:900;
-    }
-
-    .fake-subtitle{
-      margin-top:5px;
+      margin-top:24px;
 
       color:var(--muted);
 
       font-size:14px;
+      line-height:1.55;
+
+      max-width:520px;
     }
 
-    .status-grid{
-      display:grid;
-
-      grid-template-columns:
-        repeat(
-          2,
-          minmax(0,1fr)
-        );
-
-      gap:14px;
-    }
-
-    .status-box{
-      padding:18px;
-
-      border:
-        1px solid
-        rgba(255,255,255,.10);
-
-      border-radius:20px;
-
-      background:
-        rgba(255,255,255,.045);
-    }
-
-    .status-label{
-      margin-bottom:8px;
-
-      color:#d3e0e7;
-
-      font-size:11px;
-      font-weight:800;
-
-      letter-spacing:.12em;
-
-      text-transform:uppercase;
-    }
-
-    .status-value{
-      color:#fff;
-
-      font-size:22px;
-      font-weight:900;
-    }
-
-    .active-pill{
-      display:inline-flex;
-
-      margin-top:8px;
-
-      padding:
-        7px 11px;
-
-      border-radius:999px;
-
-      color:var(--green);
-
-      background:
-        rgba(139,234,111,.09);
-
-      font-size:12px;
-      font-weight:900;
-    }
-
-    .access-list{
-      display:grid;
-
-      gap:13px;
-    }
-
-    .access-item{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-
-      gap:14px;
-
-      padding:
-        17px;
-
-      border:
-        1px solid
-        rgba(255,255,255,.10);
-
-      border-radius:19px;
-
-      background:
-        rgba(255,255,255,.045);
-    }
-
-    .access-left{
-      display:flex;
-      align-items:center;
-
-      gap:13px;
-    }
-
-    .access-icon{
-      width:42px;
-      height:42px;
+    .login-note-icon{
+      width:38px;
+      height:38px;
 
       display:grid;
       place-items:center;
 
       flex:0 0 auto;
+
+      border-radius:12px;
+
+      border:
+        1px solid var(--line);
+
+      background:
+        rgba(255,255,255,.04);
+
+      font-size:18px;
+    }
+
+    /* ======================================================
+       INVITE DIVIDER
+    ====================================================== */
+
+    .invite-divider{
+      width:100%;
+
+      display:flex;
+      align-items:center;
+
+      gap:14px;
+
+      margin:
+        26px 0 18px;
+    }
+
+    .invite-divider::before,
+    .invite-divider::after{
+      content:"";
+
+      flex:1;
+
+      height:1px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(255,255,255,.16),
+          transparent
+        );
+    }
+
+    .invite-divider span{
+      display:inline-flex;
+
+      align-items:center;
+      justify-content:center;
+
+      min-width:46px;
+
+      padding:
+        6px 12px;
+
+      border-radius:999px;
+
+      border:
+        1px solid var(--line);
+
+      background:
+        rgba(255,255,255,.035);
+
+      color:var(--muted2);
+
+      font-size:11px;
+
+      font-weight:900;
+
+      letter-spacing:.08em;
+
+      text-transform:uppercase;
+    }
+
+    /* ======================================================
+       INVITE BOX
+    ====================================================== */
+
+    .invite-box{
+      position:relative;
+
+      width:100%;
+
+      padding:18px;
+
+      border-radius:21px;
+
+      border:
+        1px solid
+        rgba(46,199,241,.28);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(46,199,241,.055),
+          rgba(139,234,111,.035)
+        );
+
+      box-shadow:
+        inset 0 1px 0
+        rgba(255,255,255,.025);
+    }
+
+    .invite-top{
+      display:flex;
+      align-items:center;
+
+      gap:13px;
+
+      margin-bottom:15px;
+    }
+
+    .invite-icon{
+      width:42px;
+      height:42px;
+
+      flex:0 0 auto;
+
+      display:grid;
+      place-items:center;
 
       border-radius:13px;
 
@@ -1054,30 +547,98 @@
           var(--green)
         );
 
-      font-size:14px;
+      font-size:19px;
+
+      box-shadow:
+        0 10px 24px
+        rgba(46,199,241,.14);
+    }
+
+    .invite-title{
+      color:#fff;
+
+      font-size:16px;
+
       font-weight:950;
     }
 
-    .access-name{
-      color:#fff;
-
-      font-size:17px;
-      font-weight:900;
-    }
-
-    .access-desc{
+    .invite-copy{
       margin-top:4px;
 
-      color:var(--muted);
+      color:var(--muted2);
 
       font-size:12px;
+
+      line-height:1.45;
     }
 
-    .access-badge{
-      padding:
-        8px 11px;
+    .invite-form{
+      display:flex;
 
-      border-radius:999px;
+      gap:10px;
+    }
+
+    .invite-input{
+      min-width:0;
+      flex:1;
+
+      height:50px;
+
+      padding:
+        0 16px;
+
+      outline:none;
+
+      border-radius:14px;
+
+      border:
+        1px solid
+        rgba(255,255,255,.12);
+
+      background:
+        rgba(2,12,19,.62);
+
+      color:#fff;
+
+      font-weight:800;
+
+      letter-spacing:.04em;
+
+      text-transform:uppercase;
+
+      transition:.2s ease;
+    }
+
+    .invite-input::placeholder{
+      color:#718995;
+
+      text-transform:none;
+
+      letter-spacing:0;
+
+      font-weight:600;
+    }
+
+    .invite-input:focus{
+      border-color:
+        rgba(46,199,241,.55);
+
+      box-shadow:
+        0 0 0 3px
+        rgba(46,199,241,.07);
+    }
+
+    .invite-button{
+      height:50px;
+
+      padding:
+        0 18px;
+
+      border:0;
+
+      border-radius:14px;
+
+      cursor:pointer;
 
       color:#071018;
 
@@ -1088,300 +649,755 @@
           var(--green)
         );
 
-      font-size:11px;
       font-weight:950;
 
-      text-transform:uppercase;
+      white-space:nowrap;
+
+      transition:
+        .2s ease;
     }
 
-    /* =========================
-       PRODUCT VALUE
-    ========================= */
-
-    .value-section{
-      padding-top:24px;
+    .invite-button:hover{
+      transform:
+        translateY(-1px);
     }
 
-    .value-grid{
-      display:grid;
+    .invite-button:disabled{
+      cursor:wait;
 
-      grid-template-columns:
-        repeat(
-          3,
-          minmax(0,1fr)
-        );
+      opacity:.62;
 
-      gap:16px;
+      transform:none;
     }
 
-    .value-card{
-      min-height:170px;
+    .invite-status{
+      display:none;
 
-      padding:24px;
+      margin-top:12px;
 
-      border:
-        1px solid
-        var(--line);
+      padding:
+        10px 12px;
 
-      border-radius:24px;
+      border-radius:12px;
 
-      background:
-        linear-gradient(
-          180deg,
-          rgba(255,255,255,.05),
-          rgba(255,255,255,.018)
-        );
+      font-size:12px;
 
-      box-shadow:
-        0 16px 50px
-        rgba(0,0,0,.18);
+      line-height:1.45;
     }
 
-    .value-card strong{
+    .invite-status.loading{
       display:block;
 
-      color:#fff;
-
-      font-size:16px;
-      font-weight:950;
-
-      letter-spacing:.14em;
-    }
-
-    .value-card p{
-      margin:
-        12px 0 0;
-
-      color:var(--muted);
-
-      font-size:14px;
-
-      line-height:1.55;
-    }
-
-    /* =========================
-       PLANS
-    ========================= */
-
-    .plans-section{
-      padding-top:24px;
-    }
-
-    .plans-grid{
-      display:grid;
-
-      grid-template-columns:
-        repeat(
-          2,
-          minmax(0,1fr)
-        );
-
-      gap:18px;
-    }
-
-    .plan-card{
-      position:relative;
-
-      overflow:hidden;
-
-      padding:26px;
+      color:var(--cyan);
 
       border:
         1px solid
-        var(--line);
+        rgba(46,199,241,.17);
+
+      background:
+        rgba(46,199,241,.06);
+    }
+
+    .invite-status.error{
+      display:block;
+
+      color:#ffabab;
+
+      border:
+        1px solid
+        rgba(255,123,123,.22);
+
+      background:
+        rgba(255,123,123,.065);
+    }
+
+    .invite-status.success{
+      display:block;
+
+      color:var(--green);
+
+      border:
+        1px solid
+        rgba(139,234,111,.22);
+
+      background:
+        rgba(139,234,111,.065);
+    }
+
+    /* ======================================================
+       PROFILE PREVIEW
+    ====================================================== */
+
+    .preview-window{
+      position:absolute;
+      z-index:3;
+
+      right:30px;
+      top:95px;
+
+      width:535px;
+
+      min-height:465px;
+
+      border:
+        1px solid
+        rgba(46,199,241,.28);
 
       border-radius:26px;
 
       background:
         linear-gradient(
           180deg,
-          rgba(255,255,255,.05),
-          rgba(255,255,255,.018)
+          rgba(12,31,45,.96),
+          rgba(7,23,34,.95)
         );
 
       box-shadow:
-        0 18px 56px
-        rgba(0,0,0,.20);
+        0 30px 70px
+        rgba(0,0,0,.38),
+        0 0 48px
+        rgba(46,199,241,.08);
+
+      overflow:hidden;
     }
 
-    .plan-card.featured{
-      border-color:
-        rgba(139,234,111,.20);
+    .window-top{
+      height:38px;
+
+      border-bottom:
+        1px solid var(--line);
+
+      display:flex;
+      align-items:center;
+
+      gap:7px;
+
+      padding:
+        0 15px;
+
+      background:
+        rgba(255,255,255,.025);
+    }
+
+    .window-top span{
+      width:9px;
+      height:9px;
+
+      border-radius:50%;
+    }
+
+    .window-top span:nth-child(1){
+      background:#ff6868;
+    }
+
+    .window-top span:nth-child(2){
+      background:#ffd65d;
+    }
+
+    .window-top span:nth-child(3){
+      background:#55db79;
+    }
+
+    .preview-body{
+      padding:22px;
+    }
+
+    .preview-user{
+      display:flex;
+      align-items:center;
+
+      gap:14px;
+
+      margin-bottom:18px;
+    }
+
+    .preview-avatar{
+      width:58px;
+      height:58px;
+
+      border-radius:50%;
+
+      display:grid;
+      place-items:center;
 
       background:
         linear-gradient(
           135deg,
-          rgba(46,199,241,.08),
-          rgba(139,234,111,.06)
+          rgba(46,199,241,.18),
+          rgba(139,234,111,.14)
+        );
+
+      border:
+        1px solid
+        rgba(255,255,255,.14);
+
+      font-size:25px;
+    }
+
+    .preview-email{
+      font-weight:900;
+      font-size:19px;
+    }
+
+    .preview-small{
+      margin-top:4px;
+
+      color:var(--muted2);
+
+      font-size:12px;
+    }
+
+    .preview-status{
+      display:grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap:12px;
+
+      margin-bottom:14px;
+    }
+
+    .preview-box{
+      padding:15px;
+
+      border-radius:17px;
+
+      border:
+        1px solid var(--line);
+
+      background:
+        rgba(255,255,255,.035);
+    }
+
+    .preview-label{
+      font-size:10px;
+
+      letter-spacing:.12em;
+
+      color:var(--muted2);
+
+      font-weight:900;
+
+      text-transform:uppercase;
+
+      margin-bottom:7px;
+    }
+
+    .preview-value{
+      font-size:16px;
+
+      font-weight:900;
+    }
+
+    .active-pill{
+      display:inline-flex;
+
+      margin-top:8px;
+
+      padding:
+        6px 9px;
+
+      border-radius:999px;
+
+      color:var(--green);
+
+      background:
+        rgba(139,234,111,.10);
+
+      font-size:11px;
+
+      font-weight:900;
+    }
+
+    .preview-access{
+      display:grid;
+
+      grid-template-columns:
+        repeat(3,1fr);
+
+      gap:10px;
+    }
+
+    .preview-access-card{
+      padding:13px;
+
+      border-radius:16px;
+
+      border:
+        1px solid var(--line);
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,.045),
+          rgba(255,255,255,.02)
         );
     }
 
-    .plan-label{
+    .preview-icon{
+      width:34px;
+      height:34px;
+
+      border-radius:10px;
+
+      display:grid;
+      place-items:center;
+
+      color:#071018;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--cyan),
+          var(--green)
+        );
+
+      font-weight:950;
+
+      margin-bottom:9px;
+    }
+
+    .preview-access-name{
+      font-size:13px;
+
+      font-weight:900;
+    }
+
+    .preview-access-state{
+      margin-top:5px;
+
+      color:var(--green);
+
+      font-size:10px;
+
+      font-weight:800;
+    }
+
+    .preview-features{
+      display:grid;
+
+      grid-template-columns:
+        repeat(3,1fr);
+
+      gap:10px;
+
+      margin-top:12px;
+    }
+
+    .preview-feature{
+      padding:13px;
+
+      border-radius:16px;
+
+      border:
+        1px solid var(--line);
+
+      background:
+        rgba(255,255,255,.025);
+    }
+
+    .preview-feature-title{
+      font-size:11px;
+
+      font-weight:950;
+
+      letter-spacing:.08em;
+
+      margin-bottom:7px;
+    }
+
+    .preview-feature-copy{
+      font-size:10px;
+
+      line-height:1.45;
+
+      color:var(--muted2);
+    }
+
+    /* ======================================================
+       HERO DECORATION
+    ====================================================== */
+
+    .globe-arc{
+      position:absolute;
+      z-index:1;
+
+      right:-160px;
+      bottom:-190px;
+
+      width:580px;
+      height:580px;
+
+      border-radius:50%;
+
+      border:
+        1px solid
+        rgba(46,199,241,.26);
+
+      box-shadow:
+        0 0 0 48px
+        rgba(46,199,241,.02),
+        0 0 0 92px
+        rgba(139,234,111,.015);
+
+      background:
+        radial-gradient(
+          circle at 40% 35%,
+          rgba(46,199,241,.10),
+          transparent 32%
+        ),
+        radial-gradient(
+          circle at 65% 25%,
+          rgba(139,234,111,.08),
+          transparent 28%
+        );
+    }
+
+    .orbit{
+      position:absolute;
+      z-index:2;
+
+      border-radius:50%;
+
+      border:
+        1px solid
+        rgba(46,199,241,.45);
+    }
+
+    .orbit.one{
+      right:-38px;
+      bottom:102px;
+
+      width:460px;
+      height:150px;
+
+      transform:
+        rotate(-18deg);
+    }
+
+    .orbit.two{
+      right:-12px;
+      bottom:72px;
+
+      width:420px;
+      height:180px;
+
+      transform:
+        rotate(21deg);
+
+      border-color:
+        rgba(139,234,111,.42);
+    }
+
+    .orbit-dot{
+      position:absolute;
+      z-index:3;
+
+      width:10px;
+      height:10px;
+
+      border-radius:50%;
+
+      background:#edffff;
+
+      box-shadow:
+        0 0 14px
+        rgba(46,199,241,.8),
+        0 0 25px
+        rgba(139,234,111,.4);
+    }
+
+    .orbit-dot.a{
+      right:320px;
+      bottom:181px;
+    }
+
+    .orbit-dot.b{
+      right:52px;
+      bottom:147px;
+    }
+
+    /* ======================================================
+       CONTENT SECTIONS
+    ====================================================== */
+
+    .section{
+      margin-top:28px;
+
+      padding:36px;
+
+      border:
+        1px solid var(--line);
+
+      border-radius:30px;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,.035),
+          rgba(255,255,255,.012)
+        );
+
+      box-shadow:
+        var(--shadow);
+    }
+
+    .section-kicker{
       color:var(--cyan);
 
-      font-size:11px;
-      font-weight:900;
+      font-size:12px;
+
+      font-weight:950;
 
       letter-spacing:.16em;
 
       text-transform:uppercase;
     }
 
-    .plan-card h3{
+    .section h2{
       margin:
         10px 0 8px;
 
-      color:#fff;
+      font-size:34px;
 
-      font-size:28px;
+      letter-spacing:
+        -.035em;
     }
 
-    .plan-card p{
+    .section-intro{
       margin:0;
 
       color:var(--muted);
 
-      line-height:1.55;
+      font-size:16px;
+
+      line-height:1.6;
+
+      max-width:760px;
     }
 
-    .plan-items{
+    .value-grid{
       display:grid;
 
-      gap:9px;
+      grid-template-columns:
+        repeat(3,1fr);
 
-      margin-top:18px;
+      gap:16px;
+
+      margin-top:24px;
     }
 
-    .plan-item{
-      display:flex;
-      align-items:center;
+    .value-card{
+      padding:22px;
 
-      gap:8px;
+      border-radius:22px;
 
-      color:var(--text-soft);
+      border:
+        1px solid var(--line);
 
-      font-size:14px;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,.045),
+          rgba(255,255,255,.018)
+        );
     }
 
-    .check{
-      color:var(--green);
+    .value-icon{
+      width:44px;
+      height:44px;
+
+      border-radius:13px;
+
+      display:grid;
+      place-items:center;
+
+      margin-bottom:18px;
+
+      color:#071018;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--cyan),
+          var(--green)
+        );
+
+      font-size:20px;
 
       font-weight:950;
     }
 
-    /* =========================
-       FINAL CTA
-    ========================= */
+    .value-title{
+      font-size:16px;
 
-    .final-cta{
-      margin-top:24px;
+      font-weight:950;
 
+      letter-spacing:.08em;
+
+      text-transform:uppercase;
+
+      margin-bottom:8px;
+    }
+
+    .value-copy{
+      color:var(--muted);
+
+      font-size:14px;
+
+      line-height:1.55;
+    }
+
+    /* ======================================================
+       PLANS
+    ====================================================== */
+
+    .plans{
+      display:grid;
+
+      grid-template-columns:
+        1.05fr .95fr;
+
+      gap:18px;
+
+      align-items:stretch;
+    }
+
+    .plan-intro{
       padding:
-        32px;
+        6px 10px 6px 0;
+    }
+
+    .plan-intro h2{
+      margin-top:6px;
+    }
+
+    .plan-cards{
+      display:grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap:12px;
+    }
+
+    .plan-card{
+      display:flex;
+      align-items:center;
+
+      gap:14px;
+
+      padding:18px;
+
+      border-radius:20px;
 
       border:
-        1px solid
-        rgba(46,199,241,.18);
-
-      border-radius:30px;
+        1px solid var(--line);
 
       background:
-        radial-gradient(
-          circle at 10% 10%,
-          rgba(46,199,241,.10),
-          transparent 30%
-        ),
-        radial-gradient(
-          circle at 90% 80%,
-          rgba(139,234,111,.08),
-          transparent 28%
-        ),
-        rgba(255,255,255,.025);
-
-      text-align:center;
+        rgba(255,255,255,.035);
     }
 
-    .final-cta h2{
-      margin:0;
+    .plan-mark{
+      width:62px;
+      height:62px;
 
-      color:#fff;
+      border-radius:16px;
 
-      font-size:
-        clamp(
-          28px,
-          4vw,
-          42px
+      display:grid;
+      place-items:center;
+
+      color:#071018;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--cyan),
+          var(--green)
         );
+
+      font-weight:950;
+
+      font-size:12px;
+
+      letter-spacing:.08em;
+
+      flex:0 0 auto;
     }
 
-    .final-cta p{
-      max-width:650px;
+    .plan-name{
+      font-weight:900;
+    }
 
-      margin:
-        12px auto 0;
+    .plan-copy{
+      margin-top:5px;
 
       color:var(--muted);
 
-      line-height:1.6;
+      font-size:12px;
+
+      line-height:1.45;
     }
-
-    .final-actions{
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-
-      gap:12px;
-
-      margin-top:22px;
-    }
-
-    /* =========================
-       FOOTER
-    ========================= */
 
     .footer{
-      padding:
-        40px 0 4px;
-
-      color:#9aadb8;
-
-      font-size:13px;
+      margin-top:34px;
 
       text-align:center;
+
+      color:#91a6b1;
+
+      font-size:13px;
     }
 
-    /* =========================
+    /* ======================================================
        RESPONSIVE
-    ========================= */
+    ====================================================== */
 
-    @media(max-width:980px){
+    @media(max-width:1050px){
 
       .hero{
-        padding-bottom:210px;
+        padding-bottom:520px;
       }
 
-      .scene{
-        right:-40px;
-        bottom:-38px;
+      .hero-left{
+        width:100%;
+        max-width:720px;
+      }
+
+      .preview-window{
+        left:50%;
+        right:auto;
+
+        top:auto;
+        bottom:34px;
 
         transform:
-          scale(.86);
+          translateX(-50%);
 
-        transform-origin:
-          bottom right;
+        width:min(88%,620px);
       }
 
-      .preview-grid{
-        grid-template-columns:1fr;
+      .globe-arc{
+        right:-200px;
+        bottom:-220px;
       }
 
-      .value-grid{
-        grid-template-columns:1fr;
+      .plans{
+        grid-template-columns:
+          1fr;
       }
 
+      .plan-intro{
+        padding:0;
+      }
+
+      .plan-cards{
+        max-width:720px;
+      }
     }
 
-    @media(max-width:700px){
+    @media(max-width:720px){
 
       .shell{
         width:
@@ -1401,48 +1417,70 @@
 
       .hero{
         padding:
-          38px 22px 210px;
+          40px 22px 500px;
 
         min-height:auto;
       }
 
-      .hero-text{
-        font-size:16px;
+      h1{
+        font-size:54px;
       }
 
-      .scene{
-        right:-110px;
-
-        transform:
-          scale(.68);
+      .hero-copy{
+        font-size:17px;
       }
 
-      .scene-card{
-        display:none;
-      }
-
-      .section-heading{
-        align-items:flex-start;
-
+      .hero-actions{
         flex-direction:column;
       }
 
-      .status-grid{
-        grid-template-columns:1fr;
+      .btn{
+        width:100%;
       }
 
-      .plans-grid{
-        grid-template-columns:1fr;
-      }
-
-      .access-item{
-        align-items:flex-start;
-
+      .invite-form{
         flex-direction:column;
       }
 
+      .invite-input,
+      .invite-button{
+        width:100%;
+      }
+
+      .preview-window{
+        width:
+          calc(100% - 26px);
+
+        bottom:24px;
+      }
+
+      .preview-access,
+      .preview-features{
+        grid-template-columns:
+          1fr;
+      }
+
+      .value-grid,
+      .plan-cards{
+        grid-template-columns:
+          1fr;
+      }
+
+      .section{
+        padding:
+          24px 18px;
+      }
+
+      .section h2{
+        font-size:29px;
+      }
+
+      .orbit,
+      .orbit-dot,
+      .globe-arc{
+        opacity:.55;
+      }
     }
-
   </style>
 </head>
 
@@ -1450,8 +1488,9 @@
 
   <div class="shell">
 
-
-    <!-- NAVBAR -->
+    <!-- ==================================================
+         NAVBAR
+    =================================================== -->
 
     <header class="topbar">
 
@@ -1463,14 +1502,13 @@
         <img
           src="../logo.png"
           alt="vikundey.crypto"
-        >
+        />
 
         <div class="brand-name">
           vikundey.crypto
         </div>
 
       </a>
-
 
       <nav class="nav">
 
@@ -1493,6 +1531,7 @@
         <a
           class="active"
           href="/profile/"
+          aria-label="Профіль"
         >
           👤
         </a>
@@ -1502,13 +1541,13 @@
     </header>
 
 
-    <!-- HERO -->
+    <!-- ==================================================
+         HERO
+    =================================================== -->
 
     <section class="hero">
 
-
-      <div class="hero-copy">
-
+      <div class="hero-left">
 
         <div class="eyebrow">
 
@@ -1520,27 +1559,35 @@
 
 
         <h1>
-          Твій профіль
+
+          Мій
+
+          <span class="gradient-word">
+            профіль
+          </span>
+
         </h1>
 
 
-        <p class="hero-text">
+        <p class="hero-copy">
 
-          Персональний простір для доступу до
-          авторської макроаналітики, підготовки до
-          ключових релізів та матеріалів Vikundey Thoughts.
+          Твій персональний простір у Vikundey Space:
+          доступ до авторської макроаналітики,
+          ринкових розборів, сценаріїв та навчальних
+          матеріалів в одному місці.
 
         </p>
 
 
-        <div class="hero-actions">
+        <!-- MAIN ACTIONS -->
 
+        <div class="hero-actions">
 
           <a
             class="btn btn-primary"
             href="/profile/account/"
           >
-            Увійти у профіль →
+            👤 Увійти у профіль →
           </a>
 
 
@@ -1550,439 +1597,323 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            Обрати підписку
+            Обрати підписку →
           </a>
-
 
         </div>
 
+
+        <!-- LOGIN NOTE -->
 
         <div class="login-note">
 
-          <span class="login-note-icon">
-            ✓
-          </span>
-
-          Вхід через одноразовий код на email.
-          Пароль створювати не потрібно.
-
-        </div>
-
-
-      </div>
-
-
-      <!-- VISUAL -->
-
-      <div
-        class="scene"
-        aria-hidden="true"
-      >
-
-
-        <div class="bars">
-
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-
-        </div>
-
-
-        <svg
-          class="trend"
-          viewBox="0 0 280 130"
-        >
-
-          <defs>
-
-            <linearGradient
-              id="trendGradient"
-              x1="0"
-              y1="1"
-              x2="1"
-              y2="0"
-            >
-
-              <stop
-                offset="0%"
-                stop-color="#2ec7f1"
-              />
-
-              <stop
-                offset="100%"
-                stop-color="#8bea6f"
-              />
-
-            </linearGradient>
-
-          </defs>
-
-
-          <path
-            d="
-              M8 112
-              C42 108,
-              60 90,
-              88 91
-              S136 64,
-              160 68
-              S202 40,
-              228 47
-              S250 23,
-              272 8
-            "
-          />
-
-
-          <circle
-            cx="88"
-            cy="91"
-            r="4"
-          />
-
-
-          <circle
-            cx="228"
-            cy="47"
-            r="4"
-          />
-
-
-          <circle
-            cx="272"
-            cy="8"
-            r="4"
-          />
-
-        </svg>
-
-
-        <div class="scene-card one">
-
-          <div class="scene-icon">
-            ◉
+          <div class="login-note-icon">
+            🔒
           </div>
 
           <div>
 
-            <strong>
-              Macro
+            <strong style="color:#fff">
+              Без пароля.
             </strong>
 
-            <span>
-              Global context
-            </span>
+            <br>
+
+            Вхід відбувається через одноразовий код
+            на email. Пароль створювати не потрібно.
 
           </div>
 
         </div>
 
 
-        <div class="scene-card two">
+        <!-- ==================================================
+             INVITE
+        =================================================== -->
 
-          <div class="scene-icon">
-            ▥
-          </div>
-
-          <div>
-
-            <strong>
-              Research
-            </strong>
-
-            <span>
-              Market scenarios
-            </span>
-
-          </div>
-
+        <div class="invite-divider">
+          <span>або</span>
         </div>
 
 
-        <div class="planet-area">
+        <div class="invite-box">
 
-          <div class="ring"></div>
+          <div class="invite-top">
 
-          <div class="ring-two"></div>
-
-
-          <span class="node a"></span>
-
-          <span class="node b"></span>
-
-          <span class="node c"></span>
-
-
-          <div class="planet"></div>
-
-        </div>
-
-
-      </div>
-
-
-    </section>
-
-
-    <!-- PROFILE PREVIEW -->
-
-    <section class="preview-section">
-
-
-      <div class="section-heading">
-
-        <div>
-
-          <h2>
-            Як виглядає твій профіль
-          </h2>
-
-        </div>
-
-
-        <p>
-
-          Після входу ти побачиш свій тариф,
-          статус підписки та доступні матеріали
-          в одному кабінеті.
-
-        </p>
-
-      </div>
-
-
-      <div class="preview-grid">
-
-
-        <!-- PROFILE -->
-
-        <article class="card">
-
-
-          <div class="card-title">
-            Профіль
-          </div>
-
-
-          <div class="profile-preview">
-
-
-            <div class="avatar">
-              👤
+            <div class="invite-icon">
+              ✦
             </div>
-
 
             <div>
 
-
-              <div class="fake-email">
-                user@email.com
+              <div class="invite-title">
+                Маєш кодове запрошення?
               </div>
 
-
-              <div class="fake-subtitle">
-                Приклад особистого профілю
+              <div class="invite-copy">
+                Введи персональний код, щоб активувати
+                доступ до Vikundey Space.
               </div>
-
 
             </div>
-
 
           </div>
 
 
-          <div class="status-grid">
+          <form
+            id="inviteForm"
+            class="invite-form"
+          >
+
+            <input
+              id="inviteCode"
+              class="invite-input"
+              type="text"
+              placeholder="Введи код запрошення"
+              autocomplete="off"
+              spellcheck="false"
+              maxlength="40"
+            />
 
 
-            <div class="status-box">
+            <button
+              id="inviteButton"
+              class="invite-button"
+              type="submit"
+            >
+              Активувати доступ →
+            </button>
+
+          </form>
 
 
-              <div class="status-label">
+          <div
+            id="inviteStatus"
+            class="invite-status"
+          ></div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ==================================================
+           PROFILE PREVIEW
+      =================================================== -->
+
+      <div
+        class="preview-window"
+        aria-label="Попередній вигляд профілю"
+      >
+
+        <div class="window-top">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+
+        <div class="preview-body">
+
+          <div class="preview-user">
+
+            <div class="preview-avatar">
+              👤
+            </div>
+
+            <div>
+
+              <div class="preview-email">
+                trader@email.com
+              </div>
+
+              <div class="preview-small">
+                Авторизований користувач Vikundey Space
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="preview-status">
+
+            <div class="preview-box">
+
+              <div class="preview-label">
                 Підписка
               </div>
 
-
-              <div class="status-value">
+              <div class="preview-value">
                 Full Vikundey Space
               </div>
 
+              <div class="active-pill">
+                Активна
+              </div>
 
             </div>
 
 
-            <div class="status-box">
+            <div class="preview-box">
 
-
-              <div class="status-label">
+              <div class="preview-label">
                 Статус
               </div>
 
-
-              <div class="status-value">
+              <div class="preview-value">
                 Активна
               </div>
-
 
               <div class="active-pill">
                 ● Active
               </div>
 
-
             </div>
-
 
           </div>
 
 
-        </article>
+          <div class="preview-access">
 
+            <div class="preview-access-card">
 
-        <!-- ACCESS -->
-
-        <article class="card">
-
-
-          <div class="card-title">
-            Мій доступ
-          </div>
-
-
-          <div class="access-list">
-
-
-            <div class="access-item">
-
-
-              <div class="access-left">
-
-
-                <div class="access-icon">
-                  N
-                </div>
-
-
-                <div>
-
-
-                  <div class="access-name">
-                    NFP
-                  </div>
-
-
-                  <div class="access-desc">
-                    Підготовка та аналіз
-                  </div>
-
-
-                </div>
-
-
+              <div class="preview-icon">
+                N
               </div>
 
-
-              <div class="access-badge">
-                Доступ
+              <div class="preview-access-name">
+                NFP
               </div>
 
+              <div class="preview-access-state">
+                Доступ ✓
+              </div>
 
             </div>
 
 
-            <div class="access-item">
+            <div class="preview-access-card">
 
-
-              <div class="access-left">
-
-
-                <div class="access-icon">
-                  C
-                </div>
-
-
-                <div>
-
-
-                  <div class="access-name">
-                    CPI
-                  </div>
-
-
-                  <div class="access-desc">
-                    Інфляція та ринкові сценарії
-                  </div>
-
-
-                </div>
-
-
+              <div class="preview-icon">
+                C
               </div>
 
-
-              <div class="access-badge">
-                Доступ
+              <div class="preview-access-name">
+                CPI
               </div>
 
+              <div class="preview-access-state">
+                Доступ ✓
+              </div>
 
             </div>
 
 
-            <div class="access-item">
+            <div class="preview-access-card">
 
-
-              <div class="access-left">
-
-
-                <div class="access-icon">
-                  V
-                </div>
-
-
-                <div>
-
-
-                  <div class="access-name">
-                    Vikundey Thoughts
-                  </div>
-
-
-                  <div class="access-desc">
-                    Освіта, економіка та геополітика
-                  </div>
-
-
-                </div>
-
-
+              <div class="preview-icon">
+                V
               </div>
 
-
-              <div class="access-badge">
-                Доступ
+              <div class="preview-access-name">
+                Vikundey Thoughts
               </div>
 
+              <div class="preview-access-state">
+                Доступ ✓
+              </div>
 
             </div>
-
 
           </div>
 
 
-        </article>
+          <div class="preview-features">
 
+            <div class="preview-feature">
+
+              <div class="preview-feature-title">
+                RESEARCH
+              </div>
+
+              <div class="preview-feature-copy">
+                Авторські макророзбори та логіка
+                реакції ринків.
+              </div>
+
+            </div>
+
+
+            <div class="preview-feature">
+
+              <div class="preview-feature-title">
+                MARKETS
+              </div>
+
+              <div class="preview-feature-copy">
+                Підготовка до NFP та CPI та моментний
+                вплив на ринки.
+              </div>
+
+            </div>
+
+
+            <div class="preview-feature">
+
+              <div class="preview-feature-title">
+                KNOWLEDGE
+              </div>
+
+              <div class="preview-feature-copy">
+                Економіка, геополітика та матеріали
+                для глибшого розуміння ринку.
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
 
       </div>
 
 
+      <div class="globe-arc"></div>
+
+      <div class="orbit one"></div>
+
+      <div class="orbit two"></div>
+
+      <span class="orbit-dot a"></span>
+
+      <span class="orbit-dot b"></span>
+
     </section>
 
 
-    <!-- PRODUCT VALUE -->
+    <!-- ==================================================
+         VALUES
+    =================================================== -->
 
-    <section class="value-section">
+    <section class="section">
+
+      <div class="section-kicker">
+        Vikundey Space
+      </div>
+
+
+      <h2>
+        Що дає особистий профіль?
+      </h2>
+
+
+      <p class="section-intro">
+
+        Один простір для доступу до аналітики,
+        матеріалів і твого активного тарифу.
+
+      </p>
 
 
       <div class="value-grid">
@@ -1990,253 +1921,355 @@
 
         <article class="value-card">
 
+          <div class="value-icon">
+            ▥
+          </div>
 
-          <strong>
+          <div class="value-title">
             RESEARCH
-          </strong>
+          </div>
 
-
-          <p>
-
-            Авторські макророзбори
-            та логіка реакції ринків.
-
-          </p>
-
+          <div class="value-copy">
+            Авторські макророзбори та логіка реакції ринків.
+          </div>
 
         </article>
 
 
         <article class="value-card">
 
+          <div class="value-icon">
+            ↗
+          </div>
 
-          <strong>
+          <div class="value-title">
             MARKETS
-          </strong>
+          </div>
 
-
-          <p>
-
-            Підготовка до NFP та CPI
-            та моментний вплив на ринки.
-
-          </p>
-
+          <div class="value-copy">
+            Підготовка до NFP та CPI та моментний вплив на ринки.
+          </div>
 
         </article>
 
 
         <article class="value-card">
 
+          <div class="value-icon">
+            ⌘
+          </div>
 
-          <strong>
+          <div class="value-title">
             KNOWLEDGE
-          </strong>
+          </div>
 
-
-          <p>
-
-            Економіка, геополітика
-            та навчальні матеріали
+          <div class="value-copy">
+            Економіка, геополітика та навчальні матеріали
             для глибшого розуміння ринку.
-
-          </p>
-
+          </div>
 
         </article>
 
 
       </div>
 
-
     </section>
 
 
-    <!-- PLANS -->
+    <!-- ==================================================
+         PLANS
+    =================================================== -->
 
-    <section class="plans-section">
+    <section class="section plans">
 
+      <div class="plan-intro">
 
-      <div class="plans-grid">
+        <div class="section-kicker">
+          Access
+        </div>
 
+        <h2>
+          Обери свій формат доступу
+        </h2>
 
-        <article class="plan-card featured">
+        <p class="section-intro">
 
+          News — для фокусу на NFP та CPI.
+          Full — для повного доступу до Vikundey Space.
 
-          <div class="plan-label">
-            Повний доступ
-          </div>
-
-
-          <h3>
-            Full Vikundey Space
-          </h3>
-
-
-          <p>
-
-            Повний доступ до аналітики
-            та навчального простору.
-
-          </p>
-
-
-          <div class="plan-items">
-
-
-            <div class="plan-item">
-
-              <span class="check">
-                ✓
-              </span>
-
-              NFP
-
-            </div>
-
-
-            <div class="plan-item">
-
-              <span class="check">
-                ✓
-              </span>
-
-              CPI
-
-            </div>
-
-
-            <div class="plan-item">
-
-              <span class="check">
-                ✓
-              </span>
-
-              Vikundey Thoughts
-
-            </div>
-
-
-          </div>
-
-
-        </article>
-
-
-        <article class="plan-card">
-
-
-          <div class="plan-label">
-            Macro News
-          </div>
-
-
-          <h3>
-            News Vikundey Space
-          </h3>
-
-
-          <p>
-
-            Фокус на ключових
-            макроекономічних релізах.
-
-          </p>
-
-
-          <div class="plan-items">
-
-
-            <div class="plan-item">
-
-              <span class="check">
-                ✓
-              </span>
-
-              NFP
-
-            </div>
-
-
-            <div class="plan-item">
-
-              <span class="check">
-                ✓
-              </span>
-
-              CPI
-
-            </div>
-
-
-          </div>
-
-
-        </article>
-
+        </p>
 
       </div>
 
 
-    </section>
+      <div class="plan-cards">
 
 
-    <!-- FINAL CTA -->
+        <div class="plan-card">
 
-    <section class="final-cta">
+          <div class="plan-mark">
+            FULL
+          </div>
 
+          <div>
 
-      <h2>
-        Увійди у свій Vikundey Space
-      </h2>
+            <div class="plan-name">
+              Full Vikundey Space
+            </div>
 
+            <div class="plan-copy">
+              NFP + CPI + Vikundey Thoughts
+            </div>
 
-      <p>
+          </div>
 
-        Якщо в тебе вже є активна підписка —
-        увійди через email та отримай доступ
-        до свого персонального профілю.
-
-      </p>
-
-
-      <div class="final-actions">
-
-
-        <a
-          class="btn btn-primary"
-          href="/profile/account/"
-        >
-          Увійти у профіль →
-        </a>
+        </div>
 
 
-        <a
-          class="btn btn-secondary"
-          href="https://secure.wayforpay.com/sub/see534a7947df"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Обрати підписку
-        </a>
+        <div class="plan-card">
+
+          <div class="plan-mark">
+            NEWS
+          </div>
+
+          <div>
+
+            <div class="plan-name">
+              News Vikundey Space
+            </div>
+
+            <div class="plan-copy">
+              NFP + CPI
+            </div>
+
+          </div>
+
+        </div>
 
 
       </div>
 
-
     </section>
 
-
-    <!-- FOOTER -->
 
     <footer class="footer">
-
       © vikundey.crypto · Vikundey Space
-
     </footer>
 
-
   </div>
+
+
+  <!-- ==================================================
+       INVITE SCRIPT
+  =================================================== -->
+
+  <script>
+
+    const inviteForm =
+      document.getElementById(
+        "inviteForm"
+      );
+
+    const inviteCode =
+      document.getElementById(
+        "inviteCode"
+      );
+
+    const inviteButton =
+      document.getElementById(
+        "inviteButton"
+      );
+
+    const inviteStatus =
+      document.getElementById(
+        "inviteStatus"
+      );
+
+
+    function showInviteStatus(
+      message,
+      type
+    ) {
+
+      inviteStatus.textContent =
+        message;
+
+      inviteStatus.className =
+        "invite-status " + type;
+
+    }
+
+
+    function clearInviteStatus() {
+
+      inviteStatus.textContent =
+        "";
+
+      inviteStatus.className =
+        "invite-status";
+
+    }
+
+
+    inviteCode.addEventListener(
+      "input",
+      () => {
+
+        inviteCode.value =
+          inviteCode.value
+            .toUpperCase();
+
+        clearInviteStatus();
+
+      }
+    );
+
+
+    inviteForm.addEventListener(
+      "submit",
+      async (event) => {
+
+        event.preventDefault();
+
+
+        const code =
+          inviteCode.value
+            .trim()
+            .toUpperCase();
+
+
+        if (!code) {
+
+          showInviteStatus(
+            "Введи код запрошення.",
+            "error"
+          );
+
+          inviteCode.focus();
+
+          return;
+
+        }
+
+
+        inviteButton.disabled =
+          true;
+
+        inviteButton.textContent =
+          "Перевіряємо…";
+
+
+        showInviteStatus(
+          "Перевіряємо код запрошення…",
+          "loading"
+        );
+
+
+        try {
+
+          const response =
+            await fetch(
+              "/api/invite/start",
+              {
+                method:
+                  "POST",
+
+                credentials:
+                  "same-origin",
+
+                headers:{
+                  "Content-Type":
+                    "application/json",
+
+                  "Accept":
+                    "application/json"
+                },
+
+                body:
+                  JSON.stringify({
+                    code
+                  })
+              }
+            );
+
+
+          let data = {};
+
+
+          try {
+
+            data =
+              await response.json();
+
+          } catch {
+
+            data = {};
+
+          }
+
+
+          if (
+            !response.ok ||
+            !data.ok
+          ) {
+
+            throw new Error(
+              data.error ||
+              "Не вдалося перевірити код."
+            );
+
+          }
+
+
+          showInviteStatus(
+            "✓ Код підтверджено. Зараз підтверди email, щоб активувати доступ.",
+            "success"
+          );
+
+
+          inviteButton.textContent =
+            "Переходимо…";
+
+
+          window.setTimeout(
+            () => {
+
+              window.location.href =
+                data.next ||
+                "/profile/account/";
+
+            },
+            650
+          );
+
+
+        } catch (error) {
+
+          console.error(
+            "Invite activation error",
+            error
+          );
+
+
+          showInviteStatus(
+            error.message ||
+            "Не вдалося перевірити код.",
+            "error"
+          );
+
+
+          inviteButton.disabled =
+            false;
+
+          inviteButton.textContent =
+            "Активувати доступ →";
+
+        }
+
+      }
+    );
+
+  </script>
 
 </body>
 </html>
