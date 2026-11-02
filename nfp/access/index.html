@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>NFP USD — Vikundey Space</title>
+
+  <meta
+    name="description"
+    content="Premium NFP analysis inside Vikundey Space."
+  />
+
+  <style>
+    :root{
+      --bg:#f7fafb;
+      --panel:#ffffff;
+      --panel-2:#f9fbfc;
+      --text:#10171c;
+      --muted:#6f7c85;
+      --line:#e6edf1;
+
+      --cyan:#2ec7f1;
+      --green:#8bea6f;
+      --red:#f38b8b;
+      --amber:#f1c66d;
+
+      --radius:22px;
+
+      --shadow:
+        0 16px 45px
+        rgba(25,47,58,.075);
+
+      --glow-cyan:
+        0 0 0 1px rgba(46,199,241,.03),
+        0 20px 60px rgba(46,199,241,.09);
+
+      --glow-green:
+        0 0 0 1px rgba(139,234,111,.03),
+        0 20px 60px rgba(139,234,111,.09);
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      margin:0;
+
+      background:
+        linear-gradient(
+          180deg,
+          #fbfdfe 0%,
+          var(--bg) 100%
+        );
+
+      color:var(--text);
+
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+    }
+
+    .shell{
+      max-width:1180px;
+      margin:0 auto;
+      padding:24px 22px 58px;
+    }
+
+    /* NAV */
+
+    .topbar{
+      position:sticky;
+      top:12px;
+      z-index:30;
+
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+
+      gap:18px;
+
+      padding:
+        12px 14px 12px 18px;
+
+      margin-bottom:24px;
+
+      background:
+        rgba(255,255,255,.88);
+
+      backdrop-filter:
+        blur(16px);
+
+      border:
+        1px solid
+        rgba(224,234,239,.95);
+
+      border-radius:18px;
+
+      box-shadow:
+        0 12px 34px
+        rgba(30,50,60,.06);
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+
+      gap:10px;
+
+      font-weight:900;
+
+      letter-spacing:-.02em;
+    }
+
+    .brand-mark{
+      width:11px;
+      height:11px;
+
+      border-radius:50%;
+
+      background:
+        var(--cyan);
+
+      box-shadow:
+        18px 0 0
+        var(--green);
+
+      margin-right:18px;
+    }
+
+    .nav{
+      display:flex;
+      flex-wrap:wrap;
+
+      gap:6px;
+    }
+
+    .nav a{
+      text-decoration:none;
+
+      color:#53616a;
+
+      font-size:14px;
+      font-weight:750;
+
+      padding:
+        8px 11px;
+
+      border-radius:11px;
+    }
+
+    .nav a:hover{
+      background:#f2f7f9;
+
+      color:var(--text);
+    }
+
+    main{
+      display:grid;
+      gap:42px;
+    }
+
+    section{
+      scroll-margin-top:100px;
+    }
+
+    /* HERO */
+
+    .hero{
+      display:grid;
+
+      grid-template-columns:
+        1.45fr .72fr;
+
+      gap:22px;
+    }
+
+    .panel,
+    .thought-card,
+    .review-card{
+      background:
+        var(--panel);
+
+      border:
+        1px solid
+        var(--line);
+
+      border-radius:
+        var(--radius);
+
+      box-shadow:
+        var(--shadow);
+    }
+
+    .hero-main{
+      position:relative;
+      overflow:hidden;
+
+      padding:34px;
+
+      box-shadow:
+        var(--shadow),
+        var(--glow-cyan);
+    }
+
+    .hero-main::after{
+      content:"";
+
+      position:absolute;
+
+      width:300px;
+      height:300px;
+
+      right:-120px;
+      top:-150px;
+
+      border-radius:50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(46,199,241,.18),
+          rgba(46,199,241,0) 68%
+        );
+
+      pointer-events:none;
+    }
+
+    .hero-side{
+      padding:28px;
+
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+
+      gap:26px;
+
+      box-shadow:
+        var(--shadow),
+        var(--glow-green);
+    }
+
+    .eyebrow{
+      font-size:12px;
+
+      text-transform:uppercase;
+
+      letter-spacing:.11em;
+
+      font-weight:900;
+
+      color:#7c8991;
+
+      margin-bottom:7px;
+    }
+
+    h1{
+      margin:0 0 15px;
+
+      font-size:
+        clamp(
+          42px,
+          6vw,
+          76px
+        );
+
+      line-height:.95;
+
+      letter-spacing:-.065em;
+    }
+
+    .accent{
+      background:
+        linear-gradient(
+          100deg,
+          #0c1b22 18%,
+          #219ec2 58%,
+          #64c94a
+        );
+
+      -webkit-background-clip:text;
+      background-clip:text;
+
+      color:transparent;
+    }
+
+    .hero-copy{
+      margin:
+        0 0 26px;
+
+      max-width:680px;
+
+      color:
+        var(--muted);
+
+      font-size:17px;
+
+      line-height:1.65;
+
+      position:relative;
+      z-index:1;
+    }
+
+    .stats{
+      display:grid;
+
+      grid-template-columns:
+        repeat(3,1fr);
+
+      border:
+        1px solid
+        var(--line);
+
+      border-radius:16px;
+
+      overflow:hidden;
+
+      background:
+        var(--panel-2);
+
+      position:relative;
+      z-index:1;
+    }
+
+    .stat{
+      padding:
+        16px 18px;
+    }
+
+    .stat + .stat{
+      border-left:
+        1px solid
+        var(--line);
+    }
+
+    .label{
+      display:block;
+
+      color:#82909a;
+
+      font-size:11px;
+
+      text-transform:uppercase;
+
+      letter-spacing:.085em;
+
+      font-weight:850;
+
+      margin-bottom:5px;
+    }
+
+    .value{
+      font-size:27px;
+
+      font-weight:950;
+
+      letter-spacing:-.04em;
+    }
+
+    /* SCORE */
+
+    .kpi-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+
+      gap:10px;
+    }
+
+    .kpi-title{
+      font-weight:900;
+      font-size:15px;
+    }
+
+    .score{
+      font-size:61px;
+
+      font-weight:950;
+
+      letter-spacing:-.06em;
+
+      margin:
+        10px 0 8px;
+    }
+
+    .meter{
+      height:9px;
+
+      border-radius:999px;
+
+      background:#edf2f4;
+
+      overflow:hidden;
+    }
+
+    .meter span{
+      display:block;
+
+      height:100%;
+      width:17%;
+
+      border-radius:999px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--cyan),
+          var(--green)
+        );
+    }
+
+    .micro{
+      margin-top:9px;
+
+      color:#86949d;
+
+      font-size:12px;
+    }
+
+    .side-grid{
+      display:grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap:10px;
+    }
+
+    .mini-card{
+      padding:15px;
+
+      border:
+        1px solid
+        var(--line);
+
+      background:#fbfdfe;
+
+      border-radius:14px;
+    }
+
+    /* BADGES */
+
+    .pill,
+    .dir{
+      display:inline-flex;
+
+      align-items:center;
+      justify-content:center;
+
+      border-radius:999px;
+
+      padding:
+        6px 10px;
+
+      font-size:12px;
+      font-weight:900;
+
+      letter-spacing:.02em;
+    }
+
+    .long{
+      background:
+        rgba(139,234,111,.19);
+
+      color:#327523;
+
+      border:
+        1px solid
+        rgba(139,234,111,.24);
+    }
+
+    .short{
+      background:
+        rgba(243,139,139,.18);
+
+      color:#8f3b3b;
+
+      border:
+        1px solid
+        rgba(243,139,139,.2);
+    }
+
+    .pending{
+      background:
+        rgba(241,198,109,.18);
+
+      color:#87691f;
+
+      border:
+        1px solid
+        rgba(241,198,109,.25);
+    }
+
+    /* SECTIONS */
+
+    .section-head{
+      display:flex;
+
+      align-items:end;
+      justify-content:space-between;
+
+      gap:20px;
+
+      margin-bottom:15px;
+    }
+
+    h2{
+      margin:0;
+
+      font-size:32px;
+
+      letter-spacing:-.045em;
+    }
+
+    .section-note{
+      color:#89959d;
+
+      font-size:12px;
+
+      text-align:right;
+    }
+
+    /* TABLE */
+
+    .card{
+      padding:12px;
+
+      overflow:hidden;
+    }
+
+    .table-wrap{
+      overflow-x:auto;
+
+      border-radius:15px;
+    }
+
+    table{
+      width:100%;
+
+      border-collapse:collapse;
+
+      min-width:780px;
+    }
+
+    th,
+    td{
+      text-align:left;
+
+      padding:
+        14px 14px;
+
+      border-bottom:
+        1px solid
+        var(--line);
+
+      font-size:13px;
+    }
+
+    th{
+      font-size:11px;
+
+      text-transform:uppercase;
+
+      letter-spacing:.07em;
+
+      color:#82909a;
+
+      background:#f9fbfc;
+    }
+
+    tbody tr:hover{
+      background:#fbfdfe;
+    }
+
+    tbody tr:last-child td{
+      border-bottom:0;
+    }
+
+    td:first-child{
+      font-weight:800;
+    }
+
+    /* THINKING */
+
+    .thinking-grid{
+      display:grid;
+
+      grid-template-columns:
+        1.42fr .58fr;
+
+      gap:22px;
+    }
+
+    .thought-card{
+      position:relative;
+      overflow:hidden;
+
+      padding:28px;
+
+      box-shadow:
+        var(--shadow),
+        var(--glow-cyan);
+    }
+
+    .thought-card.side{
+      box-shadow:
+        var(--shadow),
+        var(--glow-green);
+    }
+
+    .thought-card::after{
+      content:"";
+
+      position:absolute;
+
+      width:180px;
+      height:180px;
+
+      border-radius:50%;
+
+      right:-60px;
+      bottom:-70px;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(46,199,241,.10),
+          rgba(46,199,241,0) 70%
+        );
+
+      pointer-events:none;
+    }
+
+    .thought-card.side::after{
+      background:
+        radial-gradient(
+          circle,
+          rgba(139,234,111,.13),
+          rgba(139,234,111,0) 70%
+        );
+    }
+
+    .thought-card p{
+      margin:
+        0 0 17px;
+
+      color:#38434b;
+
+      font-size:15px;
+
+      line-height:1.75;
+
+      position:relative;
+      z-index:1;
+    }
+
+    .thought-card p:last-child{
+      margin-bottom:0;
+    }
+
+    .thought-card strong{
+      color:#111a20;
+    }
+
+    .scenario-box{
+      display:grid;
+
+      gap:10px;
+
+      position:relative;
+      z-index:1;
+    }
+
+    .scenario-row{
+      padding:15px;
+
+      border:
+        1px solid
+        var(--line);
+
+      border-radius:14px;
+
+      background:#fbfdfe;
+    }
+
+    .scenario-k{
+      font-size:11px;
+
+      text-transform:uppercase;
+
+      letter-spacing:.08em;
+
+      color:var(--muted);
+
+      font-weight:850;
+
+      margin-bottom:5px;
+    }
+
+    .scenario-v{
+      font-size:18px;
+
+      font-weight:950;
+
+      letter-spacing:-.025em;
+
+      line-height:1.15;
+    }
+
+    /* MARKET SHIFT */
+
+    .review-grid{
+      display:grid;
+
+      grid-template-columns:1fr;
+
+      gap:22px;
+    }
+
+    .review-card{
+      overflow:hidden;
+
+      box-shadow:
+        var(--shadow),
+        var(--glow-green);
+    }
+
+    .review-head{
+      display:flex;
+
+      align-items:center;
+      justify-content:space-between;
+
+      gap:14px;
+
+      padding:
+        18px 20px;
+
+      border-bottom:
+        1px solid
+        var(--line);
+    }
+
+    .review-head h3{
+      margin:0;
+
+      font-size:22px;
+
+      letter-spacing:-.025em;
+    }
+
+    .empty-state{
+      padding:22px;
+
+      border:
+        1px dashed
+        #d8e1e6;
+
+      border-radius:16px;
+
+      background:#fbfdfe;
+
+      color:#78868f;
+
+      font-size:14px;
+
+      line-height:1.6;
+
+      margin:14px;
+    }
+
+    /* FOOTER */
+
+    .footer-sign{
+      margin-top:34px;
+
+      padding:
+        18px 16px;
+
+      border-radius:18px;
+
+      border:
+        1px solid
+        rgba(46,199,241,.14);
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(46,199,241,.08),
+          rgba(139,234,111,.08)
+        );
+
+      box-shadow:
+        var(--shadow);
+
+      text-align:center;
+
+      color:#5b6a74;
+
+      font-size:13px;
+    }
+
+    .footer-sign strong{
+      font-size:15px;
+
+      color:var(--text);
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:950px){
+
+      .hero,
+      .thinking-grid{
+        grid-template-columns:1fr;
+      }
+
+      .topbar{
+        position:relative;
+
+        top:0;
+
+        align-items:flex-start;
+
+        flex-direction:column;
+      }
+
+    }
+
+    @media(max-width:640px){
+
+      .shell{
+        padding:
+          14px 14px 50px;
+      }
+
+      .hero-main,
+      .hero-side,
+      .card,
+      .thought-card{
+        padding:18px;
+      }
+
+      .stats{
+        grid-template-columns:1fr;
+      }
+
+      .stat + .stat{
+        border-left:0;
+
+        border-top:
+          1px solid
+          var(--line);
+      }
+
+      .side-grid{
+        grid-template-columns:1fr;
+      }
+
+      h2{
+        font-size:26px;
+      }
+
+      .nav a{
+        padding:
+          7px 9px;
+
+        font-size:13px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="shell">
+
+  <!-- NAV -->
+
+  <header class="topbar">
+
+    <div class="brand">
+
+      <span class="brand-mark"></span>
+
+      <span>
+        🇺🇸 NFP USD
+      </span>
+
+    </div>
+
+    <nav class="nav">
+
+      <a href="#overview">
+        Overview
+      </a>
+
+      <a href="#signals">
+        Signals
+      </a>
+
+      <a href="#thinking">
+        Vikundey Thinking
+      </a>
+
+      <a href="#after">
+        Market Shift
+      </a>
+
+      <a href="/profile/account/">
+        👤
+      </a>
+
+    </nav>
+
+  </header>
+
+
+  <main>
+
+    <!-- OVERVIEW -->
+
+    <section
+      id="overview"
+      class="hero"
+    >
+
+      <article class="panel hero-main">
+
+        <div class="eyebrow">
+          US macro event • 02.10
+        </div>
+
+        <h1>
+
+          <span class="accent">
+            NFP USD
+          </span>
+
+        </h1>
+
+        <p class="hero-copy">
+
+          Відображає кількісне створення
+          нових робочих місць, але тільки
+          у несільськогосподарському секторі США.
+          Дуже маніпулятивний показник.
+
+        </p>
+
+        <div class="stats">
+
+          <div class="stat">
+
+            <span class="label">
+              Previous
+            </span>
+
+            <span class="value">
+              162K
+            </span>
+
+          </div>
+
+          <div class="stat">
+
+            <span class="label">
+              Forecast
+            </span>
+
+            <span class="value">
+              90K
+            </span>
+
+          </div>
+
+          <div class="stat">
+
+            <span class="label">
+              Actual
+            </span>
+
+            <span class="value">
+              PENDING
+            </span>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <aside class="panel hero-side">
+
+        <div>
+
+          <div class="kpi-row">
+
+            <div class="kpi-title">
+              Signal score
+            </div>
+
+            <span class="pill short">
+              SHORT
+            </span>
+
+          </div>
+
+          <div class="score">
+            17%
+          </div>
+
+          <div class="meter">
+            <span></span>
+          </div>
+
+          <div class="micro">
+            % for LONG за pre-fact чеклістом
+          </div>
+
+        </div>
+
+        <div class="side-grid">
+
+          <div class="mini-card">
+
+            <span class="label">
+              Predict
+            </span>
+
+            <span class="pill short">
+              SHORT
+            </span>
+
+          </div>
+
+          <div class="mini-card">
+
+            <span class="label">
+              Actual
+            </span>
+
+            <span class="pill pending">
+              PENDING
+            </span>
+
+          </div>
+
+        </div>
+
+      </aside>
+
+    </section>
+
+
+    <!-- MACRO SIGNALS -->
+
+    <section id="signals">
+
+      <div class="section-head">
+
+        <div>
+
+          <div class="eyebrow">
+            Pre-fact inputs
+          </div>
+
+          <h2>
+            Macro Signals
+          </h2>
+
+        </div>
+
+        <div class="section-note">
+          Previous / Forecast / Actual / Long-Short
+        </div>
+
+      </div>
+
+
+      <article class="panel card">
+
+        <div class="table-wrap">
+
+          <table>
+
+            <thead>
+
+              <tr>
+
+                <th>Name</th>
+                <th>Previous</th>
+                <th>Forecast</th>
+                <th>Actual</th>
+                <th>Long / Short</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody>
+
+              <tr>
+                <td>IJC 1W</td>
+                <td>207</td>
+                <td>205</td>
+                <td>206</td>
+                <td><span class="dir long">LONG</span></td>
+              </tr>
+
+              <tr>
+                <td>IJC 2W</td>
+                <td>206</td>
+                <td>208</td>
+                <td>196</td>
+                <td><span class="dir short">SHORT</span></td>
+              </tr>
+
+              <tr>
+                <td>IJC 3W</td>
+                <td>198</td>
+                <td>201</td>
+                <td>197</td>
+                <td><span class="dir short">SHORT</span></td>
+              </tr>
+
+              <tr>
+                <td>IJC 4W</td>
+                <td>198</td>
+                <td>200</td>
+                <td>197</td>
+                <td><span class="dir short">SHORT</span></td>
+              </tr>
+
+              <tr>
+                <td>ISM PMI Manufacturing</td>
+                <td>54.6</td>
+                <td>55</td>
+                <td>54.5</td>
+                <td><span class="dir long">LONG</span></td>
+              </tr>
+
+              <tr>
+                <td>ISM Manufacturing Employment</td>
+                <td>51.2</td>
+                <td>-</td>
+                <td>52.7</td>
+                <td><span class="dir short">SHORT</span></td>
+              </tr>
+
+              <tr>
+                <td>ISM Manufacturing New Orders</td>
+                <td>53.7</td>
+                <td>-</td>
+                <td>55.3</td>
+                <td><span class="dir short">SHORT</span></td>
+              </tr>
+
+              <tr>
+                <td>Michigan Consumer Sentiment</td>
+                <td>51.7</td>
+                <td>47.6</td>
+                <td>48.1</td>
+                <td><span class="dir short">SHORT</span></td>
+              </tr>
+
+              <tr>
+                <td>ISM Non-Manufacturing PMI</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td><span class="pending">PENDING</span></td>
+              </tr>
+
+              <tr>
+                <td>ISM Services Employment</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td><span class="pending">PENDING</span></td>
+              </tr>
+
+              <tr>
+                <td>ISM Services New Orders</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td><span class="pending">PENDING</span></td>
+              </tr>
+
+              <tr>
+                <td>Previous NFP</td>
+                <td>21</td>
+                <td>56</td>
+                <td>162</td>
+                <td><span class="dir short">SHORT</span></td>
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+      </article>
+
+    </section>
+
+
+    <!-- THINKING -->
+
+    <section id="thinking">
+
+      <div class="section-head">
+
+        <div>
+
+          <div class="eyebrow">
+            Author view
+          </div>
+
+          <h2>
+            Vikundey Thinking
+          </h2>
+
+        </div>
+
+        <div class="section-note">
+          Pre-Fact thesis
+        </div>
+
+      </div>
+
+
+      <div class="thinking-grid">
+
+        <article class="thought-card">
+
+          <p>
+            <strong>Почнемо із ринку праці,</strong>
+            де тримається тил умовної стабільності.
+            Цього разу маємо локальне покращення
+            показників, які можуть підтримати
+            позитивну ноту на ринку праці.
+          </p>
+
+          <p>
+            <strong>Щодо IJC,</strong>
+            місяць закрили зниженням, це являється
+            позитивом для долару. Адже, зниження
+            первісних заявок на допомогу по безробіттю
+            вказує на те, що певна частина людей
+            знайшла собі працевлаштування та потік
+            нових безробітніх людей стає меншим.
+            Якщо брати до уваги
+            <strong>Challenger Job Cuts</strong> —
+            то отримуємо підтвердження, що звільнень
+            стало кратно менше, відповідно люди
+            зберігаються на своїх робочих місцях.
+          </p>
+
+          <p>
+            <strong>Узагальнюючи,</strong>
+            маємо локальний позитивний фон
+            на ринку праці, що підтримує
+            зростання NFP.
+          </p>
+
+          <p>
+            <strong>
+              Переходимо до бізнес-сфери:
+            </strong>
+          </p>
+
+          <p>
+            Цього разу повноцінно скласти та оцінити
+            ситуацію — неможливо. Відсутні дані
+            по сфері послуг, а саме вона є одним
+            з ключових кластерів економіки США.
+          </p>
+
+          <p>
+            Якщо розбирати сферу виробництва,
+            маємо легке зниження загальної активності.
+            Проте Employment та New Orders демонструють
+            позитивну динаміку, що вказує на наявність
+            попиту та утримання робочої сили.
+          </p>
+
+          <p>
+            Додатково беремо до уваги споживчі настрої:
+            цього місяця вони змістились
+            у більш оптимістичний фон.
+          </p>
+
+          <p>
+            Тож загалом по бізнес-сфері маємо
+            обмежений позитивний вплив на економіку,
+            зокрема на NFP.
+          </p>
+
+          <p>
+            🏁 <strong>Finally</strong>,
+            спираючись на наявну інформацію,
+            очікування — значення вище консенсусу,
+            орієнтовно в діапазоні 110–130K,
+            із потенційною SHORT-реакцією для EURUSD.
+          </p>
+
+        </article>
+
+
+        <aside class="thought-card side">
+
+          <div class="scenario-box">
+
+            <div class="scenario-row">
+
+              <div class="scenario-k">
+                Labor market
+              </div>
+
+              <div class="scenario-v">
+                Local positive
+              </div>
+
+            </div>
+
+            <div class="scenario-row">
+
+              <div class="scenario-k">
+                Business sphere
+              </div>
+
+              <div class="scenario-v">
+                Limited positive
+              </div>
+
+            </div>
+
+            <div class="scenario-row">
+
+              <div class="scenario-k">
+                NFP expectation
+              </div>
+
+              <div class="scenario-v">
+                110–130K
+              </div>
+
+            </div>
+
+            <div class="scenario-row">
+
+              <div class="scenario-k">
+                EURUSD reaction
+              </div>
+
+              <div class="scenario-v">
+                SHORT
+              </div>
+
+            </div>
+
+          </div>
+
+        </aside>
+
+      </div>
+
+    </section>
+
+
+    <!-- MARKET SHIFT -->
+
+    <section id="after">
+
+      <div class="section-head">
+
+        <div>
+
+          <div class="eyebrow">
+            Pre-release context
+          </div>
+
+          <h2>
+            Market Shift
+          </h2>
+
+        </div>
+
+        <div class="section-note">
+          Before / After • H1 / M15 • NFP 02.10
+        </div>
+
+      </div>
+
+
+      <div class="review-grid">
+
+        <article class="review-card">
+
+          <div class="review-head">
+
+            <h3>
+              Before / After
+            </h3>
+
+            <span class="pill pending">
+              PENDING
+            </span>
+
+          </div>
+
+          <div class="empty-state">
+
+            Блок для порівняння ринкової реакції
+            до та після публікації NFP.
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer class="footer-sign">
+
+    <strong>
+      vikundey.crypto
+    </strong>
+
+    &nbsp; #algo &nbsp; #macro
+
+  </footer>
+
+</div>
+
+</body>
+</html>
