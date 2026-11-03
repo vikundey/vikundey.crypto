@@ -1,7 +1,7 @@
 {
   "source": "Forex Factory + FRED",
   "timezone": "Europe/Kyiv",
-  "updated_at": "2026-11-03T14:50:30.308882+02:00",
+  "updated_at": "2026-11-03T22:04:12.218464+02:00",
   "week_start": "2026-11-01",
   "week_end": "2026-11-06",
   "event_count": 33,
@@ -97,6 +97,21 @@
       "impact_rank": 1
     },
     {
+      "title": "RCM/TIPP Economic Optimism",
+      "country": "USD",
+      "impact": "Low",
+      "forecast": "46.2",
+      "previous": "46.8",
+      "actual": "",
+      "actual_source": "",
+      "date_iso": "2026-11-03T11:00:00+02:00",
+      "date": "2026-11-03",
+      "day": "TUE",
+      "time": "11:00",
+      "timestamp": 1793696400,
+      "impact_rank": 1
+    },
+    {
       "title": "JOLTS Job Openings",
       "country": "USD",
       "impact": "Medium",
@@ -124,21 +139,6 @@
       "day": "TUE",
       "time": "17:00",
       "timestamp": 1793718000,
-      "impact_rank": 1
-    },
-    {
-      "title": "RCM/TIPP Economic Optimism",
-      "country": "USD",
-      "impact": "Low",
-      "forecast": "46.2",
-      "previous": "46.8",
-      "actual": "",
-      "actual_source": "",
-      "date_iso": "2026-11-03T17:10:00+02:00",
-      "date": "2026-11-03",
-      "day": "TUE",
-      "time": "17:10",
-      "timestamp": 1793718600,
       "impact_rank": 1
     },
     {
@@ -250,7 +250,7 @@
       "title": "Crude Oil Inventories",
       "country": "USD",
       "impact": "Low",
-      "forecast": "",
+      "forecast": "-0.1M",
       "previous": "-1.9M",
       "actual": "",
       "actual_source": "",
