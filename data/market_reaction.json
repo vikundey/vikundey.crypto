@@ -1,7 +1,39 @@
 {
-  "status": "no_recent_event",
-  "updated_at": "2026-11-03T16:35:49.221213+02:00",
+  "status": "ok",
+  "updated_at": "2026-11-03T22:39:01.641296+02:00",
   "timezone": "Europe/Kyiv",
-  "event": null,
-  "assets": {}
+  "event": {
+    "name": "Congressional Elections",
+    "impact": "high",
+    "released_at": "2026-11-03T17:16:00+02:00"
+  },
+  "assets": {
+    "EURUSD": {
+      "symbol": "EUR/USD",
+      "release_price": 1.11807,
+      "m15_price": 1.11786,
+      "m15_change_pct": -0.0188,
+      "h1_price": 1.11936,
+      "h1_change_pct": 0.1154,
+      "status": "ok"
+    },
+    "XAUUSD": {
+      "symbol": "XAU/USD",
+      "release_price": 3933.37089,
+      "m15_price": 3925.36973,
+      "m15_change_pct": -0.2034,
+      "h1_price": 3936.79749,
+      "h1_change_pct": 0.0871,
+      "status": "ok"
+    },
+    "BTC": {
+      "symbol": "BTC/USD",
+      "release_price": 77426.01,
+      "m15_price": 77396.16,
+      "m15_change_pct": -0.0386,
+      "h1_price": 77558.01,
+      "h1_change_pct": 0.1705,
+      "status": "ok"
+    }
+  }
 }
