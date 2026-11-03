@@ -10,64 +10,47 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>
-    Vikundey Thoughts | vikundey.crypto
-  </title>
-
-  <meta
-    name="description"
-    content="Vikundey Thoughts — бібліотека навчальних, економічних та геополітичних матеріалів vikundey.crypto."
-  >
-
+  <title>Vikundey Thoughts — Macro Research & Knowledge</title>
 
   <style>
 
     :root{
-
-      --bg:#071018;
-      --bg-2:#0a131c;
-
-      --panel:#0d1721;
-      --panel-2:#101c27;
-
-      --text:#f4f8fb;
-
-      --muted:#9fb0bd;
-      --muted-2:#718693;
-
-      --line:rgba(255,255,255,.10);
+      --bg:#04121c;
+      --panel:#081d29;
+      --panel2:#0c2532;
 
       --cyan:#2ec7f1;
       --green:#8bea6f;
 
+      --text:#ffffff;
+      --muted:#a9bdc8;
+      --muted2:#738b97;
+
+      --line:rgba(190,225,240,.15);
+
       --shadow:
-        0 24px 70px
-        rgba(0,0,0,.28);
-
-      --radius:24px;
-
+        0 30px 90px rgba(0,0,0,.34);
     }
 
 
     *{
-
       box-sizing:border-box;
-
     }
 
 
     html{
-
       scroll-behavior:smooth;
+    }
 
+
+    html,
+    body{
+      margin:0;
+      min-height:100%;
     }
 
 
     body{
-
-      margin:0;
-
-      color:var(--text);
 
       font-family:
         Inter,
@@ -78,28 +61,30 @@
         "Segoe UI",
         sans-serif;
 
+      color:var(--text);
+
       background:
 
         radial-gradient(
-          circle at 8% 0%,
-          rgba(46,199,241,.13),
-          transparent 25%
+          circle at 8% 5%,
+          rgba(46,199,241,.14),
+          transparent 28%
         ),
 
         radial-gradient(
-          circle at 92% 8%,
+          circle at 92% 10%,
           rgba(139,234,111,.09),
-          transparent 30%
+          transparent 24%
         ),
 
         linear-gradient(
           180deg,
-          #071018 0%,
-          #09131c 48%,
-          #071018 100%
+          #04121c,
+          #061722 55%,
+          #041019
         );
 
-      min-height:100vh;
+      overflow-x:hidden;
 
     }
 
@@ -114,56 +99,43 @@
 
       pointer-events:none;
 
-      opacity:.22;
-
       background-image:
 
         linear-gradient(
-          rgba(255,255,255,.024) 1px,
+          rgba(255,255,255,.018) 1px,
           transparent 1px
         ),
 
         linear-gradient(
           90deg,
-          rgba(255,255,255,.024) 1px,
+          rgba(255,255,255,.018) 1px,
           transparent 1px
         );
 
       background-size:
-        34px 34px;
-
-      mask-image:
-        linear-gradient(
-          to bottom,
-          black,
-          transparent 82%
-        );
+        38px 38px;
 
     }
 
 
     a{
-
       color:inherit;
-
       text-decoration:none;
-
     }
 
 
-    .shell{
+    .page{
 
       width:
         min(
-          1180px,
-          calc(100% - 32px)
+          1240px,
+          calc(100% - 28px)
         );
 
-      margin:
-        0 auto;
+      margin:auto;
 
       padding:
-        24px 0 64px;
+        18px 0 55px;
 
       position:relative;
 
@@ -172,18 +144,11 @@
     }
 
 
-    /* =====================================
-       TOPBAR
-    ===================================== */
-
+    /* ==============================
+       NAV
+    ============================== */
 
     .topbar{
-
-      position:sticky;
-
-      top:12px;
-
-      z-index:20;
 
       display:flex;
 
@@ -191,24 +156,28 @@
 
       justify-content:space-between;
 
-      gap:18px;
+      gap:20px;
 
       padding:
-        12px 14px;
+        12px 18px;
 
       border:
         1px solid var(--line);
 
-      border-radius:18px;
+      border-radius:
+        25px;
 
       background:
-        rgba(7,16,24,.86);
+        rgba(3,16,25,.90);
 
       backdrop-filter:
-        blur(16px);
+        blur(18px);
 
       box-shadow:
         var(--shadow);
+
+      margin-bottom:
+        22px;
 
     }
 
@@ -219,113 +188,217 @@
 
       align-items:center;
 
-      gap:11px;
-
-      font-weight:900;
-
-      letter-spacing:-.02em;
+      gap:12px;
 
     }
 
 
     .brand img{
 
-      width:38px;
+      width:42px;
 
-      height:38px;
+      height:42px;
 
       object-fit:contain;
 
-      display:block;
+    }
+
+
+    .brand-name{
+
+      color:white;
+
+      font-size:18px;
+
+      font-weight:950;
 
     }
 
 
-    .back{
+    .nav{
+
+      display:flex;
+
+      align-items:center;
+
+      gap:7px;
+
+    }
+
+
+    .nav a{
 
       padding:
-        9px 12px;
+        9px 13px;
 
-      border:
-        1px solid var(--line);
+      border-radius:
+        13px;
 
-      border-radius:12px;
-
-      color:#c8d4dc;
+      color:white;
 
       font-size:13px;
 
-      font-weight:800;
+      font-weight:850;
 
-      transition:.2s ease;
+      transition:
+        .2s ease;
 
     }
 
 
-    .back:hover{
+    .nav a:hover{
 
       background:
         rgba(255,255,255,.06);
 
-      color:#fff;
+    }
+
+
+    .nav .active{
+
+      color:#041019;
+
+      background:
+
+        linear-gradient(
+          135deg,
+          var(--cyan),
+          var(--green)
+        );
 
     }
 
 
-    /* =====================================
+    /* ==============================
        HERO
-    ===================================== */
-
+    ============================== */
 
     .hero{
 
-      padding:
-        78px 0 38px;
+      min-height:
+        570px;
 
       display:grid;
 
       grid-template-columns:
-        minmax(0,1.2fr)
-        minmax(280px,.8fr);
+        1.1fr .9fr;
 
-      gap:44px;
+      overflow:hidden;
 
-      align-items:end;
+      position:relative;
+
+      border:
+        1px solid var(--line);
+
+      border-radius:
+        34px;
+
+      background:
+
+        radial-gradient(
+          circle at 75% 18%,
+          rgba(46,199,241,.09),
+          transparent 31%
+        ),
+
+        radial-gradient(
+          circle at 90% 70%,
+          rgba(139,234,111,.06),
+          transparent 26%
+        ),
+
+        linear-gradient(
+          135deg,
+          rgba(8,29,42,.99),
+          rgba(5,22,32,.99)
+        );
+
+      box-shadow:
+        var(--shadow);
+
+    }
+
+
+    .hero-left{
+
+      padding:
+        58px 50px;
+
+      position:relative;
+
+      z-index:2;
+
+      display:flex;
+
+      flex-direction:column;
+
+      justify-content:center;
 
     }
 
 
     .eyebrow{
 
-      margin-bottom:14px;
+      display:flex;
 
-      color:var(--cyan);
+      align-items:center;
 
-      font-size:11px;
+      gap:9px;
 
-      font-weight:950;
+      color:
+        var(--cyan);
 
-      letter-spacing:.16em;
+      font-size:
+        11px;
 
-      text-transform:uppercase;
+      font-weight:
+        950;
+
+      letter-spacing:
+        .18em;
+
+      text-transform:
+        uppercase;
+
+    }
+
+
+    .eyebrow-dot{
+
+      width:8px;
+
+      height:8px;
+
+      border-radius:
+        50%;
+
+      background:
+        var(--green);
+
+      box-shadow:
+        0 0 15px
+        rgba(139,234,111,.8);
 
     }
 
 
     h1{
 
-      margin:0;
+      margin:
+        20px 0 20px;
 
       font-size:
         clamp(
-          46px,
+          56px,
           7vw,
-          84px
+          92px
         );
 
-      line-height:.94;
+      line-height:
+        .92;
 
-      letter-spacing:-.065em;
+      letter-spacing:
+        -.06em;
 
     }
 
@@ -333,813 +406,879 @@
     .accent{
 
       background:
+
         linear-gradient(
           90deg,
           var(--cyan),
+          #3ed4d3 45%,
           var(--green)
         );
 
-      -webkit-background-clip:text;
+      -webkit-background-clip:
+        text;
 
-      background-clip:text;
+      background-clip:
+        text;
 
-      color:transparent;
+      color:
+        transparent;
 
     }
 
 
     .hero-copy{
 
-      margin:
-        20px 0 0;
+      max-width:
+        650px;
 
-      max-width:720px;
+      margin:0;
 
-      color:#a9bac5;
+      color:
+        #b7c6cf;
 
-      font-size:17px;
+      font-size:
+        17px;
 
-      line-height:1.7;
-
-    }
-
-
-    .hero-side{
-
-      padding:
-        22px 24px;
-
-      border:
-        1px solid var(--line);
-
-      border-radius:20px;
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(255,255,255,.045),
-          rgba(255,255,255,.018)
-        );
+      line-height:
+        1.7;
 
     }
 
 
-    .hero-side-label{
-
-      color:var(--green);
-
-      font-size:11px;
-
-      font-weight:950;
-
-      letter-spacing:.13em;
-
-      text-transform:uppercase;
-
-    }
-
-
-    .hero-side p{
-
-      margin:
-        11px 0 0;
-
-      color:#a8b7c1;
-
-      font-size:14px;
-
-      line-height:1.65;
-
-    }
-
-
-    /* =====================================
-       CATEGORY NAV
-    ===================================== */
-
-
-    .category-nav{
+    .hero-actions{
 
       display:flex;
 
       flex-wrap:wrap;
 
-      gap:10px;
+      gap:11px;
 
-      margin:
-        10px 0 48px;
-
-    }
-
-
-    .category-nav a{
-
-      padding:
-        11px 15px;
-
-      border:
-        1px solid var(--line);
-
-      border-radius:999px;
-
-      color:#c5d1d8;
-
-      background:
-        rgba(255,255,255,.025);
-
-      font-size:13px;
-
-      font-weight:850;
-
-      transition:.2s ease;
+      margin-top:
+        30px;
 
     }
 
 
-    .category-nav a:hover{
+    .btn{
 
-      border-color:
-        rgba(46,199,241,.45);
-
-      color:#fff;
-
-      transform:
-        translateY(-1px);
-
-    }
-
-
-    /* =====================================
-       LIBRARY
-    ===================================== */
-
-
-    .library-section{
-
-      scroll-margin-top:100px;
-
-      margin-top:62px;
-
-    }
-
-
-    .section-head{
-
-      display:flex;
-
-      align-items:end;
-
-      justify-content:space-between;
-
-      gap:24px;
-
-      margin-bottom:20px;
-
-    }
-
-
-    .section-kicker{
-
-      margin-bottom:8px;
-
-      color:var(--cyan);
-
-      font-size:10px;
-
-      font-weight:950;
-
-      letter-spacing:.15em;
-
-      text-transform:uppercase;
-
-    }
-
-
-    .section-title{
-
-      margin:0;
-
-      font-size:
-        clamp(
-          31px,
-          4vw,
-          46px
-        );
-
-      letter-spacing:-.045em;
-
-    }
-
-
-    .section-desc{
-
-      max-width:480px;
-
-      margin:0;
-
-      color:#879aa6;
-
-      font-size:14px;
-
-      line-height:1.65;
-
-      text-align:right;
-
-    }
-
-
-    .category-panel{
-
-      padding:24px;
-
-      border:
-        1px solid var(--line);
-
-      border-radius:28px;
-
-      background:
-
-        radial-gradient(
-          circle at 100% 0%,
-          rgba(46,199,241,.06),
-          transparent 35%
-        ),
-
-        linear-gradient(
-          180deg,
-          rgba(255,255,255,.040),
-          rgba(255,255,255,.018)
-        );
-
-      box-shadow:
-        0 24px 70px
-        rgba(0,0,0,.18);
-
-    }
-
-
-    .articles-grid{
-
-      display:grid;
-
-      grid-template-columns:
-        repeat(
-          3,
-          minmax(0,1fr)
-        );
-
-      gap:16px;
-
-    }
-
-
-    /* =====================================
-       ARTICLE CARD
-    ===================================== */
-
-
-    .article-card{
-
-      min-height:250px;
-
-      display:flex;
-
-      flex-direction:column;
-
-      justify-content:space-between;
-
-      padding:22px;
-
-      border:
-        1px solid var(--line);
-
-      border-radius:20px;
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(255,255,255,.035),
-          rgba(255,255,255,.015)
-        );
-
-      transition:.22s ease;
-
-    }
-
-
-    .article-card:hover{
-
-      transform:
-        translateY(-3px);
-
-      border-color:
-        rgba(46,199,241,.34);
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(46,199,241,.055),
-          rgba(255,255,255,.018)
-        );
-
-    }
-
-
-    .article-meta{
-
-      display:flex;
-
-      align-items:center;
-
-      justify-content:space-between;
-
-      gap:12px;
-
-      margin-bottom:28px;
-
-    }
-
-
-    .tag{
+      min-height:
+        48px;
 
       display:inline-flex;
-
-      align-items:center;
-
-      gap:7px;
-
-      color:var(--green);
-
-      font-size:10px;
-
-      font-weight:950;
-
-      letter-spacing:.12em;
-
-      text-transform:uppercase;
-
-    }
-
-
-    .status{
-
-      color:#6f8490;
-
-      font-size:11px;
-
-      font-weight:800;
-
-    }
-
-
-    .status.live{
-
-      color:var(--cyan);
-
-    }
-
-
-    .article-card h3{
-
-      margin:0;
-
-      font-size:21px;
-
-      line-height:1.18;
-
-      letter-spacing:-.035em;
-
-    }
-
-
-    .article-card p{
-
-      margin:
-        12px 0 0;
-
-      color:#8fa1ad;
-
-      font-size:13.5px;
-
-      line-height:1.65;
-
-    }
-
-
-    .read-more{
-
-      margin-top:28px;
-
-      display:inline-flex;
-
-      align-items:center;
-
-      gap:9px;
-
-      color:#dce7ed;
-
-      font-size:13px;
-
-      font-weight:900;
-
-    }
-
-
-    .read-more span{
-
-      color:var(--cyan);
-
-      font-size:18px;
-
-      transition:.2s ease;
-
-    }
-
-
-    .article-card:hover
-    .read-more span{
-
-      transform:
-        translateX(3px);
-
-    }
-
-
-    /* FEATURED ARTICLE */
-
-
-    .article-card.featured{
-
-      position:relative;
-
-      overflow:hidden;
-
-      border-color:
-        rgba(46,199,241,.25);
-
-      background:
-
-        radial-gradient(
-          circle at 100% 0%,
-          rgba(139,234,111,.08),
-          transparent 38%
-        ),
-
-        linear-gradient(
-          145deg,
-          rgba(46,199,241,.06),
-          rgba(255,255,255,.018)
-        );
-
-    }
-
-
-    .article-card.featured::after{
-
-      content:"";
-
-      position:absolute;
-
-      width:150px;
-
-      height:150px;
-
-      right:-90px;
-
-      bottom:-90px;
-
-      border-radius:50%;
-
-      border:
-        1px solid
-        rgba(46,199,241,.14);
-
-      box-shadow:
-        0 0 0 24px
-        rgba(139,234,111,.015);
-
-      pointer-events:none;
-
-    }
-
-
-    /* EMPTY CARD */
-
-
-    .empty-card{
-
-      min-height:250px;
-
-      display:flex;
 
       align-items:center;
 
       justify-content:center;
 
-      padding:26px;
-
-      border:
-        1px dashed
-        rgba(255,255,255,.14);
-
-      border-radius:20px;
-
-      text-align:center;
-
-      background:
-        rgba(255,255,255,.012);
-
-    }
-
-
-    .empty-card strong{
-
-      display:block;
-
-      color:#c8d4db;
-
-      font-size:14px;
-
-      margin-bottom:7px;
-
-    }
-
-
-    .empty-card span{
-
-      color:#708490;
-
-      font-size:12px;
-
-      line-height:1.55;
-
-    }
-
-
-    /* =====================================
-       CONSULTATION
-    ===================================== */
-
-
-    .consultation-note{
-
-      margin-top:72px;
-
       padding:
-        28px 30px;
+        0 20px;
 
-      border:
-        1px solid
-        rgba(139,234,111,.22);
-
-      border-radius:24px;
-
-      background:
-
-        radial-gradient(
-          circle at 100% 0%,
-          rgba(139,234,111,.10),
-          transparent 34%
-        ),
-
-        linear-gradient(
-          180deg,
-          rgba(46,199,241,.055),
-          rgba(255,255,255,.018)
-        );
-
-      box-shadow:
-        0 24px 70px
-        rgba(0,0,0,.18);
-
-    }
-
-
-    .consultation-note
-    .note-label{
-
-      margin-bottom:10px;
-
-      color:var(--green);
-
-      font-size:10px;
-
-      font-weight:950;
-
-      letter-spacing:.14em;
-
-      text-transform:uppercase;
-
-    }
-
-
-    .consultation-note h2{
-
-      margin:0;
+      border-radius:
+        14px;
 
       font-size:
-        clamp(
-          26px,
-          4vw,
-          38px
-        );
+        13px;
 
-      line-height:1.05;
+      font-weight:
+        950;
 
-      letter-spacing:-.045em;
+      transition:
+        .2s ease;
 
     }
 
 
-    .consultation-note p{
-
-      max-width:760px;
-
-      margin:
-        14px 0 0;
-
-      color:#9fb0bd;
-
-      font-size:15px;
-
-      line-height:1.7;
-
-    }
-
-
-    .consult-btn{
-
-      display:inline-flex;
-
-      align-items:center;
-
-      gap:9px;
-
-      margin-top:20px;
-
-      padding:
-        12px 16px;
-
-      border:
-        1px solid
-        rgba(46,199,241,.34);
-
-      border-radius:14px;
-
-      background:
-        rgba(46,199,241,.08);
-
-      color:#f4f8fb;
-
-      font-size:13px;
-
-      font-weight:900;
-
-      transition:.2s ease;
-
-    }
-
-
-    .consult-btn:hover{
+    .btn:hover{
 
       transform:
         translateY(-2px);
 
-      border-color:
-        rgba(139,234,111,.42);
+    }
+
+
+    .btn-primary{
+
+      color:
+        #041019;
 
       background:
-        rgba(139,234,111,.08);
+
+        linear-gradient(
+          135deg,
+          var(--cyan),
+          var(--green)
+        );
+
+      box-shadow:
+        0 12px 30px
+        rgba(46,199,241,.15);
 
     }
 
 
-    .consult-btn span{
+    .btn-secondary{
 
-      color:var(--cyan);
+      border:
+        1px solid
+        rgba(255,255,255,.15);
 
-      font-size:18px;
+      background:
+        rgba(255,255,255,.025);
+
+      color:white;
 
     }
 
 
-    /* =====================================
-       FOOTER
-    ===================================== */
+    .hero-note{
 
-
-    .footer{
-
-      margin-top:72px;
-
-      padding-top:22px;
-
-      border-top:
-        1px solid var(--line);
+      margin-top:
+        22px;
 
       display:flex;
 
-      justify-content:space-between;
+      align-items:flex-start;
 
-      gap:20px;
+      gap:11px;
 
-      color:#748792;
+      max-width:
+        600px;
 
-      font-size:12px;
+      padding:
+        14px 16px;
 
-      line-height:1.6;
+      border:
+        1px solid
+        rgba(255,255,255,.09);
+
+      border-radius:
+        15px;
+
+      background:
+        rgba(255,255,255,.02);
+
+      color:
+        var(--muted);
+
+      font-size:
+        12px;
+
+      line-height:
+        1.55;
 
     }
 
 
-    /* =====================================
-       RESPONSIVE
-    ===================================== */
+    .hero-note-icon{
 
+      width:32px;
+
+      height:32px;
+
+      display:grid;
+
+      place-items:center;
+
+      flex:0 0 auto;
+
+      border-radius:
+        9px;
+
+      color:#041019;
+
+      background:
+
+        linear-gradient(
+          135deg,
+          var(--cyan),
+          var(--green)
+        );
+
+      font-weight:
+        950;
+
+    }
+
+
+    /* ==============================
+       HERO VISUAL
+    ============================== */
+
+    .hero-side{
+
+      position:relative;
+
+      min-height:
+        570px;
+
+      overflow:hidden;
+
+    }
+
+
+    .globe{
+
+      position:absolute;
+
+      width:
+        430px;
+
+      height:
+        430px;
+
+      right:
+        -55px;
+
+      bottom:
+        -80px;
+
+      border-radius:
+        50%;
+
+      border:
+        1px solid
+        rgba(46,199,241,.28);
+
+      background:
+
+        radial-gradient(
+          circle at 30% 25%,
+          rgba(46,199,241,.09),
+          transparent 32%
+        ),
+
+        radial-gradient(
+          circle at 70% 50%,
+          rgba(139,234,111,.05),
+          transparent 35%
+        );
+
+      box-shadow:
+
+        inset 0 0 80px
+        rgba(46,199,241,.035);
+
+    }
+
+
+    .globe::before{
+
+      content:"";
+
+      position:absolute;
+
+      left:50%;
+
+      top:0;
+
+      width:38%;
+
+      height:100%;
+
+      transform:
+        translateX(-50%);
+
+      border:
+        1px solid
+        rgba(46,199,241,.18);
+
+      border-radius:
+        50%;
+
+    }
+
+
+    .globe::after{
+
+      content:"";
+
+      position:absolute;
+
+      left:5%;
+
+      top:42%;
+
+      width:90%;
+
+      height:25%;
+
+      border:
+        1px solid
+        rgba(139,234,111,.17);
+
+      border-radius:
+        50%;
+
+    }
+
+
+    .orbit{
+
+      position:absolute;
+
+      border-radius:
+        50%;
+
+      border:
+        2px solid
+        rgba(46,199,241,.42);
+
+    }
+
+
+    .orbit.one{
+
+      width:
+        470px;
+
+      height:
+        145px;
+
+      right:
+        -80px;
+
+      bottom:
+        75px;
+
+      transform:
+        rotate(-15deg);
+
+    }
+
+
+    .orbit.two{
+
+      width:
+        450px;
+
+      height:
+        160px;
+
+      right:
+        -65px;
+
+      bottom:
+        92px;
+
+      transform:
+        rotate(18deg);
+
+      border-color:
+        rgba(139,234,111,.34);
+
+    }
+
+
+    .visual-card{
+
+      position:absolute;
+
+      width:
+        205px;
+
+      padding:
+        17px;
+
+      border:
+        1px solid
+        rgba(46,199,241,.21);
+
+      border-radius:
+        18px;
+
+      background:
+        rgba(5,27,39,.85);
+
+      backdrop-filter:
+        blur(11px);
+
+      box-shadow:
+        0 18px 50px
+        rgba(0,0,0,.24);
+
+      z-index:3;
+
+    }
+
+
+    .visual-card.one{
+
+      top:
+        90px;
+
+      left:
+        25px;
+
+    }
+
+
+    .visual-card.two{
+
+      top:
+        215px;
+
+      right:
+        35px;
+
+    }
+
+
+    .visual-kicker{
+
+      color:
+        var(--cyan);
+
+      font-size:
+        9px;
+
+      font-weight:
+        950;
+
+      letter-spacing:
+        .15em;
+
+      text-transform:
+        uppercase;
+
+    }
+
+
+    .visual-title{
+
+      margin-top:
+        8px;
+
+      color:white;
+
+      font-size:
+        17px;
+
+      font-weight:
+        950;
+
+    }
+
+
+    .visual-copy{
+
+      margin-top:
+        5px;
+
+      color:
+        var(--muted2);
+
+      font-size:
+        11px;
+
+      line-height:
+        1.45;
+
+    }
+
+
+    /* ==============================
+       VALUE
+    ============================== */
+
+    .value-section{
+
+      margin-top:
+        22px;
+
+      display:grid;
+
+      grid-template-columns:
+        repeat(3,1fr);
+
+      gap:
+        14px;
+
+    }
+
+
+    .value-card{
+
+      padding:
+        25px;
+
+      border:
+        1px solid var(--line);
+
+      border-radius:
+        24px;
+
+      background:
+
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.045),
+          rgba(255,255,255,.014)
+        );
+
+      box-shadow:
+        0 18px 55px
+        rgba(0,0,0,.16);
+
+    }
+
+
+    .value-number{
+
+      color:
+        var(--cyan);
+
+      font-size:
+        11px;
+
+      font-weight:
+        950;
+
+      letter-spacing:
+        .15em;
+
+      text-transform:
+        uppercase;
+
+    }
+
+
+    .value-title{
+
+      margin-top:
+        14px;
+
+      color:white;
+
+      font-size:
+        22px;
+
+      font-weight:
+        950;
+
+    }
+
+
+    .value-copy{
+
+      margin-top:
+        9px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        13px;
+
+      line-height:
+        1.65;
+
+    }
+
+
+    /* ==============================
+       ACCESS
+    ============================== */
+
+    .access-section{
+
+      margin-top:
+        22px;
+
+      padding:
+        34px;
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:
+        space-between;
+
+      gap:
+        30px;
+
+      border:
+        1px solid
+        rgba(46,199,241,.21);
+
+      border-radius:
+        28px;
+
+      background:
+
+        linear-gradient(
+          110deg,
+          rgba(46,199,241,.06),
+          rgba(255,255,255,.02),
+          rgba(139,234,111,.05)
+        );
+
+      box-shadow:
+        0 20px 60px
+        rgba(0,0,0,.17);
+
+    }
+
+
+    .access-kicker{
+
+      color:
+        var(--green);
+
+      font-size:
+        10px;
+
+      font-weight:
+        950;
+
+      letter-spacing:
+        .16em;
+
+      text-transform:
+        uppercase;
+
+    }
+
+
+    .access-title{
+
+      margin-top:
+        8px;
+
+      color:white;
+
+      font-size:
+        28px;
+
+      font-weight:
+        950;
+
+      letter-spacing:
+        -.03em;
+
+    }
+
+
+    .access-copy{
+
+      max-width:
+        650px;
+
+      margin-top:
+        9px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        13px;
+
+      line-height:
+        1.6;
+
+    }
+
+
+    .access-actions{
+
+      display:flex;
+
+      flex-wrap:wrap;
+
+      gap:
+        10px;
+
+      justify-content:
+        flex-end;
+
+    }
+
+
+    /* ==============================
+       FOOTER
+    ============================== */
+
+    .footer{
+
+      margin-top:
+        28px;
+
+      text-align:center;
+
+      color:
+        var(--muted2);
+
+      font-size:
+        11px;
+
+      line-height:
+        1.6;
+
+    }
+
+
+    /* ==============================
+       RESPONSIVE
+    ============================== */
 
     @media(max-width:900px){
 
       .hero{
 
-        grid-template-columns:1fr;
-
-        gap:24px;
-
-      }
-
-
-      .section-head{
-
-        align-items:start;
-
-        flex-direction:column;
+        grid-template-columns:
+          1fr;
 
       }
 
 
-      .section-desc{
+      .hero-side{
 
-        text-align:left;
+        min-height:
+          420px;
 
       }
 
 
-      .articles-grid{
+      .value-section{
 
         grid-template-columns:
-          1fr 1fr;
+          1fr;
+
+      }
+
+
+      .access-section{
+
+        flex-direction:
+          column;
+
+        align-items:
+          flex-start;
+
+      }
+
+
+      .access-actions{
+
+        justify-content:
+          flex-start;
 
       }
 
     }
 
 
-    @media(max-width:620px){
+    @media(max-width:720px){
 
-      .shell{
+      .page{
 
         width:
-          min(
-            100% - 24px,
-            1180px
-          );
+          calc(100% - 16px);
 
       }
 
 
-      .topbar{
+      .brand-name{
 
-        position:relative;
-
-        top:0;
+        display:none;
 
       }
 
 
-      .hero{
+      .nav{
 
-        padding-top:52px;
-
-      }
-
-
-      .category-panel{
-
-        padding:14px;
+        gap:2px;
 
       }
 
 
-      .articles-grid{
+      .nav a{
 
-        grid-template-columns:1fr;
+        padding:
+          8px;
+
+        font-size:
+          11px;
 
       }
 
 
-      .footer{
+      .hero-left{
 
-        flex-direction:column;
+        padding:
+          38px 23px;
+
+      }
+
+
+      h1{
+
+        font-size:
+          54px;
+
+      }
+
+
+      .hero-copy{
+
+        font-size:
+          15px;
+
+      }
+
+
+      .hero-side{
+
+        min-height:
+          360px;
+
+      }
+
+
+      .visual-card{
+
+        transform:
+          scale(.88);
+
+      }
+
+
+      .visual-card.one{
+
+        left:
+          -4px;
+
+      }
+
+
+      .visual-card.two{
+
+        right:
+          -4px;
+
+      }
+
+
+      .globe{
+
+        right:
+          -150px;
+
+      }
+
+
+      .access-section{
+
+        padding:
+          25px 22px;
+
+      }
+
+
+      .access-title{
+
+        font-size:
+          23px;
 
       }
 
@@ -1152,592 +1291,336 @@
 
 <body>
 
+<div class="page">
 
-<div class="shell">
 
-
-  <!-- TOPBAR -->
-
+  <!-- NAV -->
 
   <header class="topbar">
 
     <a
       class="brand"
-      href="../index.html"
+      href="/"
     >
 
       <img
         src="../logo.png"
-        alt="vikundey.crypto logo"
+        alt="vikundey.crypto"
       >
 
-      <span>
+      <div class="brand-name">
         vikundey.crypto
-      </span>
-
-    </a>
-
-
-    <a
-      class="back"
-      href="../index.html"
-    >
-      ← На головну
-    </a>
-
-  </header>
-
-
-  <main>
-
-
-    <!-- HERO -->
-
-
-    <section class="hero">
-
-      <div>
-
-        <div class="eyebrow">
-          Education · Macro · Geo
-        </div>
-
-
-        <h1>
-
-          Vikundey<br>
-
-          <span class="accent">
-            Thoughts
-          </span>
-
-        </h1>
-
-
-        <p class="hero-copy">
-
-          Бібліотека навчальних та інформаційних матеріалів про економіку,
-          геополітику, макроекономічну логіку та взаємозв’язки, які формують
-          поведінку фінансових ринків.
-
-        </p>
-
       </div>
 
-
-      <aside class="hero-side">
-
-        <div class="hero-side-label">
-          Library
-        </div>
-
-        <p>
-          Матеріали згруповані за тематикою.
-          Обирай напрям нижче та переходь
-          до потрібної статті.
-        </p>
-
-      </aside>
-
-    </section>
+    </a>
 
 
-    <!-- CATEGORY NAV -->
+    <nav class="nav">
 
-
-    <nav
-      class="category-nav"
-      aria-label="Категорії бібліотеки"
-    >
-
-      <a href="#geopolitics">
-        Геополітика
+      <a href="/">
+        Головна
       </a>
 
-      <a href="#economy">
-        Економіка
+      <a href="/nfp/">
+        NFP
       </a>
 
-      <a href="#education">
-        Освіта
+      <a href="/cpi/">
+        CPI
+      </a>
+
+      <a
+        href="/thoughts/"
+        class="active"
+      >
+        Thoughts
+      </a>
+
+      <a
+        href="/profile/"
+        aria-label="Профіль"
+      >
+        👤
       </a>
 
     </nav>
 
-
-    <!-- =====================================
-         GEOPOLITICS
-    ====================================== -->
+  </header>
 
 
-    <section
-      class="library-section"
-      id="geopolitics"
-    >
+  <!-- HERO -->
 
-      <div class="section-head">
-
-        <div>
-
-          <div class="section-kicker">
-            01 · Geopolitics
-          </div>
-
-          <h2 class="section-title">
-            Геополітика
-          </h2>
-
-        </div>
+  <section class="hero">
 
 
-        <p class="section-desc">
+    <div class="hero-left">
 
-          Геополітичні події, міжнародні конфлікти,
-          вибори, торговельні відносини та їхній
-          вплив на глобальні ринки.
+      <div class="eyebrow">
 
-        </p>
+        <span class="eyebrow-dot"></span>
+
+        Research · Knowledge · Context
 
       </div>
 
 
-      <div class="category-panel">
+      <h1>
 
-        <div class="articles-grid">
+        Vikundey
 
+        <br>
 
-          <!-- US ELECTIONS ARTICLE -->
+        <span class="accent">
+          Thoughts
+        </span>
 
+      </h1>
 
-          <a
-            class="article-card featured"
-            href="/thoughts/geopolitics/us-elections-2026/"
-          >
 
-            <div>
+      <p class="hero-copy">
 
-              <div class="article-meta">
+        Простір для авторських матеріалів про макроекономіку,
+        геополітику, економіку та логіку фінансових ринків.
 
-                <span class="tag">
-                  🇺🇸 Геополітика
-                </span>
-
-                <span class="status live">
-                  NEW
-                </span>
-
-              </div>
-
-
-              <h3>
-                Вибори США 2026:
-                Сенат та Палата Представників
-              </h3>
-
-
-              <p>
-                Як проміжні вибори можуть змінити
-                політичний баланс у США, які сценарії
-                важливі для Трампа та як на результат
-                може реагувати долар і фінансові ринки.
-              </p>
-
-            </div>
-
-
-            <div class="read-more">
-
-              Читати матеріал
-
-              <span>
-                →
-              </span>
-
-            </div>
-
-          </a>
-
-
-          <!-- NEXT ARTICLE -->
-
-
-          <div class="empty-card">
-
-            <div>
-
-              <strong>
-                Місце для нової статті
-              </strong>
-
-              <span>
-                Сюди можна буде додати
-                наступний геополітичний матеріал.
-              </span>
-
-            </div>
-
-          </div>
-
-
-          <!-- NEXT ARTICLE -->
-
-
-          <div class="empty-card">
-
-            <div>
-
-              <strong>
-                Місце для нової статті
-              </strong>
-
-              <span>
-                Структура готова до подальшого
-                наповнення бібліотеки.
-              </span>
-
-            </div>
-
-          </div>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================================
-         ECONOMY
-    ====================================== -->
-
-
-    <section
-      class="library-section"
-      id="economy"
-    >
-
-      <div class="section-head">
-
-        <div>
-
-          <div class="section-kicker">
-            02 · Economy
-          </div>
-
-          <h2 class="section-title">
-            Економіка
-          </h2>
-
-        </div>
-
-
-        <p class="section-desc">
-
-          Інфляція, ринок праці, монетарна політика,
-          економічні цикли, центробанки та фундаментальна
-          логіка макроданих.
-
-        </p>
-
-      </div>
-
-
-      <div class="category-panel">
-
-        <div class="articles-grid">
-
-
-          <article class="article-card">
-
-            <div>
-
-              <div class="article-meta">
-
-                <span class="tag">
-                  Економіка
-                </span>
-
-                <span class="status">
-                  Скоро
-                </span>
-
-              </div>
-
-
-              <h3>
-                Перша економічна стаття
-              </h3>
-
-
-              <p>
-
-                Тут буде короткий опис економічного
-                матеріалу з основною тезою та
-                контекстом для читача.
-
-              </p>
-
-            </div>
-
-
-            <div class="read-more">
-
-              Читати матеріал
-
-              <span>
-                →
-              </span>
-
-            </div>
-
-          </article>
-
-
-          <div class="empty-card">
-
-            <div>
-
-              <strong>
-                Місце для нової статті
-              </strong>
-
-              <span>
-                Наприклад: інфляція, ФРС,
-                ставки або ринок праці.
-              </span>
-
-            </div>
-
-          </div>
-
-
-          <div class="empty-card">
-
-            <div>
-
-              <strong>
-                Місце для нової статті
-              </strong>
-
-              <span>
-                Нові матеріали можна буде
-                додавати окремими картками.
-              </span>
-
-            </div>
-
-          </div>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================================
-         EDUCATION
-    ====================================== -->
-
-
-    <section
-      class="library-section"
-      id="education"
-    >
-
-      <div class="section-head">
-
-        <div>
-
-          <div class="section-kicker">
-            03 · Education
-          </div>
-
-          <h2 class="section-title">
-            Освіта
-          </h2>
-
-        </div>
-
-
-        <p class="section-desc">
-
-          Пояснення базових і просунутих понять:
-          від макроекономічних показників до логіки
-          реакції активів і побудови аналітичного мислення.
-
-        </p>
-
-      </div>
-
-
-      <div class="category-panel">
-
-        <div class="articles-grid">
-
-
-          <article class="article-card">
-
-            <div>
-
-              <div class="article-meta">
-
-                <span class="tag">
-                  Освіта
-                </span>
-
-                <span class="status">
-                  Скоро
-                </span>
-
-              </div>
-
-
-              <h3>
-                Перша навчальна стаття
-              </h3>
-
-
-              <p>
-
-                Тут буде короткий опис навчального
-                матеріалу та того, яку тему він
-                допомагає зрозуміти.
-
-              </p>
-
-            </div>
-
-
-            <div class="read-more">
-
-              Читати матеріал
-
-              <span>
-                →
-              </span>
-
-            </div>
-
-          </article>
-
-
-          <div class="empty-card">
-
-            <div>
-
-              <strong>
-                Місце для нової статті
-              </strong>
-
-              <span>
-                Наприклад: як читати макродані
-                або що таке consensus.
-              </span>
-
-            </div>
-
-          </div>
-
-
-          <div class="empty-card">
-
-            <div>
-
-              <strong>
-                Місце для нової статті
-              </strong>
-
-              <span>
-                Бібліотеку можна поступово
-                розширювати без зміни дизайну.
-              </span>
-
-            </div>
-
-          </div>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================================
-         CONSULTATION
-    ====================================== -->
-
-
-    <section class="consultation-note">
-
-      <div class="note-label">
-        Personal Consultation
-      </div>
-
-
-      <h2>
-        Хочеш отримати індивідуальний
-        підхід до свого питання або запиту?
-      </h2>
-
-
-      <p>
-
-        Якщо тобі потрібен персональний розбір,
-        пояснення конкретної ситуації чи консультація
-        під твій запит — індивідуальна консультація
-        саме для тебе.
-
-        Зв’яжись із менеджером, щоб узгодити
-        формат і час консультації.
+        Тут ми не просто дивимось на окремі події —
+        ми збираємо контекст, сценарії та взаємозв’язки
+        в одну цілісну картину.
 
       </p>
 
 
+      <div class="hero-actions">
+
+        <a
+          class="btn btn-primary"
+          href="/thoughts/access/"
+        >
+          Відкрити Vikundey Thoughts →
+        </a>
+
+
+        <a
+          class="btn btn-secondary"
+          href="https://secure.wayforpay.com/sub/see534a7947df"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Отримати Full доступ
+        </a>
+
+      </div>
+
+
+      <div class="hero-note">
+
+        <div class="hero-note-icon">
+          V
+        </div>
+
+        <div>
+
+          <strong style="color:#fff">
+            Vikundey Thoughts входить у Full Vikundey Space.
+          </strong>
+
+          <br>
+
+          Доступ до повної бібліотеки матеріалів
+          відкривається після авторизації та перевірки
+          активного Full доступу.
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="hero-side">
+
+
+      <div class="visual-card one">
+
+        <div class="visual-kicker">
+          Geopolitics
+        </div>
+
+        <div class="visual-title">
+          Глобальний контекст
+        </div>
+
+        <div class="visual-copy">
+          Події, політика, міжнародні відносини
+          та їхній вплив на ринки.
+        </div>
+
+      </div>
+
+
+      <div class="visual-card two">
+
+        <div class="visual-kicker">
+          Macro Research
+        </div>
+
+        <div class="visual-title">
+          Від даних до сценарію
+        </div>
+
+        <div class="visual-copy">
+          Макродані, економічна логіка
+          та причинно-наслідкові зв’язки.
+        </div>
+
+      </div>
+
+
+      <div class="globe"></div>
+
+      <div class="orbit one"></div>
+
+      <div class="orbit two"></div>
+
+    </div>
+
+
+  </section>
+
+
+  <!-- VALUE -->
+
+  <section class="value-section">
+
+
+    <article class="value-card">
+
+      <div class="value-number">
+        01 · Geopolitics
+      </div>
+
+      <div class="value-title">
+        Геополітика
+      </div>
+
+      <div class="value-copy">
+
+        Вибори, міжнародні конфлікти,
+        торговельні відносини та глобальні
+        політичні процеси через призму ринків.
+
+      </div>
+
+    </article>
+
+
+    <article class="value-card">
+
+      <div class="value-number">
+        02 · Economy
+      </div>
+
+      <div class="value-title">
+        Економіка
+      </div>
+
+      <div class="value-copy">
+
+        Економічні цикли, інфляція,
+        грошова політика та фундаментальні
+        процеси, які формують ринкове середовище.
+
+      </div>
+
+    </article>
+
+
+    <article class="value-card">
+
+      <div class="value-number">
+        03 · Education
+      </div>
+
+      <div class="value-title">
+        Освіта
+      </div>
+
+      <div class="value-copy">
+
+        Матеріали, які допомагають
+        вибудовувати макроекономічну логіку,
+        розуміти дані та читати ринковий контекст.
+
+      </div>
+
+    </article>
+
+
+  </section>
+
+
+  <!-- ACCESS -->
+
+  <section class="access-section">
+
+
+    <div>
+
+      <div class="access-kicker">
+        Full Vikundey Space
+      </div>
+
+      <div class="access-title">
+        Повна бібліотека доступна всередині Vikundey Space
+      </div>
+
+      <div class="access-copy">
+
+        Авторизуйся, щоб перейти до Vikundey Thoughts.
+        Система автоматично перевірить твій доступ.
+        Повна бібліотека доступна користувачам
+        Full Vikundey Space.
+
+      </div>
+
+    </div>
+
+
+    <div class="access-actions">
+
       <a
-        class="consult-btn"
-        href="https://t.me/vikundeymanager"
-        target="_blank"
-        rel="noopener noreferrer"
+        class="btn btn-primary"
+        href="/thoughts/access/"
       >
-
-        Записатися на консультацію
-
-        <span>
-          →
-        </span>
-
+        Перейти до бібліотеки →
       </a>
 
-    </section>
+
+      <a
+        class="btn btn-secondary"
+        href="/profile/"
+      >
+        Мій профіль
+      </a>
+
+    </div>
 
 
-  </main>
-
-
-  <!-- FOOTER -->
+  </section>
 
 
   <footer class="footer">
 
-    <span>
-      © 2026 vikundey.crypto
-    </span>
+    © vikundey.crypto · Vikundey Thoughts
 
-    <span>
-      Освітня інформація · Не є індивідуальною
-      інвестиційною рекомендацією.
-    </span>
+    <br>
+
+    Матеріали мають освітній та інформаційний характер
+    і не є індивідуальною інвестиційною рекомендацією.
 
   </footer>
 
 
 </div>
-
 
 </body>
 
