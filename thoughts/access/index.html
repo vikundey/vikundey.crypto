@@ -4,14 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Vikundey Thoughts — Vikundey Space</title>
+  <title>Vikundey Thoughts | vikundey.crypto</title>
 
   <meta
     name="description"
-    content="Vikundey Thoughts — premium бібліотека навчальних, економічних та геополітичних матеріалів."
+    content="Vikundey Thoughts — бібліотека навчальних, економічних та геополітичних матеріалів vikundey.crypto."
   >
 
   <style>
+
     :root{
       --bg:#071018;
       --bg-2:#0a131c;
@@ -29,18 +30,22 @@
       --cyan:#2ec7f1;
       --green:#8bea6f;
 
-      --shadow:0 24px 70px rgba(0,0,0,.28);
+      --shadow:
+        0 24px 70px rgba(0,0,0,.28);
 
       --radius:24px;
     }
+
 
     *{
       box-sizing:border-box;
     }
 
+
     html{
       scroll-behavior:smooth;
     }
+
 
     body{
       margin:0;
@@ -57,16 +62,19 @@
         sans-serif;
 
       background:
+
         radial-gradient(
           circle at 8% 0%,
           rgba(46,199,241,.13),
           transparent 25%
         ),
+
         radial-gradient(
           circle at 92% 8%,
           rgba(139,234,111,.09),
           transparent 30%
         ),
+
         linear-gradient(
           180deg,
           #071018 0%,
@@ -77,10 +85,12 @@
       min-height:100vh;
     }
 
+
     body::before{
       content:"";
 
       position:fixed;
+
       inset:0;
 
       pointer-events:none;
@@ -88,17 +98,20 @@
       opacity:.22;
 
       background-image:
+
         linear-gradient(
           rgba(255,255,255,.024) 1px,
           transparent 1px
         ),
+
         linear-gradient(
           90deg,
           rgba(255,255,255,.024) 1px,
           transparent 1px
         );
 
-      background-size:34px 34px;
+      background-size:
+        34px 34px;
 
       mask-image:
         linear-gradient(
@@ -108,38 +121,47 @@
         );
     }
 
+
     a{
       color:inherit;
       text-decoration:none;
     }
 
-    .shell{
-      width:min(
-        1180px,
-        calc(100% - 32px)
-      );
 
-      margin:0 auto;
+    .shell{
+      width:
+        min(
+          1180px,
+          calc(100% - 32px)
+        );
+
+      margin:
+        0 auto;
 
       padding:
         24px 0 64px;
 
       position:relative;
+
       z-index:1;
     }
 
 
-    /* =========================
+    /* ==============================
        TOPBAR
-    ========================= */
+    ============================== */
 
     .topbar{
       position:sticky;
+
       top:12px;
+
       z-index:20;
 
       display:flex;
+
       align-items:center;
+
       justify-content:space-between;
 
       gap:18px;
@@ -148,10 +170,10 @@
         12px 14px;
 
       border:
-        1px solid
-        var(--line);
+        1px solid var(--line);
 
-      border-radius:18px;
+      border-radius:
+        18px;
 
       background:
         rgba(7,16,24,.86);
@@ -163,8 +185,10 @@
         var(--shadow);
     }
 
+
     .brand{
       display:flex;
+
       align-items:center;
 
       gap:11px;
@@ -174,8 +198,10 @@
       letter-spacing:-.02em;
     }
 
+
     .brand img{
       width:38px;
+
       height:38px;
 
       object-fit:contain;
@@ -183,42 +209,57 @@
       display:block;
     }
 
-    .top-actions{
+
+    .nav{
       display:flex;
+
       align-items:center;
 
-      gap:8px;
+      gap:5px;
     }
 
-    .top-link{
+
+    .nav a{
       padding:
         9px 12px;
 
-      border:
-        1px solid
-        var(--line);
-
-      border-radius:12px;
+      border-radius:
+        12px;
 
       color:#c8d4dc;
 
       font-size:13px;
-      font-weight:800;
+
+      font-weight:850;
 
       transition:.2s ease;
     }
 
-    .top-link:hover{
+
+    .nav a:hover{
+      color:#fff;
+
       background:
         rgba(255,255,255,.06);
-
-      color:#fff;
     }
 
 
-    /* =========================
+    .nav a.active{
+      color:#041019;
+
+      background:
+
+        linear-gradient(
+          135deg,
+          var(--cyan),
+          var(--green)
+        );
+    }
+
+
+    /* ==============================
        HERO
-    ========================= */
+    ============================== */
 
     .hero{
       padding:
@@ -235,18 +276,21 @@
       align-items:end;
     }
 
+
     .eyebrow{
       margin-bottom:14px;
 
       color:var(--cyan);
 
       font-size:11px;
+
       font-weight:950;
 
       letter-spacing:.16em;
 
       text-transform:uppercase;
     }
+
 
     h1{
       margin:0;
@@ -263,8 +307,10 @@
       letter-spacing:-.065em;
     }
 
+
     .accent{
       background:
+
         linear-gradient(
           90deg,
           var(--cyan),
@@ -272,16 +318,19 @@
         );
 
       -webkit-background-clip:text;
+
       background-clip:text;
 
       color:transparent;
     }
 
+
     .hero-copy{
       margin:
         20px 0 0;
 
-      max-width:720px;
+      max-width:
+        720px;
 
       color:#a9bac5;
 
@@ -290,17 +339,19 @@
       line-height:1.7;
     }
 
+
     .hero-side{
       padding:
         22px 24px;
 
       border:
-        1px solid
-        var(--line);
+        1px solid var(--line);
 
-      border-radius:20px;
+      border-radius:
+        20px;
 
       background:
+
         linear-gradient(
           180deg,
           rgba(255,255,255,.045),
@@ -308,16 +359,19 @@
         );
     }
 
+
     .hero-side-label{
       color:var(--green);
 
       font-size:11px;
+
       font-weight:950;
 
       letter-spacing:.13em;
 
       text-transform:uppercase;
     }
+
 
     .hero-side p{
       margin:
@@ -331,12 +385,13 @@
     }
 
 
-    /* =========================
+    /* ==============================
        CATEGORY NAV
-    ========================= */
+    ============================== */
 
     .category-nav{
       display:flex;
+
       flex-wrap:wrap;
 
       gap:10px;
@@ -345,15 +400,16 @@
         10px 0 48px;
     }
 
+
     .category-nav a{
       padding:
         11px 15px;
 
       border:
-        1px solid
-        var(--line);
+        1px solid var(--line);
 
-      border-radius:999px;
+      border-radius:
+        999px;
 
       color:#c5d1d8;
 
@@ -361,10 +417,12 @@
         rgba(255,255,255,.025);
 
       font-size:13px;
+
       font-weight:850;
 
       transition:.2s ease;
     }
+
 
     .category-nav a:hover{
       border-color:
@@ -377,39 +435,48 @@
     }
 
 
-    /* =========================
+    /* ==============================
        LIBRARY
-    ========================= */
+    ============================== */
 
     .library-section{
-      scroll-margin-top:100px;
+      scroll-margin-top:
+        100px;
 
-      margin-top:62px;
+      margin-top:
+        62px;
     }
+
 
     .section-head{
       display:flex;
 
       align-items:end;
+
       justify-content:space-between;
 
       gap:24px;
 
-      margin-bottom:20px;
+      margin-bottom:
+        20px;
     }
 
+
     .section-kicker{
-      margin-bottom:8px;
+      margin-bottom:
+        8px;
 
       color:var(--cyan);
 
       font-size:10px;
+
       font-weight:950;
 
       letter-spacing:.15em;
 
       text-transform:uppercase;
     }
+
 
     .section-title{
       margin:0;
@@ -424,8 +491,10 @@
       letter-spacing:-.045em;
     }
 
+
     .section-desc{
-      max-width:480px;
+      max-width:
+        480px;
 
       margin:0;
 
@@ -438,21 +507,24 @@
       text-align:right;
     }
 
+
     .category-panel{
       padding:24px;
 
       border:
-        1px solid
-        var(--line);
+        1px solid var(--line);
 
-      border-radius:28px;
+      border-radius:
+        28px;
 
       background:
+
         radial-gradient(
           circle at 100% 0%,
           rgba(46,199,241,.06),
           transparent 35%
         ),
+
         linear-gradient(
           180deg,
           rgba(255,255,255,.040),
@@ -463,6 +535,7 @@
         0 24px 70px
         rgba(0,0,0,.18);
     }
+
 
     .articles-grid{
       display:grid;
@@ -477,26 +550,26 @@
     }
 
 
-    /* =========================
-       ARTICLE CARDS
-    ========================= */
-
     .article-card{
-      min-height:250px;
+      min-height:
+        250px;
 
       display:flex;
+
       flex-direction:column;
+
       justify-content:space-between;
 
       padding:22px;
 
       border:
-        1px solid
-        var(--line);
+        1px solid var(--line);
 
-      border-radius:20px;
+      border-radius:
+        20px;
 
       background:
+
         linear-gradient(
           180deg,
           rgba(255,255,255,.035),
@@ -506,7 +579,8 @@
       transition:.22s ease;
     }
 
-    a.article-card:hover{
+
+    .article-card:hover{
       transform:
         translateY(-3px);
 
@@ -514,6 +588,7 @@
         rgba(46,199,241,.34);
 
       background:
+
         linear-gradient(
           180deg,
           rgba(46,199,241,.055),
@@ -521,19 +596,44 @@
         );
     }
 
+
+    .article-card.featured{
+      border-color:
+        rgba(139,234,111,.25);
+
+      background:
+
+        radial-gradient(
+          circle at 100% 0%,
+          rgba(139,234,111,.07),
+          transparent 40%
+        ),
+
+        linear-gradient(
+          180deg,
+          rgba(46,199,241,.04),
+          rgba(255,255,255,.015)
+        );
+    }
+
+
     .article-meta{
       display:flex;
 
       align-items:center;
+
       justify-content:space-between;
 
       gap:12px;
 
-      margin-bottom:28px;
+      margin-bottom:
+        28px;
     }
+
 
     .tag{
       display:inline-flex;
+
       align-items:center;
 
       gap:7px;
@@ -541,6 +641,7 @@
       color:var(--green);
 
       font-size:10px;
+
       font-weight:950;
 
       letter-spacing:.12em;
@@ -548,12 +649,20 @@
       text-transform:uppercase;
     }
 
+
     .status{
       color:#6f8490;
 
       font-size:11px;
+
       font-weight:800;
     }
+
+
+    .featured .status{
+      color:var(--cyan);
+    }
+
 
     .article-card h3{
       margin:0;
@@ -564,6 +673,7 @@
 
       letter-spacing:-.035em;
     }
+
 
     .article-card p{
       margin:
@@ -576,10 +686,13 @@
       line-height:1.65;
     }
 
+
     .read-more{
-      margin-top:28px;
+      margin-top:
+        28px;
 
       display:inline-flex;
+
       align-items:center;
 
       gap:9px;
@@ -587,8 +700,10 @@
       color:#dce7ed;
 
       font-size:13px;
+
       font-weight:900;
     }
+
 
     .read-more span{
       color:var(--cyan);
@@ -598,22 +713,22 @@
       transition:.2s ease;
     }
 
-    a.article-card:hover
+
+    .article-card:hover
     .read-more span{
       transform:
         translateX(3px);
     }
 
 
-    /* =========================
-       EMPTY CARDS
-    ========================= */
-
     .empty-card{
-      min-height:250px;
+      min-height:
+        250px;
 
       display:flex;
+
       align-items:center;
+
       justify-content:center;
 
       padding:26px;
@@ -622,13 +737,15 @@
         1px dashed
         rgba(255,255,255,.14);
 
-      border-radius:20px;
+      border-radius:
+        20px;
 
       text-align:center;
 
       background:
         rgba(255,255,255,.012);
     }
+
 
     .empty-card strong{
       display:block;
@@ -637,8 +754,10 @@
 
       font-size:14px;
 
-      margin-bottom:7px;
+      margin-bottom:
+        7px;
     }
+
 
     .empty-card span{
       color:#708490;
@@ -649,12 +768,13 @@
     }
 
 
-    /* =========================
+    /* ==============================
        CONSULTATION
-    ========================= */
+    ============================== */
 
     .consultation-note{
-      margin-top:72px;
+      margin-top:
+        72px;
 
       padding:
         28px 30px;
@@ -663,14 +783,17 @@
         1px solid
         rgba(139,234,111,.22);
 
-      border-radius:24px;
+      border-radius:
+        24px;
 
       background:
+
         radial-gradient(
           circle at 100% 0%,
           rgba(139,234,111,.10),
           transparent 34%
         ),
+
         linear-gradient(
           180deg,
           rgba(46,199,241,.055),
@@ -682,18 +805,23 @@
         rgba(0,0,0,.18);
     }
 
+
+    .consultation-note
     .note-label{
-      margin-bottom:10px;
+      margin-bottom:
+        10px;
 
       color:var(--green);
 
       font-size:10px;
+
       font-weight:950;
 
       letter-spacing:.14em;
 
       text-transform:uppercase;
     }
+
 
     .consultation-note h2{
       margin:0;
@@ -710,8 +838,10 @@
       letter-spacing:-.045em;
     }
 
+
     .consultation-note p{
-      max-width:760px;
+      max-width:
+        760px;
 
       margin:
         14px 0 0;
@@ -723,13 +853,16 @@
       line-height:1.7;
     }
 
+
     .consult-btn{
       display:inline-flex;
+
       align-items:center;
 
       gap:9px;
 
-      margin-top:20px;
+      margin-top:
+        20px;
 
       padding:
         12px 16px;
@@ -738,7 +871,8 @@
         1px solid
         rgba(46,199,241,.34);
 
-      border-radius:14px;
+      border-radius:
+        14px;
 
       background:
         rgba(46,199,241,.08);
@@ -746,10 +880,12 @@
       color:#f4f8fb;
 
       font-size:13px;
+
       font-weight:900;
 
       transition:.2s ease;
     }
+
 
     .consult-btn:hover{
       transform:
@@ -762,6 +898,7 @@
         rgba(139,234,111,.08);
     }
 
+
     .consult-btn span{
       color:var(--cyan);
 
@@ -769,20 +906,22 @@
     }
 
 
-    /* =========================
+    /* ==============================
        FOOTER
-    ========================= */
+    ============================== */
 
     .footer{
-      margin-top:72px;
+      margin-top:
+        72px;
 
-      padding-top:22px;
+      padding-top:
+        22px;
 
       border-top:
-        1px solid
-        var(--line);
+        1px solid var(--line);
 
       display:flex;
+
       justify-content:space-between;
 
       gap:20px;
@@ -795,27 +934,32 @@
     }
 
 
-    /* =========================
+    /* ==============================
        RESPONSIVE
-    ========================= */
+    ============================== */
 
     @media(max-width:900px){
 
       .hero{
-        grid-template-columns:1fr;
+        grid-template-columns:
+          1fr;
 
         gap:24px;
       }
 
+
       .section-head{
         align-items:start;
 
-        flex-direction:column;
+        flex-direction:
+          column;
       }
+
 
       .section-desc{
         text-align:left;
       }
+
 
       .articles-grid{
         grid-template-columns:
@@ -823,6 +967,34 @@
       }
 
     }
+
+
+    @media(max-width:720px){
+
+      .topbar{
+        position:relative;
+
+        top:0;
+
+        flex-direction:column;
+
+        align-items:flex-start;
+      }
+
+
+      .nav{
+        width:100%;
+
+        overflow-x:auto;
+      }
+
+
+      .nav a{
+        white-space:nowrap;
+      }
+
+    }
+
 
     @media(max-width:620px){
 
@@ -834,41 +1006,27 @@
           );
       }
 
-      .topbar{
-        position:relative;
-
-        top:0;
-      }
-
-      .brand span{
-        display:none;
-      }
-
-      .top-actions{
-        gap:4px;
-      }
-
-      .top-link{
-        padding:
-          8px 9px;
-
-        font-size:11px;
-      }
 
       .hero{
-        padding-top:52px;
+        padding-top:
+          52px;
       }
+
 
       .category-panel{
         padding:14px;
       }
 
+
       .articles-grid{
-        grid-template-columns:1fr;
+        grid-template-columns:
+          1fr;
       }
 
+
       .footer{
-        flex-direction:column;
+        flex-direction:
+          column;
       }
 
     }
@@ -876,14 +1034,13 @@
   </style>
 </head>
 
+
 <body>
 
 <div class="shell">
 
 
-  <!-- =========================
-       TOP BAR
-  ========================== -->
+  <!-- TOPBAR -->
 
   <header class="topbar">
 
@@ -894,7 +1051,7 @@
 
       <img
         src="../../logo.png"
-        alt="vikundey.crypto"
+        alt="vikundey.crypto logo"
       >
 
       <span>
@@ -904,23 +1061,35 @@
     </a>
 
 
-    <div class="top-actions">
+    <nav class="nav">
 
-      <a
-        class="top-link"
-        href="/thoughts/"
-      >
-        ← Про Thoughts
+      <a href="/">
+        Головна
+      </a>
+
+      <a href="/nfp/access/">
+        NFP
+      </a>
+
+      <a href="/cpi/access/">
+        CPI
       </a>
 
       <a
-        class="top-link"
+        href="/thoughts/access/"
+        class="active"
+      >
+        Thoughts
+      </a>
+
+      <a
         href="/profile/account/"
+        aria-label="Мій профіль"
       >
         👤
       </a>
 
-    </div>
+    </nav>
 
   </header>
 
@@ -928,9 +1097,7 @@
   <main>
 
 
-    <!-- =========================
-         HERO
-    ========================== -->
+    <!-- HERO -->
 
     <section class="hero">
 
@@ -944,6 +1111,7 @@
         <h1>
 
           Vikundey
+
           <br>
 
           <span class="accent">
@@ -955,10 +1123,10 @@
 
         <p class="hero-copy">
 
-          Бібліотека навчальних та інформаційних
-          матеріалів про економіку, геополітику,
-          макроекономічну логіку та взаємозв’язки,
-          які формують поведінку фінансових ринків.
+          Бібліотека навчальних та інформаційних матеріалів
+          про економіку, геополітику, макроекономічну логіку
+          та взаємозв’язки, які формують поведінку
+          фінансових ринків.
 
         </p>
 
@@ -968,7 +1136,7 @@
       <aside class="hero-side">
 
         <div class="hero-side-label">
-          Full Vikundey Space
+          Library
         </div>
 
         <p>
@@ -984,9 +1152,7 @@
     </section>
 
 
-    <!-- =========================
-         CATEGORY NAV
-    ========================== -->
+    <!-- CATEGORY NAV -->
 
     <nav
       class="category-nav"
@@ -1008,9 +1174,9 @@
     </nav>
 
 
-    <!-- =========================
+    <!-- ==============================
          GEOPOLITICS
-    ========================== -->
+    ============================== -->
 
     <section
       class="library-section"
@@ -1034,10 +1200,9 @@
 
         <p class="section-desc">
 
-          Геополітичні події,
-          міжнародні конфлікти,
-          вибори, торговельні відносини
-          та їхній вплив на глобальні ринки.
+          Геополітичні події, міжнародні конфлікти,
+          вибори, торговельні відносини та їхній
+          вплив на глобальні ринки.
 
         </p>
 
@@ -1049,33 +1214,38 @@
         <div class="articles-grid">
 
 
-          <article class="article-card">
+          <!-- US ELECTIONS 2026 -->
+
+          <a
+            class="article-card featured"
+            href="/thoughts/geopolitics/us-elections-2026/"
+          >
 
             <div>
 
               <div class="article-meta">
 
                 <span class="tag">
-                  Геополітика
+                  🇺🇸 Геополітика
                 </span>
 
                 <span class="status">
-                  Скоро
+                  NEW
                 </span>
 
               </div>
 
 
               <h3>
-                Перша стаття з геополітики
+                Вибори США 2026: Сенат та Палата Представників
               </h3>
 
 
               <p>
 
-                Тут буде короткий опис матеріалу,
-                який допоможе зрозуміти,
-                про що стаття і чому вона важлива.
+                Midterm Elections 2026, політичні сценарії
+                для Конгресу, очікування ринку та можливий
+                вплив результатів виборів на долар і DXY.
 
               </p>
 
@@ -1083,11 +1253,19 @@
 
 
             <div class="read-more">
-              Скоро <span>→</span>
+
+              Читати матеріал
+
+              <span>
+                →
+              </span>
+
             </div>
 
-          </article>
+          </a>
 
+
+          <!-- PLACEHOLDER -->
 
           <div class="empty-card">
 
@@ -1098,16 +1276,16 @@
               </strong>
 
               <span>
-
-                Сюди можна буде додати
-                наступний геополітичний матеріал.
-
+                Сюди можна буде додати наступний
+                геополітичний матеріал.
               </span>
 
             </div>
 
           </div>
 
+
+          <!-- PLACEHOLDER -->
 
           <div class="empty-card">
 
@@ -1118,15 +1296,14 @@
               </strong>
 
               <span>
-
-                Структура готова
-                до подальшого наповнення бібліотеки.
-
+                Структура готова до подальшого
+                наповнення бібліотеки.
               </span>
 
             </div>
 
           </div>
+
 
         </div>
 
@@ -1135,9 +1312,9 @@
     </section>
 
 
-    <!-- =========================
+    <!-- ==============================
          ECONOMY
-    ========================== -->
+    ============================== -->
 
     <section
       class="library-section"
@@ -1161,10 +1338,8 @@
 
         <p class="section-desc">
 
-          Інфляція, ринок праці,
-          монетарна політика,
-          економічні цикли,
-          центробанки та фундаментальна
+          Інфляція, ринок праці, монетарна політика,
+          економічні цикли, центробанки та фундаментальна
           логіка макроданих.
 
         </p>
@@ -1201,10 +1376,9 @@
 
               <p>
 
-                Тут буде короткий опис
-                економічного матеріалу
-                з основною тезою
-                та контекстом для читача.
+                Тут буде короткий опис економічного
+                матеріалу з основною тезою та
+                контекстом для читача.
 
               </p>
 
@@ -1212,7 +1386,13 @@
 
 
             <div class="read-more">
-              Скоро <span>→</span>
+
+              Скоро
+
+              <span>
+                →
+              </span>
+
             </div>
 
           </article>
@@ -1227,10 +1407,8 @@
               </strong>
 
               <span>
-
-                Наприклад: інфляція,
-                ФРС, ставки або ринок праці.
-
+                Наприклад: інфляція, ФРС,
+                ставки або ринок праці.
               </span>
 
             </div>
@@ -1247,15 +1425,14 @@
               </strong>
 
               <span>
-
                 Нові матеріали можна буде
                 додавати окремими картками.
-
               </span>
 
             </div>
 
           </div>
+
 
         </div>
 
@@ -1264,9 +1441,9 @@
     </section>
 
 
-    <!-- =========================
+    <!-- ==============================
          EDUCATION
-    ========================== -->
+    ============================== -->
 
     <section
       class="library-section"
@@ -1291,9 +1468,9 @@
         <p class="section-desc">
 
           Пояснення базових і просунутих понять:
-          від макроекономічних показників
-          до логіки реакції активів
-          і побудови аналітичного мислення.
+          від макроекономічних показників до логіки
+          реакції активів і побудови аналітичного
+          мислення.
 
         </p>
 
@@ -1305,7 +1482,7 @@
         <div class="articles-grid">
 
 
-          <!-- ARTICLE 1 -->
+          <!-- FED RATES -->
 
           <a
             class="article-card"
@@ -1334,10 +1511,9 @@
 
               <p>
 
-                Як підвищення та зниження
-                ставок ФРС впливає на євро,
-                долар США, інвестиційні потоки
-                та індекс DXY.
+                Як підвищення та зниження ставок ФРС
+                впливає на євро, долар США,
+                інвестиційні потоки та індекс DXY.
 
               </p>
 
@@ -1347,14 +1523,17 @@
             <div class="read-more">
 
               Читати матеріал
-              <span>→</span>
+
+              <span>
+                →
+              </span>
 
             </div>
 
           </a>
 
 
-          <!-- ARTICLE 2 -->
+          <!-- MACRO ANALYSIS -->
 
           <a
             class="article-card"
@@ -1385,8 +1564,8 @@
 
                 Як визначити мету аналізу,
                 обрати економічні індикатори,
-                поєднати їх між собою
-                та сформувати заключну думку.
+                поєднати їх між собою та
+                сформувати заключну думку.
 
               </p>
 
@@ -1396,14 +1575,17 @@
             <div class="read-more">
 
               Читати матеріал
-              <span>→</span>
+
+              <span>
+                →
+              </span>
 
             </div>
 
           </a>
 
 
-          <!-- EMPTY -->
+          <!-- PLACEHOLDER -->
 
           <div class="empty-card">
 
@@ -1414,15 +1596,14 @@
               </strong>
 
               <span>
-
                 Бібліотеку можна поступово
                 розширювати без зміни дизайну.
-
               </span>
 
             </div>
 
           </div>
+
 
         </div>
 
@@ -1431,9 +1612,9 @@
     </section>
 
 
-    <!-- =========================
+    <!-- ==============================
          CONSULTATION
-    ========================== -->
+    ============================== -->
 
     <section class="consultation-note">
 
@@ -1444,8 +1625,8 @@
 
       <h2>
 
-        Хочеш отримати індивідуальний
-        підхід до свого питання або запиту?
+        Хочеш отримати індивідуальний підхід
+        до свого питання або запиту?
 
       </h2>
 
@@ -1468,18 +1649,17 @@
 
         Записатися на консультацію
 
-        <span>→</span>
+        <span>
+          →
+        </span>
 
       </a>
 
     </section>
 
+
   </main>
 
-
-  <!-- =========================
-       FOOTER
-  ========================== -->
 
   <footer class="footer">
 
@@ -1488,12 +1668,12 @@
     </span>
 
     <span>
-      Освітня інформація ·
-      Не є індивідуальною
+      Освітня інформація · Не є індивідуальною
       інвестиційною рекомендацією.
     </span>
 
   </footer>
+
 
 </div>
 
