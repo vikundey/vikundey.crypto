@@ -268,8 +268,8 @@
       display:grid;
 
       grid-template-columns:
-        minmax(0,1.2fr)
-        minmax(280px,.8fr);
+        minmax(0,1.25fr)
+        minmax(280px,.75fr);
 
       gap:44px;
 
@@ -292,23 +292,40 @@
     }
 
 
-    h1{
+    .hero-title{
       margin:0;
+
+      width:max-content;
+
+      max-width:100%;
 
       font-size:
         clamp(
-          46px,
-          7vw,
-          84px
+          50px,
+          6.7vw,
+          82px
         );
 
-      line-height:.94;
+      line-height:.96;
 
-      letter-spacing:-.065em;
+      letter-spacing:-.025em;
+
+      font-weight:950;
     }
 
 
-    .accent{
+    .hero-title .line{
+      display:block;
+    }
+
+
+    .hero-title .accent{
+      display:block;
+
+      margin-top:4px;
+
+      letter-spacing:-.015em;
+
       background:
 
         linear-gradient(
@@ -327,7 +344,7 @@
 
     .hero-copy{
       margin:
-        20px 0 0;
+        22px 0 0;
 
       max-width:
         720px;
@@ -1013,6 +1030,23 @@
       }
 
 
+      .hero-title{
+        width:auto;
+
+        font-size:
+          52px;
+
+        letter-spacing:
+          -.02em;
+      }
+
+
+      .hero-title .accent{
+        letter-spacing:
+          -.01em;
+      }
+
+
       .category-panel{
         padding:14px;
       }
@@ -1108,11 +1142,11 @@
         </div>
 
 
-        <h1>
+        <h1 class="hero-title">
 
-          Vikundey
-
-          <br>
+          <span class="line">
+            Vikundey
+          </span>
 
           <span class="accent">
             Thoughts
@@ -1214,8 +1248,6 @@
         <div class="articles-grid">
 
 
-          <!-- US ELECTIONS 2026 -->
-
           <a
             class="article-card featured"
             href="/thoughts/geopolitics/us-elections-2026/"
@@ -1265,8 +1297,6 @@
           </a>
 
 
-          <!-- PLACEHOLDER -->
-
           <div class="empty-card">
 
             <div>
@@ -1284,8 +1314,6 @@
 
           </div>
 
-
-          <!-- PLACEHOLDER -->
 
           <div class="empty-card">
 
@@ -1482,8 +1510,6 @@
         <div class="articles-grid">
 
 
-          <!-- FED RATES -->
-
           <a
             class="article-card"
             href="/thoughts/education/fed-rates-eur-dxy/"
@@ -1532,8 +1558,6 @@
 
           </a>
 
-
-          <!-- MACRO ANALYSIS -->
 
           <a
             class="article-card"
@@ -1584,8 +1608,6 @@
 
           </a>
 
-
-          <!-- PLACEHOLDER -->
 
           <div class="empty-card">
 
