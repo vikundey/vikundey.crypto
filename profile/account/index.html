@@ -2252,26 +2252,29 @@ a{
 
     <!-- LOGOUT -->
 
-    <a
-      class="account-btn logout"
-      href="/cdn-cgi/access/logout"
-    >
+   <a
+  class="account-btn logout"
+  href="#"
+  id="logoutButton"
+>
 
-      <span class="account-btn-icon">
-        ↪
-      </span>
+  <span class="account-btn-icon">
+    ↪
+  </span>
 
-      <span>
+  <span>
 
-        <small>
-          Завершити сесію
-        </small>
+    <small>
+      Завершити сесію
+    </small>
 
-        Вийти
+    <span id="logoutText">
+      Вийти
+    </span>
 
-      </span>
+  </span>
 
-    </a>
+</a>
 
   </div>
 
@@ -2641,6 +2644,76 @@ async function init(){
       "block";
 
   }
+
+}
+
+}
+
+}
+
+
+/* LOGOUT */
+
+const logoutButton =
+  document.getElementById(
+    "logoutButton"
+  );
+
+
+if(logoutButton){
+
+  logoutButton.addEventListener(
+    "click",
+    async (event) => {
+
+      event.preventDefault();
+
+
+      const logoutText =
+        document.getElementById(
+          "logoutText"
+        );
+
+
+      if(logoutText){
+
+        logoutText.textContent =
+          "Виходимо…";
+
+      }
+
+
+      logoutButton.style.pointerEvents =
+        "none";
+
+
+      try{
+
+        await fetch(
+          "/cdn-cgi/access/logout",
+          {
+            method:"GET",
+            credentials:"include",
+            cache:"no-store"
+          }
+        );
+
+      }catch(error){
+
+        console.warn(
+          "Access logout request:",
+          error
+        );
+
+      }
+
+
+      window.location.replace(
+        "/"
+      );
+
+    }
+  );
 
 }
 
