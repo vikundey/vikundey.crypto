@@ -1,0 +1,3465 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
+<title>Vikundey Space | vikundey.crypto</title>
+
+<meta
+  name="description"
+  content="Vikundey Space — premium macro research hub by vikundey.crypto."
+>
+
+
+<style>
+
+:root{
+
+  --bg:#041019;
+  --bg2:#061722;
+
+  --panel:#081d29;
+  --panel2:#0b2430;
+
+  --cyan:#2ec7f1;
+  --green:#8bea6f;
+
+  --red:#ff8f88;
+  --amber:#f2d77b;
+
+  --text:#f7fafc;
+
+  --muted:#9fb2bd;
+  --muted2:#6f8793;
+
+  --line:
+    rgba(190,225,240,.14);
+
+  --line2:
+    rgba(255,255,255,.09);
+
+  --shadow:
+    0 30px 90px
+    rgba(0,0,0,.34);
+
+}
+
+
+*{
+  box-sizing:border-box;
+}
+
+
+html{
+  scroll-behavior:smooth;
+}
+
+
+html,
+body{
+  margin:0;
+  min-height:100%;
+}
+
+
+body{
+
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  color:
+    var(--text);
+
+  background:
+
+    radial-gradient(
+      circle at 8% 4%,
+      rgba(46,199,241,.14),
+      transparent 27%
+    ),
+
+    radial-gradient(
+      circle at 92% 8%,
+      rgba(139,234,111,.08),
+      transparent 26%
+    ),
+
+    linear-gradient(
+      180deg,
+      #041019,
+      #061722 55%,
+      #041019
+    );
+
+  overflow-x:hidden;
+
+}
+
+
+body::before{
+
+  content:"";
+
+  position:fixed;
+
+  inset:0;
+
+  pointer-events:none;
+
+  background-image:
+
+    linear-gradient(
+      rgba(255,255,255,.018) 1px,
+      transparent 1px
+    ),
+
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.018) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    38px 38px;
+
+}
+
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+
+.page{
+
+  width:
+    min(
+      1240px,
+      calc(100% - 28px)
+    );
+
+  margin:auto;
+
+  padding:
+    18px 0 64px;
+
+  position:relative;
+
+  z-index:1;
+
+}
+
+
+/* =========================================
+   NAV
+========================================= */
+
+.topbar{
+
+  position:sticky;
+
+  top:12px;
+
+  z-index:50;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:20px;
+
+  padding:
+    12px 18px;
+
+  border:
+    1px solid var(--line);
+
+  border-radius:
+    24px;
+
+  background:
+    rgba(3,16,25,.90);
+
+  backdrop-filter:
+    blur(18px);
+
+  box-shadow:
+    var(--shadow);
+
+}
+
+
+.brand{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+
+}
+
+
+.brand img{
+
+  width:42px;
+
+  height:42px;
+
+  object-fit:contain;
+
+}
+
+
+.brand-name{
+
+  color:white;
+
+  font-size:18px;
+
+  font-weight:950;
+
+}
+
+
+.nav{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:7px;
+
+}
+
+
+.nav a{
+
+  padding:
+    9px 13px;
+
+  border-radius:
+    13px;
+
+  color:white;
+
+  font-size:13px;
+
+  font-weight:850;
+
+  transition:.2s ease;
+
+}
+
+
+.nav a:hover{
+
+  background:
+    rgba(255,255,255,.06);
+
+}
+
+
+.nav .active{
+
+  color:#041019;
+
+  background:
+
+    linear-gradient(
+      135deg,
+      var(--cyan),
+      var(--green)
+    );
+
+}
+
+
+.profile-link{
+
+  width:42px;
+
+  height:42px;
+
+  display:grid !important;
+
+  place-items:center;
+
+  padding:0 !important;
+
+  border:
+    1px solid
+    rgba(46,199,241,.16);
+
+  background:
+    rgba(46,199,241,.06);
+
+}
+
+
+/* =========================================
+   LOADING
+========================================= */
+
+.loading{
+
+  margin-top:28px;
+
+  padding:28px;
+
+  text-align:center;
+
+  color:var(--muted);
+
+  border:
+    1px solid var(--line);
+
+  border-radius:
+    24px;
+
+  background:
+    rgba(255,255,255,.02);
+
+}
+
+
+.error{
+
+  display:none;
+
+  margin-top:28px;
+
+  padding:24px;
+
+  border:
+    1px solid
+    rgba(255,143,136,.22);
+
+  border-radius:
+    20px;
+
+  color:#ffc1bd;
+
+  background:
+    rgba(255,143,136,.06);
+
+}
+
+
+#spaceContent{
+  display:none;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero{
+
+  margin-top:
+    26px;
+
+  position:relative;
+
+  overflow:hidden;
+
+  display:grid;
+
+  grid-template-columns:
+    1.05fr .95fr;
+
+  min-height:
+    570px;
+
+  border:
+    1px solid var(--line);
+
+  border-radius:
+    34px;
+
+  background:
+
+    radial-gradient(
+      circle at 82% 12%,
+      rgba(46,199,241,.08),
+      transparent 30%
+    ),
+
+    radial-gradient(
+      circle at 92% 76%,
+      rgba(139,234,111,.06),
+      transparent 25%
+    ),
+
+    linear-gradient(
+      135deg,
+      rgba(8,29,42,.99),
+      rgba(4,20,30,.99)
+    );
+
+  box-shadow:
+    var(--shadow);
+
+}
+
+
+.hero-copy-wrap{
+
+  position:relative;
+
+  z-index:5;
+
+  padding:
+    54px 48px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:center;
+
+}
+
+
+.eyebrow{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:9px;
+
+  color:
+    var(--cyan);
+
+  font-size:
+    10px;
+
+  font-weight:
+    950;
+
+  letter-spacing:
+    .18em;
+
+  text-transform:
+    uppercase;
+
+}
+
+
+.status-dot{
+
+  width:8px;
+
+  height:8px;
+
+  border-radius:
+    50%;
+
+  background:
+    var(--green);
+
+  box-shadow:
+    0 0 15px
+    rgba(139,234,111,.75);
+
+}
+
+
+.hero-title{
+
+  margin:
+    22px 0 18px;
+
+  font-size:
+    clamp(
+      58px,
+      7vw,
+      94px
+    );
+
+  line-height:
+    .90;
+
+  letter-spacing:
+    -.065em;
+
+}
+
+
+.hero-title .accent{
+
+  display:block;
+
+  padding-bottom:
+    .12em;
+
+  margin-bottom:
+    -.10em;
+
+  background:
+
+    linear-gradient(
+      90deg,
+      var(--cyan),
+      var(--green)
+    );
+
+  -webkit-background-clip:text;
+
+  background-clip:text;
+
+  color:transparent;
+
+}
+
+
+.hero-copy{
+
+  max-width:
+    650px;
+
+  margin:0;
+
+  color:
+    #b5c5ce;
+
+  font-size:
+    16px;
+
+  line-height:
+    1.7;
+
+}
+
+
+.member-row{
+
+  display:flex;
+
+  flex-wrap:wrap;
+
+  align-items:center;
+
+  gap:9px;
+
+  margin-top:
+    27px;
+
+}
+
+
+.member-pill{
+
+  padding:
+    9px 12px;
+
+  border-radius:
+    999px;
+
+  border:
+    1px solid
+    rgba(46,199,241,.18);
+
+  background:
+    rgba(46,199,241,.07);
+
+  color:
+    var(--cyan);
+
+  font-size:
+    10px;
+
+  font-weight:
+    950;
+
+  letter-spacing:
+    .05em;
+
+}
+
+
+.member-pill.green{
+
+  color:
+    var(--green);
+
+  border-color:
+    rgba(139,234,111,.18);
+
+  background:
+    rgba(139,234,111,.07);
+
+}
+
+
+.email{
+
+  max-width:
+    330px;
+
+  overflow:hidden;
+
+  white-space:nowrap;
+
+  text-overflow:ellipsis;
+
+  color:
+    var(--muted);
+
+  font-size:
+    11px;
+
+}
+
+
+/* =========================================
+   HERO VISUAL
+========================================= */
+
+.hero-visual{
+
+  min-height:
+    570px;
+
+  position:relative;
+
+  overflow:hidden;
+
+}
+
+
+.globe{
+
+  width:
+    470px;
+
+  height:
+    470px;
+
+  position:absolute;
+
+  right:
+    -80px;
+
+  bottom:
+    -95px;
+
+  border-radius:
+    50%;
+
+  border:
+    1px solid
+    rgba(46,199,241,.25);
+
+  background:
+
+    radial-gradient(
+      circle at 30% 25%,
+      rgba(46,199,241,.10),
+      transparent 32%
+    ),
+
+    radial-gradient(
+      circle at 75% 55%,
+      rgba(139,234,111,.06),
+      transparent 35%
+    );
+
+}
+
+
+.globe::before{
+
+  content:"";
+
+  position:absolute;
+
+  left:50%;
+
+  top:0;
+
+  width:38%;
+
+  height:100%;
+
+  transform:
+    translateX(-50%);
+
+  border:
+    1px solid
+    rgba(46,199,241,.15);
+
+  border-radius:
+    50%;
+
+}
+
+
+.globe::after{
+
+  content:"";
+
+  position:absolute;
+
+  left:4%;
+
+  top:42%;
+
+  width:92%;
+
+  height:24%;
+
+  border:
+    1px solid
+    rgba(139,234,111,.16);
+
+  border-radius:
+    50%;
+
+}
+
+
+.orbit{
+
+  position:absolute;
+
+  border-radius:
+    50%;
+
+  border:
+    2px solid
+    rgba(46,199,241,.38);
+
+}
+
+
+.orbit.one{
+
+  width:
+    510px;
+
+  height:
+    145px;
+
+  right:
+    -100px;
+
+  bottom:
+    78px;
+
+  transform:
+    rotate(-14deg);
+
+}
+
+
+.orbit.two{
+
+  width:
+    480px;
+
+  height:
+    160px;
+
+  right:
+    -75px;
+
+  bottom:
+    100px;
+
+  transform:
+    rotate(17deg);
+
+  border-color:
+    rgba(139,234,111,.30);
+
+}
+
+
+.market-bars{
+
+  position:absolute;
+
+  top:
+    68px;
+
+  right:
+    44px;
+
+  display:flex;
+
+  align-items:flex-end;
+
+  gap:9px;
+
+  height:
+    120px;
+
+}
+
+
+.market-bars span{
+
+  width:15px;
+
+  border-radius:
+    5px 5px 0 0;
+
+  background:
+
+    linear-gradient(
+      180deg,
+      rgba(139,234,111,.65),
+      rgba(46,199,241,.15)
+    );
+
+}
+
+
+.market-bars span:nth-child(1){
+  height:38px;
+}
+
+
+.market-bars span:nth-child(2){
+  height:64px;
+}
+
+
+.market-bars span:nth-child(3){
+  height:55px;
+}
+
+
+.market-bars span:nth-child(4){
+  height:92px;
+}
+
+
+.market-bars span:nth-child(5){
+  height:73px;
+}
+
+
+.market-bars span:nth-child(6){
+  height:112px;
+}
+
+
+.visual-card{
+
+  position:absolute;
+
+  z-index:4;
+
+  width:
+    205px;
+
+  padding:
+    17px;
+
+  border:
+    1px solid
+    rgba(255,255,255,.11);
+
+  border-radius:
+    18px;
+
+  background:
+    rgba(5,27,39,.84);
+
+  backdrop-filter:
+    blur(12px);
+
+  box-shadow:
+    0 20px 55px
+    rgba(0,0,0,.25);
+
+}
+
+
+.visual-card.one{
+
+  top:
+    108px;
+
+  left:
+    22px;
+
+}
+
+
+.visual-card.two{
+
+  top:
+    250px;
+
+  right:
+    34px;
+
+}
+
+
+.visual-label{
+
+  color:
+    var(--cyan);
+
+  font-size:
+    9px;
+
+  font-weight:
+    950;
+
+  letter-spacing:
+    .15em;
+
+  text-transform:
+    uppercase;
+
+}
+
+
+.visual-card.two
+.visual-label{
+
+  color:
+    var(--green);
+
+}
+
+
+.visual-title{
+
+  margin-top:
+    8px;
+
+  font-size:
+    17px;
+
+  font-weight:
+    950;
+
+}
+
+
+.visual-copy{
+
+  margin-top:
+    5px;
+
+  color:
+    var(--muted2);
+
+  font-size:
+    11px;
+
+  line-height:
+    1.5;
+
+}
+
+
+/* =========================================
+   SECTION
+========================================= */
+
+.section{
+
+  margin-top:
+    72px;
+
+}
+
+
+.section-head{
+
+  display:flex;
+
+  align-items:flex-end;
+
+  justify-content:space-between;
+
+  gap:28px;
+
+  margin-bottom:
+    23px;
+
+}
+
+
+.section-kicker{
+
+  color:
+    var(--cyan);
+
+  font-size:
+    10px;
+
+  font-weight:
+    950;
+
+  letter-spacing:
+    .16em;
+
+  text-transform:
+    uppercase;
+
+}
+
+
+.section-title{
+
+  margin:
+    8px 0 0;
+
+  font-size:
+    clamp(
+      34px,
+      5vw,
+      50px
+    );
+
+  line-height:
+    1;
+
+  letter-spacing:
+    -.05em;
+
+}
+
+
+.section-description{
+
+  max-width:
+    480px;
+
+  margin:0;
+
+  color:
+    var(--muted);
+
+  font-size:
+    13px;
+
+  line-height:
+    1.65;
+
+}
+
+
+/* =========================================
+   SPACE MODULES
+========================================= */
+
+.modules{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:15px;
+
+}
+
+
+.module{
+
+  position:relative;
+
+  overflow:hidden;
+
+  min-height:
+    310px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  padding:
+    25px;
+
+  border:
+    1px solid var(--line);
+
+  border-radius:
+    25px;
+
+  background:
+
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.044),
+      rgba(255,255,255,.013)
+    );
+
+  transition:
+    transform .22s ease,
+    border-color .22s ease,
+    background .22s ease;
+
+}
+
+
+.module:hover{
+
+  transform:
+    translateY(-4px);
+
+  border-color:
+    rgba(46,199,241,.37);
+
+  background:
+
+    linear-gradient(
+      145deg,
+      rgba(46,199,241,.055),
+      rgba(255,255,255,.016)
+    );
+
+}
+
+
+.module::after{
+
+  content:"";
+
+  position:absolute;
+
+  width:180px;
+
+  height:180px;
+
+  right:-70px;
+
+  bottom:-80px;
+
+  border-radius:
+    50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(46,199,241,.08),
+      transparent 68%
+    );
+
+}
+
+
+.module.thoughts::after{
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(139,234,111,.09),
+      transparent 68%
+    );
+
+}
+
+
+.module-top{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  gap:12px;
+
+}
+
+
+.module-label{
+
+  color:
+    var(--cyan);
+
+  font-size:
+    9px;
+
+  font-weight:
+    950;
+
+  letter-spacing:
+    .14em;
+
+  text-transform:
+    uppercase;
+
+}
+
+
+.module.thoughts
+.module-label{
+
+  color:
+    var(--green);
+
+}
+
+
+.access-badge{
+
+  padding:
+    6px 9px;
+
+  border-radius:
+    999px;
+
+  color:
+    var(--green);
+
+  background:
+    rgba(139,234,111,.08);
+
+  font-size:
+    9px;
+
+  font-weight:
+    950;
+
+}
+
+
+.access-badge.locked{
+
+  color:
+    var(--muted2);
+
+  background:
+    rgba(255,255,255,.05);
+
+}
+
+
+.module-title{
+
+  margin-top:
+    42px;
+
+  font-size:
+    38px;
+
+  font-weight:
+    950;
+
+  letter-spacing:
+    -.05em;
+
+}
+
+
+.module-copy{
+
+  margin-top:
+    11px;
+
+  max-width:
+    310px;
+
+  color:
+    var(--muted);
+
+  font-size:
+    13px;
+
+  line-height:
+    1.65;
+
+}
+
+
+.module-link{
+
+  position:relative;
+
+  z-index:3;
+
+  margin-top:auto;
+
+  padding-top:
+    28px;
+
+  color:white;
+
+  font-size:
+    12px;
+
+  font-weight:
+    950;
+
+}
+
+
+.module-link span{
+
+  margin-left:
+    5px;
+
+  color:
+    var(--cyan);
+
+  font-size:
+    17px;
+
+}
+
+
+.module.thoughts
+.module-link span{
+
+  color:
+    var(--green);
+
+}
+
+
+.module.locked{
+
+  opacity:.62;
+
+  cursor:default;
+
+}
+
+
+.module.locked:hover{
+
+  transform:none;
+
+  border-color:
+    var(--line);
+
+}
+
+
+/* =========================================
+   LATEST RESEARCH
+========================================= */
+
+.latest-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:15px;
+
+}
+
+
+.research-card{
+
+  min-height:
+    325px;
+
+  padding:
+    25px;
+
+  border:
+    1px solid var(--line);
+
+  border-radius:
+    25px;
+
+  background:
+
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(46,199,241,.06),
+      transparent 36%
+    ),
+
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.043),
+      rgba(255,255,255,.014)
+    );
+
+}
+
+
+.research-card.green{
+
+  background:
+
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(139,234,111,.06),
+      transparent 36%
+    ),
+
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.043),
+      rgba(255,255,255,.014)
+    );
+
+}
+
+
+.research-meta{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:12px;
+
+}
+
+
+.research-tag{
+
+  color:
+    var(--cyan);
+
+  font-size:
+    9px;
+
+  font-weight:
+    950;
+
+  letter-spacing:
+    .15em;
+
+  text-transform:
+    uppercase;
+
+}
+
+
+.research-card.green
+.research-tag{
+
+  color:
+    var(--green);
+
+}
+
+
+.research-status{
+
+  padding:
+    6px 9px;
+
+  border-radius:
+    999px;
+
+  color:
+    var(--cyan);
+
+  background:
+    rgba(46,199,241,.07);
+
+  font-size:
+    9px;
+
+  font-weight:
+    950;
+
+}
+
+
+.research-card.green
+.research-status{
+
+  color:
+    var(--green);
+
+  background:
+    rgba(139,234,111,.07);
+
+}
+
+
+.research-title{
+
+  margin:
+    31px 0 0;
+
+  font-size:
+    28px;
+
+  line-height:
+    1.12;
+
+  font-weight:
+    950;
+
+  letter-spacing:
+    -.04em;
+
+}
+
+
+.research-copy{
+
+  margin:
+    12px 0 0;
+
+  max-width:
+    520px;
+
+  color:
+    var(--muted);
+
+  font-size:
+    13px;
+
+  line-height:
+    1.7;
+
+}
+
+
+.research-values{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:7px;
+
+  margin-top:
+    27px;
+
+}
+
+
+.research-value{
+
+  padding-top:
+    11px;
+
+  border-top:
+    1px solid var(--line2);
+
+}
+
+
+.research-value span{
+
+  display:block;
+
+  color:
+    var(--muted2);
+
+  font-size:
+    8px;
+
+  font-weight:
+    950;
+
+  letter-spacing:
+    .08em;
+
+  text-transform:
+    uppercase;
+
+}
+
+
+.research-value strong{
+
+  display:block;
+
+  margin-top:
+    5px;
+
+  font-size:
+    16px;
+
+  font-weight:
+    950;
+
+}
+
+
+.research-open{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:7px;
+
+  margin-top:
+    24px;
+
+  color:white;
+
+  font-size:
+    12px;
+
+  font-weight:
+    950;
+
+}
+
+
+.research-open span{
+
+  color:
+    var(--cyan);
+
+  font-size:
+    17px;
+
+}
+
+
+.research-card.green
+.research-open span{
+
+  color:
+    var(--green);
+
+}
+
+
+/* =========================================
+   THOUGHTS FEATURE
+========================================= */
+
+.thought-feature{
+
+  margin-top:
+    15px;
+
+  display:grid;
+
+  grid-template-columns:
+    .72fr 1.28fr;
+
+  gap:0;
+
+  overflow:hidden;
+
+  border:
+    1px solid
+    rgba(139,234,111,.17);
+
+  border-radius:
+    26px;
+
+  background:
+
+    linear-gradient(
+      115deg,
+      rgba(46,199,241,.045),
+      rgba(255,255,255,.015),
+      rgba(139,234,111,.055)
+    );
+
+}
+
+
+.thought-feature-visual{
+
+  position:relative;
+
+  min-height:
+    275px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  overflow:hidden;
+
+  border-right:
+    1px solid var(--line2);
+
+}
+
+
+.thought-orbit{
+
+  position:absolute;
+
+  width:300px;
+
+  height:110px;
+
+  border:
+    1px solid
+    rgba(46,199,241,.30);
+
+  border-radius:
+    50%;
+
+  transform:
+    rotate(-14deg);
+
+}
+
+
+.thought-orbit.two{
+
+  transform:
+    rotate(17deg);
+
+  border-color:
+    rgba(139,234,111,.28);
+
+}
+
+
+.thought-center{
+
+  position:relative;
+
+  z-index:3;
+
+  width:100px;
+
+  height:100px;
+
+  display:grid;
+
+  place-items:center;
+
+  border-radius:
+    50%;
+
+  color:#041019;
+
+  background:
+
+    linear-gradient(
+      135deg,
+      var(--cyan),
+      var(--green)
+    );
+
+  font-size:
+    27px;
+
+  font-weight:
+    950;
+
+  box-shadow:
+    0 0 50px
+    rgba(46,199,241,.12);
+
+}
+
+
+.thought-feature-copy{
+
+  padding:
+    34px;
+
+}
+
+
+.thought-kicker{
+
+  color:
+    var(--green);
+
+  font-size:
+    9px;
+
+  font-weight:
+    950;
+
+  letter-spacing:
+    .15em;
+
+  text-transform:
+    uppercase;
+
+}
+
+
+.thought-title{
+
+  margin-top:
+    11px;
+
+  font-size:
+    29px;
+
+  line-height:
+    1.12;
+
+  font-weight:
+    950;
+
+  letter-spacing:
+    -.04em;
+
+}
+
+
+.thought-copy{
+
+  margin-top:
+    12px;
+
+  max-width:
+    620px;
+
+  color:
+    var(--muted);
+
+  font-size:
+    13px;
+
+  line-height:
+    1.7;
+
+}
+
+
+.thought-link{
+
+  display:inline-flex;
+
+  margin-top:
+    20px;
+
+  color:white;
+
+  font-size:
+    12px;
+
+  font-weight:
+    950;
+
+}
+
+
+.thought-link span{
+
+  margin-left:
+    7px;
+
+  color:
+    var(--green);
+
+}
+
+
+/* =========================================
+   FRAMEWORK
+========================================= */
+
+.framework{
+
+  margin-top:
+    72px;
+
+  padding:
+    26px 30px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:28px;
+
+  border:
+    1px solid
+    rgba(46,199,241,.18);
+
+  border-radius:
+    25px;
+
+  background:
+
+    linear-gradient(
+      110deg,
+      rgba(46,199,241,.06),
+      rgba(255,255,255,.018),
+      rgba(139,234,111,.05)
+    );
+
+}
+
+
+.framework-kicker{
+
+  color:
+    var(--cyan);
+
+  font-size:
+    9px;
+
+  font-weight:
+    950;
+
+  letter-spacing:
+    .16em;
+
+  text-transform:
+    uppercase;
+
+}
+
+
+.framework-title{
+
+  margin-top:
+    7px;
+
+  font-size:
+    21px;
+
+  font-weight:
+    950;
+
+}
+
+
+.framework-flow{
+
+  display:flex;
+
+  align-items:center;
+
+  flex-wrap:wrap;
+
+  gap:10px;
+
+}
+
+
+.framework-step{
+
+  font-size:
+    10px;
+
+  font-weight:
+    950;
+
+  letter-spacing:
+    .09em;
+
+}
+
+
+.framework-step:first-child{
+  color:var(--cyan);
+}
+
+
+.framework-step:last-child{
+  color:var(--green);
+}
+
+
+.framework-arrow{
+
+  color:
+    rgba(255,255,255,.30);
+
+}
+
+
+/* =========================================
+   ACCOUNT STRIP
+========================================= */
+
+.account-strip{
+
+  margin-top:
+    16px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:24px;
+
+  padding:
+    23px 26px;
+
+  border:
+    1px solid var(--line);
+
+  border-radius:
+    23px;
+
+  background:
+    rgba(255,255,255,.022);
+
+}
+
+
+.account-label{
+
+  color:
+    var(--muted2);
+
+  font-size:
+    9px;
+
+  font-weight:
+    950;
+
+  letter-spacing:
+    .14em;
+
+  text-transform:
+    uppercase;
+
+}
+
+
+.account-title{
+
+  margin-top:
+    5px;
+
+  font-size:
+    18px;
+
+  font-weight:
+    950;
+
+}
+
+
+.account-actions{
+
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:9px;
+
+}
+
+
+.account-btn{
+
+  padding:
+    10px 13px;
+
+  border:
+    1px solid var(--line);
+
+  border-radius:
+    12px;
+
+  background:
+    rgba(255,255,255,.025);
+
+  color:white;
+
+  font-size:
+    11px;
+
+  font-weight:
+    900;
+
+}
+
+
+.account-btn.primary{
+
+  color:#041019;
+
+  border-color:
+    transparent;
+
+  background:
+
+    linear-gradient(
+      135deg,
+      var(--cyan),
+      var(--green)
+    );
+
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer{
+
+  margin-top:
+    30px;
+
+  padding-top:
+    21px;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  gap:20px;
+
+  border-top:
+    1px solid var(--line);
+
+  color:
+    var(--muted2);
+
+  font-size:
+    11px;
+
+  line-height:
+    1.6;
+
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media(max-width:1000px){
+
+  .hero{
+
+    grid-template-columns:
+      1fr;
+
+  }
+
+
+  .hero-visual{
+
+    min-height:
+      430px;
+
+  }
+
+
+  .modules{
+
+    grid-template-columns:
+      1fr 1fr;
+
+  }
+
+
+  .module.thoughts{
+
+    grid-column:
+      1 / -1;
+
+  }
+
+}
+
+
+@media(max-width:760px){
+
+  .page{
+
+    width:
+      calc(100% - 16px);
+
+  }
+
+
+  .topbar{
+
+    position:relative;
+
+    top:0;
+
+    flex-direction:
+      column;
+
+    align-items:
+      flex-start;
+
+  }
+
+
+  .nav{
+
+    width:100%;
+
+    overflow-x:auto;
+
+  }
+
+
+  .nav a{
+
+    white-space:nowrap;
+
+  }
+
+
+  .brand-name{
+
+    display:none;
+
+  }
+
+
+  .hero-copy-wrap{
+
+    padding:
+      37px 24px;
+
+  }
+
+
+  .hero-title{
+
+    font-size:
+      62px;
+
+  }
+
+
+  .hero-visual{
+
+    min-height:
+      360px;
+
+  }
+
+
+  .modules{
+
+    grid-template-columns:
+      1fr;
+
+  }
+
+
+  .module.thoughts{
+
+    grid-column:auto;
+
+  }
+
+
+  .latest-grid{
+
+    grid-template-columns:
+      1fr;
+
+  }
+
+
+  .thought-feature{
+
+    grid-template-columns:
+      1fr;
+
+  }
+
+
+  .thought-feature-visual{
+
+    min-height:
+      220px;
+
+    border-right:none;
+
+    border-bottom:
+      1px solid var(--line2);
+
+  }
+
+
+  .section-head{
+
+    flex-direction:
+      column;
+
+    align-items:
+      flex-start;
+
+  }
+
+
+  .framework{
+
+    flex-direction:
+      column;
+
+    align-items:
+      flex-start;
+
+  }
+
+
+  .account-strip{
+
+    flex-direction:
+      column;
+
+    align-items:
+      flex-start;
+
+  }
+
+
+  .footer{
+
+    flex-direction:
+      column;
+
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="page">
+
+
+<!-- =========================================
+     NAV
+========================================= -->
+
+<header class="topbar">
+
+
+  <a
+    class="brand"
+    href="/space/"
+  >
+
+    <img
+      src="../logo.png"
+      alt="vikundey.crypto"
+    >
+
+    <div class="brand-name">
+      vikundey.crypto
+    </div>
+
+  </a>
+
+
+  <nav class="nav">
+
+    <a
+      href="/space/"
+      class="active"
+    >
+      Головна
+    </a>
+
+    <a href="/nfp/access/">
+      NFP
+    </a>
+
+    <a href="/cpi/access/">
+      CPI
+    </a>
+
+    <a
+      href="/thoughts/access/"
+      id="navThoughts"
+    >
+      Thoughts
+    </a>
+
+    <a
+      href="/profile/account/"
+      class="profile-link"
+      aria-label="Мій профіль"
+    >
+      👤
+    </a>
+
+  </nav>
+
+
+</header>
+
+
+
+<!-- LOADING -->
+
+<div
+  class="loading"
+  id="loading"
+>
+  Завантажуємо Vikundey Space…
+</div>
+
+
+<div
+  class="error"
+  id="error"
+>
+  Не вдалося завантажити дані профілю.
+</div>
+
+
+
+<div id="spaceContent">
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section class="hero">
+
+
+  <div class="hero-copy-wrap">
+
+
+    <div class="eyebrow">
+
+      <span class="status-dot"></span>
+
+      Premium Research Environment
+
+    </div>
+
+
+    <h1 class="hero-title">
+
+      Vikundey
+
+      <span class="accent">
+        Space
+      </span>
+
+    </h1>
+
+
+    <p class="hero-copy">
+
+      Твій приватний простір для макроекономічного
+      контексту, сценаріїв, архівних досліджень
+      та авторських матеріалів Vikundey.
+
+      Від окремого показника — до цілісного
+      розуміння ринкової картини.
+
+    </p>
+
+
+    <div class="member-row">
+
+      <span
+        class="member-pill green"
+        id="planPill"
+      >
+        Active
+      </span>
+
+      <span
+        class="member-pill"
+        id="planLabel"
+      >
+        Vikundey Space
+      </span>
+
+      <span
+        class="email"
+        id="email"
+      >
+        —
+      </span>
+
+    </div>
+
+
+  </div>
+
+
+
+  <div class="hero-visual">
+
+
+    <div class="market-bars">
+
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+
+    </div>
+
+
+    <div class="visual-card one">
+
+      <div class="visual-label">
+        Macro
+      </div>
+
+      <div class="visual-title">
+        Market Context
+      </div>
+
+      <div class="visual-copy">
+
+        Labor · Inflation · Fed · USD
+
+      </div>
+
+    </div>
+
+
+    <div class="visual-card two">
+
+      <div class="visual-label">
+        Research
+      </div>
+
+      <div class="visual-title">
+        Scenario Logic
+      </div>
+
+      <div class="visual-copy">
+
+        Data → Context → Decision
+
+      </div>
+
+    </div>
+
+
+    <div class="globe"></div>
+
+    <div class="orbit one"></div>
+
+    <div class="orbit two"></div>
+
+
+  </div>
+
+
+</section>
+
+
+
+<!-- =========================================
+     YOUR SPACE
+========================================= -->
+
+<section class="section">
+
+
+  <div class="section-head">
+
+
+    <div>
+
+      <div class="section-kicker">
+        Your Space
+      </div>
+
+      <h2 class="section-title">
+        Research modules
+      </h2>
+
+    </div>
+
+
+    <p class="section-description">
+
+      Три основні напрями Vikundey Space:
+      labor market research, inflation research
+      та авторська бібліотека матеріалів.
+
+    </p>
+
+
+  </div>
+
+
+
+  <div class="modules">
+
+
+    <!-- NFP -->
+
+    <a
+      class="module"
+      id="moduleNfp"
+      href="/nfp/access/"
+    >
+
+
+      <div class="module-top">
+
+        <span class="module-label">
+          Labor Market
+        </span>
+
+        <span
+          class="access-badge"
+          id="nfpBadge"
+        >
+          ACCESS
+        </span>
+
+      </div>
+
+
+      <div class="module-title">
+        NFP
+      </div>
+
+
+      <div class="module-copy">
+
+        Ринок праці США, pre-fact макросигнали,
+        сценарії, реакція USD та архів
+        попередніх досліджень.
+
+      </div>
+
+
+      <div class="module-link">
+
+        Відкрити NFP Space
+
+        <span>
+          →
+        </span>
+
+      </div>
+
+
+    </a>
+
+
+
+    <!-- CPI -->
+
+    <a
+      class="module"
+      id="moduleCpi"
+      href="/cpi/access/"
+    >
+
+
+      <div class="module-top">
+
+        <span class="module-label">
+          Inflation
+        </span>
+
+        <span
+          class="access-badge"
+          id="cpiBadge"
+        >
+          ACCESS
+        </span>
+
+      </div>
+
+
+      <div class="module-title">
+        CPI
+      </div>
+
+
+      <div class="module-copy">
+
+        Інфляційні дані, очікування щодо ФРС,
+        yields, USD, risk assets
+        та історія CPI-релізів.
+
+      </div>
+
+
+      <div class="module-link">
+
+        Відкрити CPI Space
+
+        <span>
+          →
+        </span>
+
+      </div>
+
+
+    </a>
+
+
+
+    <!-- THOUGHTS -->
+
+    <a
+      class="module thoughts"
+      id="moduleThoughts"
+      href="/thoughts/access/"
+    >
+
+
+      <div class="module-top">
+
+        <span class="module-label">
+          Knowledge Library
+        </span>
+
+        <span
+          class="access-badge"
+          id="thoughtsBadge"
+        >
+          ACCESS
+        </span>
+
+      </div>
+
+
+      <div class="module-title">
+        Thoughts
+      </div>
+
+
+      <div class="module-copy">
+
+        Геополітика, економіка та освіта:
+        авторські матеріали для формування
+        цілісної макроекономічної логіки.
+
+      </div>
+
+
+      <div
+        class="module-link"
+        id="thoughtsLinkText"
+      >
+
+        Відкрити Thoughts
+
+        <span>
+          →
+        </span>
+
+      </div>
+
+
+    </a>
+
+
+  </div>
+
+
+</section>
+
+
+
+<!-- =========================================
+     LATEST RESEARCH
+========================================= -->
+
+<section class="section">
+
+
+  <div class="section-head">
+
+
+    <div>
+
+      <div class="section-kicker">
+        Latest Research
+      </div>
+
+      <h2 class="section-title">
+        Актуальні матеріали
+      </h2>
+
+    </div>
+
+
+    <p class="section-description">
+
+      Швидкий доступ до останніх
+      макроекономічних досліджень
+      усередині Vikundey Space.
+
+    </p>
+
+
+  </div>
+
+
+
+  <div class="latest-grid">
+
+
+    <!-- NFP LATEST -->
+
+    <article class="research-card">
+
+
+      <div class="research-meta">
+
+        <span class="research-tag">
+          NFP · USD
+        </span>
+
+        <span class="research-status">
+          PRE-FACT
+        </span>
+
+      </div>
+
+
+      <h3 class="research-title">
+        NFP 02.10.2026
+      </h3>
+
+
+      <p class="research-copy">
+
+        Поточна pre-fact підготовка:
+        макросигнали, ключові значення
+        та авторська теза перед релізом.
+
+      </p>
+
+
+      <div class="research-values">
+
+
+        <div class="research-value">
+
+          <span>
+            Previous
+          </span>
+
+          <strong>
+            162K
+          </strong>
+
+        </div>
+
+
+        <div class="research-value">
+
+          <span>
+            Forecast
+          </span>
+
+          <strong>
+            90K
+          </strong>
+
+        </div>
+
+
+        <div class="research-value">
+
+          <span>
+            Actual
+          </span>
+
+          <strong>
+            PENDING
+          </strong>
+
+        </div>
+
+
+      </div>
+
+
+      <a
+        class="research-open"
+        href="/nfp/2026-10-02/"
+      >
+
+        Відкрити дослідження
+
+        <span>
+          →
+        </span>
+
+      </a>
+
+
+    </article>
+
+
+
+    <!-- CPI -->
+
+    <article class="research-card green">
+
+
+      <div class="research-meta">
+
+        <span class="research-tag">
+          CPI · RESEARCH
+        </span>
+
+        <span class="research-status">
+          ARCHIVE
+        </span>
+
+      </div>
+
+
+      <h3 class="research-title">
+        CPI Research
+      </h3>
+
+
+      <p class="research-copy">
+
+        Інфляційний контекст,
+        макросигнали, Vikundey Thinking
+        та архів попередніх CPI-релізів.
+
+      </p>
+
+
+      <div class="research-values">
+
+
+        <div class="research-value">
+
+          <span>
+            Focus
+          </span>
+
+          <strong>
+            CPI
+          </strong>
+
+        </div>
+
+
+        <div class="research-value">
+
+          <span>
+            Context
+          </span>
+
+          <strong>
+            FED
+          </strong>
+
+        </div>
+
+
+        <div class="research-value">
+
+          <span>
+            Market
+          </span>
+
+          <strong>
+            USD
+          </strong>
+
+        </div>
+
+
+      </div>
+
+
+      <a
+        class="research-open"
+        href="/cpi/access/#archive"
+      >
+
+        Відкрити CPI Archive
+
+        <span>
+          →
+        </span>
+
+      </a>
+
+
+    </article>
+
+
+  </div>
+
+
+
+  <!-- THOUGHTS FEATURE -->
+
+  <div
+    class="thought-feature"
+    id="thoughtFeature"
+  >
+
+
+    <div class="thought-feature-visual">
+
+      <div class="thought-orbit"></div>
+
+      <div class="thought-orbit two"></div>
+
+      <div class="thought-center">
+        T
+      </div>
+
+    </div>
+
+
+    <div class="thought-feature-copy">
+
+      <div class="thought-kicker">
+        Latest Thoughts · Geopolitics
+      </div>
+
+
+      <div class="thought-title">
+
+        Вибори США 2026:
+        Сенат та Палата Представників
+
+      </div>
+
+
+      <div class="thought-copy">
+
+        Midterm Elections 2026,
+        політичні сценарії для Конгресу,
+        очікування ринку та можливий вплив
+        результатів виборів на долар і DXY.
+
+      </div>
+
+
+      <a
+        class="thought-link"
+        id="thoughtFeatureLink"
+        href="/thoughts/geopolitics/us-elections-2026/"
+      >
+
+        Читати матеріал
+
+        <span>
+          →
+        </span>
+
+      </a>
+
+    </div>
+
+
+  </div>
+
+
+</section>
+
+
+
+<!-- =========================================
+     FRAMEWORK
+========================================= -->
+
+<section class="framework">
+
+
+  <div>
+
+    <div class="framework-kicker">
+      Vikundey Framework
+    </div>
+
+    <div class="framework-title">
+      Як ми працюємо з інформацією
+    </div>
+
+  </div>
+
+
+  <div class="framework-flow">
+
+    <span class="framework-step">
+      DATA
+    </span>
+
+    <span class="framework-arrow">
+      →
+    </span>
+
+    <span class="framework-step">
+      CONTEXT
+    </span>
+
+    <span class="framework-arrow">
+      →
+    </span>
+
+    <span class="framework-step">
+      SCENARIO
+    </span>
+
+    <span class="framework-arrow">
+      →
+    </span>
+
+    <span class="framework-step">
+      DECISION
+    </span>
+
+  </div>
+
+
+</section>
+
+
+
+<!-- =========================================
+     ACCOUNT
+========================================= -->
+
+<section class="account-strip">
+
+
+  <div>
+
+    <div class="account-label">
+      Account & Access
+    </div>
+
+    <div class="account-title">
+      Керування твоїм Vikundey Space
+    </div>
+
+  </div>
+
+
+  <div class="account-actions">
+
+    <a
+      class="account-btn"
+      href="https://t.me/vikundeymanager"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Support ↗
+    </a>
+
+    <a
+      class="account-btn"
+      href="https://secure.wayforpay.com/payment/vikundeyconsult"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      1:1 Consultation
+    </a>
+
+    <a
+      class="account-btn primary"
+      href="/profile/account/"
+    >
+      Мій профіль →
+    </a>
+
+  </div>
+
+
+</section>
+
+
+
+<footer class="footer">
+
+  <span>
+    © 2026 vikundey.crypto · Vikundey Space
+  </span>
+
+  <span>
+    No trading. No Bitcoin.
+  </span>
+
+</footer>
+
+
+</div>
+
+
+</div>
+
+
+
+<script>
+
+const el =
+  (id) =>
+    document.getElementById(id);
+
+
+
+function planLabel(plan){
+
+  if(plan === "full"){
+    return "Full Vikundey Space";
+  }
+
+  if(plan === "news"){
+    return "News Vikundey Space";
+  }
+
+  return "Vikundey Space";
+
+}
+
+
+
+function disableModule(
+  moduleId,
+  badgeId,
+  textId
+){
+
+  const module =
+    el(moduleId);
+
+  const badge =
+    el(badgeId);
+
+
+  module.classList.add(
+    "locked"
+  );
+
+
+  module.removeAttribute(
+    "href"
+  );
+
+
+  badge.textContent =
+    "LOCKED";
+
+
+  badge.classList.add(
+    "locked"
+  );
+
+
+  if(textId){
+
+    el(textId).innerHTML =
+      "Full access required";
+
+  }
+
+}
+
+
+
+async function loadSpace(){
+
+  const response =
+    await fetch(
+      "/api/profile",
+      {
+        method:"GET",
+
+        credentials:
+          "same-origin",
+
+        headers:{
+          "Accept":
+            "application/json"
+        }
+      }
+    );
+
+
+  if(!response.ok){
+
+    throw new Error(
+      "Profile API error"
+    );
+
+  }
+
+
+  const data =
+    await response.json();
+
+
+  if(!data.ok){
+
+    throw new Error(
+      data.error ||
+      "Profile error"
+    );
+
+  }
+
+
+  /* USER */
+
+  el("email").textContent =
+    data.email || "—";
+
+
+  el("planLabel").textContent =
+    planLabel(
+      data.plan
+    );
+
+
+  const active =
+    data.status ===
+    "active";
+
+
+  el("planPill").textContent =
+    active
+      ? "ACTIVE"
+      : "INACTIVE";
+
+
+  if(!active){
+
+    el("planPill").style.color =
+      "var(--amber)";
+
+  }
+
+
+  /* NFP */
+
+  if(!data.access?.nfp){
+
+    disableModule(
+      "moduleNfp",
+      "nfpBadge"
+    );
+
+  }
+
+
+  /* CPI */
+
+  if(!data.access?.cpi){
+
+    disableModule(
+      "moduleCpi",
+      "cpiBadge"
+    );
+
+  }
+
+
+  /* THOUGHTS */
+
+  const thoughtsAccess =
+    !!data.access?.thoughts;
+
+
+  if(!thoughtsAccess){
+
+    disableModule(
+      "moduleThoughts",
+      "thoughtsBadge",
+      "thoughtsLinkText"
+    );
+
+
+    el("navThoughts").href =
+      "/thoughts/";
+
+
+    el("thoughtFeature").style.opacity =
+      ".48";
+
+
+    el("thoughtFeatureLink").removeAttribute(
+      "href"
+    );
+
+
+    el("thoughtFeatureLink").innerHTML =
+      "Доступно у Full Vikundey Space";
+
+  }
+
+
+  /* SHOW PAGE */
+
+  el("loading").style.display =
+    "none";
+
+
+  el("spaceContent").style.display =
+    "block";
+
+}
+
+
+
+async function init(){
+
+  try{
+
+    await loadSpace();
+
+  }catch(error){
+
+    console.error(
+      error
+    );
+
+
+    el("loading").style.display =
+      "none";
+
+
+    el("error").style.display =
+      "block";
+
+  }
+
+}
+
+
+
+init();
+
+</script>
+
+
+</body>
+
+</html>
