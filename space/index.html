@@ -2541,20 +2541,19 @@ a{
 
   width:300px;
 
-  height:110px;
+  height:105px;
 
   border:
     1px solid
-    rgba(46,199,241,.30);
+    rgba(46,199,241,.24);
 
-  border-radius:
-    50%;
+  border-radius:50%;
 
   transform:
     rotate(-14deg);
 
   animation:
-    thoughtOrbit1 7s
+    thoughtOrbit1 8s
     ease-in-out infinite;
 
 }
@@ -2562,14 +2561,18 @@ a{
 
 .thought-orbit.two{
 
+  width:280px;
+
+  height:100px;
+
   transform:
     rotate(17deg);
 
   border-color:
-    rgba(139,234,111,.28);
+    rgba(139,234,111,.20);
 
   animation:
-    thoughtOrbit2 8s
+    thoughtOrbit2 9s
     ease-in-out infinite;
 
 }
@@ -2580,13 +2583,14 @@ a{
   0%,
   100%{
     transform:
-      rotate(-14deg);
+      rotate(-14deg)
+      scale(1);
   }
 
   50%{
     transform:
-      rotate(-9deg)
-      scale(1.04);
+      rotate(-10deg)
+      scale(1.03);
   }
 
 }
@@ -2597,36 +2601,62 @@ a{
   0%,
   100%{
     transform:
-      rotate(17deg);
+      rotate(17deg)
+      scale(1);
   }
 
   50%{
     transform:
-      rotate(12deg)
-      scale(.96);
+      rotate(13deg)
+      scale(.97);
   }
 
 }
 
 
-.thought-center{
+.thought-core{
 
   position:relative;
 
-  z-index:3;
+  z-index:4;
 
-  width:100px;
+  width:112px;
 
-  height:100px;
+  height:112px;
 
   display:grid;
 
   place-items:center;
 
-  border-radius:
-    50%;
+  border-radius:50%;
 
-  color:#041019;
+  border:
+    1px solid
+    rgba(46,199,241,.18);
+
+  background:
+
+    radial-gradient(
+      circle,
+      rgba(46,199,241,.09),
+      rgba(139,234,111,.025) 55%,
+      transparent 72%
+    );
+
+  box-shadow:
+    0 0 45px
+    rgba(46,199,241,.055);
+
+}
+
+
+.core-dot{
+
+  width:18px;
+
+  height:18px;
+
+  border-radius:50%;
 
   background:
 
@@ -2636,35 +2666,204 @@ a{
       var(--green)
     );
 
-  font-size:
-    27px;
-
-  font-weight:
-    950;
-
   box-shadow:
-    0 0 50px
-    rgba(46,199,241,.12);
+
+    0 0 18px
+    rgba(46,199,241,.45),
+
+    0 0 34px
+    rgba(139,234,111,.18);
 
   animation:
-    centerPulse 4s
+    corePulse 3.2s
     ease-in-out infinite;
 
 }
 
 
-@keyframes centerPulse{
+.core-ring{
+
+  position:absolute;
+
+  inset:19px;
+
+  border-radius:50%;
+
+  border:
+    1px solid
+    rgba(46,199,241,.14);
+
+}
+
+
+.core-ring.ring-two{
+
+  inset:32px;
+
+  border-color:
+    rgba(139,234,111,.15);
+
+}
+
+
+@keyframes corePulse{
 
   0%,
   100%{
-    transform:
-      scale(1);
+    transform:scale(1);
+    opacity:.78;
   }
 
   50%{
-    transform:
-      scale(1.06);
+    transform:scale(1.28);
+    opacity:1;
   }
+
+}
+
+
+.data-point{
+
+  position:absolute;
+
+  z-index:5;
+
+  width:7px;
+
+  height:7px;
+
+  border-radius:50%;
+
+  background:
+    var(--cyan);
+
+  box-shadow:
+    0 0 12px
+    rgba(46,199,241,.8);
+
+  animation:
+    dataPulse 2.8s
+    ease-in-out infinite;
+
+}
+
+
+.point-one{
+
+  left:29%;
+
+  top:35%;
+
+}
+
+
+.point-two{
+
+  right:28%;
+
+  top:43%;
+
+  background:
+    var(--green);
+
+  box-shadow:
+    0 0 12px
+    rgba(139,234,111,.7);
+
+  animation-delay:.8s;
+
+}
+
+
+.point-three{
+
+  left:42%;
+
+  bottom:25%;
+
+  animation-delay:1.5s;
+
+}
+
+
+@keyframes dataPulse{
+
+  0%,
+  100%{
+    opacity:.45;
+    transform:scale(.8);
+  }
+
+  50%{
+    opacity:1;
+    transform:scale(1.35);
+  }
+
+}
+
+
+.research-label{
+
+  position:absolute;
+
+  z-index:4;
+
+  padding:
+    5px 8px;
+
+  border:
+    1px solid
+    rgba(255,255,255,.08);
+
+  border-radius:999px;
+
+  background:
+    rgba(5,23,34,.68);
+
+  color:
+    var(--muted2);
+
+  font-size:7px;
+
+  font-weight:950;
+
+  letter-spacing:.13em;
+
+  backdrop-filter:
+    blur(8px);
+
+}
+
+
+.label-one{
+
+  left:21%;
+
+  top:27%;
+
+  color:
+    var(--cyan);
+
+}
+
+
+.label-two{
+
+  right:20%;
+
+  top:32%;
+
+  color:
+    var(--green);
+
+}
+
+
+.label-three{
+
+  right:24%;
+
+  bottom:23%;
 
 }
 
@@ -3263,10 +3462,6 @@ a{
 <div class="page">
 
 
-<!-- =========================================
-     NAV
-========================================= -->
-
 <header class="topbar">
 
 
@@ -3325,9 +3520,6 @@ a{
 </header>
 
 
-
-<!-- LOADING -->
-
 <div
   class="loading"
   id="loading"
@@ -3344,13 +3536,8 @@ a{
 </div>
 
 
-
 <div id="spaceContent">
 
-
-<!-- =========================================
-     HERO
-========================================= -->
 
 <section class="hero">
 
@@ -3421,7 +3608,6 @@ a{
   </div>
 
 
-
   <div class="hero-visual">
 
 
@@ -3448,9 +3634,7 @@ a{
       </div>
 
       <div class="visual-copy">
-
         Labor · Inflation · Fed · USD
-
       </div>
 
     </div>
@@ -3467,9 +3651,7 @@ a{
       </div>
 
       <div class="visual-copy">
-
         Data → Context → Decision
-
       </div>
 
     </div>
@@ -3487,11 +3669,6 @@ a{
 
 </section>
 
-
-
-<!-- =========================================
-     YOUR SPACE
-========================================= -->
 
 <section class="section">
 
@@ -3524,11 +3701,8 @@ a{
   </div>
 
 
-
   <div class="modules">
 
-
-    <!-- NFP -->
 
     <a
       class="module"
@@ -3595,9 +3769,6 @@ a{
     </a>
 
 
-
-    <!-- CPI -->
-
     <a
       class="module"
       id="moduleCpi"
@@ -3663,9 +3834,6 @@ a{
     </a>
 
 
-
-    <!-- THOUGHTS -->
-
     <a
       class="module thoughts"
       id="moduleThoughts"
@@ -3729,11 +3897,6 @@ a{
 </section>
 
 
-
-<!-- =========================================
-     LATEST RESEARCH
-========================================= -->
-
 <section class="section">
 
 
@@ -3765,11 +3928,8 @@ a{
   </div>
 
 
-
   <div class="latest-grid">
 
-
-    <!-- NFP LATEST -->
 
     <article class="research-card">
 
@@ -3888,9 +4048,6 @@ a{
 
     </article>
 
-
-
-    <!-- CPI -->
 
     <article class="research-card green">
 
@@ -4013,9 +4170,6 @@ a{
   </div>
 
 
-
-  <!-- THOUGHTS FEATURE -->
-
   <div
     class="thought-feature"
     id="thoughtFeature"
@@ -4028,9 +4182,36 @@ a{
 
       <div class="thought-orbit two"></div>
 
-      <div class="thought-center">
-        T
+
+      <div class="thought-core">
+
+        <span class="core-dot"></span>
+
+        <div class="core-ring ring-one"></div>
+
+        <div class="core-ring ring-two"></div>
+
       </div>
+
+
+      <span class="data-point point-one"></span>
+
+      <span class="data-point point-two"></span>
+
+      <span class="data-point point-three"></span>
+
+
+      <span class="research-label label-one">
+        GEO
+      </span>
+
+      <span class="research-label label-two">
+        MACRO
+      </span>
+
+      <span class="research-label label-three">
+        CONTEXT
+      </span>
 
     </div>
 
@@ -4082,11 +4263,6 @@ a{
 
 </section>
 
-
-
-<!-- =========================================
-     FRAMEWORK
-========================================= -->
 
 <section class="framework">
 
@@ -4140,11 +4316,6 @@ a{
 </section>
 
 
-
-<!-- =========================================
-     ACCOUNT
-========================================= -->
-
 <section class="account-strip">
 
 
@@ -4194,7 +4365,6 @@ a{
 </section>
 
 
-
 <footer class="footer">
 
   <span>
@@ -4212,7 +4382,6 @@ a{
 
 
 </div>
-
 
 
 <script>
@@ -4324,8 +4493,6 @@ async function loadSpace(){
   }
 
 
-  /* USER */
-
   el("email").textContent =
     data.email || "—";
 
@@ -4355,8 +4522,6 @@ async function loadSpace(){
   }
 
 
-  /* NFP */
-
   if(!data.access?.nfp){
 
     disableModule(
@@ -4367,8 +4532,6 @@ async function loadSpace(){
   }
 
 
-  /* CPI */
-
   if(!data.access?.cpi){
 
     disableModule(
@@ -4378,8 +4541,6 @@ async function loadSpace(){
 
   }
 
-
-  /* THOUGHTS */
 
   const thoughtsAccess =
     !!data.access?.thoughts;
@@ -4412,8 +4573,6 @@ async function loadSpace(){
 
   }
 
-
-  /* SHOW PAGE */
 
   el("loading").style.display =
     "none";
