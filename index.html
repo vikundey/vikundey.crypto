@@ -121,6 +121,32 @@
       background:linear-gradient(135deg,var(--cyan),var(--green));
     }
 
+    .site-links .profile-link{
+      width:38px;
+      height:38px;
+      padding:0;
+      display:grid;
+      place-items:center;
+      border-radius:12px;
+      color:#071018;
+      background:linear-gradient(135deg,var(--cyan),var(--green));
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:0 8px 24px rgba(46,199,241,.14);
+    }
+
+    .site-links .profile-link:hover{
+      color:#071018;
+      background:linear-gradient(135deg,var(--cyan),var(--green));
+      transform:translateY(-1px);
+    }
+
+    .site-links .profile-link svg{
+      width:19px;
+      height:19px;
+      display:block;
+      fill:currentColor;
+    }
+
     .hero{
       display:grid;
       grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);
@@ -1060,7 +1086,7 @@
     }
   
     /* =========================
-       US MIDTERMS RESULT
+       US MIDTERMS 2026 · RESULT
     ========================= */
 
     .midterms-countdown{
@@ -1072,20 +1098,21 @@
       position:relative;
       overflow:hidden;
       display:grid;
-      grid-template-columns:minmax(0,1.02fr) minmax(390px,.98fr);
+      grid-template-columns:minmax(0,1.02fr) minmax(430px,.98fr);
       gap:28px;
       align-items:center;
       padding:32px 34px;
-      border:1px solid rgba(46,199,241,.22);
+      border:1px solid rgba(46,199,241,.24);
       border-radius:28px;
       background:
-        radial-gradient(circle at 4% 0%,rgba(46,199,241,.20),transparent 34%),
-        radial-gradient(circle at 96% 100%,rgba(139,234,111,.18),transparent 36%),
-        linear-gradient(135deg,rgba(255,255,255,.062),rgba(255,255,255,.022));
+        radial-gradient(circle at 4% 0%,rgba(46,199,241,.20),transparent 32%),
+        radial-gradient(circle at 98% 100%,rgba(139,234,111,.17),transparent 36%),
+        radial-gradient(circle at 78% 6%,rgba(255,255,255,.055),transparent 24%),
+        linear-gradient(135deg,rgba(255,255,255,.065),rgba(255,255,255,.022));
       box-shadow:
         0 28px 76px rgba(0,0,0,.32),
-        0 0 52px rgba(46,199,241,.065),
-        inset 0 1px 0 rgba(255,255,255,.035);
+        0 0 52px rgba(46,199,241,.07),
+        inset 0 1px 0 rgba(255,255,255,.05);
     }
 
     .midterms-shell::before{
@@ -1096,40 +1123,47 @@
       bottom:22px;
       width:4px;
       border-radius:999px;
-      background:linear-gradient(180deg,var(--cyan),var(--green));
+      background:linear-gradient(180deg,var(--cyan),#fff 50%,var(--green));
       box-shadow:
-        0 0 20px rgba(46,199,241,.50),
-        0 0 34px rgba(139,234,111,.18);
+        0 0 18px rgba(255,255,255,.18),
+        0 0 28px rgba(46,199,241,.48);
     }
 
     .midterms-shell::after{
       content:"";
       position:absolute;
-      width:320px;
-      height:320px;
-      right:-120px;
-      bottom:-175px;
+      width:250px;
+      height:250px;
+      right:-110px;
+      top:-120px;
       border-radius:50%;
+      background:
+        radial-gradient(circle,rgba(46,199,241,.12),rgba(46,199,241,0) 68%);
       pointer-events:none;
-      background:radial-gradient(circle,rgba(139,234,111,.10),transparent 66%);
-      animation:resultGlow 5.8s ease-in-out infinite;
+      animation:electionGlow 5.5s ease-in-out infinite;
     }
 
-    @keyframes resultGlow{
-      0%,100%{transform:scale(1);opacity:.55}
-      50%{transform:scale(1.16);opacity:1}
+    @keyframes electionGlow{
+      0%,100%{
+        transform:scale(1);
+        opacity:.58;
+      }
+      50%{
+        transform:scale(1.16);
+        opacity:1;
+      }
     }
 
     .midterms-copy{
       position:relative;
-      z-index:2;
+      z-index:1;
     }
 
     .midterms-kicker{
       display:flex;
       align-items:center;
       gap:9px;
-      margin-bottom:10px;
+      margin-bottom:11px;
       color:var(--cyan);
       font-size:11px;
       font-weight:950;
@@ -1143,30 +1177,35 @@
       border-radius:50%;
       background:var(--green);
       box-shadow:0 0 14px rgba(139,234,111,.75);
-      animation:resultDot 2.4s ease-in-out infinite;
+      animation:electionDot 2.8s ease-in-out infinite;
     }
 
-    @keyframes resultDot{
-      0%,100%{transform:scale(.85);opacity:.7}
-      50%{transform:scale(1.2);opacity:1}
+    @keyframes electionDot{
+      0%,100%{
+        opacity:.65;
+        transform:scale(.9);
+      }
+      50%{
+        opacity:1;
+        transform:scale(1.25);
+      }
     }
 
     .midterms-title{
       margin:0;
       color:#fff;
-      font-size:clamp(30px,4.2vw,44px);
-      line-height:1.04;
-      letter-spacing:-.048em;
+      font-size:clamp(29px,4vw,43px);
+      line-height:1.05;
+      letter-spacing:-.045em;
     }
 
-    .midterms-title .accent-result{
+    .midterms-title .accent-date{
       display:inline-block;
-      margin-top:5px;
-      background:linear-gradient(90deg,var(--cyan),var(--green));
+      margin-top:4px;
+      background:linear-gradient(90deg,var(--cyan),#fff 48%,var(--green));
       -webkit-background-clip:text;
       background-clip:text;
       color:transparent;
-      filter:drop-shadow(0 6px 18px rgba(46,199,241,.08));
     }
 
     .midterms-sub{
@@ -1177,136 +1216,169 @@
       line-height:1.68;
     }
 
-    .midterms-date{
-      display:inline-flex;
-      align-items:center;
+    .election-meta{
+      display:flex;
+      flex-wrap:wrap;
       gap:8px;
       margin-top:18px;
-      padding:8px 11px;
+    }
+
+    .election-meta-chip{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      padding:7px 10px;
       border:1px solid rgba(255,255,255,.10);
       border-radius:999px;
-      color:#b8c7d0;
+      color:#b9c7cf;
       background:rgba(255,255,255,.035);
       font-size:10px;
-      font-weight:900;
-      letter-spacing:.09em;
+      font-weight:850;
+      letter-spacing:.06em;
       text-transform:uppercase;
     }
 
-    .midterms-results{
+    .election-meta-chip.primary{
+      color:#071018;
+      border-color:rgba(255,255,255,.24);
+      background:linear-gradient(135deg,#fff,var(--cyan) 55%,var(--green));
+    }
+
+    .midterms-result{
       position:relative;
-      z-index:2;
+      z-index:1;
+      display:grid;
+      gap:12px;
+    }
+
+    .result-heading{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:16px;
+      padding:0 2px;
+    }
+
+    .result-heading span{
+      color:#8397a3;
+      font-size:9px;
+      font-weight:900;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+
+    .result-heading strong{
+      color:#fff;
+      font-size:13px;
+      font-weight:950;
+      letter-spacing:.04em;
+    }
+
+    .result-grid{
       display:grid;
       grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:12px;
+      gap:10px;
     }
 
     .result-card{
       position:relative;
       overflow:hidden;
-      min-height:142px;
-      padding:19px 18px;
+      min-width:0;
+      padding:20px 18px;
       border:1px solid rgba(255,255,255,.105);
-      border-radius:19px;
+      border-radius:18px;
       background:
-        radial-gradient(circle at 100% 0%,rgba(46,199,241,.07),transparent 48%),
-        rgba(5,13,21,.58);
+        radial-gradient(circle at 100% 0%,rgba(46,199,241,.09),transparent 45%),
+        linear-gradient(180deg,rgba(5,13,21,.66),rgba(5,13,21,.48));
       box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.045),
-        0 12px 34px rgba(0,0,0,.20);
-      transition:.22s ease;
+        inset 0 1px 0 rgba(255,255,255,.04),
+        0 12px 32px rgba(0,0,0,.18);
+      transition:.24s ease;
     }
 
     .result-card:nth-child(2){
       background:
-        radial-gradient(circle at 100% 0%,rgba(139,234,111,.08),transparent 48%),
-        rgba(5,13,21,.58);
+        radial-gradient(circle at 100% 0%,rgba(139,234,111,.10),transparent 45%),
+        linear-gradient(180deg,rgba(5,13,21,.66),rgba(5,13,21,.48));
     }
 
     .result-card:hover{
       transform:translateY(-3px);
-      border-color:rgba(46,199,241,.26);
+      border-color:rgba(46,199,241,.30);
+      box-shadow:
+        0 18px 38px rgba(0,0,0,.22),
+        0 0 26px rgba(46,199,241,.05);
     }
 
-    .result-card:nth-child(2):hover{
-      border-color:rgba(139,234,111,.28);
+    .result-card::after{
+      content:"";
+      position:absolute;
+      left:-70%;
+      top:-20%;
+      width:40%;
+      height:145%;
+      transform:rotate(18deg);
+      background:
+        linear-gradient(90deg,transparent,rgba(255,255,255,.07),transparent);
+      animation:resultShimmer 6.5s ease-in-out infinite;
     }
 
-    .result-label{
-      color:#8fa4b0;
+    .result-card:nth-child(2)::after{
+      animation-delay:1.3s;
+    }
+
+    @keyframes resultShimmer{
+      0%,55%{
+        left:-70%;
+      }
+      80%,100%{
+        left:140%;
+      }
+    }
+
+    .result-card span{
+      display:block;
+      color:#7f939f;
       font-size:9px;
       font-weight:950;
       letter-spacing:.13em;
       text-transform:uppercase;
     }
 
-    .result-party{
+    .result-card strong{
       display:block;
-      margin-top:11px;
+      margin-top:9px;
       color:#fff;
-      font-size:clamp(20px,2.2vw,27px);
-      line-height:1;
+      font-size:clamp(18px,2.2vw,25px);
       font-weight:950;
-      letter-spacing:-.04em;
+      letter-spacing:-.03em;
     }
 
-    .result-control{
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      margin-top:12px;
-      padding:6px 9px;
-      border-radius:999px;
-      color:#caffba;
-      background:rgba(139,234,111,.09);
-      border:1px solid rgba(139,234,111,.16);
-      font-size:9px;
-      font-weight:900;
-      letter-spacing:.05em;
-      text-transform:uppercase;
-    }
-
-    .result-control::before{
-      content:"";
-      width:6px;
-      height:6px;
-      border-radius:50%;
-      background:var(--green);
-      box-shadow:0 0 10px rgba(139,234,111,.60);
+    .result-card small{
+      display:block;
+      margin-top:7px;
+      color:#95a9b4;
+      font-size:10px;
+      font-weight:750;
     }
 
     .result-banner{
-      grid-column:1 / -1;
       position:relative;
       overflow:hidden;
       padding:14px 16px;
-      border:1px solid rgba(139,234,111,.24);
+      border:1px solid rgba(139,234,111,.22);
       border-radius:15px;
-      color:#e7ffe0;
+      color:#071018;
       background:
-        linear-gradient(90deg,rgba(46,199,241,.07),rgba(139,234,111,.12));
+        linear-gradient(135deg,#fff 0%,#dffcff 18%,var(--cyan) 50%,var(--green) 100%);
+      box-shadow:
+        0 13px 30px rgba(46,199,241,.12),
+        0 0 24px rgba(139,234,111,.05);
       text-align:center;
-      font-size:13px;
+      font-size:12px;
       font-weight:950;
-      letter-spacing:.05em;
+      letter-spacing:.10em;
       text-transform:uppercase;
-    }
-
-    .result-banner::after{
-      content:"";
-      position:absolute;
-      top:-40%;
-      left:-30%;
-      width:22%;
-      height:180%;
-      transform:rotate(18deg);
-      background:linear-gradient(90deg,transparent,rgba(255,255,255,.10),transparent);
-      animation:resultShimmer 5s ease-in-out infinite;
-    }
-
-    @keyframes resultShimmer{
-      0%,20%{left:-30%}
-      70%,100%{left:120%}
     }
 
     @media(max-width:900px){
@@ -1320,12 +1392,14 @@
         padding:24px 20px;
       }
 
-      .midterms-results{
+      .result-grid{
         grid-template-columns:1fr;
       }
 
-      .result-banner{
-        grid-column:auto;
+      .result-heading{
+        align-items:flex-start;
+        flex-direction:column;
+        gap:5px;
       }
     }
 
@@ -1497,7 +1571,7 @@
 <body>
 
   <nav class="site-nav">
-    <a class="site-brand" href="https://vikundey.github.io/vikundey.crypto/index.html">
+    <a class="site-brand" href="/">
       <img
         class="site-brand-logo"
         src="./logo.png"
@@ -1507,9 +1581,15 @@
     </a>
 
     <div class="site-links">
-      <a class="active" href="https://vikundey.github.io/vikundey.crypto/index.html">Головна</a>
-      <a href="https://vikundey.github.io/vikundey.crypto/nfp/index.html">NFP</a>
-      <a href="https://vikundey.github.io/vikundey.crypto/cpi/index.html">CPI</a>
+      <a class="active" href="/">Головна</a>
+      <a href="/nfp/">NFP</a>
+      <a href="/cpi/">CPI</a>
+      <a href="/thoughts/">Thoughts</a>
+      <a class="profile-link" href="/profile/" aria-label="Мій профіль" title="Мій профіль">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 12c2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5 2.239 5 5 5Zm0 2c-4.418 0-8 2.239-8 5v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1c0-2.761-3.582-5-8-5Z"/>
+        </svg>
+      </a>
     </div>
   </nav>
 
@@ -1574,7 +1654,7 @@
       
       <div class="research-grid">
 
-        <a class="research-card premium-card" href="./nfp/index.html">
+        <a class="research-card premium-card" href="/nfp/">
           <div class="research-card-top">
             <div class="research-code">LABOR MARKET</div>
             <span class="premium-badge"><span class="premium-lock">🔒</span> Premium</span>
@@ -1592,7 +1672,7 @@
         </a>
 
 
-        <a class="research-card premium-card" href="./cpi/index.html">
+        <a class="research-card premium-card" href="/cpi/">
           <div class="research-card-top">
             <div class="research-code">INFLATION</div>
             <span class="premium-badge"><span class="premium-lock">🔒</span> Premium</span>
@@ -1610,7 +1690,7 @@
         </a>
 
 
-        <a class="research-card premium-card" href="./thoughts/index.html">
+        <a class="research-card premium-card" href="/thoughts/">
           <div class="research-card-top">
             <div class="research-code">EDUCATION · MACRO · GEO</div>
             <span class="premium-badge"><span class="premium-lock">🔒</span> Premium</span>
@@ -1647,38 +1727,46 @@
 
           <h2 class="midterms-title">
             Проміжні вибори США<br>
-            <span class="accent-result">Democratic Sweep</span>
+            <span class="accent-date">Democratic Sweep</span>
           </h2>
 
           <p class="midterms-sub">
-            Демократи здобули контроль над обома палатами Конгресу США —
-            Палатою представників і Сенатом. Результат формує новий баланс
-            сил у Вашингтоні після midterms 2026.
+            Демократи здобули контроль над обома палатами Конгресу США:
+            Палатою представників і Сенатом.
           </p>
 
-          <div class="midterms-date">
-            Election Day · 03 Nov 2026
+          <div class="election-meta">
+            <span class="election-meta-chip primary">2026 MIDTERMS</span>
+            <span class="election-meta-chip">Election Day · 03 Nov 2026</span>
           </div>
 
         </div>
 
+        <div class="midterms-result" aria-label="Результат проміжних виборів США 2026">
 
-        <div class="midterms-results" aria-label="Результат проміжних виборів США 2026">
-
-          <div class="result-card">
-            <span class="result-label">House of Representatives</span>
-            <strong class="result-party">Democrats</strong>
-            <span class="result-control">Control secured</span>
+          <div class="result-heading">
+            <span>Congress Control</span>
+            <strong>Democratic Sweep</strong>
           </div>
 
-          <div class="result-card">
-            <span class="result-label">Senate</span>
-            <strong class="result-party">Democrats</strong>
-            <span class="result-control">Control secured</span>
+          <div class="result-grid">
+
+            <div class="result-card">
+              <span>House</span>
+              <strong>Democrats</strong>
+              <small>Палата представників</small>
+            </div>
+
+            <div class="result-card">
+              <span>Senate</span>
+              <strong>Democrats</strong>
+              <small>Сенат</small>
+            </div>
+
           </div>
 
           <div class="result-banner">
-            Democratic Sweep · 2026 Midterms
+            Democratic Sweep · House + Senate
           </div>
 
         </div>
@@ -1778,8 +1866,7 @@
 
   <script>
 
-    // US MIDTERMS 2026 result block is static after the election.
-
+    // US MIDTERMS 2026 result is rendered as static confirmed event content.
 
     const calendarBody = document.getElementById('calendarBody');
     const calendarRange = document.getElementById('calendarRange');
