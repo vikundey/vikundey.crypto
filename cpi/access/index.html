@@ -36,7 +36,6 @@
 
     body{
       margin:0;
-
       color:var(--text);
 
       font-family:
@@ -50,23 +49,24 @@
 
       background:
         radial-gradient(
-          circle at 16% 4%,
+          circle at 7% 5%,
           rgba(46,199,241,.13),
-          transparent 24%
+          transparent 27%
         ),
         radial-gradient(
-          circle at 86% 14%,
-          rgba(139,234,111,.10),
+          circle at 93% 10%,
+          rgba(139,234,111,.08),
           transparent 25%
         ),
         linear-gradient(
           180deg,
-          #071018 0%,
-          #0a141e 48%,
-          #071018 100%
+          #04121c,
+          #061722 55%,
+          #041019
         );
 
       overflow-x:hidden;
+      animation:pageFade .55s ease both;
     }
 
     body::before{
@@ -80,16 +80,16 @@
 
       background-image:
         linear-gradient(
-          rgba(255,255,255,.015) 1px,
+          rgba(255,255,255,.018) 1px,
           transparent 1px
         ),
         linear-gradient(
           90deg,
-          rgba(255,255,255,.015) 1px,
+          rgba(255,255,255,.018) 1px,
           transparent 1px
         );
 
-      background-size:42px 42px;
+      background-size:38px 38px;
     }
 
     a{
@@ -112,9 +112,9 @@
       top:12px;
       z-index:100;
 
-      width:min(1180px,calc(100% - 28px));
+      width:min(1240px,calc(100% - 28px));
 
-      margin:12px auto 0;
+      margin:18px auto 0;
 
       display:flex;
       align-items:center;
@@ -122,18 +122,19 @@
 
       gap:20px;
 
-      padding:12px 14px 12px 18px;
+      padding:12px 18px;
 
-      border:1px solid var(--line);
-      border-radius:22px;
+      border:1px solid rgba(190,225,240,.15);
+      border-radius:25px;
 
-      background:rgba(7,16,24,.84);
+      background:rgba(3,16,25,.90);
 
-      backdrop-filter:blur(16px);
+      backdrop-filter:blur(18px);
 
       box-shadow:
-        0 10px 40px
-        rgba(0,0,0,.18);
+        0 30px 90px rgba(0,0,0,.34);
+
+      animation:navDrop .55s ease both;
     }
 
     .brand{
@@ -160,25 +161,29 @@
     }
 
     .nav-links a{
-      padding:9px 12px;
+      padding:9px 13px;
 
-      border-radius:12px;
+      border-radius:13px;
 
-      color:#c4d0d8;
+      color:#fff;
 
       font-size:13px;
-      font-weight:750;
+      font-weight:850;
+
+      transition:
+        transform .18s ease,
+        background .2s ease,
+        box-shadow .2s ease;
     }
 
     .nav-links a:hover{
-      background:
-        rgba(255,255,255,.07);
-
+      background:rgba(255,255,255,.06);
       color:#fff;
+      transform:translateY(-1px);
     }
 
     .nav-links .active{
-      color:#071018;
+      color:#041019;
 
       background:
         linear-gradient(
@@ -188,6 +193,9 @@
         );
 
       font-weight:900;
+
+      box-shadow:
+        0 10px 25px rgba(46,199,241,.18);
     }
 
 
@@ -210,22 +218,33 @@
 
     .hero-main,
     .hero-side{
-      border:1px solid var(--line);
+      border:1px solid rgba(190,225,240,.15);
 
       border-radius:30px;
 
-      background:
-        linear-gradient(
-          180deg,
-          rgba(255,255,255,.065),
-          rgba(255,255,255,.025)
-        );
+      box-shadow:
+        0 25px 70px rgba(0,0,0,.21);
 
-      box-shadow:var(--shadow);
+      overflow:hidden;
+      position:relative;
+
+      animation:cardReveal .7s ease both;
     }
 
     .hero-main{
-      padding:40px;
+      padding:46px 42px;
+
+      background:
+        radial-gradient(
+          circle at 92% 0%,
+          rgba(46,199,241,.13),
+          transparent 37%
+        ),
+        linear-gradient(
+          135deg,
+          rgba(12,34,47,.98),
+          rgba(7,24,35,.98)
+        );
     }
 
     .hero-side{
@@ -233,13 +252,27 @@
 
       overflow:hidden;
 
-      padding:30px;
+      padding:42px 34px;
 
       display:flex;
       flex-direction:column;
       justify-content:space-between;
 
       min-height:100%;
+
+      background:
+        radial-gradient(
+          circle at 100% 0%,
+          rgba(139,234,111,.12),
+          transparent 38%
+        ),
+        linear-gradient(
+          145deg,
+          rgba(12,34,43,.98),
+          rgba(10,29,31,.98)
+        );
+
+      animation-delay:.08s;
     }
 
     .hero-side::after{
@@ -247,19 +280,26 @@
 
       position:absolute;
 
-      width:260px;
-      height:260px;
+      width:280px;
+      height:280px;
 
       right:-90px;
       top:-80px;
 
       border-radius:50%;
 
-      background:var(--green);
+      background:
+        radial-gradient(
+          circle,
+          rgba(139,234,111,.20),
+          transparent 68%
+        );
 
-      filter:blur(80px);
+      filter:blur(36px);
 
-      opacity:.12;
+      opacity:.55;
+
+      animation:glowFloat 7s ease-in-out infinite alternate;
     }
 
     .eyebrow{
@@ -310,10 +350,14 @@
           var(--green)
         );
 
+      background-size:180% 100%;
+
       -webkit-background-clip:text;
       background-clip:text;
 
       color:transparent;
+
+      animation:gradientShift 5.5s ease-in-out infinite alternate;
     }
 
     .lead{
@@ -412,20 +456,24 @@
     }
 
     .panel{
-      border:1px solid var(--line);
+      border:1px solid rgba(190,225,240,.15);
 
       border-radius:24px;
 
       background:
         linear-gradient(
-          180deg,
-          rgba(255,255,255,.055),
-          rgba(255,255,255,.025)
+          145deg,
+          rgba(255,255,255,.045),
+          rgba(255,255,255,.014)
         );
 
       box-shadow:
-        0 12px 40px
-        rgba(0,0,0,.12);
+        0 18px 55px rgba(0,0,0,.15);
+
+      transition:
+        transform .22s ease,
+        border-color .22s ease,
+        box-shadow .22s ease;
     }
 
 
@@ -445,12 +493,32 @@
     .info-card{
       padding:24px;
 
-      border:1px solid var(--line);
+      border:1px solid rgba(190,225,240,.15);
 
-      border-radius:22px;
+      border-radius:23px;
 
       background:
-        rgba(255,255,255,.035);
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.045),
+          rgba(255,255,255,.014)
+        );
+
+      box-shadow:
+        0 18px 55px rgba(0,0,0,.15);
+
+      transition:
+        transform .22s ease,
+        border-color .22s ease,
+        box-shadow .22s ease;
+    }
+
+    .info-card:hover{
+      transform:translateY(-3px);
+      border-color:rgba(46,199,241,.32);
+      box-shadow:
+        0 24px 65px rgba(0,0,0,.20),
+        0 0 30px rgba(46,199,241,.04);
     }
 
     .number{
@@ -496,26 +564,35 @@
     ========================= */
 
     .analysis{
-      padding:32px;
+      padding:30px;
 
       border:
         1px solid
-        rgba(46,199,241,.18);
+        rgba(46,199,241,.22);
 
       border-radius:28px;
 
       background:
         radial-gradient(
-          circle at 10% 10%,
-          rgba(46,199,241,.10),
-          transparent 30%
+          circle at 100% 0%,
+          rgba(46,199,241,.08),
+          transparent 35%
         ),
         radial-gradient(
-          circle at 90% 80%,
-          rgba(139,234,111,.08),
-          transparent 32%
+          circle at 0% 100%,
+          rgba(139,234,111,.05),
+          transparent 38%
         ),
-        rgba(255,255,255,.03);
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.045),
+          rgba(255,255,255,.014)
+        );
+
+      box-shadow:
+        0 24px 70px rgba(0,0,0,.18);
+
+      animation:cardReveal .7s ease both;
     }
 
     .analysis h3{
@@ -619,14 +696,25 @@
     .grid-2{
       display:grid;
 
-      grid-template-columns:
-        repeat(2,minmax(0,1fr));
+      grid-template-columns:1fr;
 
       gap:18px;
     }
 
     .card{
       padding:24px;
+
+      background:
+        radial-gradient(
+          circle at 100% 0%,
+          rgba(46,199,241,.055),
+          transparent 28%
+        ),
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.04),
+          rgba(255,255,255,.014)
+        );
     }
 
     .card-title{
@@ -635,100 +723,6 @@
       font-size:18px;
       font-weight:900;
     }
-
-    .controls{
-      display:grid;
-    }
-
-    .control-row{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-
-      gap:16px;
-
-      padding:11px 0;
-
-      border-bottom:
-        1px solid
-        var(--line);
-    }
-
-    .control-row:last-child{
-      border-bottom:0;
-    }
-
-    .control-name{
-      display:flex;
-      align-items:center;
-
-      gap:9px;
-
-      font-weight:750;
-    }
-
-    .mini-icon{
-      width:25px;
-      height:25px;
-
-      display:grid;
-      place-items:center;
-
-      border-radius:8px;
-
-      color:var(--cyan);
-
-      background:
-        rgba(46,199,241,.08);
-
-      border:
-        1px solid
-        rgba(46,199,241,.12);
-
-      font-size:11px;
-      font-weight:900;
-    }
-
-    .on{
-      color:var(--green);
-
-      font-weight:900;
-    }
-
-    .off{
-      color:#657782;
-
-      font-weight:800;
-    }
-
-    .tag{
-      padding:6px 9px;
-
-      border-radius:9px;
-
-      font-size:12px;
-      font-weight:900;
-
-      background:
-        rgba(255,255,255,.055);
-    }
-
-    .tag.short{
-      color:var(--red);
-
-      background:
-        rgba(255,145,139,.08);
-    }
-
-    .tag.win{
-      color:var(--green);
-
-      background:
-        rgba(139,234,111,.08);
-    }
-
-
-    /* TABLE */
 
     .table-wrap{
       overflow:auto;
@@ -812,6 +806,41 @@
 
       background:
         rgba(255,255,255,.05);
+    }
+
+    .table-wrap{
+      background:rgba(255,255,255,.012);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.02);
+    }
+
+    tbody tr{
+      transition:
+        background .18s ease,
+        transform .18s ease;
+    }
+
+    tbody tr:hover{
+      background:rgba(46,199,241,.035);
+    }
+
+    .chart-card,
+    .brent-card,
+    .thinking,
+    .archive-card{
+      transition:
+        transform .22s ease,
+        border-color .22s ease,
+        box-shadow .22s ease;
+    }
+
+    .chart-card:hover,
+    .brent-card:hover,
+    .thinking:hover{
+      transform:translateY(-3px);
+      border-color:rgba(46,199,241,.25);
+      box-shadow:
+        0 24px 60px rgba(0,0,0,.18),
+        0 0 30px rgba(46,199,241,.035);
     }
 
 
@@ -1248,6 +1277,60 @@
 
 
     /* =========================
+       ANIMATIONS
+    ========================= */
+
+    @keyframes pageFade{
+      from{
+        opacity:0;
+      }
+      to{
+        opacity:1;
+      }
+    }
+
+    @keyframes navDrop{
+      from{
+        opacity:0;
+        transform:translateY(-10px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @keyframes cardReveal{
+      from{
+        opacity:0;
+        transform:translateY(14px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @keyframes glowFloat{
+      from{
+        transform:translate3d(-8px,0,0) scale(.98);
+      }
+      to{
+        transform:translate3d(10px,8px,0) scale(1.06);
+      }
+    }
+
+    @keyframes gradientShift{
+      from{
+        background-position:0% 50%;
+      }
+      to{
+        background-position:100% 50%;
+      }
+    }
+
+
+    /* =========================
        RESPONSIVE
     ========================= */
 
@@ -1317,6 +1400,16 @@
 
     }
 
+    @media(prefers-reduced-motion:reduce){
+      *,
+      *::before,
+      *::after{
+        animation-duration:.001ms !important;
+        animation-iteration-count:1 !important;
+        scroll-behavior:auto !important;
+      }
+    }
+
   </style>
 </head>
 
@@ -1327,60 +1420,61 @@
        NAVIGATION
   ========================== -->
 
- <nav class="site-nav">
-
-  <a
-    class="brand"
-    href="/"
-  >
-
-    <img
-      src="../../logo.png"
-      alt="vikundey.crypto"
-    >
-
-    <span>
-      vikundey.crypto
-    </span>
-
-  </a>
-
-
-  <div class="nav-links">
-
-    <a href="/space/">
-      Головна
-    </a>
-
-    <a href="/nfp/access/">
-      NFP
-    </a>
+  <nav class="site-nav">
 
     <a
-      class="active"
-      href="/cpi/access/"
+      class="brand"
+      href="/space/"
     >
-      CPI
+
+      <img
+        src="../../logo.png"
+        alt="vikundey.crypto"
+      >
+
+      <span>
+        vikundey.crypto
+      </span>
+
     </a>
 
-    <a href="/thoughts/access/">
-      Thoughts
-    </a>
 
-    <a href="/calculator/">
-      Calculator
-    </a>
+    <div class="nav-links">
 
-    <a
-      href="/profile/account/"
-      aria-label="Мій профіль"
-    >
-      👤
-    </a>
+      <a href="/space/">
+        Головна
+      </a>
 
-  </div>
+      <a href="/nfp/access/">
+        NFP
+      </a>
 
-</nav>
+      <a
+        class="active"
+        href="/cpi/access/"
+      >
+        CPI
+      </a>
+
+      <a href="/thoughts/access/">
+        Thoughts
+      </a>
+
+      <a href="/calculator/">
+        Calculator
+      </a>
+
+      <a
+        href="/profile/account/"
+        aria-label="Мій профіль"
+      >
+        👤
+      </a>
+
+    </div>
+
+  </nav>
+
 
   <main>
 
@@ -1744,232 +1838,6 @@
 
         <div class="grid-2">
 
-
-          <!-- CHECKLIST -->
-
-          <article class="panel card">
-
-            <h3 class="card-title">
-              Checklist
-            </h3>
-
-
-            <div class="controls">
-
-              <div class="control-row">
-
-                <span class="control-name">
-
-                  <span class="mini-icon">
-                    M
-                  </span>
-
-                  Manufacturing PMI
-
-                </span>
-
-                <span class="on">
-                  ON
-                </span>
-
-              </div>
-
-
-              <div class="control-row">
-
-                <span class="control-name">
-
-                  <span class="mini-icon">
-                    S
-                  </span>
-
-                  Services PMI
-
-                </span>
-
-                <span class="on">
-                  ON
-                </span>
-
-              </div>
-
-
-              <div class="control-row">
-
-                <span class="control-name">
-
-                  <span class="mini-icon">
-                    %
-                  </span>
-
-                  % for LONG
-
-                </span>
-
-                <span class="tag">
-                  50%
-                </span>
-
-              </div>
-
-
-              <div class="control-row">
-
-                <span class="control-name">
-
-                  <span class="mini-icon">
-                    B
-                  </span>
-
-                  BRENT PRICE
-
-                </span>
-
-                <span class="off">
-                  OFF
-                </span>
-
-              </div>
-
-
-              <div class="control-row">
-
-                <span class="control-name">
-
-                  <span class="mini-icon">
-                    C
-                  </span>
-
-                  Consumer Confidence
-
-                </span>
-
-                <span class="on">
-                  ON
-                </span>
-
-              </div>
-
-
-              <div class="control-row">
-
-                <span class="control-name">
-
-                  <span class="mini-icon">
-                    N
-                  </span>
-
-                  NFP
-
-                </span>
-
-                <span class="on">
-                  ON
-                </span>
-
-              </div>
-
-
-              <div class="control-row">
-
-                <span class="control-name">
-
-                  <span class="mini-icon">
-                    P
-                  </span>
-
-                  Predict
-
-                </span>
-
-                <span class="tag short">
-                  SHORT
-                </span>
-
-              </div>
-
-
-              <div class="control-row">
-
-                <span class="control-name">
-
-                  <span class="mini-icon">
-                    C
-                  </span>
-
-                  Previous CPI YoY
-
-                </span>
-
-                <span class="off">
-                  OFF
-                </span>
-
-              </div>
-
-
-              <div class="control-row">
-
-                <span class="control-name">
-
-                  <span class="mini-icon">
-                    R
-                  </span>
-
-                  Retail Sales
-
-                </span>
-
-                <span class="off">
-                  OFF
-                </span>
-
-              </div>
-
-
-              <div class="control-row">
-
-                <span class="control-name">
-
-                  <span class="mini-icon">
-                    U
-                  </span>
-
-                  Unemployment Rate
-
-                </span>
-
-                <span class="off">
-                  OFF
-                </span>
-
-              </div>
-
-
-              <div class="control-row">
-
-                <span class="control-name">
-
-                  <span class="mini-icon">
-                    W
-                  </span>
-
-                  Result
-
-                </span>
-
-                <span class="tag win">
-                  WIN
-                </span>
-
-              </div>
-
-            </div>
-
-          </article>
-
-
-          <!-- MACRO TABLE -->
 
           <article class="panel card">
 
