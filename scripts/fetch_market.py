@@ -15,6 +15,7 @@ if not API_KEY:
 
 SYMBOLS = {
     "EURUSD": "EUR/USD",
+    "GBPUSD": "GBP/USD",
     "XAUUSD": "XAU/USD",
     "BTC": "BTC/USD",
 }
