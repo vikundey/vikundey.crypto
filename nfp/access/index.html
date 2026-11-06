@@ -1,2873 +1,2249 @@
 <!DOCTYPE html>
 <html lang="uk">
-
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#081018">
+
+  <title>NFP USD | vikundey.crypto</title>
+
+  <style>
+    :root{
+      --bg:#081018;
+      --bg2:#0d1721;
+
+      --card:rgba(255,255,255,.055);
+      --card2:rgba(255,255,255,.085);
+
+      --text:#f4f8fb;
+      --muted:#9fb0bd;
+
+      --line:rgba(255,255,255,.10);
+
+      --cyan:#2ec7f1;
+      --green:#8bea6f;
+
+      --radius:28px;
+      --shadow:0 24px 70px rgba(0,0,0,.28);
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      margin:0;
+
+      color:var(--text);
+
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      background:
+        radial-gradient(
+          circle at 18% 4%,
+          rgba(46,199,241,.13),
+          transparent 24%
+        ),
+        radial-gradient(
+          circle at 86% 16%,
+          rgba(139,234,111,.12),
+          transparent 25%
+        ),
+        linear-gradient(
+          180deg,
+          #071018 0%,
+          #0a121b 45%,
+          #081018 100%
+        );
+
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+
+      position:fixed;
+      inset:0;
+
+      pointer-events:none;
+      z-index:-1;
+
+      background-image:
+        linear-gradient(
+          rgba(255,255,255,.015) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,.015) 1px,
+          transparent 1px
+        );
 
-<meta charset="UTF-8">
+      background-size:46px 46px;
 
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
->
+      mask-image:
+        linear-gradient(
+          to bottom,
+          black,
+          transparent 88%
+        );
+    }
 
-<title>NFP USD — Vikundey Space</title>
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
 
-<meta
-  name="description"
-  content="NFP USD — premium macro research, scenarios, labor-market signals and archive by vikundey.crypto."
->
+    .wrap{
+      width:min(
+        1180px,
+        calc(100% - 36px)
+      );
 
+      margin:auto;
+    }
 
-<style>
 
-:root{
+    /* NAV */
 
-  --bg:#04121c;
-  --bg2:#061722;
+    .site-nav{
+      position:sticky;
+      top:12px;
+      z-index:100;
 
-  --panel:#081d29;
-  --panel2:#0d2633;
+      width:min(
+        1180px,
+        calc(100% - 28px)
+      );
 
-  --cyan:#2ec7f1;
-  --green:#8bea6f;
+      margin:12px auto 0;
 
-  --red:#ff8f88;
-  --amber:#f1d979;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
 
-  --white:#ffffff;
+      gap:20px;
 
-  --text:#f6f9fb;
+      padding:12px 14px 12px 18px;
 
-  --muted:#a9bdc8;
-  --muted2:#758d99;
+      border:1px solid var(--line);
+      border-radius:22px;
 
-  --line:
-    rgba(190,225,240,.15);
+      background:rgba(7,16,24,.80);
 
-  --line2:
-    rgba(255,255,255,.10);
+      backdrop-filter:blur(16px);
 
-  --shadow:
-    0 30px 90px
-    rgba(0,0,0,.34);
+      box-shadow:
+        0 10px 40px rgba(0,0,0,.18);
+    }
 
-}
+    .site-brand{
+      display:flex;
+      align-items:center;
 
+      gap:10px;
 
-*{
-  box-sizing:border-box;
-}
+      font-weight:800;
 
+      letter-spacing:-.02em;
+    }
 
-html{
-  scroll-behavior:smooth;
-}
+    .site-brand-logo{
+      width:38px;
+      height:38px;
+      object-fit:contain;
+      display:block;
+      flex:0 0 38px;
+    }
 
+    .site-links{
+      display:flex;
+      gap:8px;
+    }
 
-html,
-body{
-  margin:0;
+    .site-links a{
+      padding:9px 12px;
 
-  min-height:100%;
-}
+      border-radius:12px;
 
+      color:#c4d0d8;
 
-body{
+      font-size:13px;
 
-  font-family:
-    Inter,
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
+      transition:.2s ease;
+    }
 
-  color:
-    var(--text);
+    .site-links a:hover{
+      color:#fff;
 
-  background:
+      background:
+        rgba(255,255,255,.08);
+    }
 
-    radial-gradient(
-      circle at 7% 5%,
-      rgba(46,199,241,.13),
-      transparent 27%
-    ),
+    .site-links a.active{
+      color:#071018;
 
-    radial-gradient(
-      circle at 93% 10%,
-      rgba(139,234,111,.08),
-      transparent 25%
-    ),
+      font-weight:800;
 
-    linear-gradient(
-      180deg,
-      #04121c,
-      #061722 55%,
-      #041019
-    );
+      background:
+        linear-gradient(
+          135deg,
+          var(--cyan),
+          var(--green)
+        );
+    }
 
-  overflow-x:hidden;
 
-}
+    /* HERO */
 
+    .hero{
+      padding:76px 0 64px;
+    }
 
-body::before{
+    .hero-grid{
+      display:grid;
 
-  content:"";
+      grid-template-columns:
+        1.15fr .85fr;
 
-  position:fixed;
+      gap:20px;
+    }
 
-  inset:0;
+    .hero-main,
+    .hero-side{
+      border:1px solid var(--line);
 
-  pointer-events:none;
+      border-radius:30px;
 
-  opacity:.8;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,.065),
+          rgba(255,255,255,.025)
+        );
 
-  background-image:
+      box-shadow:var(--shadow);
+    }
 
-    linear-gradient(
-      rgba(255,255,255,.018) 1px,
-      transparent 1px
-    ),
+    .hero-main{
+      padding:40px;
+    }
 
-    linear-gradient(
-      90deg,
-      rgba(255,255,255,.018) 1px,
-      transparent 1px
-    );
+    .hero-side{
+      position:relative;
 
-  background-size:
-    38px 38px;
+      overflow:hidden;
 
-}
+      padding:28px;
 
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
 
-a{
-  color:inherit;
+    .hero-side::after{
+      content:"";
 
-  text-decoration:none;
-}
+      position:absolute;
 
+      width:250px;
+      height:250px;
 
-.page{
+      right:-80px;
+      top:-80px;
 
-  width:
-    min(
-      1240px,
-      calc(100% - 28px)
-    );
+      border-radius:50%;
 
-  margin:auto;
+      background:var(--green);
 
-  padding:
-    18px 0 64px;
+      filter:blur(70px);
 
-  position:relative;
+      opacity:.13;
+    }
 
-  z-index:1;
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
 
-}
+      gap:8px;
 
+      padding:8px 12px;
 
-/* =========================================
-   NAV
-========================================= */
+      border:
+        1px solid rgba(46,199,241,.28);
 
-.topbar{
+      border-radius:999px;
 
-  display:flex;
+      background:
+        rgba(46,199,241,.07);
 
-  align-items:center;
+      color:#cceffc;
 
-  justify-content:space-between;
+      font-size:13px;
+    }
 
-  gap:20px;
+    .dot{
+      width:7px;
+      height:7px;
 
-  padding:
-    12px 18px;
+      border-radius:50%;
 
-  border:
-    1px solid var(--line);
+      background:var(--green);
 
-  border-radius:
-    25px;
+      box-shadow:
+        0 0 16px var(--green);
+    }
 
-  background:
-    rgba(3,16,25,.90);
+    h1{
+      margin:26px 0 18px;
 
-  backdrop-filter:
-    blur(18px);
+      font-size:
+        clamp(58px,8vw,105px);
 
-  box-shadow:
-    var(--shadow);
+      line-height:.88;
 
-  margin-bottom:
-    42px;
+      letter-spacing:-.06em;
+    }
 
-}
+    .accent{
+      background:
+        linear-gradient(
+          90deg,
+          var(--cyan),
+          var(--green)
+        );
 
+      -webkit-background-clip:text;
+      background-clip:text;
 
-.brand{
+      color:transparent;
+    }
 
-  display:flex;
+    .lead{
+      margin:0;
 
-  align-items:center;
+      max-width:680px;
 
-  gap:12px;
+      color:#b7c5cf;
 
-}
+      font-size:18px;
 
+      line-height:1.65;
+    }
 
-.brand img{
+    .kicker{
+      color:var(--cyan);
 
-  width:42px;
+      font-size:12px;
 
-  height:42px;
+      font-weight:800;
 
-  object-fit:contain;
+      text-transform:uppercase;
 
-}
+      letter-spacing:.16em;
+    }
 
+    .hero-value{
+      position:relative;
+      z-index:2;
 
-.brand-name{
+      margin-top:28px;
 
-  color:white;
+      font-size:
+        clamp(65px,8vw,92px);
 
-  font-size:18px;
+      font-weight:850;
 
-  font-weight:950;
+      letter-spacing:-.06em;
+    }
 
-}
+    .hero-side p{
+      position:relative;
+      z-index:2;
 
+      color:#b7c5cf;
 
-.nav{
+      line-height:1.65;
+    }
 
-  display:flex;
+    .hero-footer{
+      position:relative;
+      z-index:2;
 
-  align-items:center;
+      color:var(--muted);
 
-  gap:7px;
+      font-size:12px;
+    }
 
-}
 
+    /* SECTIONS */
 
-.nav a{
+    section{
+      padding:76px 0;
+    }
 
-  padding:
-    9px 13px;
+    .section-head{
+      display:grid;
 
-  border-radius:
-    13px;
+      grid-template-columns:
+        1fr 1fr;
 
-  color:white;
+      gap:30px;
 
-  font-size:13px;
+      align-items:end;
 
-  font-weight:850;
+      margin-bottom:30px;
+    }
 
-  transition:.2s ease;
+    h2{
+      margin:10px 0 0;
 
-}
+      font-size:
+        clamp(36px,5vw,60px);
 
+      line-height:1;
 
-.nav a:hover{
+      letter-spacing:-.045em;
+    }
 
-  background:
-    rgba(255,255,255,.06);
+    .section-head p{
+      margin:0;
 
-}
+      color:var(--muted);
 
+      font-size:16px;
 
-.nav .active{
+      line-height:1.65;
+    }
 
-  color:#041019;
 
-  background:
+    /* CARDS */
 
-    linear-gradient(
-      135deg,
-      var(--cyan),
-      var(--green)
-    );
+    .grid-3{
+      display:grid;
 
-  box-shadow:
+      grid-template-columns:
+        repeat(3,1fr);
 
-    0 10px 25px
-    rgba(46,199,241,.18);
+      gap:14px;
+    }
 
-}
+    .grid-2{
+      display:grid;
 
+      grid-template-columns:
+        repeat(2,1fr);
 
-/* =========================================
-   HERO
-========================================= */
+      gap:18px;
+    }
 
-.hero{
+    .card{
+      padding:24px;
 
-  display:grid;
+      border:1px solid var(--line);
 
-  grid-template-columns:
-    1.25fr .75fr;
+      border-radius:24px;
 
-  gap:18px;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,.058),
+          rgba(255,255,255,.025)
+        );
+    }
 
-}
+    .number{
+      width:38px;
+      height:38px;
 
+      margin-bottom:22px;
 
-.hero-main,
-.hero-side{
+      display:grid;
+      place-items:center;
 
-  min-height:
-    420px;
+      border-radius:12px;
 
-  border:
-    1px solid var(--line);
+      font-weight:800;
 
-  border-radius:
-    30px;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(46,199,241,.18),
+          rgba(139,234,111,.16)
+        );
+    }
 
-  overflow:hidden;
+    .card h3{
+      margin:0 0 12px;
 
-  position:relative;
+      font-size:22px;
+    }
 
-  box-shadow:
-    0 25px 70px
-    rgba(0,0,0,.21);
+    .card p{
+      margin:0;
 
-}
+      color:#afbdc7;
 
+      line-height:1.65;
+    }
 
-.hero-main{
 
-  padding:
-    46px 42px;
+    /* LOGIC */
 
-  background:
+    .logic{
+      display:grid;
 
-    radial-gradient(
-      circle at 92% 0%,
-      rgba(46,199,241,.13),
-      transparent 37%
-    ),
+      gap:10px;
+    }
 
-    linear-gradient(
-      135deg,
-      rgba(12,34,47,.98),
-      rgba(7,24,35,.98)
-    );
+    .logic-row{
+      display:flex;
 
-}
+      gap:14px;
 
+      align-items:center;
 
-.hero-side{
+      padding:16px;
 
-  padding:
-    42px 34px;
+      border:
+        1px solid rgba(255,255,255,.07);
 
-  display:flex;
+      border-radius:18px;
 
-  flex-direction:column;
+      background:
+        rgba(255,255,255,.035);
+    }
 
-  justify-content:space-between;
+    .logic-num{
+      width:34px;
+      height:34px;
 
-  background:
+      flex:0 0 auto;
 
-    radial-gradient(
-      circle at 100% 0%,
-      rgba(139,234,111,.12),
-      transparent 38%
-    ),
+      display:grid;
+      place-items:center;
 
-    linear-gradient(
-      145deg,
-      rgba(12,34,43,.98),
-      rgba(10,29,31,.98)
-    );
+      border-radius:10px;
 
-}
+      background:
+        rgba(46,199,241,.11);
 
+      color:var(--cyan);
 
-.eyebrow{
+      font-weight:900;
+    }
 
-  display:flex;
 
-  align-items:center;
+    /* ANALYSIS */
 
-  gap:9px;
+    .analysis{
+      padding:34px;
 
-  color:
-    #dff7ff;
+      border:
+        1px solid rgba(46,199,241,.18);
 
-  font-size:
-    11px;
+      border-radius:30px;
 
-  font-weight:
-    950;
+      background:
+        radial-gradient(
+          circle at 15% 10%,
+          rgba(46,199,241,.12),
+          transparent 32%
+        ),
+        radial-gradient(
+          circle at 90% 85%,
+          rgba(139,234,111,.10),
+          transparent 35%
+        ),
+        rgba(255,255,255,.035);
+    }
 
-  letter-spacing:
-    .12em;
+    .analysis h3{
+      margin:10px 0 18px;
 
-  text-transform:
-    uppercase;
+      font-size:
+        clamp(28px,4vw,42px);
 
-}
+      letter-spacing:-.03em;
+    }
 
+    .analysis p{
+      color:#becbd3;
 
-.eyebrow-dot{
+      line-height:1.75;
+    }
 
-  width:8px;
 
-  height:8px;
+    /* FOOTER */
 
-  border-radius:
-    50%;
+    footer{
+      display:flex;
 
-  background:
-    var(--green);
+      justify-content:space-between;
 
-  box-shadow:
-    0 0 14px
-    rgba(139,234,111,.75);
+      gap:20px;
 
-}
+      padding:36px 0 44px;
 
+      border-top:1px solid var(--line);
 
-.hero-title{
+      color:#95a6b1;
+    }
 
-  margin:
-    26px 0 18px;
+    footer strong{
+      color:#fff;
+    }
 
-  font-size:
-    clamp(
-      58px,
-      7.5vw,
-      96px
-    );
+    .tags{
+      color:#78909e;
 
-  line-height:
-    .88;
+      font-size:13px;
+    }
 
-  letter-spacing:
-    -.065em;
 
-}
+    /* MOBILE */
 
+    @media(max-width:900px){
 
-.hero-title .gradient{
+      .hero-grid,
+      .section-head{
+        grid-template-columns:1fr;
+      }
 
-  background:
+      .grid-3{
+        grid-template-columns:1fr;
+      }
+    }
 
-    linear-gradient(
-      90deg,
-      var(--cyan),
-      var(--green)
-    );
+    @media(max-width:650px){
 
-  -webkit-background-clip:
-    text;
+      .grid-2{
+        grid-template-columns:1fr;
+      }
 
-  background-clip:
-    text;
+      .site-brand span:last-child{
+        display:none;
+      }
 
-  color:
-    transparent;
+      .site-links{
+        gap:3px;
+      }
 
-}
+      .site-links a{
+        padding:8px 7px;
+      }
 
+      .hero-main{
+        padding:25px;
+      }
 
-.hero-copy{
+      section{
+        padding:55px 0;
+      }
 
-  max-width:
-    660px;
+      footer{
+        flex-direction:column;
+      }
+    }
 
-  margin:0;
+    /* =========================
+       CURRENT NFP ANALYSIS
+    ========================= */
 
-  color:
-    #b5c5ce;
+    .analysis-intro{
+      margin-bottom:22px;
+    }
 
-  font-size:
-    16px;
+    .analysis-summary{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:22px;
+    }
 
-  line-height:
-    1.7;
+    .analysis-stat{
+      padding:18px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:rgba(255,255,255,.035);
+    }
 
-}
+    .analysis-stat span{
+      display:block;
+      margin-bottom:7px;
+      color:var(--muted);
+      font-size:12px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
 
+    .analysis-stat strong{
+      font-size:26px;
+      letter-spacing:-.03em;
+    }
 
-.hero-flow{
+    .analysis-meta{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:14px;
+    }
 
-  margin-top:
-    30px;
+    .analysis-meta-card{
+      padding:16px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:rgba(255,255,255,.03);
+    }
 
-  display:flex;
+    .analysis-meta-card span{
+      display:block;
+      margin-bottom:7px;
+      color:var(--muted);
+      font-size:12px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
 
-  flex-wrap:wrap;
+    .analysis-meta-card strong{
+      font-size:18px;
+    }
 
-  align-items:center;
+    .analysis-meta-card .long-text{color:var(--green)}
+    .analysis-meta-card .short-text{color:#ff8f88}
 
-  gap:9px;
+    #signals,
+    #thinking,
+    #after{
+      padding-top:32px;
+      padding-bottom:32px;
+    }
 
-}
+    .section-note{
+      color:var(--muted);
+      font-size:14px;
+    }
 
+    .panel{
+      border:1px solid var(--line);
+      border-radius:24px;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,.055),
+          rgba(255,255,255,.025)
+        );
+      box-shadow:0 12px 40px rgba(0,0,0,.12);
+    }
 
-.flow-item{
+    .table-wrap{
+      overflow:auto;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:rgba(255,255,255,.02);
+    }
 
-  padding:
-    7px 10px;
+    table{
+      width:100%;
+      min-width:760px;
+      border-collapse:collapse;
+    }
 
-  border:
-    1px solid
-    rgba(255,255,255,.09);
+    th,
+    td{
+      padding:14px 15px;
+      border-bottom:1px solid var(--line);
+      text-align:left;
+      vertical-align:middle;
+    }
 
-  border-radius:
-    999px;
+    th{
+      color:var(--muted);
+      font-size:12px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.07em;
+      background:rgba(255,255,255,.025);
+    }
 
-  background:
-    rgba(255,255,255,.025);
+    td:first-child{
+      font-weight:800;
+    }
 
-  color:
-    #c7d4db;
+    tr:last-child td{
+      border-bottom:0;
+    }
 
-  font-size:
-    10px;
+    .dir{
+      display:inline-flex;
+      padding:6px 10px;
+      border-radius:9px;
+      font-size:12px;
+      font-weight:900;
+    }
 
-  font-weight:
-    850;
+    .dir.long{
+      color:var(--green);
+      background:rgba(139,234,111,.10);
+      border:1px solid rgba(139,234,111,.15);
+    }
 
-  letter-spacing:
-    .06em;
+    .dir.short{
+      color:#ff918b;
+      background:rgba(255,105,97,.10);
+      border:1px solid rgba(255,105,97,.14);
+    }
 
-}
+    .thinking-grid{
+      display:grid;
+      grid-template-columns:1.35fr .65fr;
+      gap:22px;
+    }
 
+    .thought-card{
+      position:relative;
+      overflow:hidden;
+      padding:26px;
+      border:1px solid var(--line);
+      border-radius:24px;
+      background:
+        radial-gradient(
+          circle at 12% 10%,
+          rgba(46,199,241,.10),
+          transparent 35%
+        ),
+        rgba(255,255,255,.035);
+      box-shadow:0 12px 40px rgba(0,0,0,.12);
+    }
 
-.flow-arrow{
+    .thought-card.side{
+      background:
+        radial-gradient(
+          circle at 88% 10%,
+          rgba(139,234,111,.10),
+          transparent 38%
+        ),
+        rgba(255,255,255,.035);
+    }
 
-  color:
-    rgba(255,255,255,.28);
+    .thought-card p{
+      position:relative;
+      z-index:1;
+      margin:0 0 16px;
+      color:#becbd3;
+      font-size:15px;
+      line-height:1.72;
+    }
 
-}
+    .thought-card p:last-child{
+      margin-bottom:0;
+    }
 
+    .scenario-box{
+      display:grid;
+      gap:10px;
+    }
 
-.side-kicker{
+    .scenario-row{
+      padding:14px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:rgba(255,255,255,.035);
+    }
 
-  color:
-    var(--cyan);
+    .scenario-k{
+      margin-bottom:5px;
+      color:var(--muted);
+      font-size:11px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
 
-  font-size:
-    10px;
+    .scenario-v{
+      font-size:18px;
+      font-weight:900;
+      letter-spacing:-.02em;
+    }
 
-  font-weight:
-    950;
+    .review-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+    }
 
-  letter-spacing:
-    .17em;
+    .review-card{
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:24px;
+      background:rgba(255,255,255,.035);
+      box-shadow:0 12px 40px rgba(0,0,0,.12);
+    }
 
-  text-transform:
-    uppercase;
+    .review-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding:18px 20px;
+      border-bottom:1px solid var(--line);
+    }
 
-}
+    .review-head h3{
+      margin:0;
+      font-size:22px;
+      letter-spacing:-.02em;
+    }
 
+    .frame{
+      padding:16px;
+      background:rgba(255,255,255,.02);
+    }
 
-.side-big{
+    .chart{
+      display:block;
+      width:100%;
+      height:auto;
+      border-radius:16px;
+      border:1px solid var(--line);
+      cursor:zoom-in;
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
 
-  margin-top:
-    28px;
+    .chart:hover{
+      transform:translateY(-2px);
+      box-shadow:0 14px 34px rgba(46,199,241,.12);
+    }
 
-  color:
-    var(--cyan);
+    .chart-meta{
+      padding:0 16px 18px;
+      color:var(--muted);
+      font-size:13px;
+    }
 
-  font-size:
-    clamp(
-      70px,
-      7vw,
-      96px
-    );
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:900;
+    }
 
-  font-weight:
-    950;
+    .pill.short{
+      color:#ff918b;
+      background:rgba(255,105,97,.10);
+    }
 
-  line-height:
-    .8;
+    .pill.long,
+    .pill.win{
+      color:var(--green);
+      background:rgba(139,234,111,.10);
+    }
 
-  letter-spacing:
-    -.06em;
+    .result-card{
+      margin-top:22px;
+      overflow:hidden;
+    }
 
-}
+    .result-grid{
+      display:grid;
+      grid-template-columns:.38fr .62fr;
+      gap:0;
+      align-items:stretch;
+    }
 
+    .result-copy{
+      padding:26px;
+      background:rgba(255,255,255,.025);
+    }
 
-.side-copy{
+    .result-copy h3{
+      margin:0 0 10px;
+      font-size:24px;
+      letter-spacing:-.03em;
+    }
 
-  margin-top:
-    28px;
+    .result-copy p{
+      margin:0;
+      color:var(--muted);
+    }
 
-  color:
-    #b0c0c8;
+    .result-img-wrap{
+      padding:16px;
+      border-left:1px solid var(--line);
+    }
 
-  font-size:
-    15px;
+    .wide-viewer{
+      display:none;
+      margin:0 0 22px;
+      border:1px solid rgba(46,199,241,.16);
+      border-radius:24px;
+      background:#071018;
+      box-shadow:0 18px 50px rgba(0,0,0,.30);
+      overflow:hidden;
+    }
 
-  line-height:
-    1.6;
+    .wide-viewer.open{
+      display:block;
+    }
 
-}
-
-
-.side-footer{
-
-  color:
-    var(--muted);
-
-  font-size:
-    11px;
-
-  font-weight:
-    750;
-
-}
-
-
-/* =========================================
-   SECTION
-========================================= */
-
-.section{
-
-  margin-top:
-    86px;
-
-}
-
-
-.section-head{
-
-  display:flex;
-
-  align-items:flex-end;
-
-  justify-content:space-between;
-
-  gap:30px;
-
-  margin-bottom:
-    26px;
-
-}
-
-
-.section-kicker{
-
-  color:
-    var(--cyan);
-
-  font-size:
-    10px;
-
-  font-weight:
-    950;
-
-  letter-spacing:
-    .16em;
-
-  text-transform:
-    uppercase;
-
-}
-
-
-.section-title{
-
-  margin:
-    9px 0 0;
-
-  color:white;
-
-  font-size:
-    clamp(
-      35px,
-      5vw,
-      52px
-    );
-
-  letter-spacing:
-    -.05em;
-
-  line-height:1;
-
-}
-
-
-.section-description{
-
-  max-width:
-    480px;
-
-  margin:0;
-
-  color:
-    var(--muted);
-
-  font-size:
-    14px;
-
-  line-height:
-    1.7;
-
-}
-
-
-/* =========================================
-   WHAT NFP SHOWS
-========================================= */
-
-.info-grid{
-
-  display:grid;
-
-  grid-template-columns:
-    repeat(3,1fr);
-
-  gap:14px;
-
-}
-
-
-.info-card{
-
-  min-height:
-    210px;
-
-  padding:
-    24px;
-
-  border:
-    1px solid var(--line);
-
-  border-radius:
-    23px;
-
-  background:
-
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,.045),
-      rgba(255,255,255,.014)
-    );
-
-  box-shadow:
-    0 18px 55px
-    rgba(0,0,0,.15);
-
-}
-
-
-.info-number{
-
-  width:38px;
-
-  height:38px;
-
-  display:grid;
-
-  place-items:center;
-
-  border-radius:
-    11px;
-
-  color:
-    var(--cyan);
-
-  background:
-    rgba(46,199,241,.10);
-
-  font-size:
-    14px;
-
-  font-weight:
-    950;
-
-}
-
-
-.info-title{
-
-  margin-top:
-    22px;
-
-  color:white;
-
-  font-size:
-    20px;
-
-  font-weight:
-    950;
-
-}
-
-
-.info-copy{
-
-  margin-top:
-    9px;
-
-  color:
-    var(--muted);
-
-  font-size:
-    13px;
-
-  line-height:
-    1.65;
-
-}
-
-
-/* =========================================
-   CURRENT ANALYSIS
-========================================= */
-
-.analysis-card{
-
-  padding:
-    30px;
-
-  border:
-    1px solid
-    rgba(46,199,241,.22);
-
-  border-radius:
-    28px;
-
-  background:
-
-    radial-gradient(
-      circle at 100% 0%,
-      rgba(46,199,241,.08),
-      transparent 35%
-    ),
-
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,.045),
-      rgba(255,255,255,.014)
-    );
-
-  box-shadow:
-    0 24px 70px
-    rgba(0,0,0,.18);
-
-}
-
-
-.analysis-top{
-
-  display:flex;
-
-  align-items:flex-start;
-
-  justify-content:space-between;
-
-  gap:20px;
-
-}
-
-
-.analysis-label{
-
-  color:
-    var(--green);
-
-  font-size:
-    10px;
-
-  font-weight:
-    950;
-
-  letter-spacing:
-    .15em;
-
-  text-transform:
-    uppercase;
-
-}
-
-
-.analysis-title{
-
-  margin:
-    9px 0 0;
-
-  font-size:
-    27px;
-
-  font-weight:
-    950;
-
-  letter-spacing:
-    -.035em;
-
-}
-
-
-.pre-fact-pill{
-
-  padding:
-    8px 12px;
-
-  border-radius:
-    999px;
-
-  color:
-    var(--cyan);
-
-  border:
-    1px solid
-    rgba(46,199,241,.17);
-
-  background:
-    rgba(46,199,241,.08);
-
-  font-size:
-    10px;
-
-  font-weight:
-    950;
-
-  letter-spacing:
-    .08em;
-
-}
-
-
-.analysis-values{
-
-  margin-top:
-    27px;
-
-  display:grid;
-
-  grid-template-columns:
-    repeat(3,1fr);
-
-  border:
-    1px solid var(--line2);
-
-  border-radius:
-    19px;
-
-  overflow:hidden;
-
-  background:
-    rgba(255,255,255,.018);
-
-}
-
-
-.analysis-value{
-
-  padding:
-    20px;
-
-}
-
-
-.analysis-value +
-.analysis-value{
-
-  border-left:
-    1px solid var(--line2);
-
-}
-
-
-.analysis-value span{
-
-  display:block;
-
-  color:
-    var(--muted2);
-
-  font-size:
-    9px;
-
-  font-weight:
-    950;
-
-  letter-spacing:
-    .13em;
-
-  text-transform:
-    uppercase;
-
-}
-
-
-.analysis-value strong{
-
-  display:block;
-
-  margin-top:
-    7px;
-
-  color:white;
-
-  font-size:
-    25px;
-
-  font-weight:
-    950;
-
-}
-
-
-.analysis-value
-.pending{
-
-  color:
-    var(--amber);
-
-}
-
-
-.analysis-signals{
-
-  display:grid;
-
-  grid-template-columns:
-    repeat(3,1fr);
-
-  gap:12px;
-
-  margin-top:
-    14px;
-
-}
-
-
-.signal-card{
-
-  padding:
-    17px;
-
-  border:
-    1px solid var(--line2);
-
-  border-radius:
-    17px;
-
-  background:
-    rgba(255,255,255,.018);
-
-}
-
-
-.signal-card span{
-
-  display:block;
-
-  color:
-    var(--muted2);
-
-  font-size:
-    9px;
-
-  font-weight:
-    950;
-
-  letter-spacing:
-    .12em;
-
-  text-transform:
-    uppercase;
-
-}
-
-
-.signal-card strong{
-
-  display:block;
-
-  margin-top:
-    7px;
-
-  color:white;
-
-  font-size:
-    18px;
-
-  font-weight:
-    950;
-
-}
-
-
-.signal-card
-.short strong{
-
-  color:
-    var(--red);
-
-}
-
-
-.signal-card
-.pending strong{
-
-  color:
-    var(--amber);
-
-}
-
-
-.signal-card
-.score strong{
-
-  color:
-    var(--cyan);
-
-}
-
-
-.analysis-link{
-
-  display:inline-flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  min-height:
-    47px;
-
-  margin-top:
-    22px;
-
-  padding:
-    0 18px;
-
-  border-radius:
-    14px;
-
-  color:#041019;
-
-  background:
-
-    linear-gradient(
-      135deg,
-      var(--cyan),
-      var(--green)
-    );
-
-  font-size:
-    12px;
-
-  font-weight:
-    950;
-
-  transition:.2s ease;
-
-}
-
-
-.analysis-link:hover{
-
-  transform:
-    translateY(-2px);
-
-}
-
-
-/* =========================================
-   ARCHIVE
-========================================= */
-
-.archive-grid{
-
-  display:grid;
-
-  grid-template-columns:
-    repeat(4,1fr);
-
-  gap:14px;
-
-}
-
-
-.archive-card{
-
-  min-height:
-    400px;
-
-  display:flex;
-
-  flex-direction:column;
-
-  padding:
-    22px;
-
-  border:
-    1px solid var(--line);
-
-  border-radius:
-    24px;
-
-  background:
-
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,.04),
-      rgba(255,255,255,.013)
-    );
-
-  transition:
-    transform .2s ease,
-    border-color .2s ease,
-    background .2s ease;
-
-}
-
-
-.archive-card:hover{
-
-  transform:
-    translateY(-4px);
-
-  border-color:
-    rgba(46,199,241,.40);
-
-  background:
-
-    linear-gradient(
-      145deg,
-      rgba(46,199,241,.055),
-      rgba(255,255,255,.016)
-    );
-
-}
-
-
-.archive-top{
-
-  display:flex;
-
-  align-items:flex-start;
-
-  justify-content:space-between;
-
-  gap:12px;
-
-}
-
-
-.archive-date{
-
-  color:white;
-
-  font-size:
-    36px;
-
-  font-weight:
-    950;
-
-  letter-spacing:
-    -.055em;
-
-  line-height:1;
-
-}
-
-
-.archive-year{
-
-  display:block;
-
-  margin-top:
-    7px;
-
-  color:
-    var(--muted);
-
-  font-size:
-    11px;
-
-  font-weight:
-    700;
-
-}
-
-
-.archive-status{
-
-  display:inline-flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  padding:
-    7px 10px;
-
-  border-radius:
-    999px;
-
-  font-size:
-    9px;
-
-  font-weight:
-    950;
-
-  letter-spacing:
-    .05em;
-
-}
-
-
-.archive-status.win{
-
-  color:
-    var(--green);
-
-  background:
-    rgba(139,234,111,.09);
-
-}
-
-
-.archive-status.lose{
-
-  color:
-    var(--red);
-
-  background:
-    rgba(255,143,136,.09);
-
-}
-
-
-.archive-status.skip{
-
-  color:
-    var(--cyan);
-
-  background:
-    rgba(46,199,241,.09);
-
-}
-
-
-.archive-status.pending{
-
-  color:
-    var(--amber);
-
-  background:
-    rgba(241,217,121,.09);
-
-}
-
-
-.archive-title{
-
-  margin:
-    28px 0 0;
-
-  color:white;
-
-  font-size:
-    21px;
-
-  font-weight:
-    950;
-
-  letter-spacing:
-    -.03em;
-
-}
-
-
-.archive-copy{
-
-  margin:
-    11px 0 0;
-
-  min-height:
-    92px;
-
-  color:
-    var(--muted);
-
-  font-size:
-    13px;
-
-  line-height:
-    1.65;
-
-}
-
-
-.archive-metrics{
-
-  display:grid;
-
-  grid-template-columns:
-    repeat(3,1fr);
-
-  gap:8px;
-
-  margin-top:auto;
-
-  padding-top:
-    20px;
-
-}
-
-
-.archive-metric{
-
-  padding-top:
-    12px;
-
-  border-top:
-    1px solid var(--line2);
-
-}
-
-
-.archive-metric span{
-
-  display:block;
-
-  color:
-    var(--muted2);
-
-  font-size:
-    8px;
-
-  font-weight:
-    950;
-
-  letter-spacing:
-    .07em;
-
-  text-transform:
-    uppercase;
-
-}
-
-
-.archive-metric strong{
-
-  display:block;
-
-  margin-top:
-    5px;
-
-  color:white;
-
-  font-size:
-    16px;
-
-  font-weight:
-    950;
-
-}
-
-
-.archive-open{
-
-  margin-top:
-    22px;
-
-  color:white;
-
-  font-size:
-    12px;
-
-  font-weight:
-    950;
-
-}
-
-
-.archive-open span{
-
-  color:
-    var(--cyan);
-
-  margin-left:
-    5px;
-
-  font-size:
-    17px;
-
-}
-
-
-/* =========================================
-   BOTTOM FLOW
-========================================= */
-
-.research-flow{
-
-  margin-top:
-    76px;
-
-  padding:
-    24px 28px;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:
-    space-between;
-
-  gap:24px;
-
-  border:
-    1px solid
-    rgba(46,199,241,.20);
-
-  border-radius:
-    24px;
-
-  background:
-
-    linear-gradient(
-      110deg,
-      rgba(46,199,241,.06),
-      rgba(255,255,255,.02),
-      rgba(139,234,111,.05)
-    );
-
-}
-
-
-.flow-copy-kicker{
-
-  color:
-    var(--cyan);
-
-  font-size:
-    9px;
-
-  font-weight:
-    950;
-
-  letter-spacing:
-    .16em;
-
-  text-transform:
-    uppercase;
-
-}
-
-
-.flow-copy-title{
-
-  margin-top:
-    6px;
-
-  color:white;
-
-  font-size:
-    20px;
-
-  font-weight:
-    950;
-
-}
-
-
-.flow-steps{
-
-  display:flex;
-
-  align-items:center;
-
-  flex-wrap:wrap;
-
-  gap:9px;
-
-}
-
-
-.flow-step{
-
-  color:
-    #d8e3e8;
-
-  font-size:
-    10px;
-
-  font-weight:
-    950;
-
-  letter-spacing:
-    .08em;
-
-}
-
-
-.flow-step:first-child{
-
-  color:
-    var(--cyan);
-
-}
-
-
-.flow-step:last-child{
-
-  color:
-    var(--green);
-
-}
-
-
-.flow-separator{
-
-  color:
-    rgba(255,255,255,.30);
-
-}
-
-
-/* =========================================
-   FOOTER
-========================================= */
-
-.footer{
-
-  margin-top:
-    34px;
-
-  padding-top:
-    22px;
-
-  border-top:
-    1px solid var(--line);
-
-  display:flex;
-
-  justify-content:
-    space-between;
-
-  gap:20px;
-
-  color:
-    var(--muted2);
-
-  font-size:
-    11px;
-
-  line-height:
-    1.6;
-
-}
-
-
-/* =========================================
-   RESPONSIVE
-========================================= */
-
-@media(max-width:1050px){
-
-  .hero{
-
-    grid-template-columns:
-      1fr;
-
-  }
-
-
-  .hero-main,
-  .hero-side{
-
-    min-height:
-      auto;
-
-  }
-
-
-  .hero-side{
-
-    min-height:
-      300px;
-
-  }
-
-
-  .archive-grid{
-
-    grid-template-columns:
-      repeat(2,1fr);
-
-  }
-
-}
-
-
-@media(max-width:760px){
-
-  .page{
-
-    width:
-      calc(100% - 16px);
-
-  }
-
-
-  .topbar{
-
-    flex-direction:
-      column;
-
-    align-items:
-      flex-start;
-
-  }
-
-
-  .nav{
-
-    width:100%;
-
-    overflow-x:auto;
-
-  }
-
-
-  .nav a{
-
-    white-space:nowrap;
-
-  }
-
-
-  .brand-name{
-
-    display:none;
-
-  }
-
-
-  .hero-main{
-
-    padding:
-      35px 24px;
-
-  }
-
-
-  .hero-side{
-
-    padding:
-      30px 24px;
-
-  }
-
-
-  .hero-title{
-
-    font-size:
-      62px;
-
-  }
-
-
-  .section{
-
-    margin-top:
-      62px;
-
-  }
-
-
-  .section-head{
-
-    align-items:flex-start;
-
-    flex-direction:
-      column;
-
-    gap:13px;
-
-  }
-
-
-  .info-grid{
-
-    grid-template-columns:
-      1fr;
-
-  }
-
-
-  .analysis-values{
-
-    grid-template-columns:
-      1fr;
-
-  }
-
-
-  .analysis-value +
-  .analysis-value{
-
-    border-left:none;
-
-    border-top:
-      1px solid var(--line2);
-
-  }
-
-
-  .analysis-signals{
-
-    grid-template-columns:
-      1fr;
-
-  }
-
-
-  .archive-grid{
-
-    grid-template-columns:
-      1fr;
-
-  }
-
-
-  .archive-copy{
-
-    min-height:0;
-
-  }
-
-
-  .research-flow{
-
-    flex-direction:
-      column;
-
-    align-items:
-      flex-start;
-
-  }
-
-
-  .footer{
-
-    flex-direction:
-      column;
-
-  }
-
-}
-
-</style>
-
+    .wide-viewer-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:14px 16px;
+      border-bottom:1px solid var(--line);
+      background:
+        linear-gradient(
+          90deg,
+          rgba(46,199,241,.07),
+          rgba(139,234,111,.06)
+        );
+    }
+
+    .wide-viewer-title{
+      font-weight:900;
+    }
+
+    .wide-viewer-close{
+      width:36px;
+      height:36px;
+      border:1px solid var(--line);
+      border-radius:11px;
+      background:rgba(255,255,255,.05);
+      color:var(--text);
+      font-size:22px;
+      cursor:pointer;
+    }
+
+    .wide-viewer-body{
+      padding:16px;
+    }
+
+    .wide-viewer-img{
+      display:block;
+      width:100%;
+      max-height:78vh;
+      object-fit:contain;
+      border-radius:16px;
+      border:1px solid var(--line);
+    }
+
+    @media(max-width:950px){
+      .thinking-grid,
+      .review-grid,
+      .result-grid{
+        grid-template-columns:1fr;
+      }
+
+      .result-img-wrap{
+        border-left:0;
+        border-top:1px solid var(--line);
+      }
+    }
+
+    @media(max-width:650px){
+      .analysis-summary,
+      .analysis-meta{
+        grid-template-columns:1fr;
+      }
+    }
+
+
+    /* =========================
+       NFP ARCHIVE
+    ========================= */
+
+    .archive-section{
+      padding-top:34px;
+      padding-bottom:10px;
+    }
+
+    .archive-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      margin-top:18px;
+    }
+
+    .archive-card{
+      position:relative;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      min-height:260px;
+      padding:24px;
+      border:1px solid var(--line);
+      border-radius:22px;
+      background:
+        radial-gradient(circle at 88% 12%,rgba(46,199,241,.10),transparent 34%),
+        rgba(255,255,255,.035);
+      transition:
+        transform .22s ease,
+        border-color .22s ease,
+        box-shadow .22s ease;
+    }
+
+    .archive-card:nth-child(2){
+      background:
+        radial-gradient(circle at 88% 12%,rgba(139,234,111,.09),transparent 34%),
+        rgba(255,255,255,.035);
+    }
+
+    .archive-card:nth-child(3){
+      background:
+        radial-gradient(circle at 88% 12%,rgba(46,199,241,.08),transparent 34%),
+        radial-gradient(circle at 10% 90%,rgba(139,234,111,.07),transparent 30%),
+        rgba(255,255,255,.035);
+    }
+
+    .archive-card:hover{
+      transform:translateY(-4px);
+      border-color:rgba(46,199,241,.28);
+      box-shadow:0 18px 45px rgba(0,0,0,.20);
+    }
+
+    .archive-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:14px;
+      margin-bottom:22px;
+    }
+
+    .archive-date{
+      font-size:28px;
+      font-weight:950;
+      letter-spacing:-.04em;
+    }
+
+    .archive-year{
+      display:block;
+      margin-top:2px;
+      color:var(--muted);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.10em;
+    }
+
+    .archive-status{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.06em;
+    }
+
+    .archive-status.win{
+      color:var(--green);
+      border:1px solid rgba(139,234,111,.16);
+      background:rgba(139,234,111,.10);
+    }
+
+    .archive-status.lose{
+      color:#ff8f88;
+      border:1px solid rgba(255,143,136,.15);
+      background:rgba(255,143,136,.10);
+    }
+
+    .archive-status.skip{
+      color:var(--cyan);
+      border:1px solid rgba(46,199,241,.16);
+      background:rgba(46,199,241,.09);
+    }
+
+    .archive-title{
+      margin:0 0 8px;
+      font-size:18px;
+      font-weight:900;
+      letter-spacing:-.02em;
+    }
+
+    .archive-copy{
+      margin:0 0 22px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    .archive-metrics{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:8px;
+      margin-top:auto;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+    }
+
+    .archive-metric span{
+      display:block;
+      margin-bottom:3px;
+      color:var(--muted);
+      font-size:10px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+
+    .archive-metric strong{
+      font-size:15px;
+      font-weight:900;
+    }
+
+    .archive-open{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin-top:20px;
+      color:#fff;
+      font-size:13px;
+      font-weight:850;
+    }
+
+    .archive-open::after{
+      content:"→";
+      color:var(--cyan);
+      transition:transform .2s ease;
+    }
+
+    .archive-card:hover .archive-open::after{
+      transform:translateX(4px);
+    }
+
+    @media(max-width:950px){
+      .archive-grid{
+        grid-template-columns:1fr;
+      }
+
+      .archive-card{
+        min-height:auto;
+      }
+    }
+
+
+    /* =========================
+       COMPACT LAYOUT FIX
+       Keeps analysis blocks inside the page width
+    ========================= */
+
+    .wrap{
+      width:min(1120px, calc(100% - 32px)) !important;
+      max-width:1120px !important;
+      margin-left:auto !important;
+      margin-right:auto !important;
+    }
+
+    section{
+      width:100%;
+      overflow:hidden;
+    }
+
+    .analysis{
+      width:100%;
+      max-width:100%;
+    }
+
+    .analysis .release-card,
+    .analysis .panel,
+    .analysis .thought-card,
+    .analysis .review-card,
+    .analysis .result-card{
+      max-width:100%;
+    }
+
+    .analysis-grid,
+    .thinking-grid,
+    .review-grid{
+      width:100%;
+      max-width:100%;
+    }
+
+    .table-wrap{
+      width:100%;
+      max-width:100%;
+      overflow-x:auto;
+    }
+
+    .review-grid{
+      gap:16px !important;
+    }
+
+    .review-card{
+      min-width:0;
+    }
+
+    .frame{
+      padding:12px !important;
+    }
+
+    .chart{
+      width:100% !important;
+      max-width:100% !important;
+      height:auto !important;
+      object-fit:contain;
+    }
+
+    .section-head{
+      width:100%;
+      max-width:100%;
+    }
+
+    .section-head h2{
+      font-size:clamp(30px,3vw,46px) !important;
+    }
+
+    .thought-card{
+      padding:22px !important;
+    }
+
+    .archive-grid{
+      gap:14px !important;
+    }
+
+    .archive-card{
+      padding:20px !important;
+      min-height:230px !important;
+    }
+
+    @media(max-width:1200px){
+      .wrap{
+        width:min(1040px, calc(100% - 28px)) !important;
+      }
+
+      .thinking-grid{
+        grid-template-columns:minmax(0,1.5fr) minmax(280px,.5fr) !important;
+      }
+
+      .review-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+      }
+    }
+
+    @media(max-width:900px){
+      .wrap{
+        width:min(100% - 24px, 760px) !important;
+      }
+
+      .thinking-grid,
+      .review-grid,
+      .analysis-grid,
+      .archive-grid{
+        grid-template-columns:1fr !important;
+      }
+
+      .section-head{
+        align-items:flex-start !important;
+        flex-direction:column !important;
+        gap:8px !important;
+      }
+    }
+
+
+    /* REAL WIDTH FIX: author sections are now inside .wrap */
+    .author-wrap{
+      width:min(1120px, calc(100% - 32px));
+      max-width:1120px;
+      margin:0 auto;
+    }
+
+    .author-wrap > section{
+      width:100%;
+      max-width:100%;
+      overflow:visible;
+    }
+
+    .author-wrap .panel,
+    .author-wrap .thought-card,
+    .author-wrap .review-card{
+      min-width:0;
+      max-width:100%;
+    }
+
+    .author-wrap .review-grid{
+      grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
+    .author-wrap .thinking-grid{
+      grid-template-columns:minmax(0,1.55fr) minmax(280px,.45fr);
+    }
+
+    .author-wrap .table-wrap{
+      max-width:100%;
+      overflow-x:auto;
+    }
+
+    @media(max-width:900px){
+      .author-wrap{
+        width:min(100% - 24px, 760px);
+      }
+
+      .author-wrap .review-grid,
+      .author-wrap .thinking-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+
+    /* NFP 04.09 PRE-FACT */
+    .pending-text{
+      color:#f1c66d !important;
+    }
+
+    .pill.pending,
+    .dir.pending{
+      color:#f1c66d;
+      border:1px solid rgba(241,198,109,.20);
+      background:rgba(241,198,109,.10);
+    }
+
+    .current-analysis-link{
+      display:inline-flex;
+      align-items:center;
+      margin-top:20px;
+      padding:10px 14px;
+      border:1px solid rgba(46,199,241,.18);
+      border-radius:12px;
+      color:var(--cyan);
+      background:rgba(46,199,241,.06);
+      font-size:13px;
+      font-weight:850;
+      transition:.2s ease;
+    }
+
+    .current-analysis-link:hover{
+      transform:translateY(-1px);
+      background:rgba(46,199,241,.10);
+    }
+
+    .chart-placeholder{
+      min-height:140px;
+      display:grid;
+      place-items:center;
+      padding:22px;
+      border:1px dashed rgba(255,255,255,.12);
+      border-radius:16px;
+      color:var(--muted);
+      background:rgba(255,255,255,.025);
+      text-align:center;
+      font-size:13px;
+    }
+
+  </style>
 </head>
-
 
 <body>
 
 
-<div class="page">
+  <!-- NAVIGATION -->
 
+  <nav class="site-nav">
 
-<!-- =========================================
-     NAV
-========================================= -->
-
-<header class="topbar">
-
-
-  <a
-    class="brand"
-    href="/"
-  >
-
-    <img
-      src="../../logo.png"
-      alt="vikundey.crypto"
+    <a
+      class="site-brand"
+      href="/"
     >
+      <img
+        class="site-brand-logo"
+        src="../logo.png"
+        alt="vikundey.crypto logo"
+      />
+      <span>vikundey.crypto</span>
+    </a>
 
-    <div class="brand-name">
-      vikundey.crypto
+
+    <div class="site-links">
+
+      <a href="/space/">
+        Головна
+      </a>
+
+      <a class="active" href="/nfp/access/">
+        NFP
+      </a>
+
+      <a href="/cpi/access/">
+        CPI
+      </a>
+
+      <a href="/thoughts/access/">
+        Thoughts
+      </a>
+
+      <a href="/calculator/">
+        Calculator
+      </a>
+
+      <a href="/profile/account/" aria-label="Мій профіль">
+        👤
+      </a>
+
     </div>
-
-  </a>
-
-
-  <nav class="nav">
-
-    <a href="/space/">
-      Головна
-    </a>
-
-    <a
-      href="/nfp/access/"
-      class="active"
-    >
-      NFP
-    </a>
-
-    <a href="/cpi/access/">
-      CPI
-    </a>
-
-    <a href="/thoughts/access/">
-      Thoughts
-    </a>
-
-    <a href="/calculator/">
-      Calculator
-    </a>
-
-    <a
-      href="/profile/account/"
-      aria-label="Мій профіль"
-    >
-      👤
-    </a>
 
   </nav>
 
 
-</header>
+  <main>
 
 
+    <!-- HERO -->
 
-<!-- =========================================
-     HERO
-========================================= -->
+    <section class="hero">
 
-<section class="hero">
+      <div class="wrap hero-grid">
 
+        <div class="hero-main">
 
-  <div class="hero-main">
-
-
-    <div class="eyebrow">
-
-      <span class="eyebrow-dot"></span>
-
-      NFP · USD · PREMIUM RESEARCH
-
-    </div>
-
-
-    <h1 class="hero-title">
-
-      Nonfarm
-
-      <br>
-
-      <span class="gradient">
-        Payrolls
-      </span>
-
-    </h1>
-
-
-    <p class="hero-copy">
-
-      Один із ключових показників ринку праці США.
-      Тут зібрані поточна підготовка до релізу,
-      макросигнали, авторські сценарії та історія
-      попередніх NFP-розглядів.
-
-    </p>
-
-
-    <div class="hero-flow">
-
-      <span class="flow-item">
-        Labor Market
-      </span>
-
-      <span class="flow-arrow">
-        →
-      </span>
-
-      <span class="flow-item">
-        Fed Expectations
-      </span>
-
-      <span class="flow-arrow">
-        →
-      </span>
-
-      <span class="flow-item">
-        Yields
-      </span>
-
-      <span class="flow-arrow">
-        →
-      </span>
-
-      <span class="flow-item">
-        USD
-      </span>
-
-      <span class="flow-arrow">
-        →
-      </span>
-
-      <span class="flow-item">
-        Risk Assets
-      </span>
-
-    </div>
-
-
-  </div>
-
-
-  <aside class="hero-side">
-
-
-    <div>
-
-      <div class="side-kicker">
-        Labor Market
-      </div>
-
-      <div class="side-big">
-        NFP
-      </div>
-
-      <p class="side-copy">
-
-        Робочі місця → ринок праці →
-        очікування щодо ФРС →
-        дохідності → USD →
-        глобальний risk sentiment.
-
-      </p>
-
-    </div>
-
-
-    <div class="side-footer">
-      Vikundey Space · Macro Research
-    </div>
-
-
-  </aside>
-
-
-</section>
-
-
-
-<!-- =========================================
-     WHAT NFP SHOWS
-========================================= -->
-
-<section class="section">
-
-
-  <div class="section-head">
-
-    <div>
-
-      <div class="section-kicker">
-        01 · NFP
-      </div>
-
-      <h2 class="section-title">
-        Що показує NFP
-      </h2>
-
-    </div>
-
-
-    <p class="section-description">
-
-      Nonfarm Payrolls показує зміну кількості
-      зайнятих у несільськогосподарських секторах США
-      та є одним із ключових індикаторів сили ринку праці.
-
-    </p>
-
-  </div>
-
-
-  <div class="info-grid">
-
-
-    <article class="info-card">
-
-      <div class="info-number">
-        1
-      </div>
-
-      <div class="info-title">
-        Employment
-      </div>
-
-      <p class="info-copy">
-
-        Показує зміну кількості робочих місць
-        у несільськогосподарському секторі США.
-
-      </p>
-
-    </article>
-
-
-    <article class="info-card">
-
-      <div class="info-number">
-        2
-      </div>
-
-      <div class="info-title">
-        Labor Market
-      </div>
-
-      <p class="info-copy">
-
-        Допомагає оцінити силу або слабкість
-        американського ринку праці та економічної активності.
-
-      </p>
-
-    </article>
-
-
-    <article class="info-card">
-
-      <div class="info-number">
-        3
-      </div>
-
-      <div class="info-title">
-        Fed Expectations
-      </div>
-
-      <p class="info-copy">
-
-        Результат NFP може змінювати очікування
-        щодо ставок ФРС, дохідностей та напрямку USD.
-
-      </p>
-
-    </article>
-
-
-  </div>
-
-
-</section>
-
-
-
-<!-- =========================================
-     CURRENT ANALYSIS
-========================================= -->
-
-<section class="section">
-
-
-  <div class="section-head">
-
-    <div>
-
-      <div class="section-kicker">
-        Vikundey Analysis
-      </div>
-
-      <h2 class="section-title">
-        Поточний аналіз NFP
-      </h2>
-
-    </div>
-
-
-    <p class="section-description">
-
-      Pre-Fact сигнали та авторська теза
-      для NFP USD 02.10.2026.
-
-    </p>
-
-  </div>
-
-
-  <article class="analysis-card">
-
-
-    <div class="analysis-top">
-
-      <div>
-
-        <div class="analysis-label">
-          NFP USD · 02.10.2026
-        </div>
-
-        <div class="analysis-title">
-          Ключові значення релізу
-        </div>
-
-      </div>
-
-
-      <div class="pre-fact-pill">
-        PRE-FACT
-      </div>
-
-    </div>
-
-
-    <div class="analysis-values">
-
-
-      <div class="analysis-value">
-
-        <span>
-          Previous
-        </span>
-
-        <strong>
-          162K
-        </strong>
-
-      </div>
-
-
-      <div class="analysis-value">
-
-        <span>
-          Forecast
-        </span>
-
-        <strong>
-          90K
-        </strong>
-
-      </div>
-
-
-      <div class="analysis-value">
-
-        <span>
-          Actual
-        </span>
-
-        <strong class="pending">
-          PENDING
-        </strong>
-
-      </div>
-
-
-    </div>
-
-
-    <div class="analysis-signals">
-
-
-      <div class="signal-card score">
-
-        <span>
-          Signal score
-        </span>
-
-        <strong>
-          17% LONG
-        </strong>
-
-      </div>
-
-
-      <div class="signal-card short">
-
-        <span>
-          Predict
-        </span>
-
-        <strong>
-          SHORT
-        </strong>
-
-      </div>
-
-
-      <div class="signal-card pending">
-
-        <span>
-          Release
-        </span>
-
-        <strong>
-          PRE-FACT
-        </strong>
-
-      </div>
-
-
-    </div>
-
-
-    <a
-      class="analysis-link"
-      href="/nfp/2026-10-02/"
-    >
-      Відкрити повний аналіз 02.10 →
-    </a>
-
-
-  </article>
-
-
-</section>
-
-
-
-<!-- =========================================
-     ARCHIVE
-========================================= -->
-
-<section
-  class="section"
-  id="archive"
->
-
-
-  <div class="section-head">
-
-    <div>
-
-      <div class="section-kicker">
-        Research History
-      </div>
-
-      <h2 class="section-title">
-        NFP Archive
-      </h2>
-
-    </div>
-
-
-    <p class="section-description">
-
-      Попередні NFP-релізи:
-      макросигнали, сценарії,
-      авторський контекст та
-      фактична реакція ринку.
-
-    </p>
-
-  </div>
-
-
-  <div class="archive-grid">
-
-
-
-    <!-- 04.09 -->
-
-    <a
-      class="archive-card"
-      href="/nfp/2026-09-04/"
-    >
-
-
-      <div class="archive-top">
-
-        <div>
-
-          <div class="archive-date">
-            04.09
+          <div class="eyebrow">
+            <span class="dot"></span>
+            NFP · USD
           </div>
 
-          <span class="archive-year">
-            2026 · NFP USD
-          </span>
+          <h1>
+            Nonfarm
+            <br>
+            <span class="accent">
+              Payrolls
+            </span>
+          </h1>
+
+          <p class="lead">
+
+            Один із головних звітів ринку праці США.
+            NFP допомагає оцінити темпи створення
+            робочих місць, силу економіки
+            та потенційні зміни у політиці ФРС.
+
+          </p>
 
         </div>
 
 
-        <span class="archive-status pending">
-          PRE-FACT
-        </span>
+        <div class="hero-side">
 
-      </div>
+          <div>
 
+            <div class="kicker">
+              Labor Market
+            </div>
 
-      <h3 class="archive-title">
-        NFP 04.09
-      </h3>
+            <div class="hero-value accent">
+              NFP
+            </div>
 
+            <p>
 
-      <p class="archive-copy">
+              Робочі місця → зарплати →
+              споживання → інфляція →
+              очікування щодо ставки ФРС →
+              USD → ризикові активи.
 
-        Pre-fact сигнали, Vikundey Thinking,
-        Challenger Job Cuts та сценарій
-        перед релізом.
+            </p>
 
-      </p>
-
-
-      <div class="archive-metrics">
-
-
-        <div class="archive-metric">
-
-          <span>
-            Previous
-          </span>
-
-          <strong>
-            -23K
-          </strong>
-
-        </div>
-
-
-        <div class="archive-metric">
-
-          <span>
-            Forecast
-          </span>
-
-          <strong>
-            56K
-          </strong>
-
-        </div>
-
-
-        <div class="archive-metric">
-
-          <span>
-            Actual
-          </span>
-
-          <strong>
-            PENDING
-          </strong>
-
-        </div>
-
-
-      </div>
-
-
-      <div class="archive-open">
-
-        Відкрити аналіз
-
-        <span>
-          →
-        </span>
-
-      </div>
-
-
-    </a>
-
-
-
-    <!-- 07.08 -->
-
-    <a
-      class="archive-card"
-      href="/nfp/2026-08-07/"
-    >
-
-
-      <div class="archive-top">
-
-        <div>
-
-          <div class="archive-date">
-            07.08
           </div>
 
-          <span class="archive-year">
-            2026 · NFP USD
-          </span>
-
-        </div>
-
-
-        <span class="archive-status lose">
-          LOSE
-        </span>
-
-      </div>
-
-
-      <h3 class="archive-title">
-        NFP 07.08
-      </h3>
-
-
-      <p class="archive-copy">
-
-        Несподіваний Actual -23K,
-        SHORT setup, пост-факт розбір
-        та аналіз реакції DXY / ринку.
-
-      </p>
-
-
-      <div class="archive-metrics">
-
-
-        <div class="archive-metric">
-
-          <span>
-            Previous
-          </span>
-
-          <strong>
-            57K
-          </strong>
-
-        </div>
-
-
-        <div class="archive-metric">
-
-          <span>
-            Forecast
-          </span>
-
-          <strong>
-            80K
-          </strong>
-
-        </div>
-
-
-        <div class="archive-metric">
-
-          <span>
-            Actual
-          </span>
-
-          <strong>
-            -23K
-          </strong>
-
-        </div>
-
-
-      </div>
-
-
-      <div class="archive-open">
-
-        Відкрити аналіз
-
-        <span>
-          →
-        </span>
-
-      </div>
-
-
-    </a>
-
-
-
-    <!-- 02.07 -->
-
-    <a
-      class="archive-card"
-      href="/nfp/2026-07-02/"
-    >
-
-
-      <div class="archive-top">
-
-        <div>
-
-          <div class="archive-date">
-            02.07
+          <div class="hero-footer">
+            vikundey.crypto · Macro Research
           </div>
 
-          <span class="archive-year">
-            2026 · NFP USD
-          </span>
-
         </div>
-
-
-        <span class="archive-status win">
-          WIN
-        </span>
 
       </div>
 
-
-      <h3 class="archive-title">
-        NFP 02.07
-      </h3>
+    </section>
 
 
-      <p class="archive-copy">
+    <!-- FUNDAMENTAL -->
 
-        33% LONG setup, incomplete services data,
-        сценарій 50/50, Vikundey Thinking
-        та фактичний NFP 57K.
+    <section>
 
-      </p>
+      <div class="wrap">
 
+        <div class="section-head">
 
-      <div class="archive-metrics">
+          <div>
+            <div class="kicker">
+              01 · NFP
+            </div>
 
-
-        <div class="archive-metric">
-
-          <span>
-            Previous
-          </span>
-
-          <strong>
-            172K
-          </strong>
-
-        </div>
-
-
-        <div class="archive-metric">
-
-          <span>
-            Forecast
-          </span>
-
-          <strong>
-            110K
-          </strong>
-
-        </div>
-
-
-        <div class="archive-metric">
-
-          <span>
-            Actual
-          </span>
-
-          <strong>
-            57K
-          </strong>
-
-        </div>
-
-
-      </div>
-
-
-      <div class="archive-open">
-
-        Відкрити аналіз
-
-        <span>
-          →
-        </span>
-
-      </div>
-
-
-    </a>
-
-
-
-    <!-- 05.06 -->
-
-    <a
-      class="archive-card"
-      href="/nfp/2026-06-05/"
-    >
-
-
-      <div class="archive-top">
-
-        <div>
-
-          <div class="archive-date">
-            05.06
+            <h2>
+              Що показує NFP
+            </h2>
           </div>
 
-          <span class="archive-year">
-            2026 · NFP USD
-          </span>
+          <p>
+
+            Nonfarm Payrolls показує зміну
+            кількості зайнятих у
+            несільськогосподарському секторі США.
+            Разом із безробіттям і зарплатами
+            звіт дає ширше розуміння стану
+            американського ринку праці.
+
+          </p>
 
         </div>
 
 
-        <span class="archive-status win">
-          WIN
-        </span>
+        <div class="grid-3">
+
+          <article class="card">
+
+            <div class="number">1</div>
+
+            <h3>
+              Nonfarm Payrolls
+            </h3>
+
+            <p>
+
+              Зміна кількості робочих місць
+              у несільськогосподарських
+              секторах економіки.
+
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="number">2</div>
+
+            <h3>
+              Unemployment Rate
+            </h3>
+
+            <p>
+
+              Показує частку робочої сили,
+              яка не має роботи
+              та активно її шукає.
+
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="number">3</div>
+
+            <h3>
+              Average Hourly Earnings
+            </h3>
+
+            <p>
+
+              Динаміка заробітних плат
+              допомагає оцінити потенційний
+              тиск на споживання та інфляцію.
+
+            </p>
+
+          </article>
+
+        </div>
 
       </div>
 
-
-      <h3 class="archive-title">
-        NFP 05.06
-      </h3>
+    </section>
 
 
-      <p class="archive-copy">
+    <!-- MARKET LOGIC -->
 
-        Pre-fact сценарій, Macro Signals,
-        Vikundey Thinking та Market Shift
-        після виходу NFP.
+    <section>
 
-      </p>
+      <div class="wrap">
 
+        <div class="section-head">
 
-      <div class="archive-metrics">
+          <div>
 
+            <div class="kicker">
+              02 · Market Logic
+            </div>
 
-        <div class="archive-metric">
+            <h2>
+              Як читати NFP
+            </h2>
 
-          <span>
-            Previous
-          </span>
+          </div>
 
-          <strong>
-            115K
-          </strong>
+          <p>
 
-        </div>
+            Важливо оцінювати не одне число,
+            а весь звіт та його відхилення
+            від ринкових очікувань.
 
-
-        <div class="archive-metric">
-
-          <span>
-            Forecast
-          </span>
-
-          <strong>
-            85K
-          </strong>
+          </p>
 
         </div>
 
 
-        <div class="archive-metric">
+        <div class="logic">
 
-          <span>
-            Actual
-          </span>
+          <div class="logic-row">
+            <div class="logic-num">1</div>
+            <div>
+              Виходять NFP, безробіття та зарплати.
+            </div>
+          </div>
 
-          <strong>
-            172K
-          </strong>
+          <div class="logic-row">
+            <div class="logic-num">2</div>
+            <div>
+              Фактичні значення порівнюються з прогнозом.
+            </div>
+          </div>
+
+          <div class="logic-row">
+            <div class="logic-num">3</div>
+            <div>
+              Ринок переглядає очікування щодо політики ФРС.
+            </div>
+          </div>
+
+          <div class="logic-row">
+            <div class="logic-num">4</div>
+            <div>
+              Реагують USD, облігації, акції, золото та криптовалюти.
+            </div>
+          </div>
 
         </div>
-
 
       </div>
 
+    </section>
 
-      <div class="archive-open">
 
-        Відкрити аналіз
+    
+    <!-- CURRENT AUTHOR ANALYSIS -->
 
-        <span>
-          →
-        </span>
+    <section id="current-analysis">
+
+      <div class="wrap">
+
+        <div class="section-head analysis-intro">
+
+          <div>
+            <div class="kicker">
+              Vikundey Analysis
+            </div>
+
+            <h2>
+              Поточний аналіз NFP
+            </h2>
+          </div>
+
+          <p>
+            Pre-Fact сигнали та авторська теза
+            для NFP USD 06.11.2026.
+          </p>
+
+        </div>
+
+        <div class="analysis">
+
+          <div class="kicker">
+            NFP USD · 06.11.2026 · PRE-FACT
+          </div>
+
+          <h3>
+            Ключові значення релізу
+          </h3>
+
+          <div class="analysis-summary">
+            <div class="analysis-stat">
+              <span>Previous</span>
+              <strong>29K</strong>
+            </div>
+
+            <div class="analysis-stat">
+              <span>Forecast</span>
+              <strong>65K</strong>
+            </div>
+
+            <div class="analysis-stat">
+              <span>Actual</span>
+              <strong class="pending-text">PENDING</strong>
+            </div>
+          </div>
+
+          <div class="analysis-meta">
+            <div class="analysis-meta-card">
+              <span>Signal score</span>
+              <strong>25% LONG</strong>
+            </div>
+
+            <div class="analysis-meta-card">
+              <span>Predict</span>
+              <strong class="short-text">SHORT</strong>
+            </div>
+
+            <div class="analysis-meta-card">
+              <span>Release</span>
+              <strong class="pending-text">PRE-FACT</strong>
+            </div>
+          </div>
+
+          <a
+            class="current-analysis-link"
+            href="/nfp/2026-11-05/"
+          >
+            Відкрити повний аналіз 06.11 →
+          </a>
+
+        </div>
 
       </div>
 
+    </section>
 
-    </a>
+<div class="wrap author-wrap">
+<section id="signals">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Pre-fact inputs</div>
+            <h2>Macro Signals</h2>
+          </div>
+          <div class="section-note">Previous / Forecast / Actual / Long-Short</div>
+        </div>
 
+        <article class="panel card">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Previous</th>
+                  <th>Forecast</th>
+                  <th>Actual</th>
+                  <th>Long / Short</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>IJC 1W</td><td>199</td><td>200</td><td>197</td><td><span class="dir short">SHORT</span></td></tr>
+                <tr><td>IJC 2W</td><td>198</td><td>200</td><td>199</td><td><span class="dir short">SHORT</span></td></tr>
+                <tr><td>IJC 3W</td><td>200</td><td>200</td><td>194</td><td><span class="dir short">SHORT</span></td></tr>
+                <tr><td>IJC 4W</td><td>195</td><td>199</td><td>194</td><td><span class="dir short">SHORT</span></td></tr>
+                <tr><td>ISM PMI Manufacturing</td><td>54.5</td><td>54.6</td><td>55.5</td><td><span class="dir short">SHORT</span></td></tr>
+                <tr><td>ISM Manufacturing Employment</td><td>52.7</td><td>—</td><td>52.4</td><td><span class="dir long">LONG</span></td></tr>
+                <tr><td>ISM Manufacturing New Orders</td><td>55.3</td><td>—</td><td>55.5</td><td><span class="dir short">SHORT</span></td></tr>
+                <tr><td>Michigan Consumer Sentiment</td><td>48.1</td><td>46.3</td><td>48</td><td><span class="dir short">SHORT</span></td></tr>
+                <tr><td>ISM Non-Manufacturing PMI</td><td>54.9</td><td>54.8</td><td>54.5</td><td><span class="dir long">LONG</span></td></tr>
+                <tr><td>ISM Services Employment</td><td>50.1</td><td>—</td><td>51.4</td><td><span class="dir short">SHORT</span></td></tr>
+                <tr><td>ISM Services New Orders</td><td>59.8</td><td>—</td><td>55.9</td><td><span class="dir long">LONG</span></td></tr>
+                <tr><td>Previous NFP</td><td>133</td><td>90</td><td>29</td><td><span class="dir long">LONG</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+</div>
 
-  </div>
+<div class="wrap author-wrap">
+<section id="thinking">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Author view</div>
+            <h2>Vikundey Thinking</h2>
+          </div>
+          <div class="section-note">Pre-Fact thesis</div>
+        </div>
 
+        <div class="thinking-grid">
+          <article class="thought-card">
+            <p><strong>Почнемо із ринку праці,</strong> цього разу значення “заштопорились”, ніби в очікуванні чогось. Адже, по суті значних рухів не відбулось, і зараз ми їх розглянемо конкретно.</p>
 
-</section>
+            <p><strong>Щодо IJC,</strong> місяць закрили легким зниженням, це являється позитивом для долару, хоч і мінімальним. Я би це пояснила так, що хто шукав роботу — знайшов, новоприбулих немає — звільнень мало, тож потік нових безробітніх людей стає меншим.</p>
 
+            <p>Тепер візьмемо <strong>Challenger Job Cuts</strong>, ще один показник вказує на умовний штиль на ринку праці. Бо кричущих змін зниження/підвищення НЕ відбулось. Одним словом, люди зберігаються на своїх робочих місцях.</p>
 
+            <p><strong>Узагальнюючи,</strong> хоч сильних змін не відбулось, але наявні мінімальні рухи ідентифіковую як позитивний фон на ринку праці, що підтримує зростання NFP.</p>
 
-<!-- =========================================
-     RESEARCH FLOW
-========================================= -->
+            <p><strong>Переходимо до бізнес-сфери:</strong></p>
 
-<section class="research-flow">
+            <p>Почнемо з сфери виробництва, загальний показник показав зростання, що свідчить про розвиток/зростання кондицій ділової активності. По новим замовленням отримали мінімальне зростання, яке більше говорить про їх стабільність, а не про новий приплив попиту. Говорячи про зайнятість, то є мінімальне зниження, скоріше це пішла як оптимізація бізнесу, тобто лишили ту кіл-сть, яка спокійно може обробити той попит, який зараз є.</p>
 
+            <p>Загально розуміємо, що є стабільність попиту та оптимізація робочої сили бізнесу, тож я би тут говорила за обмежений позитив для долару.</p>
 
-  <div>
+            <p>Щодо сфери послуг, тут ситуація трошки гірше, ніж у виробництва. Загальний показник дав зниження, але не значне, тому це НЕ критичний негатив для долару.</p>
 
-    <div class="flow-copy-kicker">
-      Vikundey Framework
-    </div>
+            <p>Говорячи про нові замовлення, маємо сильний відкат, а в зайнятості зростання — правда, звучить як нонсенс та не логічно. Але допускаю дві причини: <strong>1 — lagging effect</strong> (тобто, нові дані затримуються і ринок їх не отримав); <strong>2 — Labor Hoarding</strong> (простими словами, компанії свідомо утримують штат і схиляються до тимчасовості цього спаду попиту).</p>
 
-    <div class="flow-copy-title">
-      Від макроданих до ринкового сценарію
-    </div>
+            <p>Я не можу тут сказати за сильний позитив — не будемо шукати того, чого немає. Проте, ситуація не виглядає печально, але все ж таки з негативом для долару.</p>
 
-  </div>
+            <p><strong>Отже,</strong> факторів для сильного зростання NFP — немає, але й ситуація не печальна! Тому думаю, що побачимо помірне/легке зростання, через стабільність даних на ринку праці (сильних позитив/негатив рухів не було) + позаминулого місяця теж мали відносно сильні значення на ринку праці, тож думаю це згладить сьогоднішню цифру.</p>
 
+            <p>При відпрацюванні сценарію (легке зростання), по єврику очікую шортової реакції. Але не виключаю можливості хелікоптеру, як мінімум на фоні вчорашнього відкату :))</p>
+          </article>
 
-  <div class="flow-steps">
+          <aside class="thought-card side">
+            <div class="scenario-box">
+              <div class="scenario-row">
+                <div class="scenario-k">Labor market</div>
+                <div class="scenario-v">Мінімальний позитив</div>
+              </div>
 
-    <span class="flow-step">
-      DATA
-    </span>
+              <div class="scenario-row">
+                <div class="scenario-k">Manufacturing</div>
+                <div class="scenario-v">Обмежений позитив</div>
+              </div>
 
-    <span class="flow-separator">
-      →
-    </span>
+              <div class="scenario-row">
+                <div class="scenario-k">Services</div>
+                <div class="scenario-v">Помірний негатив</div>
+              </div>
 
-    <span class="flow-step">
-      CONTEXT
-    </span>
+              <div class="scenario-row">
+                <div class="scenario-k">NFP expectation</div>
+                <div class="scenario-v">Помірне / легке зростання</div>
+              </div>
 
-    <span class="flow-separator">
-      →
-    </span>
-
-    <span class="flow-step">
-      SCENARIO
-    </span>
-
-    <span class="flow-separator">
-      →
-    </span>
-
-    <span class="flow-step">
-      DECISION
-    </span>
-
-  </div>
-
-
-</section>
-
-
-
-<footer class="footer">
-
-
-  <span>
-    © 2026 vikundey.crypto · Vikundey Space
-  </span>
-
-
-  <span>
-    Освітня інформація · Не є індивідуальною
-    інвестиційною рекомендацією.
-  </span>
-
-
-</footer>
-
-
+              <div class="scenario-row">
+                <div class="scenario-k">EURUSD reaction</div>
+                <div class="scenario-v">SHORT · Helicopter possible</div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
 </div>
 
 
-</body>
 
+</main>
+
+
+    <!-- NFP ARCHIVE -->
+
+    <section class="archive-section" id="archive">
+
+      <div class="wrap">
+
+        <div class="section-head">
+
+          <div>
+            <div class="kicker">
+              Research History
+            </div>
+
+            <h2>
+              NFP Archive
+            </h2>
+          </div>
+
+          <p>
+            Історія попередніх NFP-релізів:
+            сигнали, очікування, авторський сценарій
+            та фактична реакція ринку.
+          </p>
+
+        </div>
+
+
+        <div class="archive-grid">
+
+          <a
+            class="archive-card"
+            href="/nfp/2026-10-02/"
+          >
+            <div class="archive-top">
+              <div>
+                <div class="archive-date">02.10</div>
+                <span class="archive-year">2026 · NFP USD</span>
+              </div>
+
+              <span class="archive-status skip">
+                RELEASED
+              </span>
+            </div>
+
+            <h3 class="archive-title">
+              NFP 02.10
+            </h3>
+
+            <p class="archive-copy">
+              Pre-fact сценарій із 17% LONG та SHORT expectation.
+              Фактичний NFP — 29K.
+            </p>
+
+            <div class="archive-metrics">
+              <div class="archive-metric">
+                <span>Previous</span>
+                <strong>162K</strong>
+              </div>
+
+              <div class="archive-metric">
+                <span>Forecast</span>
+                <strong>90K</strong>
+              </div>
+
+              <div class="archive-metric">
+                <span>Actual</span>
+                <strong>29K</strong>
+              </div>
+            </div>
+
+            <div class="archive-open">
+              Відкрити аналіз
+            </div>
+          </a>
+
+          <a
+            class="archive-card"
+            href="https://vikundey.github.io/vikundey.crypto/nfp/2026-09-04/index.html"
+          >
+            <div class="archive-top">
+              <div>
+                <div class="archive-date">04.09</div>
+                <span class="archive-year">2026 · NFP USD</span>
+              </div>
+
+              <span class="archive-status skip">
+                PRE-FACT
+              </span>
+            </div>
+
+            <h3 class="archive-title">
+              NFP 04.09
+            </h3>
+
+            <p class="archive-copy">
+              Pre-fact сигнали, Vikundey Thinking,
+              Challenger Job Cuts та сценарій перед релізом.
+            </p>
+
+            <div class="archive-metrics">
+              <div class="archive-metric">
+                <span>Previous</span>
+                <strong>-23K</strong>
+              </div>
+
+              <div class="archive-metric">
+                <span>Forecast</span>
+                <strong>56K</strong>
+              </div>
+
+              <div class="archive-metric">
+                <span>Actual</span>
+                <strong>PENDING</strong>
+              </div>
+            </div>
+
+            <div class="archive-open">
+              Відкрити аналіз
+            </div>
+          </a>
+
+
+
+          <a
+            class="archive-card"
+            href="https://vikundey.github.io/vikundey.crypto/nfp/2026-06-05/index.html"
+          >
+            <div class="archive-top">
+              <div>
+                <div class="archive-date">05.06</div>
+                <span class="archive-year">2026 · NFP USD</span>
+              </div>
+
+              <span class="archive-status win">
+                WIN
+              </span>
+            </div>
+
+            <h3 class="archive-title">
+              NFP 05.06
+            </h3>
+
+            <p class="archive-copy">
+              Pre-fact сценарій, Macro Signals,
+              Vikundey Thinking та Market Shift
+              після виходу NFP.
+            </p>
+
+            <div class="archive-metrics">
+              <div class="archive-metric">
+                <span>Previous</span>
+                <strong>115K</strong>
+              </div>
+
+              <div class="archive-metric">
+                <span>Forecast</span>
+                <strong>85K</strong>
+              </div>
+
+              <div class="archive-metric">
+                <span>Actual</span>
+                <strong>172K</strong>
+              </div>
+            </div>
+
+            <div class="archive-open">
+              Відкрити аналіз
+            </div>
+          </a>
+
+
+          <a
+            class="archive-card"
+            href="https://vikundey.github.io/vikundey.crypto/nfp/2026-07-02/index.html"
+          >
+            <div class="archive-top">
+              <div>
+                <div class="archive-date">02.07</div>
+                <span class="archive-year">2026 · NFP USD</span>
+              </div>
+
+              <span class="archive-status skip">
+                SKIP
+              </span>
+            </div>
+
+            <h3 class="archive-title">
+              NFP 02.07
+            </h3>
+
+            <p class="archive-copy">
+              Реліз зі слабшою інформаційною базою:
+              missing services data, сценарій 50/50
+              та окремий контекст по EUR / DXY.
+            </p>
+
+            <div class="archive-metrics">
+              <div class="archive-metric">
+                <span>Scenario</span>
+                <strong>95-109K</strong>
+              </div>
+
+              <div class="archive-metric">
+                <span>EUR</span>
+                <strong>LONG</strong>
+              </div>
+
+              <div class="archive-metric">
+                <span>DXY</span>
+                <strong>SHORT</strong>
+              </div>
+            </div>
+
+            <div class="archive-open">
+              Відкрити аналіз
+            </div>
+          </a>
+
+
+          <a
+            class="archive-card"
+            href="https://vikundey.github.io/vikundey.crypto/nfp/2026-08-07/index.html"
+          >
+            <div class="archive-top">
+              <div>
+                <div class="archive-date">07.08</div>
+                <span class="archive-year">2026 · NFP USD</span>
+              </div>
+
+              <span class="archive-status lose">
+                LOSE
+              </span>
+            </div>
+
+            <h3 class="archive-title">
+              NFP 07.08
+            </h3>
+
+            <p class="archive-copy">
+              Несподіваний Actual -23K,
+              SHORT setup, пост-факт розбір
+              та аналіз реакції DXY / ринку.
+            </p>
+
+            <div class="archive-metrics">
+              <div class="archive-metric">
+                <span>Previous</span>
+                <strong>57K</strong>
+              </div>
+
+              <div class="archive-metric">
+                <span>Forecast</span>
+                <strong>80K</strong>
+              </div>
+
+              <div class="archive-metric">
+                <span>Actual</span>
+                <strong>-23K</strong>
+              </div>
+            </div>
+
+            <div class="archive-open">
+              Відкрити аналіз
+            </div>
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+
+  <footer class="wrap">
+
+    <div>
+
+      <strong>
+        vikundey.crypto
+      </strong>
+
+      <br>
+
+      <span class="tags">
+        #algo #macro
+      </span>
+
+    </div>
+
+    <div>
+      NFP · Macro Research
+    </div>
+
+  </footer>
+
+
+  <script>
+    const viewer = document.getElementById('viewer');
+    const viewerImg = document.getElementById('viewerImg');
+    const viewerTitle = document.getElementById('viewerTitle');
+    const closeBtn = document.getElementById('viewerClose');
+    document.querySelectorAll('.zoomable').forEach(img => img.addEventListener('click', () => {
+      viewerImg.src = img.src; viewerTitle.textContent = img.dataset.title || img.alt; viewer.classList.add('open');
+      viewer.scrollIntoView({behavior:'smooth', block:'start'});
+    }));
+    closeBtn.addEventListener('click', () => viewer.classList.remove('open'));
+  </script>
+
+</body>
 </html>
