@@ -688,7 +688,164 @@
       display:block;
       flex:0 0 38px;
     }
-</style>
+
+    /* ==============================================
+       VIKUNDEY SPACE — SOFT AMBIENT MOTION
+       Visual-only enhancements. No content or API changes.
+       ============================================== */
+    body{
+      background-size:145% 145%,145% 145%,100% 100%;
+      animation:ambientBackground 24s ease-in-out infinite alternate;
+    }
+    @keyframes ambientBackground{
+      0%{background-position:0% 0%,100% 10%,center}
+      50%{background-position:18% 12%,82% 22%,center}
+      100%{background-position:7% 28%,94% 0%,center}
+    }
+
+    .topbar{
+      transition:border-color .45s ease,box-shadow .45s ease;
+    }
+    .topbar:hover{
+      border-color:rgba(46,199,241,.22);
+      box-shadow:0 14px 42px rgba(0,0,0,.22),0 0 30px rgba(46,199,241,.035);
+    }
+    .archive-bar{
+      background-size:200% 100%;
+      animation:archiveFlow 13s ease-in-out infinite alternate;
+    }
+    @keyframes archiveFlow{
+      from{background-position:0% 50%}
+      to{background-position:100% 50%}
+    }
+
+    .panel,.thought-card,.review-card{
+      transition:transform .45s cubic-bezier(.2,.7,.2,1),
+        border-color .45s ease,box-shadow .45s ease;
+    }
+    .panel:hover,.thought-card:hover,.review-card:hover{
+      transform:translateY(-3px);
+      border-color:rgba(46,199,241,.22);
+      box-shadow:0 28px 76px rgba(0,0,0,.30),0 0 42px rgba(46,199,241,.045);
+    }
+    .hero-main::before{
+      animation:cyanOrbit 14s ease-in-out infinite alternate;
+    }
+    .hero-main::after{
+      animation:greenOrbit 17s ease-in-out infinite alternate;
+    }
+    @keyframes cyanOrbit{
+      from{transform:translate(-12px,12px) scale(.90);opacity:.65}
+      to{transform:translate(38px,-25px) scale(1.22);opacity:1}
+    }
+    @keyframes greenOrbit{
+      from{transform:translate(12px,-8px) scale(.92);opacity:.60}
+      to{transform:translate(-40px,35px) scale(1.24);opacity:1}
+    }
+
+    .accent{
+      background-size:210% 100%;
+      animation:accentShift 10s ease-in-out infinite alternate;
+    }
+    @keyframes accentShift{
+      from{background-position:0% 50%}
+      to{background-position:100% 50%}
+    }
+
+    .hero-side{
+      background-size:150% 150%,100% 100%;
+      animation:sideAmbient 17s ease-in-out infinite alternate;
+    }
+    @keyframes sideAmbient{
+      from{background-position:100% 0%,center}
+      to{background-position:48% 45%,center}
+    }
+    .meter>span{
+      position:relative;
+      overflow:hidden;
+      animation:meterGlow 5s ease-in-out infinite;
+    }
+    .meter>span::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(100deg,transparent 10%,rgba(255,255,255,.48) 50%,transparent 90%);
+      transform:translateX(-125%);
+      animation:meterSheen 6s ease-in-out infinite;
+    }
+    @keyframes meterGlow{
+      0%,100%{box-shadow:0 0 10px rgba(46,199,241,.18)}
+      50%{box-shadow:0 0 20px rgba(139,234,111,.35)}
+    }
+    @keyframes meterSheen{
+      0%,30%{transform:translateX(-125%)}
+      75%,100%{transform:translateX(125%)}
+    }
+    .stat,.mini-card,.scenario-row{
+      transition:background .35s ease,border-color .35s ease,transform .35s ease;
+    }
+    .stat:hover,.mini-card:hover,.scenario-row:hover{
+      background:rgba(46,199,241,.055);
+    }
+    .mini-card:hover,.scenario-row:hover{
+      border-color:rgba(139,234,111,.24);
+      transform:translateY(-2px);
+    }
+    .table-wrap tbody tr{
+      transition:background-color .3s ease;
+    }
+    .table-wrap tbody tr:hover{
+      background:rgba(46,199,241,.055);
+    }
+    .thought-card::before{
+      content:"";
+      position:absolute;
+      width:350px;
+      height:350px;
+      border-radius:50%;
+      left:-180px;
+      top:-190px;
+      pointer-events:none;
+      background:radial-gradient(circle,rgba(46,199,241,.095),transparent 70%);
+      animation:thoughtAura 18s ease-in-out infinite alternate;
+    }
+    .thought-card.side::before{
+      left:auto;
+      right:-180px;
+      background:radial-gradient(circle,rgba(139,234,111,.10),transparent 70%);
+      animation-duration:20s;
+    }
+    @keyframes thoughtAura{
+      from{transform:translate(0,0) scale(.85);opacity:.55}
+      to{transform:translate(95px,90px) scale(1.35);opacity:1}
+    }
+    .thought-card > *{position:relative;z-index:1}
+    .back-link{
+      transition:background .3s ease,border-color .3s ease,transform .3s ease;
+    }
+    .back-link:hover{
+      background:rgba(46,199,241,.085);
+      border-color:rgba(46,199,241,.28);
+      transform:translateX(-2px);
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      body,.archive-bar,.hero-main::before,.hero-main::after,
+      .accent,.hero-side,.meter>span,.meter>span::after,.thought-card::before{
+        animation:none!important;
+      }
+      .panel,.thought-card,.review-card,.topbar,.stat,.mini-card,
+      .scenario-row,.table-wrap tbody tr,.back-link,.chart{
+        transition:none!important;
+      }
+      .panel:hover,.thought-card:hover,.review-card:hover,
+      .mini-card:hover,.scenario-row:hover,.back-link:hover,.chart:hover{
+        transform:none!important;
+      }
+    }
+
+  </style>
 </head>
 <body>
   <div class="shell">
