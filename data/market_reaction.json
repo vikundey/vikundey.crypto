@@ -1,38 +1,38 @@
 {
   "status": "ok",
-  "updated_at": "2026-11-06T13:06:13.438406+02:00",
+  "updated_at": "2026-11-06T19:57:47.295264+02:00",
   "timezone": "Europe/Kyiv",
   "event": {
-    "name": "Congressional Elections",
+    "name": "Average Hourly Earnings m/m",
     "impact": "high",
-    "released_at": "2026-11-03T17:16:00+02:00"
+    "released_at": "2026-11-06T15:30:00+02:00"
   },
   "assets": {
     "EURUSD": {
       "symbol": "EUR/USD",
-      "release_price": 1.11807,
-      "m15_price": 1.11786,
-      "m15_change_pct": -0.0188,
-      "h1_price": 1.11936,
-      "h1_change_pct": 0.1154,
+      "release_price": 1.11637,
+      "m15_price": 1.11473,
+      "m15_change_pct": -0.1469,
+      "h1_price": 1.11336,
+      "h1_change_pct": -0.2696,
       "status": "ok"
     },
     "XAUUSD": {
       "symbol": "XAU/USD",
-      "release_price": 3933.37089,
-      "m15_price": 3925.36973,
-      "m15_change_pct": -0.2034,
-      "h1_price": 3936.79749,
-      "h1_change_pct": 0.0871,
+      "release_price": 4073.21597,
+      "m15_price": 4048.54756,
+      "m15_change_pct": -0.6056,
+      "h1_price": 4032.05015,
+      "h1_change_pct": -1.0106,
       "status": "ok"
     },
     "BTC": {
       "symbol": "BTC/USD",
-      "release_price": 77426.01,
-      "m15_price": 77396.16,
-      "m15_change_pct": -0.0386,
-      "h1_price": 77558.01,
-      "h1_change_pct": 0.1705,
+      "release_price": 75750.95,
+      "m15_price": 75875.81,
+      "m15_change_pct": 0.1648,
+      "h1_price": 75737.41,
+      "h1_change_pct": -0.0179,
       "status": "ok"
     }
   }
