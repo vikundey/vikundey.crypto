@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 
 <html lang="uk">
 <head>
@@ -715,6 +714,20 @@ body::after {content:"";position:fixed;inset:-18%;pointer-events:none;z-index:-1
 .chart-frame img{display:block;width:100%;max-width:960px;margin:auto;border-radius:14px;object-fit:contain;border:1px solid rgba(255,255,255,.08);background:#fff;}
 .chart-description{font-size:13px;color:var(--muted);margin:12px 0 0}
 @media(prefers-reduced-motion:reduce){body::after,.accent,.meter>span{animation:none!important}html{scroll-behavior:auto}}
+
+/* BRENT PRICE — enlarged metric with the original PDF chart integrated */
+.brent-heading {align-items:end;gap:22px;}
+.brent-price-change {display:flex;align-items:center;justify-content:flex-end;gap:clamp(7px,1.3vw,20px);flex-wrap:wrap;font-size:clamp(20px,2.73vw,41.3px);line-height:1.05;font-weight:950;letter-spacing:-.055em;font-variant-numeric:tabular-nums;}
+.brent-price-from {color:#f4f8fb;}
+.brent-price-arrow {color:var(--cyan);text-shadow:0 0 22px rgba(46,199,241,.22);}
+.brent-price-to {color:var(--green);text-shadow:0 0 26px rgba(139,234,111,.24);}
+.brent-feature {padding:clamp(20px,3vw,34px);background:radial-gradient(circle at 92% 5%,rgba(139,234,111,.075),transparent 37%),radial-gradient(circle at 9% 12%,rgba(46,199,241,.075),transparent 35%),rgba(255,255,255,.035);}
+.brent-feature > p {max-width:100%;font-size:clamp(15px,1.5vw,18px);line-height:1.7;margin-bottom:14px;}
+.brent-chart {margin:24px 0 0;padding:clamp(10px,2vw,22px);border:1px solid rgba(46,199,241,.16);border-radius:20px;background:rgba(3,16,25,.43);overflow:hidden;}
+.brent-chart img {display:block;width:100%;max-height:620px;height:auto;object-fit:contain;margin:0 auto;border-radius:12px;background:#fff;}
+.brent-chart figcaption {margin-top:12px;color:var(--muted);font-size:12px;text-align:center;}
+@media(max-width:900px){.brent-heading{align-items:flex-start;flex-direction:column}.brent-price-change{justify-content:flex-start;font-size:clamp(21px,4.67vw,35px)}}
+@media(max-width:520px){.brent-price-change{font-size:clamp(19px,5.73vw,27px);gap:8px}.brent-feature{padding:18px}.brent-chart{padding:8px;margin-top:18px}.brent-chart figcaption{font-size:11px}}
 </style>
 </head>
 <body>
@@ -771,8 +784,27 @@ body::after {content:"";position:fixed;inset:-18%;pointer-events:none;z-index:-1
 <p><strong>Очікувана реакція:</strong> за сценарію зростання CPI автор очікує SHORT-моментуму для EUR/USD.</p></article>
 <aside class="thought-card side"><div class="scenario-box"><div class="scenario-row"><div class="scenario-k">Inflation thesis</div><div class="scenario-v">CPI ↑</div></div><div class="scenario-row"><div class="scenario-k">Авторська оцінка ймовірності зростання CPI</div><div class="scenario-v">≈ 90%</div></div><div class="scenario-row"><div class="scenario-k">Signal Score</div><div class="scenario-v">13% LONG</div></div><div class="scenario-row"><div class="scenario-k">Predict · EUR/USD</div><div class="scenario-v" style="color:var(--red)">SHORT</div></div><div class="scenario-row"><div class="scenario-k">Release status</div><div class="scenario-v"><span class="pill pending">PRE-FACT</span></div></div></div></aside></div>
 </section>
-<section id="brent"><div class="section-head"><div><div class="eyebrow">Cost pressure</div><h2>BRENT PRICE</h2></div><div class="section-note">101.58 → 117.25</div></div><article class="thought-card"><p>Зростання ціни Brent розглядається в аналізі як фактор потенційного посилення інфляційного тиску через вартість енергії, транспортування та виробництва.</p><span class="note-badge">SHORT · inflationary pressure</span></article></section>
-<section id="market-chart"><div class="section-head"><div><div class="eyebrow">Source chart</div><h2>Market Context</h2></div><div class="section-note">Графік зі сторінки 2 PDF</div></div><article class="panel chart-frame"><img alt="Ринковий графік із PDF CPI USD 10.11" loading="lazy" src="/cpi/2026-11-10/assets/cpi_source_chart.png"/><p class="chart-description">Оригінальне зображення з наданого авторського PDF. Завантаж його в assets/ разом зі сторінкою.</p></article></section>
+<section id="brent" class="brent-section">
+  <div class="section-head brent-heading">
+    <div>
+      <div class="eyebrow">Cost pressure</div>
+      <h2>BRENT PRICE</h2>
+    </div>
+    <div class="brent-price-change" aria-label="Ціна Brent зросла зі 101.58 до 117.25">
+      <span class="brent-price-from">101.58</span>
+      <span class="brent-price-arrow" aria-hidden="true">→</span>
+      <span class="brent-price-to">117.25</span>
+    </div>
+  </div>
+  <article class="thought-card brent-feature">
+    <p>Зростання ціни Brent розглядається в аналізі як фактор потенційного посилення інфляційного тиску через вартість енергії, транспортування та виробництва.</p>
+    <span class="note-badge">SHORT · inflationary pressure</span>
+    <figure class="brent-chart">
+      <img src="/cpi/2026-11-10/assets/cpi_source_chart.png" alt="Ринковий графік з авторського CPI PDF від 10.11.2026" loading="lazy" decoding="async" />
+      <figcaption>Ринковий графік з авторського аналізу CPI USD 10.11</figcaption>
+    </figure>
+  </article>
+</section>
 </main>
 <footer class="footer-sign">
 <div><strong>vikundey.crypto</strong><br/>#algo #macro</div>
