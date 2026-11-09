@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#081018">
 
-  <title>CPI USD — Vikundey Space</title>
+  <title>CPI USD 10.11.2026 | Vikundey Space</title>
+  <meta name="description" content="CPI USD 10.11.2026 — актуальний Pre-Fact аналіз: макросигнали, Brent, інфляційні чинники та авторський SHORT-сценарій.">
 
   <style>
     :root{
@@ -1768,6 +1769,29 @@
 
     }
 
+
+    /* CPI 10.11 — concise premium status components */
+    .analysis{position:relative;overflow:hidden;}
+    .analysis::before{content:"";position:absolute;right:-140px;top:-160px;width:430px;height:430px;border-radius:50%;background:radial-gradient(circle,rgba(46,199,241,.11),transparent 70%);pointer-events:none;animation:glowFloat 9s ease-in-out infinite alternate;}
+    .analysis>*{position:relative;z-index:1;}
+    .pending-text{color:var(--amber);}
+    .meta-card .score-caption{color:var(--muted);font-size:12px;line-height:1.5;margin:8px 0 0;}
+    .analysis-cta{display:inline-flex;align-items:center;gap:10px;margin-top:24px;padding:12px 18px;border:1px solid rgba(46,199,241,.35);border-radius:13px;background:rgba(46,199,241,.10);color:var(--cyan);font-size:14px;font-weight:900;transition:background .2s ease,transform .2s ease,box-shadow .2s ease;}
+    .analysis-cta:hover{background:rgba(46,199,241,.17);transform:translateY(-2px);box-shadow:0 10px 30px rgba(46,199,241,.10);}
+    .context-points{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;}
+    .context-point{padding:22px;border:1px solid var(--line);border-radius:19px;background:rgba(255,255,255,.028);}
+    .context-point .point-label{display:block;color:var(--cyan);font-size:11px;font-weight:900;letter-spacing:.10em;text-transform:uppercase;margin-bottom:10px;}
+    .context-point p{margin:0;color:#bfccd4;line-height:1.7;font-size:14px;}
+    .signal-meter{height:9px;margin-top:12px;border-radius:100px;overflow:hidden;background:rgba(255,255,255,.08);}
+    .signal-meter>span{display:block;width:13%;height:100%;border-radius:100px;background:linear-gradient(90deg,var(--cyan),var(--green));box-shadow:0 0 15px rgba(46,199,241,.25);}
+    .archive-card.archive-unavailable{cursor:default;opacity:.86;}
+    .archive-card.archive-unavailable:hover{transform:none;border-color:var(--line);box-shadow:none;}
+    .status-note{display:inline-block;margin-top:17px;color:var(--muted);font-size:12px;font-weight:800;}
+    .market-grid.market-single{grid-template-columns:minmax(0,1fr);}
+    .market-single .chart-card{max-width:900px;}
+    @media(max-width:760px){.context-points{grid-template-columns:1fr;}.analysis-cta{width:100%;justify-content:center;}}
+    @media(prefers-reduced-motion:reduce){.analysis::before{animation:none;}}
+
   </style>
 </head>
 
@@ -1782,11 +1806,11 @@
 
     <a
       class="brand"
-      href="/space/"
+      href="/"
     >
 
       <img
-        src="../../logo.png"
+        src="/logo.png"
         alt="vikundey.crypto"
       >
 
@@ -2027,138 +2051,28 @@
     ========================== -->
 
     <section id="current">
-
-      <div class="wrap">
-
-        <div class="section-head">
-
-          <div>
-
-            <div class="kicker">
-              Vikundey Analysis
-            </div>
-
-            <h2>
-              Поточний аналіз CPI
-            </h2>
-
-          </div>
-
-
-          <p>
-
-            Фінальний аналіз CPI USD 14.10.2026:
-            макросигнали, Brent,
-            авторський сценарій
-            та фактична реакція ринку.
-
-          </p>
-
-        </div>
-
-
-        <div class="analysis">
-
-          <div class="kicker">
-            CPI USD · 14.10.2026 · RELEASED
-          </div>
-
-
-          <h3>
-            Ключові значення релізу
-          </h3>
-
-
-          <div class="analysis-summary">
-
-            <div class="stat">
-
-              <span>
-                Previous
-              </span>
-
-              <strong>
-                3.4%
-              </strong>
-
-            </div>
-
-
-            <div class="stat">
-
-              <span>
-                Forecast
-              </span>
-
-              <strong>
-                3.6%
-              </strong>
-
-            </div>
-
-
-            <div class="stat">
-
-              <span>
-                Actual
-              </span>
-
-              <strong>
-                3.7%
-              </strong>
-
-            </div>
-
-          </div>
-
-
-          <div class="meta-grid">
-
-            <div class="meta-card">
-
-              <span>
-                Position Bias
-              </span>
-
-              <strong class="short-text">
-                SHORT
-              </strong>
-
-            </div>
-
-
-            <div class="meta-card">
-
-              <span>
-                Signal Score
-              </span>
-
-              <strong>
-                50%
-              </strong>
-
-            </div>
-
-
-            <div class="meta-card">
-
-              <span>
-                Result
-              </span>
-
-              <strong class="win-text">
-                WIN
-              </strong>
-
-            </div>
-
-          </div>
-
-        </div>
-
+  <div class="wrap">
+    <div class="section-head">
+      <div><div class="kicker">Vikundey Analysis</div><h2>Поточний аналіз CPI</h2></div>
+      <p>Pre-Fact підготовка до CPI USD 10.11.2026: макросигнали, ціни на нафту, авторський сценарій та очікувана реакція EUR/USD.</p>
+    </div>
+    <div class="analysis">
+      <div class="kicker">CPI USD · 10.11.2026 · PRE-FACT</div>
+      <h3>Ключові значення релізу</h3>
+      <div class="analysis-summary">
+        <div class="stat"><span>Previous</span><strong>3.7%</strong></div>
+        <div class="stat"><span>Forecast</span><strong>3.9%</strong></div>
+        <div class="stat"><span>Actual</span><strong class="pending-text">PENDING</strong></div>
       </div>
-
-    </section>
+      <div class="meta-grid">
+        <div class="meta-card"><span>Position Bias</span><strong class="short-text">SHORT</strong></div>
+        <div class="meta-card"><span>Signal Score</span><strong>13% LONG</strong><div class="signal-meter" aria-label="13 відсотків LONG"><span></span></div></div>
+        <div class="meta-card"><span>Release</span><strong class="pending-text">PRE-FACT</strong></div>
+      </div>
+      <a class="analysis-cta" href="/cpi/2026-11-10/">Відкрити повний аналіз 10.11 <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
 
 
     <!-- =========================
@@ -2166,323 +2080,20 @@
     ========================== -->
 
     <section id="signals">
-
-      <div class="wrap">
-
-        <div class="section-head">
-
-          <div>
-
-            <div class="kicker">
-              Macro Signals
-            </div>
-
-            <h2>
-              Signal Setup
-            </h2>
-
-          </div>
-
-
-          <p>
-
-            Макропоказники, які формували
-            контекст перед публікацією CPI
-            та визначали базовий сценарій.
-
-          </p>
-
-        </div>
-
-
-        <div class="grid-2">
-
-          <article class="panel card">
-
-            <h3 class="card-title">
-              Macro Signals
-            </h3>
-
-
-            <div class="table-wrap">
-
-              <table>
-
-                <thead>
-
-                  <tr>
-
-                    <th>
-                      Name
-                    </th>
-
-                    <th>
-                      Previous
-                    </th>
-
-                    <th>
-                      Forecast
-                    </th>
-
-                    <th>
-                      Actual
-                    </th>
-
-                    <th>
-                      Signal
-                    </th>
-
-                  </tr>
-
-                </thead>
-
-
-                <tbody>
-
-                  <tr>
-
-                    <td>
-                      ISM Services PMI
-                    </td>
-
-                    <td>
-                      55.4
-                    </td>
-
-                    <td>
-                      55
-                    </td>
-
-                    <td>
-                      54.9
-                    </td>
-
-                    <td>
-
-                      <span class="dir long">
-                        LONG
-                      </span>
-
-                    </td>
-
-                  </tr>
-
-
-                  <tr>
-
-                    <td>
-                      ISM Manufacturing PMI
-                    </td>
-
-                    <td>
-                      54.6
-                    </td>
-
-                    <td>
-                      55
-                    </td>
-
-                    <td>
-                      54.5
-                    </td>
-
-                    <td>
-
-                      <span class="dir long">
-                        LONG
-                      </span>
-
-                    </td>
-
-                  </tr>
-
-
-                  <tr>
-
-                    <td>
-                      Consumer Confidence
-                    </td>
-
-                    <td>
-                      88.6
-                    </td>
-
-                    <td>
-                      89.2
-                    </td>
-
-                    <td>
-                      81.9
-                    </td>
-
-                    <td>
-
-                      <span class="dir long">
-                        LONG
-                      </span>
-
-                    </td>
-
-                  </tr>
-
-
-                  <tr>
-
-                    <td>
-                      Unemployment Rate
-                    </td>
-
-                    <td>
-                      4.1
-                    </td>
-
-                    <td>
-                      4.1
-                    </td>
-
-                    <td>
-                      4.2
-                    </td>
-
-                    <td>
-
-                      <span class="dir short">
-                        SHORT
-                      </span>
-
-                    </td>
-
-                  </tr>
-
-
-                  <tr>
-
-                    <td>
-                      Previous CPI YoY
-                    </td>
-
-                    <td>
-                      3.4
-                    </td>
-
-                    <td>
-                      3.4
-                    </td>
-
-                    <td>
-                      3.4
-                    </td>
-
-                    <td>
-
-                      <span class="dir neutral">
-                        Previous
-                      </span>
-
-                    </td>
-
-                  </tr>
-
-
-                  <tr>
-
-                    <td>
-                      NFP
-                    </td>
-
-                    <td>
-                      133
-                    </td>
-
-                    <td>
-                      90
-                    </td>
-
-                    <td>
-                      29
-                    </td>
-
-                    <td>
-
-                      <span class="dir long">
-                        LONG
-                      </span>
-
-                    </td>
-
-                  </tr>
-
-
-                  <tr>
-
-                    <td>
-                      BRENT PRICE
-                    </td>
-
-                    <td>
-                      92.96
-                    </td>
-
-                    <td>
-                      —
-                    </td>
-
-                    <td>
-                      101.68
-                    </td>
-
-                    <td>
-
-                      <span class="dir short">
-                        SHORT
-                      </span>
-
-                    </td>
-
-                  </tr>
-
-
-                  <tr>
-
-                    <td>
-                      Retail Sales
-                    </td>
-
-                    <td>
-                      1.3
-                    </td>
-
-                    <td>
-                      0.3
-                    </td>
-
-                    <td>
-                      0.8
-                    </td>
-
-                    <td>
-
-                      <span class="dir short">
-                        SHORT
-                      </span>
-
-                    </td>
-
-                  </tr>
-
-                </tbody>
-
-              </table>
-
-            </div>
-
-          </article>
-
-        </div>
-
-      </div>
-
-    </section>
+ <div class="wrap">
+  <div class="section-head"><div><div class="kicker">Macro Signals</div><h2>Signal Setup</h2></div><p>Останні показники перед CPI 10.11.2026 та авторська інтерпретація напрямку інфляційного тиску.</p></div>
+  <div class="grid-2"><article class="panel card"><h3 class="card-title">Macro Signals</h3><div class="table-wrap">
+   <table><thead><tr><th>Name</th><th>Previous</th><th>Forecast</th><th>Actual</th><th>Signal</th></tr></thead><tbody><tr><td>ISM Services PMI</td><td>54.9</td><td>54.8</td><td>54.5</td><td><span class="dir long">LONG</span></td></tr>
+<tr><td>ISM Manufacturing PMI</td><td>54.5</td><td>54.6</td><td>55.5</td><td><span class="dir short">SHORT</span></td></tr>
+<tr><td>Consumer Confidence</td><td>84.2</td><td>81</td><td>91.7</td><td><span class="dir short">SHORT</span></td></tr>
+<tr><td>Unemployment Rate</td><td>4.2</td><td>4.2</td><td>4.1</td><td><span class="dir short">SHORT</span></td></tr>
+<tr><td>Previous CPI YoY</td><td>3.4</td><td>3.6</td><td>3.7</td><td><span class="dir short">SHORT</span></td></tr>
+<tr><td>NFP</td><td>29</td><td>65</td><td>165</td><td><span class="dir short">SHORT</span></td></tr>
+<tr><td>BRENT PRICE</td><td>101.58</td><td>—</td><td>117.25</td><td><span class="dir short">SHORT</span></td></tr>
+<tr><td>Retail Sales</td><td>1.3</td><td>0.3</td><td>0.8</td><td><span class="dir short">SHORT</span></td></tr></tbody></table>
+  </div></article></div>
+ </div>
+</section>
 
 
     <!-- =========================
@@ -2490,71 +2101,11 @@
     ========================== -->
 
     <section id="brent">
-
-      <div class="wrap">
-
-        <div class="section-head">
-
-          <div>
-
-            <div class="kicker">
-              Oil Context
-            </div>
-
-            <h2>
-              BRENT PRICE
-            </h2>
-
-          </div>
-
-
-          <p>
-
-            Динаміка нафти є додатковим фактором,
-            який може впливати
-            на інфляційний тиск.
-
-          </p>
-
-        </div>
-
-
-        <div class="brent">
-
-          <div class="brent-card">
-
-            <span>
-              Previous
-            </span>
-
-            <div class="brent-value">
-              92.96
-            </div>
-
-          </div>
-
-
-          <div class="brent-card actual">
-
-            <span>
-              Actual
-            </span>
-
-            <div class="brent-value">
-              101.68
-            </div>
-
-            <span class="short-text">
-              SHORT signal
-            </span>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
+  <div class="wrap">
+    <div class="section-head"><div><div class="kicker">Oil Context</div><h2>BRENT PRICE</h2></div><p>Подорожчання нафти — один із чинників потенційного посилення інфляційного тиску.</p></div>
+    <div class="brent"><div class="brent-card"><span>Previous</span><div class="brent-value">101.58</div></div><div class="brent-card actual"><span>Current / Actual</span><div class="brent-value">117.25</div><span class="short-text">SHORT signal · EUR/USD</span></div></div>
+  </div>
+</section>
 
 
     <!-- =========================
@@ -2562,108 +2113,21 @@
     ========================== -->
 
     <section id="thinking">
-
-      <div class="wrap">
-
-        <div class="section-head">
-
-          <div>
-
-            <div class="kicker">
-              Author View
-            </div>
-
-            <h2>
-              Vikundey Thinking
-            </h2>
-
-          </div>
-
-
-          <p>
-
-            Сценарій оцінюється не лише
-            за фактичним CPI,
-            а через відхилення від консенсусу
-            та зміну очікувань ринку.
-
-          </p>
-
-        </div>
-
-
-        <article class="thinking">
-
-          <h3>
-            Сценарій реакції на CPI
-          </h3>
-
-
-          <p>
-
-            Ключовий рівень для цього релізу —
-            прогноз CPI на рівні 3.6%.
-            Саме відхилення від цього значення
-            визначає базовий напрямок
-            моментної реакції EUR/USD.
-
-          </p>
-
-
-          <div class="reaction-grid">
-
-            <div class="reaction-card long">
-
-              <span>
-                Actual
-              </span>
-
-              <strong>
-                &lt; 3.6%
-              </strong>
-
-              <div>
-                LONG EUR/USD
-              </div>
-
-            </div>
-
-
-            <div class="reaction-card short">
-
-              <span>
-                Actual
-              </span>
-
-              <strong>
-                &gt; 3.6%
-              </strong>
-
-              <div>
-                SHORT EUR/USD
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <p>
-
-            Фактичний CPI вийшов на рівні
-            <strong>3.7%</strong>,
-            тобто вище консенсусу 3.6%.
-
-            Це відповідало SHORT-сценарію
-            для EUR/USD.
-
-          </p>
-
-        </article>
-
-      </div>
-
-    </section>
+ <div class="wrap">
+  <div class="section-head"><div><div class="kicker">Author View</div><h2>Vikundey Thinking</h2></div><p>Авторська Pre-Fact теза: інфляційні чинники переважно вказують на потенційне зростання CPI, попри невелике зниження ISM Prices.</p></div>
+  <article class="thinking">
+   <h3>Очікування перед CPI 10.11</h3>
+   <p><strong>ISM Manufacturing Prices</strong> знизився з 77.9 до 75.2, а <strong>ISM Services Prices</strong> — з 74 до 73. Це може означати певне послаблення темпу цінового тиску, але обидва індекси залишаються значно вище 50.</p>
+   <p>Водночас зростання зарплат підтримує купівельну спроможність і попит. Підвищення цін на нафту, логістичні послуги та метали створює додатковий інфляційний тиск. Можлива причина розбіжності з ISM Prices — часовий лаг або зростання цін уже після опитування.</p>
+   <p><strong>Авторський висновок:</strong> сценарій зростання CPI оцінюється приблизно у 90%. Це суб'єктивна сценарна оцінка, не Signal Score.</p>
+   <div class="reaction-grid">
+     <div class="reaction-card long"><span>LONG signal score</span><strong>13%</strong><div>Частка LONG у pre-fact сигналах</div></div>
+     <div class="reaction-card short"><span>Base scenario</span><strong>SHORT</strong><div>Очікуваний EUR/USD momentum за сценарію вищого CPI</div></div>
+   </div>
+   <a class="analysis-cta" href="/cpi/2026-11-10/">Читати повну авторську тезу <span aria-hidden="true">→</span></a>
+  </article>
+ </div>
+</section>
 
 
     <!-- =========================
@@ -2671,106 +2135,17 @@
     ========================== -->
 
     <section id="reaction">
-
-      <div class="wrap">
-
-        <div class="section-head">
-
-          <div>
-
-            <div class="kicker">
-              Post-Fact
-            </div>
-
-            <h2>
-              Market Reaction
-            </h2>
-
-          </div>
-
-
-          <p>
-
-            Графіки використовуються
-            для оцінки контексту
-            та моментної реакції
-            після публікації CPI.
-
-          </p>
-
-        </div>
-
-
-        <div class="market-grid">
-
-          <article class="chart-card">
-
-            <div class="chart-head">
-
-              <h3>
-                BRENT
-              </h3>
-
-              <span class="pill">
-                Source chart
-              </span>
-
-            </div>
-
-
-            <div class="chart-wrap">
-
-              <img
-                src="/cpi/2026-10-14/assets/brent.png"
-                alt="BRENT chart CPI 14.10"
-              >
-
-            </div>
-
-
-            <div class="chart-meta">
-              Контекст ціни нафти перед CPI.
-            </div>
-
-          </article>
-
-
-          <article class="chart-card">
-
-            <div class="chart-head">
-
-              <h3>
-                Momentum
-              </h3>
-
-              <span class="pill">
-                EUR/USD
-              </span>
-
-            </div>
-
-
-            <div class="chart-wrap">
-
-              <img
-                src="/cpi/2026-10-14/assets/momentum.png"
-                alt="EURUSD momentum CPI 14.10"
-              >
-
-            </div>
-
-
-            <div class="chart-meta">
-              Моментна реакція EUR/USD після релізу.
-            </div>
-
-          </article>
-
-        </div>
-
-      </div>
-
-    </section>
+  <div class="wrap">
+    <div class="section-head"><div><div class="kicker">Pre-Release Context</div><h2>Before CPI</h2></div><p>Дані перед релізом, а не фактична пострелізна реакція. Actual CPI наразі очікується.</p></div>
+    <div class="context-points">
+      <div class="context-point"><span class="point-label">ISM Manufacturing Prices</span><p>Previous 77.9 → Forecast 77 → Actual 75.2. Помірне зниження, однак індекс усе ще значно вище 50.</p></div>
+      <div class="context-point"><span class="point-label">ISM Services Prices</span><p>Previous 74 → Actual 73. Легке зниження після попереднього зростання.</p></div>
+      <div class="context-point"><span class="point-label">Average Hourly Wages</span><p>Зростання заробітних плат потенційно підтримує попит та інфляційний тиск.</p></div>
+      <div class="context-point"><span class="point-label">Cost Drivers</span><p>Нафта, логістика й метали подорожчали, що може з лагом впливати на споживчі ціни.</p></div>
+    </div>
+    <div class="market-grid market-single" style="margin-top:20px"><article class="chart-card"><div class="chart-head"><h3>Market context · source chart</h3><span class="pill">PDF 10.11</span></div><div class="chart-wrap"><img src="/cpi/2026-11-10/assets/cpi_source_chart.png" alt="Графік із CPI USD 10.11 PDF" loading="lazy"></div><div class="chart-meta">Графік із наданого авторського CPI-документа, використаний як передрелізний контекст.</div></article></div>
+  </div>
+</section>
 
 
     <!-- =========================
@@ -2810,6 +2185,15 @@
 
         <div class="archive-grid">
 
+
+          <!-- 14.10 — keep summary without link until archive route is verified -->
+          <article class="archive-card archive-unavailable" aria-label="CPI 14.10.2026, архівна картка">
+            <div class="archive-top"><div><div class="archive-date">14.10</div><span class="archive-year">2026 · CPI USD</span></div><span class="archive-status win">WIN</span></div>
+            <h3>CPI 14.10</h3>
+            <p class="archive-copy">Попередній CPI-реліз: SHORT setup, Brent-контекст та фактичне значення 3.7%.</p>
+            <div class="metrics"><div class="metric"><span>Previous</span><strong>3.4%</strong></div><div class="metric"><span>Forecast</span><strong>3.6%</strong></div><div class="metric"><span>Actual</span><strong>3.7%</strong></div></div>
+            <span class="status-note">Архівна сторінка потребує перевірки</span>
+          </article>
 
           <!-- 11.09 -->
 
