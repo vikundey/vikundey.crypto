@@ -1,10 +1,10 @@
 {
   "source": "Forex Factory + FRED",
   "timezone": "Europe/Kyiv",
-  "updated_at": "2026-11-10T22:26:39.454392+02:00",
+  "updated_at": "2026-11-11T14:45:17.452428+02:00",
   "week_start": "2026-11-09",
   "week_end": "2026-11-14",
-  "event_count": 37,
+  "event_count": 38,
   "events": [
     {
       "title": "FOMC Member Bowman Speaks",
@@ -370,7 +370,7 @@
       "title": "Crude Oil Inventories",
       "country": "USD",
       "impact": "Low",
-      "forecast": "",
+      "forecast": "-0.6M",
       "previous": "-0.9M",
       "actual": "",
       "actual_source": "",
@@ -430,7 +430,7 @@
       "title": "Federal Budget Balance",
       "country": "USD",
       "impact": "Low",
-      "forecast": "-286.3B",
+      "forecast": "-298.6B",
       "previous": "-26.9B",
       "actual": "",
       "actual_source": "",
@@ -502,10 +502,25 @@
       "impact_rank": 1
     },
     {
-      "title": "Natural Gas Storage",
+      "title": "FOMC Member Logan Speaks",
       "country": "USD",
       "impact": "Low",
       "forecast": "",
+      "previous": "",
+      "actual": "",
+      "actual_source": "",
+      "date_iso": "2026-11-13T16:40:00+02:00",
+      "date": "2026-11-13",
+      "day": "FRI",
+      "time": "16:40",
+      "timestamp": 1794580800,
+      "impact_rank": 1
+    },
+    {
+      "title": "Natural Gas Storage",
+      "country": "USD",
+      "impact": "Low",
+      "forecast": "65B",
       "previous": "77B",
       "actual": "",
       "actual_source": "",
