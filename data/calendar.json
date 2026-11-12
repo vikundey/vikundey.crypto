@@ -1,7 +1,7 @@
 {
   "source": "Forex Factory + FRED",
   "timezone": "Europe/Kyiv",
-  "updated_at": "2026-11-12T15:48:59.428887+02:00",
+  "updated_at": "2026-11-12T22:46:29.062853+02:00",
   "week_start": "2026-11-09",
   "week_end": "2026-11-14",
   "event_count": 38,
@@ -337,21 +337,6 @@
       "impact_rank": 1
     },
     {
-      "title": "Mortgage Delinquencies",
-      "country": "USD",
-      "impact": "Low",
-      "forecast": "",
-      "previous": "4.37%",
-      "actual": "",
-      "actual_source": "",
-      "date_iso": "2026-11-12T17:00:00+02:00",
-      "date": "2026-11-12",
-      "day": "THU",
-      "time": "17:00",
-      "timestamp": 1794495600,
-      "impact_rank": 1
-    },
-    {
       "title": "FOMC Member Goolsbee Speaks",
       "country": "USD",
       "impact": "Low",
@@ -514,6 +499,21 @@
       "day": "FRI",
       "time": "16:40",
       "timestamp": 1794580800,
+      "impact_rank": 1
+    },
+    {
+      "title": "Mortgage Delinquencies",
+      "country": "USD",
+      "impact": "Low",
+      "forecast": "",
+      "previous": "4.37%",
+      "actual": "",
+      "actual_source": "",
+      "date_iso": "2026-11-13T17:15:00+02:00",
+      "date": "2026-11-13",
+      "day": "FRI",
+      "time": "17:15",
+      "timestamp": 1794582900,
       "impact_rank": 1
     },
     {
