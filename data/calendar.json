@@ -1,10 +1,10 @@
 {
   "source": "Forex Factory + FRED",
   "timezone": "Europe/Kyiv",
-  "updated_at": "2026-11-13T15:10:06.556333+02:00",
+  "updated_at": "2026-11-13T22:27:43.043413+02:00",
   "week_start": "2026-11-09",
   "week_end": "2026-11-14",
-  "event_count": 38,
+  "event_count": 37,
   "events": [
     {
       "title": "FOMC Member Bowman Speaks",
@@ -447,8 +447,8 @@
       "impact": "High",
       "forecast": "0.3%",
       "previous": "0.7%",
-      "actual": "",
-      "actual_source": "",
+      "actual": "0.3%",
+      "actual_source": "FRED",
       "date_iso": "2026-11-13T15:30:00+02:00",
       "date": "2026-11-13",
       "day": "FRI",
@@ -462,8 +462,8 @@
       "impact": "High",
       "forecast": "0.4%",
       "previous": "1.3%",
-      "actual": "",
-      "actual_source": "",
+      "actual": "0.3%",
+      "actual_source": "FRED",
       "date_iso": "2026-11-13T15:30:00+02:00",
       "date": "2026-11-13",
       "day": "FRI",
@@ -499,21 +499,6 @@
       "day": "FRI",
       "time": "16:40",
       "timestamp": 1794580800,
-      "impact_rank": 1
-    },
-    {
-      "title": "Mortgage Delinquencies",
-      "country": "USD",
-      "impact": "Low",
-      "forecast": "",
-      "previous": "4.37%",
-      "actual": "",
-      "actual_source": "",
-      "date_iso": "2026-11-13T17:15:00+02:00",
-      "date": "2026-11-13",
-      "day": "FRI",
-      "time": "17:15",
-      "timestamp": 1794582900,
       "impact_rank": 1
     },
     {
