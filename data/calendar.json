@@ -1,10 +1,10 @@
 {
   "source": "Forex Factory + FRED",
   "timezone": "Europe/Kyiv",
-  "updated_at": "2026-11-13T22:27:43.043413+02:00",
+  "updated_at": "2026-11-14T14:14:18.858927+02:00",
   "week_start": "2026-11-09",
   "week_end": "2026-11-14",
-  "event_count": 37,
+  "event_count": 38,
   "events": [
     {
       "title": "FOMC Member Bowman Speaks",
@@ -544,6 +544,21 @@
       "day": "FRI",
       "time": "19:00",
       "timestamp": 1794589200,
+      "impact_rank": 1
+    },
+    {
+      "title": "FOMC Financial Stability Report",
+      "country": "USD",
+      "impact": "Low",
+      "forecast": "",
+      "previous": "",
+      "actual": "",
+      "actual_source": "",
+      "date_iso": "2026-11-13T23:00:00+02:00",
+      "date": "2026-11-13",
+      "day": "FRI",
+      "time": "23:00",
+      "timestamp": 1794603600,
       "impact_rank": 1
     },
     {
