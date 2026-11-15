@@ -1,39 +1,7 @@
 {
-  "status": "ok",
-  "updated_at": "2026-11-15T07:13:19.984442+02:00",
+  "status": "no_recent_event",
+  "updated_at": "2026-11-15T14:47:46.860551+02:00",
   "timezone": "Europe/Kyiv",
-  "event": {
-    "name": "Core PPI m/m",
-    "impact": "high",
-    "released_at": "2026-11-13T15:30:00+02:00"
-  },
-  "assets": {
-    "EURUSD": {
-      "symbol": "EUR/USD",
-      "release_price": 1.10595,
-      "m15_price": 1.10601,
-      "m15_change_pct": 0.0054,
-      "h1_price": 1.10464,
-      "h1_change_pct": -0.1185,
-      "status": "ok"
-    },
-    "XAUUSD": {
-      "symbol": "XAU/USD",
-      "release_price": 3880.63917,
-      "m15_price": 3888.49632,
-      "m15_change_pct": 0.2025,
-      "h1_price": 3887.06039,
-      "h1_change_pct": 0.1655,
-      "status": "ok"
-    },
-    "BTC": {
-      "symbol": "BTC/USD",
-      "release_price": 69372.64,
-      "m15_price": 69834.59,
-      "m15_change_pct": 0.6659,
-      "h1_price": 69260.0,
-      "h1_change_pct": -0.1624,
-      "status": "ok"
-    }
-  }
+  "event": null,
+  "assets": {}
 }
