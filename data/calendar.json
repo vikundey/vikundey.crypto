@@ -1,10 +1,10 @@
 {
   "source": "Forex Factory + FRED",
   "timezone": "Europe/Kyiv",
-  "updated_at": "2026-11-15T21:21:02.953166+02:00",
+  "updated_at": "2026-11-16T15:42:32.968579+02:00",
   "week_start": "2026-11-16",
   "week_end": "2026-11-20",
-  "event_count": 41,
+  "event_count": 42,
   "events": [
     {
       "title": "FOMC Member Barr Speaks",
@@ -80,6 +80,21 @@
       "time": "19:00",
       "timestamp": 1794848400,
       "impact_rank": 3
+    },
+    {
+      "title": "FOMC Member Hammack Speaks",
+      "country": "USD",
+      "impact": "Low",
+      "forecast": "",
+      "previous": "",
+      "actual": "",
+      "actual_source": "",
+      "date_iso": "2026-11-16T21:15:00+02:00",
+      "date": "2026-11-16",
+      "day": "MON",
+      "time": "21:15",
+      "timestamp": 1794856500,
+      "impact_rank": 1
     },
     {
       "title": "FOMC Member Musalem Speaks",
@@ -564,7 +579,7 @@
     {
       "title": "FOMC Member Waller Speaks",
       "country": "USD",
-      "impact": "Medium",
+      "impact": "Low",
       "forecast": "",
       "previous": "",
       "actual": "",
@@ -574,7 +589,7 @@
       "day": "FRI",
       "time": "15:25",
       "timestamp": 1795181100,
-      "impact_rank": 2
+      "impact_rank": 1
     },
     {
       "title": "Revised UoM Consumer Sentiment",
