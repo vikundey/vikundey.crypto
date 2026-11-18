@@ -1,38 +1,38 @@
 {
   "status": "ok",
-  "updated_at": "2026-11-18T13:18:54.852775+02:00",
+  "updated_at": "2026-11-18T21:29:24.762738+02:00",
   "timezone": "Europe/Kyiv",
   "event": {
-    "name": "Core Retail Sales m/m",
+    "name": "FOMC Meeting Minutes",
     "impact": "high",
-    "released_at": "2026-11-17T15:30:00+02:00"
+    "released_at": "2026-11-18T21:00:00+02:00"
   },
   "assets": {
     "EURUSD": {
       "symbol": "EUR/USD",
-      "release_price": 1.09868,
-      "m15_price": 1.09779,
-      "m15_change_pct": -0.081,
-      "h1_price": 1.0993,
-      "h1_change_pct": 0.0564,
+      "release_price": 1.09778,
+      "m15_price": 1.09695,
+      "m15_change_pct": -0.0756,
+      "h1_price": null,
+      "h1_change_pct": null,
       "status": "ok"
     },
     "XAUUSD": {
       "symbol": "XAU/USD",
-      "release_price": 3859.33743,
-      "m15_price": 3846.79537,
-      "m15_change_pct": -0.325,
-      "h1_price": 3862.33887,
-      "h1_change_pct": 0.0778,
+      "release_price": 3738.12865,
+      "m15_price": 3729.39728,
+      "m15_change_pct": -0.2336,
+      "h1_price": null,
+      "h1_change_pct": null,
       "status": "ok"
     },
     "BTC": {
       "symbol": "BTC/USD",
-      "release_price": 64986.0,
-      "m15_price": 64956.44,
-      "m15_change_pct": -0.0455,
-      "h1_price": 64928.47,
-      "h1_change_pct": -0.0885,
+      "release_price": 63010.05,
+      "m15_price": 62878.0,
+      "m15_change_pct": -0.2096,
+      "h1_price": null,
+      "h1_change_pct": null,
       "status": "ok"
     }
   }
