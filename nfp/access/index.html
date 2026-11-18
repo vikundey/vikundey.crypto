@@ -119,82 +119,109 @@
 
     .site-nav{
       position:sticky;
+
       top:12px;
+
       z-index:100;
 
-      width:min(
-        1180px,
-        calc(100% - 28px)
-      );
+      width:
+        min(
+          1240px,
+          calc(100% - 28px)
+        );
 
-      margin:12px auto 0;
+      margin:
+        18px auto 0;
 
       display:flex;
+
       align-items:center;
-      justify-content:space-between;
+
+      justify-content:
+        space-between;
 
       gap:20px;
 
-      padding:12px 14px 12px 18px;
+      padding:
+        12px 18px;
 
-      border:1px solid var(--line);
-      border-radius:22px;
+      border:
+        1px solid
+        rgba(190,225,240,.15);
 
-      background:rgba(7,16,24,.80);
+      border-radius:
+        25px;
 
-      backdrop-filter:blur(16px);
+      background:
+        rgba(3,16,25,.90);
+
+      backdrop-filter:
+        blur(18px);
 
       box-shadow:
-        0 10px 40px rgba(0,0,0,.18);
+        0 30px 90px
+        rgba(0,0,0,.34);
+
+      animation:
+        navDrop .55s ease both;
     }
 
     .site-brand{
       display:flex;
+
       align-items:center;
 
       gap:10px;
 
-      font-weight:800;
-
-      letter-spacing:-.02em;
+      font-weight:900;
     }
 
     .site-brand-logo{
-      width:38px;
-      height:38px;
+      width:40px;
+      height:40px;
+
       object-fit:contain;
-      display:block;
-      flex:0 0 38px;
     }
 
     .site-links{
       display:flex;
-      gap:8px;
+
+      align-items:center;
+
+      gap:7px;
     }
 
     .site-links a{
-      padding:9px 12px;
+      padding:
+        9px 13px;
 
-      border-radius:12px;
+      border-radius:
+        13px;
 
-      color:#c4d0d8;
+      color:#fff;
 
       font-size:13px;
 
-      transition:.2s ease;
+      font-weight:850;
+
+      transition:
+        transform .18s ease,
+        background .2s ease,
+        box-shadow .2s ease;
     }
 
     .site-links a:hover{
+      background:
+        rgba(255,255,255,.06);
+
       color:#fff;
 
-      background:
-        rgba(255,255,255,.08);
+      transform:
+        translateY(-1px);
     }
 
-    .site-links a.active{
-      color:#071018;
-
-      font-weight:800;
+    .site-links .active{
+      color:#041019;
 
       background:
         linear-gradient(
@@ -202,6 +229,12 @@
           var(--cyan),
           var(--green)
         );
+
+      font-weight:900;
+
+      box-shadow:
+        0 10px 25px
+        rgba(46,199,241,.18);
     }
 
 
@@ -630,18 +663,6 @@
 
       .grid-2{
         grid-template-columns:1fr;
-      }
-
-      .site-brand span:last-child{
-        display:none;
-      }
-
-      .site-links{
-        gap:3px;
-      }
-
-      .site-links a{
-        padding:8px 7px;
       }
 
       .hero-main{
@@ -1447,6 +1468,59 @@
       font-size:13px;
     }
 
+
+    /* Navbar animation and responsive behavior from CPI Access */
+    @keyframes navDrop{
+      from{
+        opacity:0;
+
+        transform:
+          translateY(-10px);
+      }
+
+      to{
+        opacity:1;
+
+        transform:
+          translateY(0);
+      }
+    }
+
+    @media(max-width:760px){
+      .site-nav{
+        align-items:
+          flex-start;
+      }
+
+      .site-brand span{
+        display:none;
+      }
+
+      .site-links{
+        gap:3px;
+
+        overflow-x:auto;
+      }
+
+      .site-links a{
+        padding:
+          8px 7px;
+
+        font-size:11px;
+
+        white-space:nowrap;
+      }
+
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      .site-nav{
+        animation-duration:.001ms !important;
+        animation-iteration-count:1 !important;
+      }
+      .site-links a{transition:none;}
+    }
+
   </style>
 </head>
 
@@ -1819,116 +1893,9 @@
 
     </section>
 
-<div class="wrap author-wrap">
-<section id="signals">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow">Pre-fact inputs</div>
-            <h2>Macro Signals</h2>
-          </div>
-          <div class="section-note">Previous / Forecast / Actual / Long-Short</div>
-        </div>
 
-        <article class="panel card">
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Previous</th>
-                  <th>Forecast</th>
-                  <th>Actual</th>
-                  <th>Long / Short</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td>IJC 1W</td><td>199</td><td>200</td><td>197</td><td><span class="dir short">SHORT</span></td></tr>
-                <tr><td>IJC 2W</td><td>198</td><td>200</td><td>199</td><td><span class="dir short">SHORT</span></td></tr>
-                <tr><td>IJC 3W</td><td>200</td><td>200</td><td>194</td><td><span class="dir short">SHORT</span></td></tr>
-                <tr><td>IJC 4W</td><td>195</td><td>199</td><td>194</td><td><span class="dir short">SHORT</span></td></tr>
-                <tr><td>ISM PMI Manufacturing</td><td>54.5</td><td>54.6</td><td>55.5</td><td><span class="dir short">SHORT</span></td></tr>
-                <tr><td>ISM Manufacturing Employment</td><td>52.7</td><td>—</td><td>52.4</td><td><span class="dir long">LONG</span></td></tr>
-                <tr><td>ISM Manufacturing New Orders</td><td>55.3</td><td>—</td><td>55.5</td><td><span class="dir short">SHORT</span></td></tr>
-                <tr><td>Michigan Consumer Sentiment</td><td>48.1</td><td>46.3</td><td>48</td><td><span class="dir short">SHORT</span></td></tr>
-                <tr><td>ISM Non-Manufacturing PMI</td><td>54.9</td><td>54.8</td><td>54.5</td><td><span class="dir long">LONG</span></td></tr>
-                <tr><td>ISM Services Employment</td><td>50.1</td><td>—</td><td>51.4</td><td><span class="dir short">SHORT</span></td></tr>
-                <tr><td>ISM Services New Orders</td><td>59.8</td><td>—</td><td>55.9</td><td><span class="dir long">LONG</span></td></tr>
-                <tr><td>Previous NFP</td><td>133</td><td>90</td><td>29</td><td><span class="dir long">LONG</span></td></tr>
-              </tbody>
-            </table>
-          </div>
-        </article>
-      </section>
-</div>
 
-<div class="wrap author-wrap">
-<section id="thinking">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow">Author view</div>
-            <h2>Vikundey Thinking</h2>
-          </div>
-          <div class="section-note">Pre-Fact thesis</div>
-        </div>
 
-        <div class="thinking-grid">
-          <article class="thought-card">
-            <p><strong>Почнемо із ринку праці,</strong> цього разу значення “заштопорились”, ніби в очікуванні чогось. Адже, по суті значних рухів не відбулось, і зараз ми їх розглянемо конкретно.</p>
-
-            <p><strong>Щодо IJC,</strong> місяць закрили легким зниженням, це являється позитивом для долару, хоч і мінімальним. Я би це пояснила так, що хто шукав роботу — знайшов, новоприбулих немає — звільнень мало, тож потік нових безробітніх людей стає меншим.</p>
-
-            <p>Тепер візьмемо <strong>Challenger Job Cuts</strong>, ще один показник вказує на умовний штиль на ринку праці. Бо кричущих змін зниження/підвищення НЕ відбулось. Одним словом, люди зберігаються на своїх робочих місцях.</p>
-
-            <p><strong>Узагальнюючи,</strong> хоч сильних змін не відбулось, але наявні мінімальні рухи ідентифіковую як позитивний фон на ринку праці, що підтримує зростання NFP.</p>
-
-            <p><strong>Переходимо до бізнес-сфери:</strong></p>
-
-            <p>Почнемо з сфери виробництва, загальний показник показав зростання, що свідчить про розвиток/зростання кондицій ділової активності. По новим замовленням отримали мінімальне зростання, яке більше говорить про їх стабільність, а не про новий приплив попиту. Говорячи про зайнятість, то є мінімальне зниження, скоріше це пішла як оптимізація бізнесу, тобто лишили ту кіл-сть, яка спокійно може обробити той попит, який зараз є.</p>
-
-            <p>Загально розуміємо, що є стабільність попиту та оптимізація робочої сили бізнесу, тож я би тут говорила за обмежений позитив для долару.</p>
-
-            <p>Щодо сфери послуг, тут ситуація трошки гірше, ніж у виробництва. Загальний показник дав зниження, але не значне, тому це НЕ критичний негатив для долару.</p>
-
-            <p>Говорячи про нові замовлення, маємо сильний відкат, а в зайнятості зростання — правда, звучить як нонсенс та не логічно. Але допускаю дві причини: <strong>1 — lagging effect</strong> (тобто, нові дані затримуються і ринок їх не отримав); <strong>2 — Labor Hoarding</strong> (простими словами, компанії свідомо утримують штат і схиляються до тимчасовості цього спаду попиту).</p>
-
-            <p>Я не можу тут сказати за сильний позитив — не будемо шукати того, чого немає. Проте, ситуація не виглядає печально, але все ж таки з негативом для долару.</p>
-
-            <p><strong>Отже,</strong> факторів для сильного зростання NFP — немає, але й ситуація не печальна! Тому думаю, що побачимо помірне/легке зростання, через стабільність даних на ринку праці (сильних позитив/негатив рухів не було) + позаминулого місяця теж мали відносно сильні значення на ринку праці, тож думаю це згладить сьогоднішню цифру.</p>
-
-            <p>При відпрацюванні сценарію (легке зростання), по єврику очікую шортової реакції. Але не виключаю можливості хелікоптеру, як мінімум на фоні вчорашнього відкату :))</p>
-          </article>
-
-          <aside class="thought-card side">
-            <div class="scenario-box">
-              <div class="scenario-row">
-                <div class="scenario-k">Labor market</div>
-                <div class="scenario-v">Мінімальний позитив</div>
-              </div>
-
-              <div class="scenario-row">
-                <div class="scenario-k">Manufacturing</div>
-                <div class="scenario-v">Обмежений позитив</div>
-              </div>
-
-              <div class="scenario-row">
-                <div class="scenario-k">Services</div>
-                <div class="scenario-v">Помірний негатив</div>
-              </div>
-
-              <div class="scenario-row">
-                <div class="scenario-k">NFP expectation</div>
-                <div class="scenario-v">Помірне / легке зростання</div>
-              </div>
-
-              <div class="scenario-row">
-                <div class="scenario-k">EURUSD reaction</div>
-                <div class="scenario-v">SHORT · Helicopter possible</div>
-              </div>
-            </div>
-          </aside>
-        </div>
-      </section>
-</div>
 
 
 
