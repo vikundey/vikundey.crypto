@@ -1567,6 +1567,35 @@ a{
   }
 
 }
+
+/* Personal profile — isolated styles */
+.user{min-width:0;}
+.user-details{min-width:0;flex:1;}
+.personal-name{font-size:clamp(25px,3.5vw,42px);font-weight:950;line-height:1.12;letter-spacing:-.035em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.personal-handle{color:var(--cyan);font-size:14px;margin-top:5px;overflow-wrap:anywhere;}
+#email{font-size:13px;font-weight:500;line-height:1.4;letter-spacing:0;color:var(--muted);overflow-wrap:anywhere;}
+.avatar.personalized{color:#041019;font-weight:950;}
+.edit-profile{font:inherit;font-size:12px;font-weight:850;color:var(--cyan);background:rgba(46,199,241,.07);border:1px solid rgba(46,199,241,.25);border-radius:10px;padding:8px 12px;margin-top:9px;cursor:pointer;}
+.edit-profile:disabled{opacity:.42;cursor:not-allowed;}
+.profile-dialog{width:min(460px,calc(100% - 28px));max-height:90vh;overflow:auto;border:1px solid var(--line);border-radius:24px;background:#0a202c;color:white;padding:25px;box-shadow:var(--shadow);}
+.profile-dialog::backdrop{background:rgba(0,8,14,.75);backdrop-filter:blur(5px);}
+.profile-dialog h2{margin:0 0 18px;font-size:25px;}
+.profile-dialog label{display:block;margin:15px 0 6px;font-size:13px;color:var(--muted);}
+.profile-dialog input{width:100%;padding:12px;border:1px solid var(--line);border-radius:11px;background:#061722;color:white;font:inherit;}
+.profile-dialog small{display:block;color:var(--muted);margin-top:6px;font-size:12px;}
+.avatar-options{display:flex;gap:9px;margin:10px 0;flex-wrap:wrap;}
+.avatar-options button{width:38px;height:38px;border-radius:50%;border:2px solid transparent;cursor:pointer;}
+.avatar-options button[aria-pressed="true"]{border-color:white;outline:2px solid var(--cyan);outline-offset:2px;}
+.dialog-actions{display:flex;gap:10px;margin-top:20px;}
+.dialog-actions button{flex:1;padding:12px;border:1px solid var(--line);border-radius:11px;color:white;background:#102b38;font:inherit;font-weight:800;cursor:pointer;}
+.dialog-actions button[type="submit"]{background:linear-gradient(135deg,var(--cyan),var(--green));color:#041019;}
+#profileMessage{font-size:13px;color:#ffb7b7;min-height:18px;margin-top:10px;}
+#profileNotice{font-size:12px;color:var(--muted);margin-top:5px;}
+/* Flow layout on smaller screens prevents overlap with longer identity blocks. */
+@media(max-width:1000px){.profile-hero{min-height:0;display:flex;flex-direction:column;gap:24px;}.profile-left{width:100%;}.visual{position:relative;top:auto;right:auto;align-self:center;transform:none;width:min(520px,100%);height:390px;overflow:hidden;}.access-area,.pipeline,.research-cta,.account-actions{position:relative;left:auto;right:auto;bottom:auto;}.pipeline{flex-wrap:wrap;}.account-actions{width:100%;}.access-strip{grid-template-columns:repeat(3,minmax(0,1fr));}}
+@media(max-width:720px){.access-strip{grid-template-columns:1fr;}.visual{height:330px;}.visual .globe{width:300px;height:300px;}.float-card.research{left:5px;top:180px;}.float-card.macro{right:5px;top:90px;}.topic-label.labour{left:5px;}.topic-label.inflation{left:20px;}.personal-name{font-size:26px;}.avatar{width:60px;height:60px;}.account-actions-buttons{grid-template-columns:1fr;}}
+@media(min-width:1001px){.profile-hero{min-height:1300px;}}
+
 </style>
 </head>
 
@@ -1667,28 +1696,15 @@ a{
 
 
   <div class="user">
-
-    <div class="avatar">
-      👤
+    <div class="avatar" id="personalAvatar" aria-hidden="true">👤</div>
+    <div class="user-details">
+      <div class="personal-name" id="personalName">Вітаємо!</div>
+      <div class="personal-handle" id="personalHandle" hidden></div>
+      <div class="member-note" id="email">—</div>
+      <button type="button" class="edit-profile" id="editProfile" disabled>Редагувати профіль</button>
+      <div id="profileNotice" role="status"></div>
     </div>
-
-    <div>
-
-      <div
-        id="email"
-        class="email"
-      >
-        —
-      </div>
-
-      <div class="member-note">
-        Авторизований користувач Vikundey Space
-      </div>
-
-    </div>
-
   </div>
-
 
   <!-- PLAN -->
 
@@ -2299,6 +2315,24 @@ a{
 </div>
 
 
+<dialog class="profile-dialog" id="profileDialog">
+  <form id="personalForm">
+    <h2>Personal Profile</h2>
+    <label for="displayNameInput">Ім’я користувача</label>
+    <input id="displayNameInput" maxlength="40" minlength="2" required autocomplete="nickname" placeholder="Наприклад, Alex">
+    <label for="usernameInput">Username (необов’язково)</label>
+    <input id="usernameInput" maxlength="24" pattern="[a-zA-Z0-9_]{3,24}" autocapitalize="none" autocomplete="off" placeholder="alex">
+    <small>3–24 латинські літери, цифри або _. Не є логіном чи унікальним ID.</small>
+    <label>Колір аватара</label>
+    <div class="avatar-options" id="avatarOptions" role="group" aria-label="Колір аватара"></div>
+    <label for="emailInput">Електронна пошта</label>
+    <input id="emailInput" readonly>
+    <small>Пошта використовується для авторизації.</small>
+    <div id="profileMessage" role="status" aria-live="polite"></div>
+    <div class="dialog-actions"><button type="button" id="cancelProfile">Скасувати</button><button type="submit" id="saveProfile">Зберегти</button></div>
+  </form>
+</dialog>
+
 <script>
 
 const el =
@@ -2483,6 +2517,7 @@ async function loadProfile(){
 
   el("email").textContent =
     data.email || "—";
+  renderPersonal(data.personalization);
 
 
   /* PLAN */
@@ -2722,6 +2757,51 @@ if(logoutButton){
 
 }
 
+
+const avatarColors = {ocean:"linear-gradient(135deg,#2ec7f1,#8bea6f)",violet:"linear-gradient(135deg,#6396ff,#b19aff)",sunset:"linear-gradient(135deg,#ffbf69,#ff8282)",mint:"linear-gradient(135deg,#23bda9,#91ef6d)"};
+let personal = {displayName:"",username:"",avatarColor:"ocean",available:false};
+let selectedAvatarColor = "ocean";
+function renderPersonal(data){
+  personal = {...personal,...(data || {})};
+  const name = personal.displayName || "Вітаємо!";
+  el("personalName").textContent = name;
+  el("personalName").title = name;
+  el("personalHandle").textContent = personal.username ? "@"+personal.username : "";
+  el("personalHandle").hidden = !personal.username;
+  const a = el("personalAvatar");
+  a.textContent = personal.displayName ? Array.from(personal.displayName)[0].toUpperCase() : "👤";
+  a.classList.toggle("personalized",!!personal.displayName);
+  a.style.background = personal.displayName ? (avatarColors[personal.avatarColor] || avatarColors.ocean) : "";
+  el("editProfile").disabled = !personal.available;
+  el("profileNotice").textContent = !personal.available ? "Персоналізація тимчасово недоступна." : (!personal.displayName ? "Додай ім’я, щоб персоналізувати Space." : "");
+}
+function selectColor(color){
+  selectedAvatarColor = color;
+  for(const b of el("avatarOptions").children) b.setAttribute("aria-pressed",String(b.dataset.color===color));
+}
+for(const [color,gradient] of Object.entries(avatarColors)){
+  const b=document.createElement("button"); b.type="button"; b.dataset.color=color; b.style.background=gradient;
+  b.setAttribute("aria-label",color); b.setAttribute("aria-pressed","false"); b.addEventListener("click",()=>selectColor(color)); el("avatarOptions").append(b);
+}
+el("editProfile").addEventListener("click",()=>{
+  el("displayNameInput").value=personal.displayName;
+  el("usernameInput").value=personal.username;
+  el("emailInput").value=el("email").textContent;
+  selectColor(personal.avatarColor || "ocean"); el("profileMessage").textContent=""; el("profileDialog").showModal();
+});
+el("cancelProfile").addEventListener("click",()=>el("profileDialog").close());
+el("personalForm").addEventListener("submit",async(event)=>{
+  event.preventDefault();
+  const save=el("saveProfile"); if(save.disabled)return; save.disabled=true; el("cancelProfile").disabled=true;
+  el("profileMessage").textContent="Зберігаємо…";
+  try{
+    const response=await fetch("/api/profile",{method:"POST",credentials:"same-origin",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({displayName:el("displayNameInput").value,username:el("usernameInput").value,avatarColor:selectedAvatarColor})});
+    const result=await response.json(); if(!response.ok || !result.ok)throw new Error(result.error || "Не вдалося зберегти профіль.");
+    renderPersonal(result.personalization); el("profileDialog").close(); el("profileNotice").textContent="Профіль збережено.";
+  }catch(error){el("profileMessage").textContent=error instanceof SyntaxError ? "Не вдалося зберегти. Перевір авторизацію та API." : error.message;}
+  finally{save.disabled=false;el("cancelProfile").disabled=false;}
+});
+el("profileDialog").addEventListener("cancel",event=>{if(el("saveProfile").disabled)event.preventDefault();});
 
 init();
 
