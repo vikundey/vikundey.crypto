@@ -3873,6 +3873,12 @@ a{
 
 }
 
+
+.space-personal{display:inline-flex;align-items:center;gap:8px;min-width:0;max-width:100%;color:var(--muted);font-size:13px;}
+.space-personal:hover{color:var(--cyan);}
+.space-avatar{display:grid;place-items:center;width:30px;height:30px;flex:0 0 30px;border-radius:50%;background:#143846;color:#041019;font-weight:950;}
+.space-personal-text{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.profile-link.personalized{color:#041019;font-weight:950;}
 </style>
 
 </head>
@@ -4021,12 +4027,10 @@ a{
         Vikundey Space
       </span>
 
-      <span
-        class="email"
-        id="email"
-      >
-        —
-      </span>
+      <a class="space-personal" href="/profile/account/" id="personalLink">
+        <span class="space-avatar" id="spaceAvatar" aria-hidden="true">👤</span>
+        <span class="space-personal-text" id="email">Мій профіль</span>
+      </a>
 
     </div>
 
@@ -4983,8 +4987,20 @@ async function loadSpace(){
   }
 
 
-  el("email").textContent =
-    data.email || "—";
+  const avatarColors = {ocean:"linear-gradient(135deg,#2ec7f1,#8bea6f)",violet:"linear-gradient(135deg,#6396ff,#b19aff)",sunset:"linear-gradient(135deg,#ffbf69,#ff8282)",mint:"linear-gradient(135deg,#23bda9,#91ef6d)"};
+  const personal = data.personalization || {};
+  const name = personal.displayName || "";
+  const label = name ? "Вітаємо, " + name + "!" + (personal.username ? " · @" + personal.username : "") : "Мій профіль";
+  el("email").textContent = label;
+  el("personalLink").title = label;
+  if(name){
+    const initial = Array.from(name)[0].toUpperCase();
+    const gradient = avatarColors[personal.avatarColor] || avatarColors.ocean;
+    el("spaceAvatar").textContent = initial;
+    el("spaceAvatar").style.background = gradient;
+    const navProfile = document.querySelector(".profile-link");
+    if(navProfile){navProfile.textContent=initial;navProfile.style.background=gradient;navProfile.classList.add("personalized");}
+  }
 
 
   el("planLabel").textContent =
