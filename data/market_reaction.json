@@ -1,6 +1,6 @@
 {
   "status": "ok",
-  "updated_at": "2026-11-18T21:29:24.762738+02:00",
+  "updated_at": "2026-11-19T03:25:46.475398+02:00",
   "timezone": "Europe/Kyiv",
   "event": {
     "name": "FOMC Meeting Minutes",
@@ -13,8 +13,8 @@
       "release_price": 1.09778,
       "m15_price": 1.09695,
       "m15_change_pct": -0.0756,
-      "h1_price": null,
-      "h1_change_pct": null,
+      "h1_price": 1.09655,
+      "h1_change_pct": -0.112,
       "status": "ok"
     },
     "XAUUSD": {
@@ -22,8 +22,8 @@
       "release_price": 3738.12865,
       "m15_price": 3729.39728,
       "m15_change_pct": -0.2336,
-      "h1_price": null,
-      "h1_change_pct": null,
+      "h1_price": 3721.88094,
+      "h1_change_pct": -0.4346,
       "status": "ok"
     },
     "BTC": {
@@ -31,8 +31,8 @@
       "release_price": 63010.05,
       "m15_price": 62878.0,
       "m15_change_pct": -0.2096,
-      "h1_price": null,
-      "h1_change_pct": null,
+      "h1_price": 62734.3,
+      "h1_change_pct": -0.4376,
       "status": "ok"
     }
   }
