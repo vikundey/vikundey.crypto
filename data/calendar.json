@@ -1,7 +1,7 @@
 {
   "source": "Forex Factory + FRED",
   "timezone": "Europe/Kyiv",
-  "updated_at": "2026-11-19T16:28:38.469138+02:00",
+  "updated_at": "2026-11-19T23:27:23.498459+02:00",
   "week_start": "2026-11-16",
   "week_end": "2026-11-20",
   "event_count": 46,
@@ -547,21 +547,6 @@
       "impact_rank": 1
     },
     {
-      "title": "Mortgage Delinquencies",
-      "country": "USD",
-      "impact": "Low",
-      "forecast": "",
-      "previous": "4.37%",
-      "actual": "",
-      "actual_source": "",
-      "date_iso": "2026-11-19T17:15:00+02:00",
-      "date": "2026-11-19",
-      "day": "THU",
-      "time": "17:15",
-      "timestamp": 1795101300,
-      "impact_rank": 1
-    },
-    {
       "title": "Natural Gas Storage",
       "country": "USD",
       "impact": "Low",
@@ -574,6 +559,21 @@
       "day": "THU",
       "time": "17:30",
       "timestamp": 1795102200,
+      "impact_rank": 1
+    },
+    {
+      "title": "Mortgage Delinquencies",
+      "country": "USD",
+      "impact": "Low",
+      "forecast": "",
+      "previous": "4.37%",
+      "actual": "",
+      "actual_source": "",
+      "date_iso": "2026-11-19T17:46:00+02:00",
+      "date": "2026-11-19",
+      "day": "THU",
+      "time": "17:46",
+      "timestamp": 1795103160,
       "impact_rank": 1
     },
     {
