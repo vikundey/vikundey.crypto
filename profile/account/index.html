@@ -1625,6 +1625,17 @@ body::after{
 }
 @media(prefers-reduced-motion:reduce){body::after{animation:none;}}
 
+
+/* Pearl Aurora Micro — desktop pointer light */
+#pearlAuroraMicro{
+  position:fixed;top:0;left:0;width:230px;height:156px;
+  z-index:2;pointer-events:none;border-radius:50%;opacity:0;
+  background:radial-gradient(ellipse 115px 78px at center,#ffffff22,#2ec7f114 34%,#8bea6f10 56%,transparent 100%);
+  transform:translate3d(-300px,-300px,0);transition:opacity .25s ease;
+  will-change:transform;
+}
+@media (hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){#pearlAuroraMicro{display:none;}}
+
 </style>
 </head>
 
@@ -2834,6 +2845,33 @@ el("profileDialog").addEventListener("cancel",event=>{if(el("saveProfile").disab
 
 init();
 
+</script>
+
+
+<div id="pearlAuroraMicro" aria-hidden="true"></div>
+<script>
+(()=>{
+  const glow=document.getElementById('pearlAuroraMicro');
+  const media=matchMedia('(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference)');
+  let x=0,y=0,tx=0,ty=0,frame=0,visible=false;
+  function draw(){
+    frame=0;
+    x+=(tx-x)*.13;y+=(ty-y)*.13;
+    glow.style.transform=`translate3d(${x-115}px,${y-78}px,0)`;
+    if(visible && Math.hypot(tx-x,ty-y)>.2) frame=requestAnimationFrame(draw);
+  }
+  function hide(){visible=false;glow.style.opacity='0';if(frame)cancelAnimationFrame(frame);frame=0;}
+  window.addEventListener('pointermove',e=>{
+    if(!media.matches||e.pointerType==='touch'){hide();return;}
+    tx=e.clientX;ty=e.clientY;
+    if(!visible){visible=true;x=tx;y=ty;glow.style.opacity='1';}
+    if(!frame)frame=requestAnimationFrame(draw);
+  },{passive:true});
+  document.documentElement.addEventListener('pointerleave',hide);
+  window.addEventListener('blur',hide);
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)hide();});
+  media.addEventListener('change',hide);
+})();
 </script>
 
 </body>
