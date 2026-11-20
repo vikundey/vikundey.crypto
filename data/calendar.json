@@ -1,10 +1,10 @@
 {
   "source": "Forex Factory + FRED",
   "timezone": "Europe/Kyiv",
-  "updated_at": "2026-11-19T23:27:23.498459+02:00",
+  "updated_at": "2026-11-20T16:04:14.591034+02:00",
   "week_start": "2026-11-16",
   "week_end": "2026-11-20",
-  "event_count": 46,
+  "event_count": 47,
   "events": [
     {
       "title": "FOMC Member Barr Speaks",
@@ -679,6 +679,21 @@
       "day": "FRI",
       "time": "17:00",
       "timestamp": 1795186800,
+      "impact_rank": 2
+    },
+    {
+      "title": "President Trump Speaks",
+      "country": "USD",
+      "impact": "Medium",
+      "forecast": "",
+      "previous": "",
+      "actual": "",
+      "actual_source": "",
+      "date_iso": "2026-11-20T19:00:00+02:00",
+      "date": "2026-11-20",
+      "day": "FRI",
+      "time": "19:00",
+      "timestamp": 1795194000,
       "impact_rank": 2
     },
     {
