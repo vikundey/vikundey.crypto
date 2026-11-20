@@ -790,6 +790,10 @@ h2 {
 
 /* September: extended pre-fact research */
 .context-heading{margin-top:34px}.context-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.context-grid .review-card{display:flex;flex-direction:column}.context-grid .chart-meta{padding:16px 20px 22px;line-height:1.65}.chart-placeholder{min-height:150px;display:grid;place-content:center;gap:8px;padding:24px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:16px;background:rgba(255,255,255,.025)}.chart-placeholder strong{display:block;color:var(--text);font-size:17px}.chart-placeholder span{display:block;font-size:13px}.prefact-wrap{display:block;width:100%}.prefact-card{padding:clamp(20px,4vw,36px)}.prefact-card .thought-title{font-size:26px;margin:0 0 20px}.thought-number{color:var(--cyan);font-weight:900;margin-bottom:12px}.prefact-block{padding:22px 0;border-top:1px solid var(--line)}.prefact-block h4{font-size:20px;margin:0 0 14px;color:var(--cyan)}.prefact-block p{color:#becbd3;line-height:1.75;margin:0 0 12px}.prefact-block strong{color:var(--text)}.prefact-conclusion{padding:22px;border:1px solid rgba(139,234,111,.18);border-radius:18px;background:rgba(139,234,111,.05)}.reaction-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.reaction-card{padding:16px;border:1px solid var(--line);border-radius:14px;font-weight:850;background:rgba(255,255,255,.04)}.reaction-card small{display:block;color:var(--muted);margin-bottom:8px}.chart,.wide-viewer-img{object-fit:contain}.chart{height:auto;max-height:none;aspect-ratio:auto}@media(max-width:760px){.context-grid,.reaction-grid{grid-template-columns:1fr}.prefact-conclusion{padding:16px}}
+
+/* Text-only market context cards */
+.context-grid .review-card .chart-meta{padding:18px 20px 22px;font-size:15px;line-height:1.75;color:#becbd3;}
+.context-grid .review-card .review-head{gap:12px;flex-wrap:wrap;}
 </style>
 <link href="/favicon.png" rel="icon" type="image/png"/></head>
 <body>
@@ -901,45 +905,27 @@ h2 {
 </div></details>
 <div class="section-head context-heading"><div><div class="eyebrow">Additional macro context</div><h2>Market Context</h2></div></div><div class="context-grid"><article class="review-card before review-wide">
 <div class="review-head"><h3>2Y Bond Yields</h3><span class="pill blue">Rates</span></div>
-<div class="frame"><div class="chart-placeholder">
-<strong>2Y Bond Yields</strong>
-<span>Оригінальне зображення не додано у вихідному коді.</span>
-</div></div>
+
 <div class="chart-meta">Найбільш чутливий інструмент до очікувань щодо ставки ФРС. За місяць маємо близько +8% росту, що сигналізує про жорсткішу політику ФРС і підвищені інфляційні ризики.</div>
 </article><article class="review-card after review-wide">
 <div class="review-head"><h3>5Y Bond Yields</h3><span class="pill long">Rates</span></div>
-<div class="frame"><div class="chart-placeholder">
-<strong>5Y Bond Yields</strong>
-<span>Оригінальне зображення не додано у вихідному коді.</span>
-</div></div>
+
 <div class="chart-meta">Показує більш середньострокові настрої. Також бачимо близько +8% росту, тобто ринок закладає вищу ставку ФРС на довший період або менше знижень ставки, ніж очікувалося раніше.</div>
 </article><article class="review-card before">
 <div class="review-head"><h3>Настрої FED Rate</h3><span class="pill blue">Probabilities</span></div>
-<div class="frame"><div class="chart-placeholder">
-<strong>Настрої FED Rate</strong>
-<span>Оригінальне зображення не додано у вихідному коді.</span>
-</div></div>
+
 <div class="chart-meta">Поточні очікування ринку зміщені в hawkish-сценарій: ймовірність підвищення ставки ФРС вже досягла приблизно 70%.</div>
 </article><article class="review-card after">
 <div class="review-head"><h3>PPI</h3><span class="pill short">Inflation</span></div>
-<div class="frame"><div class="chart-placeholder">
-<strong>PPI</strong>
-<span>Оригінальне зображення не додано у вихідному коді.</span>
-</div></div>
+
 <div class="chart-meta">PPI виріс з 4.8% до 5.4% і вийшов вище прогнозу. Це підвищує ризик сильнішого Headline CPI, хоча слабша динаміка у послугах і core-компонентах може стримати Core CPI.</div>
 </article><article class="review-card before review-wide">
 <div class="review-head"><h3>Плановий викуп облігацій</h3><span class="pill neutral">Liquidity</span></div>
-<div class="frame"><div class="chart-placeholder">
-<strong>Плановий викуп облігацій</strong>
-<span>Оригінальне зображення не додано у вихідному коді.</span>
-</div></div>
+
 <div class="chart-meta">Це планова, а не раптова операція підтримки ліквідності, яка триватиме до 4 листопада. Новина не є сильним bullish-сюрпризом для risk assets, а радше дає ринку легку підтримку.</div>
 </article><article class="review-card after review-wide">
 <div class="review-head"><h3>ЄЦБ (ЄС)</h3><span class="pill long">Central bank</span></div>
-<div class="frame"><div class="chart-placeholder">
-<strong>ЄЦБ (ЄС)</strong>
-<span>Оригінальне зображення не додано у вихідному коді.</span>
-</div></div>
+
 <div class="chart-meta">ЄЦБ підвищив ставку на +25 б.п. до 2.65% та переглянув прогнози щодо інфляції і ВВП. Це може бути частиною нового глобального циклу жорсткішої монетарної політики.</div>
 </article></div></section>
 <section id="thinking">
