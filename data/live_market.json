@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-11-21T05:58:43.055692+02:00",
+  "updated_at": "2026-11-21T14:25:50.379931+02:00",
   "timezone": "Europe/Kyiv",
   "assets": {
     "EURUSD": {
       "symbol": "EUR/USD",
-      "price": 1.09679,
+      "price": 1.09673,
       "status": "ok"
     },
     "GBPUSD": {
@@ -19,7 +19,7 @@
     },
     "BTC": {
       "symbol": "BTC/USD",
-      "price": 56705.82,
+      "price": 58585.75,
       "status": "ok"
     }
   }
