@@ -3945,56 +3945,79 @@ a{
 
 
 /* =========================================================
-   LATEST RESEARCH · EDITORIAL PREMIUM CARDS
-   No decorative chart widgets or continuous animation.
+   LATEST RESEARCH · LUMINOUS EDITORIAL
+   Bright atmospheric glow + long slow light sweep.
+   No mini charts. No bouncing cards.
    ========================================================= */
-.research-card,
-.research-card.green{
+.research-card{
+  --card-rgb:46,199,241;
   isolation:isolate;
   background:
-    radial-gradient(ellipse at 100% 0%, rgba(46,199,241,.045), transparent 52%),
-    linear-gradient(150deg, rgba(255,255,255,.042), rgba(255,255,255,.008));
-  border-color:rgba(190,225,240,.14);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.035), 0 14px 48px rgba(0,0,0,.10);
-  transition:border-color .55s ease,box-shadow .55s ease,background .55s ease;
+    radial-gradient(ellipse 64% 74% at 92% 15%,rgba(var(--card-rgb),.105),transparent 79%),
+    radial-gradient(ellipse 62% 66% at 8% 96%,rgba(var(--card-rgb),.065),transparent 78%),
+    linear-gradient(145deg,rgba(255,255,255,.047),rgba(255,255,255,.010));
+  border:1px solid rgba(var(--card-rgb),.25);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.065),
+    inset 0 0 55px rgba(var(--card-rgb),.027),
+    0 18px 60px rgba(0,0,0,.22),
+    0 0 36px rgba(var(--card-rgb),.045);
+  transform:none;
+  transition:border-color .8s ease,box-shadow .8s ease,background .8s ease;
+  animation:researchAtmosphere 13s ease-in-out infinite alternate;
 }
 .research-card.green{
+  --card-rgb:139,234,111;
   background:
-    radial-gradient(ellipse at 100% 0%, rgba(139,234,111,.038), transparent 52%),
-    linear-gradient(150deg, rgba(255,255,255,.042), rgba(255,255,255,.008));
+    radial-gradient(ellipse 64% 74% at 92% 15%,rgba(var(--card-rgb),.105),transparent 79%),
+    radial-gradient(ellipse 62% 66% at 8% 96%,rgba(var(--card-rgb),.065),transparent 78%),
+    linear-gradient(145deg,rgba(255,255,255,.047),rgba(255,255,255,.010));
 }
-.research-card:hover,
-.research-card.green:hover{
-  transform:none;
-  border-color:rgba(46,199,241,.28);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.052), 0 22px 62px rgba(0,0,0,.18);
+@keyframes researchAtmosphere{
+  0%{box-shadow:inset 0 1px 0 rgba(255,255,255,.055),inset 0 0 45px rgba(var(--card-rgb),.019),0 18px 60px rgba(0,0,0,.22),0 0 20px rgba(var(--card-rgb),.028)}
+  100%{box-shadow:inset 0 1px 0 rgba(255,255,255,.075),inset 0 0 70px rgba(var(--card-rgb),.050),0 18px 60px rgba(0,0,0,.22),0 0 52px rgba(var(--card-rgb),.105)}
 }
-.research-card.green:hover{border-color:rgba(139,234,111,.26)}
-/* Restrained architectural accent replaces chart decorations. */
+.research-card.green{animation-delay:-6.5s}
 .research-card::before{
   content:"";
+  pointer-events:none;
   position:absolute;
   top:0;
-  left:9%;
-  width:34%;
-  height:1px;
-  background:linear-gradient(90deg,transparent,rgba(46,199,241,.35),transparent);
-  opacity:.52;
-  pointer-events:none;
-  transition:opacity .55s ease,width .7s ease;
+  left:-42%;
+  width:42%;
+  height:2px;
+  background:linear-gradient(90deg,transparent,rgba(var(--card-rgb),.1) 9%,rgba(var(--card-rgb),.95) 50%,rgba(var(--card-rgb),.1) 91%,transparent);
+  box-shadow:0 0 16px 2px rgba(var(--card-rgb),.35),0 0 40px rgba(var(--card-rgb),.15);
+  opacity:.75;
+  animation:researchLightSweep 16s linear infinite;
 }
-.research-card.green::before{
-  background:linear-gradient(90deg,transparent,rgba(139,234,111,.34),transparent);
+.research-card.green::before{animation-delay:-8s}
+@keyframes researchLightSweep{
+  0%{left:-42%;opacity:0}
+  12%{opacity:.85}
+  72%{opacity:.85}
+  86%,100%{left:105%;opacity:0}
 }
-.research-card:hover::before{opacity:.95;width:55%}
-.research-card::after,
-.research-card.green::after{
-  /* Keep a subtle lower arc, not a bright animated graph. */
-  opacity:.28;
+/* The lower architectural curve remains subtle and static. */
+.research-card::after,.research-card.green::after{
+  opacity:.32;
   border-top-width:1px;
-  transition:opacity .6s ease;
+  border-color:rgba(var(--card-rgb),.32);
+  transition:opacity .7s ease;
 }
-.research-card:hover::after{opacity:.40}
+.research-card:hover,.research-card.green:hover{
+  transform:none;
+  animation-play-state:paused;
+  border-color:rgba(var(--card-rgb),.64);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.10),
+    inset 0 0 88px rgba(var(--card-rgb),.10),
+    0 25px 70px rgba(0,0,0,.30),
+    0 0 48px rgba(var(--card-rgb),.18),
+    0 0 3px rgba(var(--card-rgb),.6);
+}
+.research-card:hover::after{opacity:.65}
+.research-card:hover::before{animation-play-state:paused;opacity:1}
 .research-card .research-title,
 .research-card .research-copy,
 .research-card .research-meta,
@@ -4003,12 +4026,15 @@ a{
 .research-card .research-title{max-width:100%}
 .research-card .research-copy{max-width:510px}
 .research-card:focus-within{
-  border-color:rgba(46,199,241,.38);
-  outline:2px solid rgba(46,199,241,.38);
+  border-color:rgba(var(--card-rgb),.65);
+  outline:2px solid rgba(var(--card-rgb),.45);
   outline-offset:3px;
 }
 @media (prefers-reduced-motion:reduce){
-  .research-card,.research-card::before,.research-card::after{transition:none!important}
+  .research-card,.research-card.green,.research-card::before,.research-card.green::before{
+    animation:none!important;
+    transition:none!important;
+  }
 }
 
 </style>
