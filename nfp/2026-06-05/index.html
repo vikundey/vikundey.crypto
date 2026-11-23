@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>NFP 05.06.2026 Archive | vikundey.crypto</title>
   <meta name="description" content="Архівний авторський аналіз NFP USD 05.06.2026 від vikundey.crypto." />
+  <link rel="icon" type="image/png" href="/favicon.png">
   <style>
 
     :root{
@@ -680,21 +681,35 @@
       .footer-sign{flex-direction:column}
     }
 
-  </style>
+  
+    /* Vikundey Space — unified premium archive navigation */
+    .site-brand-logo{
+      width:38px;height:38px;object-fit:contain;display:block;flex:0 0 38px;
+    }
+    @media(max-width:680px){
+      .topbar{gap:10px;flex-wrap:wrap}
+      .nav{gap:4px;flex-wrap:wrap;justify-content:flex-start}
+      .nav a{font-size:12px;padding:7px 9px}
+      .brand span:last-child{display:inline}
+    }
+</style>
 </head>
 <body>
   <div class="shell">
     
     <header class="topbar">
-      <a class="brand" href="https://vikundey.github.io/vikundey.crypto/index.html">
-        <span class="brand-mark"></span>
+      <a class="brand" href="/space/">
+        <img class="site-brand-logo" src="/logo.png" alt="vikundey.crypto logo" />
         <span>vikundey.crypto</span>
       </a>
 
       <nav class="nav" aria-label="Навігація">
-        <a href="https://vikundey.github.io/vikundey.crypto/index.html">Головна</a>
-        <a class="active" href="https://vikundey.github.io/vikundey.crypto/nfp/index.html">NFP</a>
-        <a href="https://vikundey.github.io/vikundey.crypto/cpi/index.html">CPI</a>
+        <a href="/space/">Головна</a>
+        <a class="active" href="/nfp/access/">NFP</a>
+        <a href="/cpi/access/">CPI</a>
+        <a href="/thoughts/access/">Thoughts</a>
+        <a href="/calculator/">Calculator</a>
+        <a href="/profile/account/" aria-label="Мій профіль">👤</a>
       </nav>
     </header>
 
