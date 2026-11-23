@@ -3943,6 +3943,74 @@ a{
 @media(max-width:760px){.hero-holo-stage{transform:scale(.7);transform-origin:center bottom;right:calc(50% - 260px);bottom:-150px}.hero-visual .visual-card{width:155px;padding:12px}.hero-visual .visual-card.one{top:80px;left:5px}.hero-visual .visual-card.two{top:215px;right:5px}.hero-holo-tag{font-size:8px;padding:5px 7px}.hero-tag-labor{top:174px;left:7px}.hero-tag-fed{top:177px;right:7px}.hero-tag-risk{bottom:35px;left:7px}.hero-growth-line{top:14px;right:5px;width:225px}.research-chart{opacity:.38;top:140px}}
 @media(prefers-reduced-motion:reduce){.space-aura,.holo-earth,.earth-land,.holo-orbit,.holo-pedestal,.hero-growth-line .growth-path,.hero-growth-line .growth-shadow,.growth-node,.research-chart .chart-glow,.research-chart .chart-line,.thought-halo,.thought-scan{animation:none!important}.growth-path,.growth-shadow{stroke-dashoffset:0!important}.growth-node{opacity:1!important}.hero-visual .visual-card{transition:none!important}.space-motion-on .space-reveal{opacity:1!important;transform:none!important;transition:none!important}}
 
+
+/* =========================================================
+   LATEST RESEARCH · EDITORIAL PREMIUM CARDS
+   No decorative chart widgets or continuous animation.
+   ========================================================= */
+.research-card,
+.research-card.green{
+  isolation:isolate;
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(46,199,241,.045), transparent 52%),
+    linear-gradient(150deg, rgba(255,255,255,.042), rgba(255,255,255,.008));
+  border-color:rgba(190,225,240,.14);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035), 0 14px 48px rgba(0,0,0,.10);
+  transition:border-color .55s ease,box-shadow .55s ease,background .55s ease;
+}
+.research-card.green{
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(139,234,111,.038), transparent 52%),
+    linear-gradient(150deg, rgba(255,255,255,.042), rgba(255,255,255,.008));
+}
+.research-card:hover,
+.research-card.green:hover{
+  transform:none;
+  border-color:rgba(46,199,241,.28);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.052), 0 22px 62px rgba(0,0,0,.18);
+}
+.research-card.green:hover{border-color:rgba(139,234,111,.26)}
+/* Restrained architectural accent replaces chart decorations. */
+.research-card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:9%;
+  width:34%;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(46,199,241,.35),transparent);
+  opacity:.52;
+  pointer-events:none;
+  transition:opacity .55s ease,width .7s ease;
+}
+.research-card.green::before{
+  background:linear-gradient(90deg,transparent,rgba(139,234,111,.34),transparent);
+}
+.research-card:hover::before{opacity:.95;width:55%}
+.research-card::after,
+.research-card.green::after{
+  /* Keep a subtle lower arc, not a bright animated graph. */
+  opacity:.28;
+  border-top-width:1px;
+  transition:opacity .6s ease;
+}
+.research-card:hover::after{opacity:.40}
+.research-card .research-title,
+.research-card .research-copy,
+.research-card .research-meta,
+.research-card .research-values,
+.research-card .research-open{position:relative;z-index:2}
+.research-card .research-title{max-width:100%}
+.research-card .research-copy{max-width:510px}
+.research-card:focus-within{
+  border-color:rgba(46,199,241,.38);
+  outline:2px solid rgba(46,199,241,.38);
+  outline-offset:3px;
+}
+@media (prefers-reduced-motion:reduce){
+  .research-card,.research-card::before,.research-card::after{transition:none!important}
+}
+
 </style>
 
 </head>
@@ -4511,30 +4579,7 @@ a{
       </p>
 
 
-      <div class="research-chart"><span class="chart-glow" aria-hidden="true"></span>
-
-        <div class="chart-line">
-
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-
-        </div>
-
-        <div class="chart-bars">
-
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
-
-        </div>
-
-      </div>
+      
 
 
       <div class="research-values">
@@ -4627,30 +4672,7 @@ a{
       </p>
 
 
-      <div class="research-chart"><span class="chart-glow" aria-hidden="true"></span>
-
-        <div class="chart-line">
-
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-
-        </div>
-
-        <div class="chart-bars">
-
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
-
-        </div>
-
-      </div>
+      
 
 
       <div class="research-values">
