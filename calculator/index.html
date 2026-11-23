@@ -737,54 +737,6 @@ input[type=number]:focus{
   text-shadow:0 0 20px rgba(139,234,111,.18)
 }
 
-.risk-bar-wrap{
-  margin-top:16px;
-  padding:16px;
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:16px;
-  background:rgba(255,255,255,.02)
-}
-
-.risk-bar-head{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  margin-bottom:10px;
-  color:#8095a0;
-  font-size:10px;
-  font-weight:850
-}
-
-.risk-bar{
-  height:8px;
-  overflow:hidden;
-  border-radius:999px;
-  background:rgba(255,255,255,.07)
-}
-
-.risk-bar-fill{
-  width:0;
-  height:100%;
-  border-radius:inherit;
-  background:linear-gradient(90deg,var(--cyan),var(--green));
-  transition:width .25s;
-  box-shadow:
-    0 0 18px rgba(46,199,241,.20),
-    0 0 22px rgba(139,234,111,.14)
-}
-
-.formula-note{
-  margin-top:17px;
-  padding-top:16px;
-  border-top:1px solid rgba(255,255,255,.08);
-  color:#718691;
-  font-size:10.5px;
-  line-height:1.6
-}
-
-.formula-note strong{
-  color:#a9bbc4
-}
 
 .disclaimer{
   margin-top:20px;
@@ -1328,34 +1280,6 @@ Recommended Position Size
 
 </div>
 
-<div class="risk-bar-wrap">
-
-<div class="risk-bar-head">
-<span>Actual / Target Risk</span>
-<span id="riskRatio">—</span>
-</div>
-
-<div class="risk-bar">
-<div
-  class="risk-bar-fill"
-  id="riskBarFill"
-></div>
-</div>
-
-</div>
-
-<div class="formula-note">
-
-<strong>Розрахунок:</strong><br>
-
-Risk amount ÷
-(Stop Loss in pips × $10 per pip for 1.00 lot).
-
-Результат округлюється вниз до 0.01 lot,
-щоб не перевищувати заданий ризик.
-
-</div>
-
 </aside>
 
 </section>
@@ -1420,8 +1344,6 @@ const el={
   pipValue:q('pipValue'),
   units:q('positionUnits'),
   instrument:q('resultInstrument'),
-  ratio:q('riskRatio'),
-  bar:q('riskBarFill'),
   validation:q('validation')
 };
 
@@ -1714,9 +1636,7 @@ function reset(msg=''){
   el.actualRisk.textContent='—';
   el.pipValue.textContent='—';
   el.units.textContent='—';
-  el.ratio.textContent='—';
 
-  el.bar.style.width='0%';
 }
 
 function calculate(){
@@ -1798,8 +1718,6 @@ function calculate(){
   const actual=
     s.v*pipValue;
 
-  const ratio=
-    actual/r.v*100;
 
   el.lot.textContent=
     lot.toFixed(2);
@@ -1823,14 +1741,6 @@ function calculate(){
     Math.round(units)
       .toLocaleString('en-US');
 
-  el.ratio.textContent=
-    `${fmt(ratio,1)}%`;
-
-  el.bar.style.width=
-    Math.min(
-      Math.max(ratio,0),
-      100
-    )+'%';
 }
 
 buttons.forEach(b=>
