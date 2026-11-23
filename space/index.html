@@ -1015,9 +1015,7 @@ a{
     0 20px 55px
     rgba(0,0,0,.25);
 
-  animation:
-    floatCard 5s
-    ease-in-out infinite;
+  animation:none;
 
 }
 
@@ -1041,8 +1039,7 @@ a{
   right:
     34px;
 
-  animation-delay:
-    -2.5s;
+
 
 }
 
@@ -3910,12 +3907,13 @@ a{
 .hero-visual .market-bars span:nth-child(1){--bar-i:1}.hero-visual .market-bars span:nth-child(2){--bar-i:2}.hero-visual .market-bars span:nth-child(3){--bar-i:3}.hero-visual .market-bars span:nth-child(4){--bar-i:4}.hero-visual .market-bars span:nth-child(5){--bar-i:5}.hero-visual .market-bars span:nth-child(6){--bar-i:6}
 @keyframes heroBarPulse{to{filter:brightness(1.55);transform:scaleY(.73);opacity:.5}}
 .hero-growth-line{position:absolute;width:320px;top:26px;right:5px;z-index:4;overflow:visible;pointer-events:none}
-.growth-shadow{stroke:#2ec7f1;stroke-width:10;opacity:.16;fill:none;filter:blur(5px)}
-.growth-path{stroke:url(#spaceGrowthGradient);stroke-width:3;fill:none;stroke-linecap:round;stroke-dasharray:440;stroke-dashoffset:440;animation:drawGrowthLine 3.3s 0.4s ease-out forwards}
-.growth-node{fill:#d9fff2;filter:drop-shadow(0 0 6px #8bea6f);animation:growthBreathe 3s ease-in-out infinite}
-@keyframes drawGrowthLine{to{stroke-dashoffset:0}}@keyframes growthBreathe{50%{opacity:.55;transform:translate(-1px,1px)}}
-.hero-visual .visual-card{z-index:5;background:linear-gradient(145deg,rgba(8,40,54,.85),rgba(6,25,36,.76));border-color:rgba(64,219,218,.30);box-shadow:0 18px 55px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.1),0 0 22px rgba(46,199,241,.08);transition:border-color .3s,box-shadow .3s}
-.hero-visual .visual-card:hover{border-color:rgba(139,234,111,.55);box-shadow:0 22px 60px rgba(0,0,0,.27),0 0 24px rgba(139,234,111,.14)}
+.growth-shadow{stroke:#2ec7f1;stroke-width:10;opacity:.16;fill:none;filter:blur(5px);stroke-dasharray:440;stroke-dashoffset:440;animation:slowGrowthReveal 18s linear infinite}
+.growth-path{stroke:url(#spaceGrowthGradient);stroke-width:3;fill:none;stroke-linecap:round;stroke-dasharray:440;stroke-dashoffset:440;animation:slowGrowthReveal 18s linear infinite}
+.growth-node{fill:#d9fff2;filter:drop-shadow(0 0 6px #8bea6f);opacity:0;animation:slowGrowthEnd 18s linear infinite}
+@keyframes slowGrowthReveal{0%{stroke-dashoffset:440}82%,100%{stroke-dashoffset:0}}
+@keyframes slowGrowthEnd{0%,79%{opacity:0}83%,96%{opacity:1}100%{opacity:.4}}
+.hero-visual .visual-card{z-index:5;animation:none;transform:translateY(0);background:linear-gradient(145deg,rgba(8,40,54,.85),rgba(6,25,36,.76));border-color:rgba(64,219,218,.30);box-shadow:0 18px 55px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.1),0 0 22px rgba(46,199,241,.08);transition:transform .65s cubic-bezier(.2,.75,.25,1),border-color .45s,box-shadow .65s}
+.hero-visual .visual-card:hover{transform:translateY(-7px) scale(1.02);border-color:rgba(139,234,111,.55);box-shadow:0 22px 60px rgba(0,0,0,.27),0 0 24px rgba(139,234,111,.14)}
 .hero-visual .visual-card.one{top:122px;left:10px}.hero-visual .visual-card.two{right:12px;top:295px}
 .hero-holo-tag{position:absolute;z-index:4;border:1px solid rgba(82,223,228,.23);border-radius:999px;padding:7px 11px;background:rgba(2,21,30,.75);color:#caf5f5;font-size:10px;font-weight:850;letter-spacing:.1em;box-shadow:0 0 22px rgba(46,199,241,.075);backdrop-filter:blur(8px)}
 .hero-tag-labor{top:245px;left:32px}.hero-tag-fed{top:250px;right:18px}.hero-tag-risk{bottom:90px;left:24px}
@@ -3941,9 +3939,9 @@ a{
 /* Entrance effects never hide content until JS opt-in */
 .space-motion-on .space-reveal{opacity:0;transform:translateY(24px);transition:opacity .85s ease,transform .85s cubic-bezier(.2,.72,.22,1);transition-delay:var(--reveal-delay,0ms)}
 .space-motion-on .space-reveal.space-visible{opacity:1;transform:none}
-@media(max-width:1000px){.hero-holo-stage{right:calc(50% - 305px);bottom:-145px}.hero-visual .visual-card.one{left:12%}.hero-visual .visual-card.two{right:10%}.hero-growth-line{right:11%}.hero-visual .market-bars{right:15%}}
-@media(max-width:760px){.hero-holo-stage{transform:scale(.7);transform-origin:center bottom;right:calc(50% - 260px);bottom:-150px}.hero-visual .visual-card{width:155px;padding:12px}.hero-visual .visual-card.one{top:80px;left:5px}.hero-visual .visual-card.two{top:215px;right:5px}.hero-holo-tag{font-size:8px;padding:5px 7px}.hero-tag-labor{top:174px;left:7px}.hero-tag-fed{top:177px;right:7px}.hero-tag-risk{bottom:35px;left:7px}.hero-growth-line{top:14px;right:5px;width:225px}.hero-visual .market-bars{top:28px;right:14px;transform:scale(.75);transform-origin:top right}.research-chart{opacity:.38;top:140px}}
-@media(prefers-reduced-motion:reduce){.space-aura,.holo-earth,.earth-land,.holo-orbit,.holo-pedestal,.hero-growth-line .growth-path,.growth-node,.hero-visual .market-bars span,.research-chart .chart-glow,.research-chart .chart-line,.thought-halo,.thought-scan{animation:none!important}.growth-path{stroke-dashoffset:0!important}.space-motion-on .space-reveal{opacity:1!important;transform:none!important;transition:none!important}}
+@media(max-width:1000px){.hero-holo-stage{right:calc(50% - 305px);bottom:-145px}.hero-visual .visual-card.one{left:12%}.hero-visual .visual-card.two{right:10%}.hero-growth-line{right:11%}}
+@media(max-width:760px){.hero-holo-stage{transform:scale(.7);transform-origin:center bottom;right:calc(50% - 260px);bottom:-150px}.hero-visual .visual-card{width:155px;padding:12px}.hero-visual .visual-card.one{top:80px;left:5px}.hero-visual .visual-card.two{top:215px;right:5px}.hero-holo-tag{font-size:8px;padding:5px 7px}.hero-tag-labor{top:174px;left:7px}.hero-tag-fed{top:177px;right:7px}.hero-tag-risk{bottom:35px;left:7px}.hero-growth-line{top:14px;right:5px;width:225px}.research-chart{opacity:.38;top:140px}}
+@media(prefers-reduced-motion:reduce){.space-aura,.holo-earth,.earth-land,.holo-orbit,.holo-pedestal,.hero-growth-line .growth-path,.hero-growth-line .growth-shadow,.growth-node,.research-chart .chart-glow,.research-chart .chart-line,.thought-halo,.thought-scan{animation:none!important}.growth-path,.growth-shadow{stroke-dashoffset:0!important}.growth-node{opacity:1!important}.hero-visual .visual-card{transition:none!important}.space-motion-on .space-reveal{opacity:1!important;transform:none!important;transition:none!important}}
 
 </style>
 
@@ -4107,7 +4105,6 @@ a{
   <div class="hero-visual">
 
     <div class="space-aura" aria-hidden="true"></div>
-    <div class="market-bars" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
     <svg class="hero-growth-line" viewBox="0 0 360 132" aria-hidden="true">
       <defs><linearGradient id="spaceGrowthGradient" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#2ec7f1"/><stop offset="1" stop-color="#8bea6f"/></linearGradient></defs>
       <path class="growth-shadow" d="M5 110 C55 103 67 78 100 86 S156 55 197 65 S261 34 298 39 S334 21 354 8"/>
