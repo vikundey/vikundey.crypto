@@ -431,6 +431,8 @@ button,input{
   animation:livePulse 2.1s ease-in-out infinite
 }
 
+.live-card:has(.live-dot.offline){border-color:rgba(241,198,109,.25)}
+
 .live-dot.offline{
   background:var(--amber);
   box-shadow:0 0 12px rgba(241,198,109,.45);
@@ -1364,6 +1366,23 @@ let symbol='EURUSD';
 let riskMode='percent';
 let marketData={};
 let liveEntry=true;
+let lastQuoteSignature='';
+let marketError=false;
+const QUOTE_MAX_AGE_MS=5*60*1000; // Indicative price freshness threshold; not a promise of update frequency.
+
+function quoteAge(){
+  const t=Date.parse(marketData?.updated_at || '');
+  return Number.isFinite(t) ? Math.max(0, Date.now()-t) : Infinity;
+}
+function formatQuoteTime(){
+  const t=Date.parse(marketData?.updated_at || '');
+  return Number.isFinite(t)
+    ? new Date(t).toLocaleString('uk-UA',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'})
+    : 'час котирування невідомий';
+}
+function quoteSignature(data){
+  return JSON.stringify([data?.updated_at,data?.assets?.EURUSD?.price,data?.assets?.GBPUSD?.price]);
+}
 
 const num=v=>{
   const n=Number(v);
@@ -1401,117 +1420,70 @@ function asset(){
     :null;
 }
 
-function renderLive(){
-
+function renderLive(message=''){
   const a=asset();
   const m=meta[symbol];
+  const fresh=!!a && quoteAge()<=QUOTE_MAX_AGE_MS && !marketError;
+  el.liveDot.classList.toggle('offline',!fresh);
 
   if(!a){
-
-    el.liveDot.classList.add('offline');
-
-    el.liveStatus.textContent=
-      'Manual price mode';
-
+    el.liveStatus.textContent='Market feed unavailable';
     el.livePrice.textContent='—';
-
-    el.liveUpdated.textContent=
-      `${m.label} недоступний у поточному market feed`;
-
-    if(liveEntry){
-      el.entryMode.textContent='manual';
-    }
-
+    el.liveUpdated.textContent=message || `${m.label}: котирування недоступне · введи Entry вручну`;
+    el.entryMode.textContent='manual';
     return;
   }
 
-  const p=Number(a.price);
+  const price=Number(a.price);
+  el.livePrice.textContent=price.toFixed(m.decimals);
+  el.liveStatus.textContent=fresh ? 'Market price · recent quote' : 'Stale quote · not live';
+  el.liveUpdated.textContent=message ||
+    `Джерело: ${formatQuoteTime()}${fresh ? '' : ' · дані застарілі, перевір ціну у брокера'}`;
 
-  el.liveDot.classList.remove('offline');
-
-  el.liveStatus.textContent=
-    'Live market price';
-
-  el.livePrice.textContent=
-    p.toFixed(m.decimals);
-
-  if(marketData.updated_at){
-
-    const d=
-      new Date(marketData.updated_at);
-
-    el.liveUpdated.textContent=
-      Number.isNaN(d.getTime())
-        ?'Market feed connected'
-        :`Updated · ${d.toLocaleString('uk-UA',{
-          day:'2-digit',
-          month:'2-digit',
-          hour:'2-digit',
-          minute:'2-digit'
-        })}`;
-
-  }else{
-
-    el.liveUpdated.textContent=
-      'Market feed connected';
-
+  // Never silently use an old price as a current entry price.
+  if(liveEntry && fresh){
+    el.entry.value=price.toFixed(m.decimals);
+    el.entryMode.textContent='live';
+  } else if(liveEntry && !fresh){
+    el.entryMode.textContent='stale · manual';
   }
-
-  if(liveEntry){
-
-    el.entry.value=
-      p.toFixed(m.decimals);
-
-    el.entryMode.textContent=
-      'live';
-
-  }
-
   calculate();
 }
 
-async function loadMarket(){
-
+let loadingMarket=false;
+async function loadMarket(manual=false){
+  if(loadingMarket)return;
+  loadingMarket=true;
   el.refresh.disabled=true;
-
-  el.refresh.textContent=
-    'Loading...';
-
+  el.refresh.textContent=manual ? 'Checking...' : 'Refresh';
   try{
-
-    const r=
-      await fetch(
-        '/data/live_market.json?ts='+Date.now(),
-        {cache:'no-store'}
-      );
-
-    if(!r.ok){
-      throw new Error('HTTP '+r.status);
+    const response=await fetch('/data/live_market.json?ts='+Date.now(),{
+      cache:'no-store',headers:{'Accept':'application/json','Cache-Control':'no-cache'}
+    });
+    if(!response.ok)throw new Error('HTTP '+response.status);
+    const data=await response.json();
+    const signature=quoteSignature(data);
+    const unchanged=lastQuoteSignature && lastQuoteSignature===signature;
+    lastQuoteSignature=signature;
+    marketData=data;
+    marketError=false;
+    const fresh=quoteAge()<=QUOTE_MAX_AGE_MS;
+    let message='';
+    if(manual){
+      message=unchanged
+        ? `Нової ціни немає · останні дані ${formatQuoteTime()}`
+        : `Отримано дані · ${formatQuoteTime()}`;
+      if(!fresh)message+=' · котирування застаріло';
     }
-
-    marketData=
-      await r.json();
-
-    renderLive();
-
-  }catch(e){
-
-    console.error(e);
-
-    marketData={};
-
-    renderLive();
-
-    el.liveUpdated.textContent=
-      'Live feed unavailable · enter Entry manually';
-
+    renderLive(message);
+  }catch(error){
+    console.error('Market feed:',error);
+    marketError=true;
+    renderLive('Не вдалося перевірити ціну · останнє котирування не підтверджене');
   }finally{
-
+    loadingMarket=false;
     el.refresh.disabled=false;
-
-    el.refresh.textContent=
-      'Refresh';
-
+    el.refresh.textContent='Refresh';
   }
 }
 
@@ -1865,7 +1837,7 @@ el.useLive.addEventListener(
     if(!a){
 
       el.validation.textContent=
-        'Live price для цієї пари зараз недоступний.';
+        'Свіжа ціна недоступна — введи Entry вручну.';
 
       return;
     }
@@ -1888,15 +1860,20 @@ el.useLive.addEventListener(
 
 el.refresh.addEventListener(
   'click',
-  loadMarket
+  ()=>loadMarket(true)
 );
 
 loadMarket();
 
-setInterval(
-  loadMarket,
-  15000
-);
+setInterval(()=>{
+  if(!document.hidden)loadMarket(false);
+},30000);
+setInterval(()=>{
+  if(marketData?.updated_at)renderLive();
+},60000);
+document.addEventListener('visibilitychange',()=>{
+  if(!document.hidden)loadMarket(false);
+});
 
 calculate();
 
