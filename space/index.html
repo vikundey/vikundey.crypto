@@ -3879,6 +3879,72 @@ a{
 .space-avatar{display:grid;place-items:center;width:30px;height:30px;flex:0 0 30px;border-radius:50%;background:#143846;color:#041019;font-weight:950;}
 .space-personal-text{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .profile-link.personalized{color:#041019;font-weight:950;}
+
+/* ===== Vikundey Space · premium motion / Nov 2026 ===== */
+.hero{isolation:isolate}
+.hero-visual{isolation:isolate;perspective:900px;background:radial-gradient(ellipse at 62% 72%,rgba(46,199,241,.1),transparent 55%)}
+.space-aura{position:absolute;inset:-18%;z-index:-2;pointer-events:none;filter:blur(36px);opacity:.82;background:radial-gradient(ellipse at 60% 57%,rgba(46,199,241,.18),transparent 44%),radial-gradient(ellipse at 85% 82%,rgba(139,234,111,.12),transparent 43%);animation:spaceAuroraBreath 11s ease-in-out infinite alternate}
+@keyframes spaceAuroraBreath{to{transform:translate(-15px,14px) scale(1.15);opacity:.65}}
+.hero-holo-stage{position:absolute;width:520px;height:520px;bottom:-110px;right:-115px;pointer-events:none;z-index:1;filter:drop-shadow(0 0 20px rgba(46,199,241,.16))}
+.holo-earth{position:absolute;inset:0;width:100%;height:100%;filter:drop-shadow(0 0 19px rgba(46,199,241,.24));animation:holoHover 8s ease-in-out infinite}
+.earth-land{transform-origin:260px 254px;animation:earthDrift 35s ease-in-out infinite alternate}
+@keyframes earthDrift{to{transform:translateX(13px) scale(.98)}}
+@keyframes holoHover{50%{transform:translateY(-8px)}}
+.holo-orbit{position:absolute;left:4%;top:40%;width:95%;height:28%;border-radius:50%;border:1.6px solid rgba(46,199,241,.53);box-shadow:0 0 22px rgba(46,199,241,.13),inset 0 0 12px rgba(46,199,241,.08);transform:rotate(-22deg);animation:orbitTraverseA 12s ease-in-out infinite}
+.holo-orbit i{position:absolute;left:18%;top:2%;width:8px;height:8px;border-radius:50%;background:#dcfffa;box-shadow:0 0 17px #2ec7f1,0 0 30px #2ec7f1}
+.holo-orbit-two{border-color:rgba(139,234,111,.55);box-shadow:0 0 23px rgba(139,234,111,.13);transform:rotate(18deg);animation:orbitTraverseB 14s ease-in-out infinite}
+.holo-orbit-two i{left:77%;background:#c7ffac;box-shadow:0 0 18px #8bea6f}
+.holo-orbit-three{left:12%;top:18%;width:72%;height:58%;border-width:1px;border-color:rgba(46,199,241,.25);transform:rotate(65deg);animation:orbitTraverseC 16s ease-in-out infinite}
+.holo-orbit-three i{width:5px;height:5px;left:60%}
+@keyframes orbitTraverseA{50%{transform:rotate(-17deg) translateX(-7px)}}
+@keyframes orbitTraverseB{50%{transform:rotate(23deg) translateX(7px)}}
+@keyframes orbitTraverseC{50%{transform:rotate(75deg)}}
+.holo-floor,.holo-beam,.holo-pedestal{position:absolute;pointer-events:none}
+.holo-floor{left:18%;bottom:4%;width:77%;height:21%;border-radius:50%;border:1px solid rgba(46,199,241,.22);transform:rotate(-6deg);box-shadow:0 0 30px rgba(46,199,241,.14)}
+.floor-b{left:28%;bottom:8%;width:58%;height:13%;border-color:rgba(139,234,111,.35)}
+.holo-pedestal{left:40%;bottom:11%;width:43%;height:5%;border-radius:50%;background:rgba(53,237,226,.3);filter:blur(14px);box-shadow:0 0 40px rgba(46,199,241,.35);animation:pedestalPulse 5s ease-in-out infinite}
+@keyframes pedestalPulse{50%{opacity:.45;transform:scale(1.12)}}
+.holo-beam{left:39%;bottom:12%;width:47%;height:60%;background:linear-gradient(0deg,rgba(46,199,241,.05),transparent);clip-path:polygon(40% 100%,60% 100%,100% 0,0 0)}
+.hero-visual .market-bars{z-index:3;top:54px;right:36px;opacity:.6}
+.hero-visual .market-bars span{animation:heroBarPulse 3.6s ease-in-out infinite alternate;animation-delay:calc(var(--bar-i,1)*-.36s)}
+.hero-visual .market-bars span:nth-child(1){--bar-i:1}.hero-visual .market-bars span:nth-child(2){--bar-i:2}.hero-visual .market-bars span:nth-child(3){--bar-i:3}.hero-visual .market-bars span:nth-child(4){--bar-i:4}.hero-visual .market-bars span:nth-child(5){--bar-i:5}.hero-visual .market-bars span:nth-child(6){--bar-i:6}
+@keyframes heroBarPulse{to{filter:brightness(1.55);transform:scaleY(.73);opacity:.5}}
+.hero-growth-line{position:absolute;width:320px;top:26px;right:5px;z-index:4;overflow:visible;pointer-events:none}
+.growth-shadow{stroke:#2ec7f1;stroke-width:10;opacity:.16;fill:none;filter:blur(5px)}
+.growth-path{stroke:url(#spaceGrowthGradient);stroke-width:3;fill:none;stroke-linecap:round;stroke-dasharray:440;stroke-dashoffset:440;animation:drawGrowthLine 3.3s 0.4s ease-out forwards}
+.growth-node{fill:#d9fff2;filter:drop-shadow(0 0 6px #8bea6f);animation:growthBreathe 3s ease-in-out infinite}
+@keyframes drawGrowthLine{to{stroke-dashoffset:0}}@keyframes growthBreathe{50%{opacity:.55;transform:translate(-1px,1px)}}
+.hero-visual .visual-card{z-index:5;background:linear-gradient(145deg,rgba(8,40,54,.85),rgba(6,25,36,.76));border-color:rgba(64,219,218,.30);box-shadow:0 18px 55px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.1),0 0 22px rgba(46,199,241,.08);transition:border-color .3s,box-shadow .3s}
+.hero-visual .visual-card:hover{border-color:rgba(139,234,111,.55);box-shadow:0 22px 60px rgba(0,0,0,.27),0 0 24px rgba(139,234,111,.14)}
+.hero-visual .visual-card.one{top:122px;left:10px}.hero-visual .visual-card.two{right:12px;top:295px}
+.hero-holo-tag{position:absolute;z-index:4;border:1px solid rgba(82,223,228,.23);border-radius:999px;padding:7px 11px;background:rgba(2,21,30,.75);color:#caf5f5;font-size:10px;font-weight:850;letter-spacing:.1em;box-shadow:0 0 22px rgba(46,199,241,.075);backdrop-filter:blur(8px)}
+.hero-tag-labor{top:245px;left:32px}.hero-tag-fed{top:250px;right:18px}.hero-tag-risk{bottom:90px;left:24px}
+.research-card{isolation:isolate}
+.research-chart{opacity:.76;top:130px;transition:transform .5s ease,opacity .5s ease;filter:drop-shadow(0 0 5px rgba(46,199,241,.21))}
+.research-card:hover .research-chart{opacity:1;transform:translateY(-6px) scale(1.035)}
+.research-card.green .research-chart{filter:drop-shadow(0 0 5px rgba(139,234,111,.22))}
+.research-chart .chart-glow{position:absolute;inset:30% 0 0;background:radial-gradient(ellipse,rgba(46,199,241,.15),transparent 70%);animation:miniChartBreath 6s ease-in-out infinite}
+.research-card.green .chart-glow{background:radial-gradient(ellipse,rgba(139,234,111,.15),transparent 70%)}
+@keyframes miniChartBreath{50%{transform:scale(1.2);opacity:.35}}
+.research-chart .chart-line{animation:miniLineWave 6s ease-in-out infinite}
+@keyframes miniLineWave{50%{transform:translateY(-4px)}}
+.research-chart .chart-bars i{animation-duration:3.5s;transform-origin:bottom}
+.thought-feature-visual{isolation:isolate;background:radial-gradient(ellipse at center,rgba(46,199,241,.095),transparent 62%)}
+.thought-halo{position:absolute;width:250px;height:250px;border-radius:50%;background:radial-gradient(circle,rgba(46,199,241,.22),rgba(139,234,111,.06) 35%,transparent 70%);filter:blur(16px);animation:thoughtHaloBreath 6s ease-in-out infinite}
+@keyframes thoughtHaloBreath{50%{transform:scale(1.25);opacity:.56}}
+.thought-scan{position:absolute;inset:6%;border-radius:50%;border:1px solid rgba(46,199,241,.06);animation:thoughtScanTurn 23s linear infinite}
+.thought-scan::before,.thought-scan::after{content:"";position:absolute;left:50%;top:0;height:100%;border-left:1px solid rgba(46,199,241,.08)}
+.thought-scan::after{transform:rotate(90deg)}@keyframes thoughtScanTurn{to{transform:rotate(360deg)}}
+.thought-feature .thought-orbit{border-width:1.5px;filter:drop-shadow(0 0 8px rgba(46,199,241,.25))}
+.thought-feature .thought-orbit.two{filter:drop-shadow(0 0 8px rgba(139,234,111,.25))}
+.thought-feature .thought-core{box-shadow:0 0 35px rgba(46,199,241,.12),inset 0 0 25px rgba(46,199,241,.06)}
+/* Entrance effects never hide content until JS opt-in */
+.space-motion-on .space-reveal{opacity:0;transform:translateY(24px);transition:opacity .85s ease,transform .85s cubic-bezier(.2,.72,.22,1);transition-delay:var(--reveal-delay,0ms)}
+.space-motion-on .space-reveal.space-visible{opacity:1;transform:none}
+@media(max-width:1000px){.hero-holo-stage{right:calc(50% - 305px);bottom:-145px}.hero-visual .visual-card.one{left:12%}.hero-visual .visual-card.two{right:10%}.hero-growth-line{right:11%}.hero-visual .market-bars{right:15%}}
+@media(max-width:760px){.hero-holo-stage{transform:scale(.7);transform-origin:center bottom;right:calc(50% - 260px);bottom:-150px}.hero-visual .visual-card{width:155px;padding:12px}.hero-visual .visual-card.one{top:80px;left:5px}.hero-visual .visual-card.two{top:215px;right:5px}.hero-holo-tag{font-size:8px;padding:5px 7px}.hero-tag-labor{top:174px;left:7px}.hero-tag-fed{top:177px;right:7px}.hero-tag-risk{bottom:35px;left:7px}.hero-growth-line{top:14px;right:5px;width:225px}.hero-visual .market-bars{top:28px;right:14px;transform:scale(.75);transform-origin:top right}.research-chart{opacity:.38;top:140px}}
+@media(prefers-reduced-motion:reduce){.space-aura,.holo-earth,.earth-land,.holo-orbit,.holo-pedestal,.hero-growth-line .growth-path,.growth-node,.hero-visual .market-bars span,.research-chart .chart-glow,.research-chart .chart-line,.thought-halo,.thought-scan{animation:none!important}.growth-path{stroke-dashoffset:0!important}.space-motion-on .space-reveal{opacity:1!important;transform:none!important;transition:none!important}}
+
 </style>
 
 </head>
@@ -4040,59 +4106,54 @@ a{
 
   <div class="hero-visual">
 
+    <div class="space-aura" aria-hidden="true"></div>
+    <div class="market-bars" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <svg class="hero-growth-line" viewBox="0 0 360 132" aria-hidden="true">
+      <defs><linearGradient id="spaceGrowthGradient" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#2ec7f1"/><stop offset="1" stop-color="#8bea6f"/></linearGradient></defs>
+      <path class="growth-shadow" d="M5 110 C55 103 67 78 100 86 S156 55 197 65 S261 34 298 39 S334 21 354 8"/>
+      <path class="growth-path" d="M5 110 C55 103 67 78 100 86 S156 55 197 65 S261 34 298 39 S334 21 354 8"/>
+      <circle class="growth-node" cx="354" cy="8" r="5"/>
+    </svg>
 
-    <div class="market-bars">
-
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-
+    <div class="hero-holo-stage" aria-hidden="true">
+      <div class="holo-floor floor-a"></div><div class="holo-floor floor-b"></div>
+      <div class="holo-beam"></div>
+      <svg class="holo-earth" viewBox="0 0 520 520" role="img" aria-label="Декоративний голографічний глобус">
+        <defs>
+          <radialGradient id="holoBody"><stop offset="0" stop-color="#123f4e" stop-opacity=".68"/><stop offset=".74" stop-color="#0a2734" stop-opacity=".8"/><stop offset="1" stop-color="#051620" stop-opacity=".95"/></radialGradient>
+          <linearGradient id="holoRim" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2ec7f1" stop-opacity=".9"/><stop offset=".45" stop-color="#79f0e1" stop-opacity=".3"/><stop offset="1" stop-color="#8bea6f" stop-opacity=".95"/></linearGradient>
+          <pattern id="holoDots" width="7" height="7" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.35" fill="#65e9e3" opacity=".79"/></pattern>
+          <clipPath id="holoClip"><circle cx="260" cy="254" r="168"/></clipPath>
+          <filter id="holoGlow"><feGaussianBlur stdDeviation="5"/></filter>
+        </defs>
+        <circle cx="260" cy="254" r="173" fill="none" stroke="#2ec7f1" stroke-width="7" opacity=".26" filter="url(#holoGlow)"/>
+        <circle cx="260" cy="254" r="168" fill="url(#holoBody)" stroke="url(#holoRim)" stroke-width="2"/>
+        <g clip-path="url(#holoClip)">
+          <g class="earth-grid" fill="none" stroke="#4ad8e2" stroke-width=".8" opacity=".27">
+            <ellipse cx="260" cy="254" rx="57" ry="168"/><ellipse cx="260" cy="254" rx="116" ry="168"/>
+            <path d="M92 254 H428"/><ellipse cx="260" cy="254" rx="168" ry="55"/><ellipse cx="260" cy="254" rx="168" ry="110"/>
+            <path d="M260 86V422"/>
+          </g>
+          <g class="earth-land" fill="url(#holoDots)">
+            <path d="M147 134l26-18 27 4 13-17 23 3 9 18-15 17 1 14-15 9-9 21-17 7-4 26-14 5-3-21-18-17-13-21-13-2-3-17 16-11z"/>
+            <path d="M192 227l17 4 24 16 13 18-7 17 5 24-10 28-8 34-19 24-17-12-4-28-18-20 8-23-7-22 12-18z"/>
+            <path d="M260 126l21-14 19 5 6 17 18 1 14 14 2 21 24 6-3 20-21 10-15-11-8 11-8-10-17 6-22-7-14-17 8-13z"/>
+            <path d="M286 225l33-14 27 8 10 18-13 26-5 28-22 36-9 24-18 12-13-25-10-35-10-22 14-27z"/>
+            <path d="M352 289l26 1 16 15-4 19-20 10-14-17z"/>
+          </g>
+          <ellipse cx="210" cy="190" rx="130" ry="143" fill="#2ec7f1" opacity=".045"/>
+          <path d="M130 170Q258 92 390 155" stroke="#9ceef0" stroke-opacity=".13" fill="none" stroke-width="2"/>
+        </g>
+        <circle cx="260" cy="254" r="169" fill="none" stroke="#d4fff5" stroke-opacity=".18" stroke-width=".7"/>
+      </svg>
+      <div class="holo-orbit holo-orbit-one"><i></i></div>
+      <div class="holo-orbit holo-orbit-two"><i></i></div>
+      <div class="holo-orbit holo-orbit-three"><i></i></div>
+      <div class="holo-pedestal"></div>
     </div>
-
-
-    <div class="visual-card one">
-
-      <div class="visual-label">
-        Macro
-      </div>
-
-      <div class="visual-title">
-        Market Context
-      </div>
-
-      <div class="visual-copy">
-        Labor · Inflation · Fed · USD
-      </div>
-
-    </div>
-
-
-    <div class="visual-card two">
-
-      <div class="visual-label">
-        Research
-      </div>
-
-      <div class="visual-title">
-        Scenario Logic
-      </div>
-
-      <div class="visual-copy">
-        Data → Context → Decision
-      </div>
-
-    </div>
-
-
-    <div class="globe"></div>
-
-    <div class="orbit one"></div>
-
-    <div class="orbit two"></div>
-
+    <div class="visual-card one"><div class="visual-label">Macro</div><div class="visual-title">Market Context</div><div class="visual-copy">Labor · Inflation · Fed · USD</div></div>
+    <div class="visual-card two"><div class="visual-label">Research</div><div class="visual-title">Scenario Logic</div><div class="visual-copy">Data → Context → Decision</div></div>
+    <span class="hero-holo-tag hero-tag-labor">US LABOR</span><span class="hero-holo-tag hero-tag-fed">FED</span><span class="hero-holo-tag hero-tag-risk">RISK</span>
 
   </div>
 
@@ -4453,7 +4514,7 @@ a{
       </p>
 
 
-      <div class="research-chart">
+      <div class="research-chart"><span class="chart-glow" aria-hidden="true"></span>
 
         <div class="chart-line">
 
@@ -4569,7 +4630,7 @@ a{
       </p>
 
 
-      <div class="research-chart">
+      <div class="research-chart"><span class="chart-glow" aria-hidden="true"></span>
 
         <div class="chart-line">
 
@@ -4666,7 +4727,7 @@ a{
   >
 
 
-    <div class="thought-feature-visual">
+    <div class="thought-feature-visual"><div class="thought-halo" aria-hidden="true"></div><div class="thought-scan" aria-hidden="true"></div>
 
       <div class="thought-orbit"></div>
 
@@ -5113,6 +5174,24 @@ init();
 
 </script>
 
+
+
+<script>
+/* Premium scroll entrance only; optional decorative enhancement. */
+(function(){
+  if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const targets = document.querySelectorAll('.section-head, .module, .research-card, .thought-feature, .framework');
+  targets.forEach((item,i)=>{
+    item.classList.add('space-reveal');
+    if(item.classList.contains('module')) item.style.setProperty('--reveal-delay', (i%4)*75+'ms');
+  });
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('space-visible');observer.unobserve(entry.target);}});
+  },{rootMargin:'0px 0px -20px 0px',threshold:.035});
+  targets.forEach(item=>observer.observe(item));
+  document.body.classList.add('space-motion-on');
+})();
+</script>
 
 </body>
 
