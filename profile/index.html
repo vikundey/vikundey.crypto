@@ -1542,6 +1542,67 @@
       .vc-contact-link:hover,.vc-contact-link:focus-visible{transform:none}
     }
 
+    /* PREMIUM MOTION — decorative only */
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:0;
+      pointer-events:none;
+      background:radial-gradient(ellipse at 79% 25%,rgba(46,199,241,.13),transparent 45%),radial-gradient(ellipse at 93% 75%,rgba(139,234,111,.09),transparent 38%);
+      animation:vcAurora 12s ease-in-out infinite alternate;
+    }
+    @keyframes vcAurora{from{opacity:.45}to{opacity:1}}
+    .hero-left{animation:vcEntrance .8s ease-out both}
+    .visual{animation:vcVisualEntrance 1.2s ease-out both}
+    @keyframes vcEntrance{from{opacity:0;translate:0 12px}to{opacity:1;translate:0 0}}
+    @keyframes vcVisualEntrance{from{opacity:0}to{opacity:1}}
+    .globe{
+      animation:vcGlobeGlow 10s ease-in-out infinite;
+    }
+    @keyframes vcGlobeGlow{
+      0%,100%{box-shadow:inset 0 0 80px rgba(46,199,241,.035),0 0 24px rgba(46,199,241,.05)}
+      50%{box-shadow:inset 0 0 95px rgba(46,199,241,.11),0 0 55px rgba(46,199,241,.13)}
+    }
+    .orbit.one,.orbit.two{animation:vcOrbitGlow 9s ease-in-out infinite}
+    .orbit.two{animation-delay:-4.5s}
+    @keyframes vcOrbitGlow{0%,100%{filter:brightness(.85)}50%{filter:brightness(1.5) drop-shadow(0 0 5px rgba(46,199,241,.3))}}
+    .orbit-dot{animation:vcNodeGlow 5s ease-in-out infinite}
+    .orbit-dot.b{animation-delay:-2.5s}
+    @keyframes vcNodeGlow{0%,100%{box-shadow:0 0 8px rgba(46,199,241,.45)}50%{box-shadow:0 0 20px rgba(139,234,111,.8)}}
+    .market-line path{stroke-dasharray:520;stroke-dashoffset:0;animation:vcTrend 18s ease-in-out infinite}
+    @keyframes vcTrend{0%{stroke-dashoffset:520;opacity:.25}18%,82%{stroke-dashoffset:0;opacity:1}96%,100%{stroke-dashoffset:0;opacity:0}}
+    .market-bars span{transform-origin:bottom;animation:vcBarEntrance 1.4s ease-out both}
+    .market-bars span:nth-child(2n){animation-delay:.12s}
+    .market-bars span:nth-child(3n){animation-delay:.24s}
+    @keyframes vcBarEntrance{from{transform:scaleY(.2);opacity:.2}to{transform:scaleY(1);opacity:1}}
+    .float-card,.value-card,.plan-card,.invite-box{
+      transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease,background-color .3s ease;
+    }
+    .plan-mark svg,.value-icon{transition:transform .3s ease,filter .3s ease}
+    @media(hover:hover) and (pointer:fine){
+      .float-card:hover,.value-card:hover,.plan-card:hover{
+        transform:translateY(-4px);
+        border-color:rgba(46,199,241,.34);
+        box-shadow:0 15px 38px rgba(0,0,0,.22),0 0 25px rgba(46,199,241,.08);
+      }
+      .plan-card:hover .plan-mark svg,.value-card:hover .value-icon{transform:scale(1.08)}
+      .invite-box:hover{border-color:rgba(139,234,111,.34);box-shadow:0 0 24px rgba(46,199,241,.09)}
+    }
+    .invite-box:focus-within{border-color:rgba(46,199,241,.55)}
+    .btn:focus-visible,.access-purchase-btn:focus-visible,.invite-button:focus-visible{outline:2px solid var(--cyan);outline-offset:4px}
+    .vc-contacts::after{animation:vcContactGlow 8s ease-in-out infinite}
+    @keyframes vcContactGlow{0%,100%{opacity:.45}50%{opacity:1;box-shadow:0 0 12px rgba(46,199,241,.35)}}
+    @media(max-width:720px){
+      .hero::before,.globe,.orbit.one,.orbit.two,.orbit-dot,.market-line path,.vc-contacts::after{animation:none}
+      .market-line path{stroke-dashoffset:0}
+    }
+    @media(prefers-reduced-motion:reduce){
+      .shell *, .shell *::before,.shell *::after{animation:none!important;transition:none!important}
+      .hero-left,.visual,.market-line path{opacity:1;translate:none;stroke-dashoffset:0}
+      .float-card:hover,.value-card:hover,.plan-card:hover,.plan-card:hover .plan-mark svg,.value-card:hover .value-icon,.btn:hover,.access-purchase-btn:hover,.invite-button:hover{transform:none}
+    }
+
   </style>
 </head>
 
