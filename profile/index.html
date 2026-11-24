@@ -1207,11 +1207,20 @@
           var(--green)
         );
 
-      font-weight:950;
+      box-shadow:
+        0 10px 24px
+        rgba(46,199,241,.14);
+    }
 
-      font-size:12px;
-
-      letter-spacing:.08em;
+    .plan-mark svg{
+      width:31px;
+      height:31px;
+      display:block;
+      stroke:currentColor;
+      fill:none;
+      stroke-width:1.9;
+      stroke-linecap:round;
+      stroke-linejoin:round;
     }
 
     .plan-name{
@@ -1934,8 +1943,11 @@
 
         <div class="plan-card">
 
-          <div class="plan-mark">
-            FULL
+          <div class="plan-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 17h14"></path>
+              <path d="M6 17 4 7l5 3 3-5 3 5 5-3-2 10"></path>
+            </svg>
           </div>
 
           <div>
@@ -1955,8 +1967,12 @@
 
         <div class="plan-card">
 
-          <div class="plan-mark">
-            NEWS
+          <div class="plan-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 5 3 9.5 12 14l9-4.5L12 5Z"></path>
+              <path d="M6.5 11.25V15.5C6.5 16.6 8.96 18.5 12 18.5s5.5-1.9 5.5-3V11.25"></path>
+              <path d="M21 9.5V15"></path>
+            </svg>
           </div>
 
           <div>
