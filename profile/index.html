@@ -703,60 +703,13 @@
       z-index:2;
     }
 
-    .market-bars{
-      position:absolute;
 
-      right:45px;
-      top:70px;
 
-      height:145px;
 
-      display:flex;
 
-      align-items:flex-end;
 
-      gap:10px;
 
-      opacity:.42;
-    }
 
-    .market-bars span{
-      width:13px;
-
-      border-radius:
-        5px 5px 0 0;
-
-      background:
-        linear-gradient(
-          180deg,
-          var(--green),
-          rgba(46,199,241,.24)
-        );
-    }
-
-    .market-bars span:nth-child(1){
-      height:38px;
-    }
-
-    .market-bars span:nth-child(2){
-      height:61px;
-    }
-
-    .market-bars span:nth-child(3){
-      height:54px;
-    }
-
-    .market-bars span:nth-child(4){
-      height:84px;
-    }
-
-    .market-bars span:nth-child(5){
-      height:104px;
-    }
-
-    .market-bars span:nth-child(6){
-      height:130px;
-    }
 
     .market-line{
       position:absolute;
@@ -1572,10 +1525,6 @@
     @keyframes vcNodeGlow{0%,100%{box-shadow:0 0 8px rgba(46,199,241,.45)}50%{box-shadow:0 0 20px rgba(139,234,111,.8)}}
     .market-line path{stroke-dasharray:520;stroke-dashoffset:0;animation:vcTrend 18s ease-in-out infinite}
     @keyframes vcTrend{0%{stroke-dashoffset:520;opacity:.25}18%,82%{stroke-dashoffset:0;opacity:1}96%,100%{stroke-dashoffset:0;opacity:0}}
-    .market-bars span{transform-origin:bottom;animation:vcBarEntrance 1.4s ease-out both}
-    .market-bars span:nth-child(2n){animation-delay:.12s}
-    .market-bars span:nth-child(3n){animation-delay:.24s}
-    @keyframes vcBarEntrance{from{transform:scaleY(.2);opacity:.2}to{transform:scaleY(1);opacity:1}}
     .float-card,.value-card,.plan-card,.invite-box{
       transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease,background-color .3s ease;
     }
@@ -1601,6 +1550,62 @@
       .shell *, .shell *::before,.shell *::after{animation:none!important;transition:none!important}
       .hero-left,.visual,.market-line path{opacity:1;translate:none;stroke-dashoffset:0}
       .float-card:hover,.value-card:hover,.plan-card:hover,.plan-card:hover .plan-mark svg,.value-card:hover .value-icon,.btn:hover,.access-purchase-btn:hover,.invite-button:hover{transform:none}
+    }
+
+
+    /* PROFILE — moving light field */
+    .visual{isolation:isolate;overflow:hidden}
+    .visual::before,.visual::after{
+      content:"";position:absolute;pointer-events:none;z-index:-1;
+      border-radius:50%;will-change:transform,opacity;
+    }
+    .visual::before{
+      width:85%;height:72%;top:-8%;right:-12%;
+      background:radial-gradient(ellipse,rgba(46,199,241,.24),rgba(46,199,241,.06) 42%,transparent 72%);
+      animation:vcLightDrift 13s ease-in-out infinite alternate;
+    }
+    .visual::after{
+      width:78%;height:65%;bottom:0;left:0;
+      background:radial-gradient(ellipse,rgba(139,234,111,.17),rgba(46,199,241,.06) 40%,transparent 72%);
+      animation:vcLightDrift 17s ease-in-out -6s infinite alternate-reverse;
+    }
+    @keyframes vcLightDrift{
+      0%{transform:translate(-12%,-9%) scale(.85);opacity:.5}
+      50%{transform:translate(5%,12%) scale(1.12);opacity:1}
+      100%{transform:translate(15%,-5%) scale(1);opacity:.7}
+    }
+    .market-line{filter:drop-shadow(0 0 9px rgba(46,199,241,.38))}
+    .market-line .vc-light-trace{
+      stroke:#e9ffff;stroke-width:3.6;stroke-dasharray:18 600;
+      stroke-dashoffset:18;opacity:0;
+      filter:drop-shadow(0 0 5px #2ec7f1);
+      animation:vcTrace 18s linear infinite;
+    }
+    @keyframes vcTrace{
+      0%,20%{stroke-dashoffset:18;opacity:0}
+      24%{opacity:.95}
+      65%{stroke-dashoffset:-480;opacity:.95}
+      70%,100%{stroke-dashoffset:-600;opacity:0}
+    }
+    .globe::before{animation:vcMeridian 16s ease-in-out infinite alternate}
+    @keyframes vcMeridian{from{width:20%;opacity:.45}to{width:80%;opacity:1}}
+    .orbit.one::after,.orbit.two::after{
+      content:"";position:absolute;inset:-1px;border-radius:inherit;
+      border:2px solid transparent;border-top-color:rgba(210,255,255,.75);
+      border-right-color:rgba(139,234,111,.3);
+      filter:drop-shadow(0 0 5px #2ec7f1);
+      animation:vcOrbitSweep 12s ease-in-out infinite;
+    }
+    .orbit.two::after{animation-delay:-6s;animation-direction:reverse}
+    @keyframes vcOrbitSweep{0%,100%{transform:rotate(-18deg);opacity:.2}50%{transform:rotate(18deg);opacity:1}}
+    @media(max-width:720px){
+      .visual::before,.visual::after{animation-duration:24s;opacity:.55}
+      .globe::before,.orbit.one::after,.orbit.two::after,.market-line .vc-light-trace{animation:none}
+      .market-line .vc-light-trace{display:none}
+    }
+    @media(prefers-reduced-motion:reduce){
+      .visual::before,.visual::after,.globe::before,.orbit.one::after,.orbit.two::after{animation:none!important}
+      .market-line .vc-light-trace{display:none}
     }
 
   </style>
@@ -1795,18 +1800,6 @@
       <div class="visual">
 
 
-        <div class="market-bars">
-
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-
-        </div>
-
-
         <div class="market-line">
 
           <svg viewBox="0 0 390 170">
@@ -1837,6 +1830,7 @@
             <path
               d="M5 145 C55 142 72 116 112 119 S172 99 218 101 S280 68 319 73 S356 30 387 20"
             />
+            <path class="vc-light-trace" d="M5 145 C55 142 72 116 112 119 S172 99 218 101 S280 68 319 73 S356 30 387 20" aria-hidden="true"/>
 
           </svg>
 
