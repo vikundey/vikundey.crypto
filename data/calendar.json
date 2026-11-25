@@ -1,10 +1,10 @@
 {
   "source": "Forex Factory + FRED",
   "timezone": "Europe/Kyiv",
-  "updated_at": "2026-11-25T00:59:39.232766+02:00",
+  "updated_at": "2026-11-25T17:40:41.271480+02:00",
   "week_start": "2026-11-23",
   "week_end": "2026-11-27",
-  "event_count": 24,
+  "event_count": 25,
   "events": [
     {
       "title": "Flash Manufacturing PMI",
@@ -142,6 +142,21 @@
       "impact_rank": 1
     },
     {
+      "title": "FOMC Member Bowman Speaks",
+      "country": "USD",
+      "impact": "Low",
+      "forecast": "",
+      "previous": "",
+      "actual": "",
+      "actual_source": "",
+      "date_iso": "2026-11-25T14:25:00+02:00",
+      "date": "2026-11-25",
+      "day": "WED",
+      "time": "14:25",
+      "timestamp": 1795609500,
+      "impact_rank": 1
+    },
+    {
       "title": "Core PCE Price Index m/m",
       "country": "USD",
       "impact": "High",
@@ -252,8 +267,8 @@
       "impact": "Low",
       "forecast": "201K",
       "previous": "203K",
-      "actual": "",
-      "actual_source": "",
+      "actual": "189K",
+      "actual_source": "FRED",
       "date_iso": "2026-11-25T15:30:00+02:00",
       "date": "2026-11-25",
       "day": "WED",
@@ -280,7 +295,7 @@
       "title": "Crude Oil Inventories",
       "country": "USD",
       "impact": "Low",
-      "forecast": "",
+      "forecast": "2.0M",
       "previous": "3.4M",
       "actual": "",
       "actual_source": "",
